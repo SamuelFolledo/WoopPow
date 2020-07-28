@@ -9,6 +9,14 @@ target 'WoopPow' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint'
 
+  # Firebase
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'FirebaseUI/Phone'	# FirebaseUI - Phone Verification 
+  pod 'Firebase/Analytics' 
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+
 
   target 'WoopPowTests' do
     inherit! :search_paths

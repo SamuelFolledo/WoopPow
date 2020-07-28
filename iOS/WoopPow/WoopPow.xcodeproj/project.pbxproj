@@ -198,6 +198,7 @@
 				3342937D24CFCA230086D3F0 /* Frameworks */,
 				3342937E24CFCA230086D3F0 /* Resources */,
 				88ED2674050882787921C57E /* [CP] Embed Pods Frameworks */,
+				F303CA29135A0843044820D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,6 +346,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F303CA29135A0843044820D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
