@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B324CFCB410086D3F0 /* Date+Extensions.swift */; };
 		334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B424CFCB410086D3F0 /* UIView+Extensions.swift */; };
 		334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293BB24CFCC3A0086D3F0 /* Coordinator.swift */; };
+		33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* MoveSetView.swift */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		334293B324CFCB410086D3F0 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		334293B424CFCB410086D3F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		334293BB24CFCC3A0086D3F0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		33E4FAAE24D0118D00C06527 /* MoveSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetView.swift; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
 		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +98,6 @@
 				560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */,
 				0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -126,6 +127,7 @@
 				3342938324CFCA230086D3F0 /* AppDelegate.swift */,
 				3342938524CFCA230086D3F0 /* SceneDelegate.swift */,
 				3342938724CFCA230086D3F0 /* ViewController.swift */,
+				33E4FAAD24D0115B00C06527 /* Views */,
 				334293A724CFCAA60086D3F0 /* Coordinators */,
 				334293AA24CFCACB0086D3F0 /* Helpers */,
 				3342938924CFCA230086D3F0 /* Main.storyboard */,
@@ -175,6 +177,14 @@
 				334293B024CFCB410086D3F0 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		33E4FAAD24D0115B00C06527 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33E4FAAE24D0118D00C06527 /* MoveSetView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		65E3665666129F6A43B375E8 /* Frameworks */ = {
@@ -374,6 +384,7 @@
 			files = (
 				334293AE24CFCB370086D3F0 /* LocalNotificationManager.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
+				33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */,
 				334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */,
 				334293A924CFCABF0086D3F0 /* Constants.swift in Sources */,
 				3342938824CFCA230086D3F0 /* ViewController.swift in Sources */,

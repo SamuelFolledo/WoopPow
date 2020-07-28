@@ -9,12 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    //MARK: Properties
+    
+    //MARK: Views
+    
+    //MARK: App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        setupViews()
     }
-
-
+    
+    //MARK: Private Methods
+    fileprivate func setupViews() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    //MARK: Helpers
 }
 
+//MARK: Extensions
