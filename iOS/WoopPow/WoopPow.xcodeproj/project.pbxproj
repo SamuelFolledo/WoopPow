@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EDAC04C9ED9E9443EE0047A /* Pods_WoopPow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */; };
 		3342938424CFCA230086D3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342938324CFCA230086D3F0 /* AppDelegate.swift */; };
 		3342938624CFCA230086D3F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342938524CFCA230086D3F0 /* SceneDelegate.swift */; };
 		3342938824CFCA230086D3F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342938724CFCA230086D3F0 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B324CFCB410086D3F0 /* Date+Extensions.swift */; };
 		334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B424CFCB410086D3F0 /* UIView+Extensions.swift */; };
 		334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293BB24CFCC3A0086D3F0 /* Coordinator.swift */; };
+		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.release.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.debug.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.debug.xcconfig"; sourceTree = "<group>"; };
 		3342938024CFCA230086D3F0 /* WoopPow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoopPow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3342938324CFCA230086D3F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3342938524CFCA230086D3F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,10 @@
 		334293B324CFCB410086D3F0 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		334293B424CFCB410086D3F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		334293BB24CFCC3A0086D3F0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
+		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDAC04C9ED9E9443EE0047A /* Pods_WoopPow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,18 +81,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2088D4FD74972C0751E5933A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */,
+				7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */,
+				560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */,
+				0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3342937724CFCA230086D3F0 = {
 			isa = PBXGroup;
 			children = (
 				3342938224CFCA230086D3F0 /* WoopPow */,
 				3342939924CFCA270086D3F0 /* WoopPowTests */,
 				3342938124CFCA230086D3F0 /* Products */,
+				2088D4FD74972C0751E5933A /* Pods */,
+				65E3665666129F6A43B375E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +177,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		65E3665666129F6A43B375E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */,
+				EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3342939F24CFCA270086D3F0 /* Build configuration list for PBXNativeTarget "WoopPow" */;
 			buildPhases = (
+				23606C433DFC205170752F1D /* [CP] Check Pods Manifest.lock */,
 				3342937C24CFCA230086D3F0 /* Sources */,
 				3342937D24CFCA230086D3F0 /* Frameworks */,
 				3342937E24CFCA230086D3F0 /* Resources */,
+				88ED2674050882787921C57E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 334293A224CFCA270086D3F0 /* Build configuration list for PBXNativeTarget "WoopPowTests" */;
 			buildPhases = (
+				5E1579A6074A1BE2E3D70D7C /* [CP] Check Pods Manifest.lock */,
 				3342939224CFCA270086D3F0 /* Sources */,
 				3342939324CFCA270086D3F0 /* Frameworks */,
 				3342939424CFCA270086D3F0 /* Resources */,
@@ -248,6 +284,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23606C433DFC205170752F1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WoopPow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E1579A6074A1BE2E3D70D7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WoopPowTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88ED2674050882787921C57E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3342937C24CFCA230086D3F0 /* Sources */ = {
@@ -424,6 +524,7 @@
 		};
 		334293A024CFCA270086D3F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +543,7 @@
 		};
 		334293A124CFCA270086D3F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,6 +562,7 @@
 		};
 		334293A324CFCA270086D3F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -482,6 +585,7 @@
 		};
 		334293A424CFCA270086D3F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

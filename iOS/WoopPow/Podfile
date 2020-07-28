@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'WoopPow' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for WoopPow
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'SwiftLint'
+
+
+  target 'WoopPowTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
