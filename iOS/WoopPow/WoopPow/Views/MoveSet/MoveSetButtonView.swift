@@ -25,4 +25,9 @@ class MoveSetButtonView: UIView {
         let button = UIButton(frame: .zero)
         return button
     }()
+    
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        return imageView
+    }()
 }
