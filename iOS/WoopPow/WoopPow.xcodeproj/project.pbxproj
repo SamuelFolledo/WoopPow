@@ -25,6 +25,7 @@
 		334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B324CFCB410086D3F0 /* Date+Extensions.swift */; };
 		334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B424CFCB410086D3F0 /* UIView+Extensions.swift */; };
 		334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293BB24CFCC3A0086D3F0 /* Coordinator.swift */; };
+		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* MoveSetView.swift */; };
 		33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
@@ -64,6 +65,7 @@
 		334293B324CFCB410086D3F0 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		334293B424CFCB410086D3F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		334293BB24CFCC3A0086D3F0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		33E4FAAE24D0118D00C06527 /* MoveSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetView.swift; sourceTree = "<group>"; };
 		33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetButtonView.swift; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				334293B124CFCB410086D3F0 /* UITextField+Extensions.swift */,
 				334293B424CFCB410086D3F0 /* UIView+Extensions.swift */,
 				334293B024CFCB410086D3F0 /* UIViewController+Extensions.swift */,
+				3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334293AE24CFCB370086D3F0 /* LocalNotificationManager.swift in Sources */,
+				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
 				33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */,
 				334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */,
