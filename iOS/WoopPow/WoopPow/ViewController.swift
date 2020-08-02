@@ -23,6 +23,14 @@ class ViewController: UIViewController {
     //MARK: Private Methods
     fileprivate func setupViews() {
         view.backgroundColor = .systemBackground
+        let moveSetView = MoveSetView(size: .zero)
+        view.addSubview(moveSetView)
+        moveSetView.snp.makeConstraints { (make) in
+            make.centerX.centerY.equalToSuperview()
+            make.width.equalTo(200)
+            make.height.equalTo(300)
+        }
+        moveSetView.backgroundColor = .systemGroupedBackground
     }
     
     //MARK: Helpers
