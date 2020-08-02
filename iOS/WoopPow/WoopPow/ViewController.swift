@@ -23,14 +23,32 @@ class ViewController: UIViewController {
     //MARK: Private Methods
     fileprivate func setupViews() {
         view.backgroundColor = .systemBackground
+        
         let moveSetView = MoveSetView(size: .zero)
         view.addSubview(moveSetView)
         moveSetView.snp.makeConstraints { (make) in
-            make.centerX.centerY.equalToSuperview()
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
+        }
+        
+        let moveSetView2 = MoveSetView(size: .zero)
+        view.addSubview(moveSetView2)
+        moveSetView2.snp.makeConstraints { (make) in
+            make.centerX.centerY.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(200)
             make.height.equalTo(300)
         }
-        moveSetView.backgroundColor = .systemGroupedBackground
+        
+        let moveSetView3 = MoveSetView(size: .zero)
+        view.addSubview(moveSetView3)
+        moveSetView3.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            make.width.equalTo(200)
+        }
     }
     
     //MARK: Helpers
