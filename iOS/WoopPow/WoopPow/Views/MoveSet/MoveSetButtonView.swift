@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class MoveSetButtonView: UIView {
+    
+    //MARK: Properties
+    
+    //MARK: Views
     private lazy var containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
@@ -30,4 +35,32 @@ class MoveSetButtonView: UIView {
         let imageView = UIImageView(frame: .zero)
         return imageView
     }()
+    
+    //MARK: Init
+    required init(moveImage: UIImage) {
+        super.init(frame: .zero)
+        self.button.setImage(moveImage, for: .normal)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: Private Methods
+    
+    fileprivate func setup() {
+        addSubview(containerView)
+        containerView.snp.makeConstraints { (make) in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        containerView.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        containerView.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+    }
 }
