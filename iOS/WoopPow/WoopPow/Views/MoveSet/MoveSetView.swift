@@ -153,9 +153,11 @@ class MoveSetView: UIView {
         }
         let downMoves: [MoveSetButtonView]
         if isLeft {
-            downMoves = [backMove, downMove, forwardMove]
+            downMoves = [moveBack, moveDown, moveForward]
         } else {
-            downMoves = [forwardMove, downMove, backMove]
+            downMoves = [moveForward, moveDown, moveBack]
+            moveUp.flipX()
+            downMoves.forEach { $0.flipX() }
         }
         downMoves.forEach { bottomMovesStackView.addArrangedSubview($0) }
         
