@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     //MARK: Properties
     
     //MARK: Views
+    private let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "gameVCBackground1")!
+        return imageView
+    }()
     
     //MARK: App Life Cycle
     override func viewDidLoad() {
@@ -22,9 +29,10 @@ class ViewController: UIViewController {
     
     //MARK: Private Methods
     fileprivate func setupViews() {
-        view.backgroundColor = .systemBackground
+        setupBackground()
         
-        let moveSetView = MoveSetView(size: .zero)
+        let moveSetView = MoveSetView(isLeft: true)
+        moveSetView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         view.addSubview(moveSetView)
         moveSetView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
@@ -33,21 +41,22 @@ class ViewController: UIViewController {
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
         
-        let moveSetView2 = MoveSetView(size: .zero)
+        let moveSetView2 = MoveSetView(isLeft: false)
+        moveSetView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         view.addSubview(moveSetView2)
         moveSetView2.snp.makeConstraints { (make) in
-            make.centerX.centerY.equalTo(view.safeAreaLayoutGuide)
-            make.width.equalTo(200)
-            make.height.equalTo(300)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
-        
-        let moveSetView3 = MoveSetView(size: .zero)
-        view.addSubview(moveSetView3)
-        moveSetView3.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.width.equalTo(200)
+    }
+    
+    fileprivate func setupBackground() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { (make) in
+            make.top.left.right.bottom.equalTo(view)
         }
     }
     
