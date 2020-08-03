@@ -22,7 +22,7 @@ class MainCoordinator: Coordinator {
     
     //MARK: Methods
     func start() {
-        let vc = ViewController()
+        let vc = HomeController()
         navigationController.pushViewController(vc, animated: false)
     }
 }
