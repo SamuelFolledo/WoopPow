@@ -11,14 +11,28 @@ import UIKit
 class HomeController: UIViewController {
     
     //MARK: Properties
+    var coordinator: MainCoordinator!
     
     //MARK: Views
-    private let backgroundImageView: UIImageView = {
+    private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "gameVCBackground1")!
+        imageView.image = UIImage()
+        imageView.backgroundColor = .systemBackground
         return imageView
+    }()
+    
+    private lazy var playButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Play", for: .normal)
+        button.titleLabel?.font = .font(size: 32, weight: .bold, design: .rounded)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(goToGame), for: .touchUpInside)
+        return button
     }()
     
     //MARK: App Life Cycle
@@ -30,25 +44,12 @@ class HomeController: UIViewController {
     //MARK: Private Methods
     fileprivate func setupViews() {
         setupBackground()
-        
-        let moveSetView = MoveSetView(isLeft: true)
-        moveSetView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        view.addSubview(moveSetView)
-        moveSetView.snp.makeConstraints { (make) in
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.centerY.equalTo(view.safeAreaLayoutGuide)
-            make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
-            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
-        }
-        
-        let moveSetView2 = MoveSetView(isLeft: false)
-        moveSetView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        view.addSubview(moveSetView2)
-        moveSetView2.snp.makeConstraints { (make) in
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.centerY.equalTo(view.safeAreaLayoutGuide)
-            make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
-            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
+        view.addSubview(playButton)
+        playButton.snp.makeConstraints {
+            $0.height.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.2)
+            $0.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
         }
     }
     
@@ -61,6 +62,9 @@ class HomeController: UIViewController {
     }
     
     //MARK: Helpers
+    @objc func goToGame() {
+        coordinator.goToGameController()
+    }
 }
 
 //MARK: Extensions
