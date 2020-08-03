@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct GameViewModel {
+    
+    let game: Game
+    
+    init(game: Game) {
+        self.game = game
+    }
+}
