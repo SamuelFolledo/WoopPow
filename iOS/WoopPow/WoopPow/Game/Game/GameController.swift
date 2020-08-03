@@ -93,12 +93,40 @@ private extension GameController {
     }
     
     func constraintTopViews() {
-        view.addSubview(timeLeftLabel)
+        let topViewsStackView = UIStackView(axis: .horizontal, spacing: 10, distribution: .fillProportionally, alignment: .top)
+        view.addSubview(topViewsStackView)
+        topViewsStackView.snp.makeConstraints {
+            $0.width.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.9)
+            $0.height.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.1)
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+        }
+        
+        let player1StackView = UIStackView(axis: .vertical, spacing: 5, distribution: .fillProportionally, alignment: .leading)
+        let player2StackView = UIStackView(axis: .vertical, spacing: 5, distribution: .fillProportionally, alignment: .trailing)
+        [player1StackView, timeLeftLabel, player2StackView].forEach {
+            topViewsStackView.addArrangedSubview($0)
+        }
+        
         timeLeftLabel.snp.makeConstraints {
             $0.height.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.1)
             $0.width.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.15)
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+        }
+        //Constraint Player1 topViews
+        player1StackView.addArrangedSubview(player1NameLabel)
+        player1StackView.addArrangedSubview(player1HpLabel)
+        [player1NameLabel, player1HpLabel].forEach {
+            $0.snp.makeConstraints {
+                $0.width.equalToSuperview()
+            }
+        }
+        //Constraint Player2 topViews
+        player2StackView.addArrangedSubview(player2NameLabel)
+        player2StackView.addArrangedSubview(player2HpLabel)
+        [player2NameLabel, player2HpLabel].forEach {
+            $0.snp.makeConstraints {
+                $0.width.equalToSuperview()
+            }
         }
     }
     
