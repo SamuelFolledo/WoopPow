@@ -23,7 +23,7 @@ class GameController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.image = Constants.Images.gameControllerBackground1
         return imageView
     }()
@@ -42,7 +42,7 @@ class GameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        startTurnTimer()
+        startTimeLeftTimer()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -52,7 +52,7 @@ class GameController: UIViewController {
     
     //MARK: Private Methods
     
-    private func startTurnTimer() {
+    private func startTimeLeftTimer() {
         timeLeftTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTurnTime), userInfo: nil, repeats: true)
     }
     
@@ -64,7 +64,7 @@ class GameController: UIViewController {
 //            setupSelectedTag()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.timeLeftCounter = 8
-                self.startTurnTimer()
+                self.startTimeLeftTimer()
             }
         }
     }
