@@ -141,9 +141,9 @@ class MoveSetView: UIView {
         }
         
         movesStackView.addArrangedSubview(moveUp)
-        moveUp.snp.makeConstraints { (make) in
-            make.width.equalTo(movesStackView.snp.width).multipliedBy(0.3)
-            make.height.equalTo(movesStackView.snp.width).multipliedBy(0.3)
+        moveUp.snp.makeConstraints {
+            $0.width.equalTo(movesStackView.snp.width).multipliedBy(0.3)
+            $0.height.equalTo(movesStackView.snp.width).multipliedBy(0.3)
         }
         
         let bottomMovesStackView = UIStackView(axis: .horizontal, spacing: 2, distribution: .equalSpacing, alignment: .center) //contain the back, down, forward moves
@@ -157,7 +157,6 @@ class MoveSetView: UIView {
         } else {
             downMoves = [moveForward, moveDown, moveBack]
             moveUp.flipX()
-            downMoves.forEach { $0.flipX() }
         }
         downMoves.forEach { bottomMovesStackView.addArrangedSubview($0) }
         
@@ -183,7 +182,6 @@ class MoveSetView: UIView {
             upAttacks = [attackUpLight, attackUpMedium, attackUpHard]
         } else {
             upAttacks = [attackUpHard, attackUpMedium, attackUpLight]
-            upAttacks.forEach { $0.flipX() }
         }
         upAttacks.forEach {
             upAttacksStackView.addArrangedSubview($0)
@@ -199,7 +197,6 @@ class MoveSetView: UIView {
             downAttacks = [attackDownLight, attackDownMedium, attackDownHard]
         } else {
             downAttacks = [attackDownHard, attackDownMedium, attackDownLight]
-            downAttacks.forEach { $0.flipX() }
         }
         downAttacks.forEach {
             downAttacksStackView.addArrangedSubview($0)
@@ -211,6 +208,9 @@ class MoveSetView: UIView {
         attackDownLight, attackDownMedium, attackDownHard].forEach {
             $0.snp.makeConstraints { (moveButton) in
                 moveButton.width.height.equalTo(moveUp)
+            }
+            if !isLeft {
+                $0.flipX()
             }
         }
     }
