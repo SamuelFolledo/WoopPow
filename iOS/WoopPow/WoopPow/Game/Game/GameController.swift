@@ -13,62 +13,72 @@ class GameController: UIViewController {
     //MARK: Properties
     var gameViewModel: GameViewModel!
     var coordinator: AppCoordinator!
-    var timeLeftTimer: Timer?
-    var timeLeftCounter: Int = 8 {
-        didSet { timeLeftLabel.text = "\(timeLeftCounter)" }
-    }
-    let player1HPProgress = Progress(totalUnitCount: 30)
-    let player2HPProgress = Progress(totalUnitCount: 30)
     
     //MARK: Views
-    private lazy var backgroundImageView: UIImageView = {
+    lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = false
         imageView.contentMode = .scaleAspectFill
         imageView.image = Constants.Images.gameControllerBackground1
         return imageView
     }()
-    
-    private lazy var timeLeftLabel: UILabel = {
+    lazy var timeLeftLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .center
         label.font = .font(size: 32, weight: .bold, design: .default)
-        label.text = "\(timeLeftCounter)"
+        label.text = "\(gameViewModel.timeLeftCounter)"
         label.numberOfLines = 1
         return label
     }()
+    lazy var player1NameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .left
+        label.font = .font(size: 16, weight: .medium, design: .default)
+        label.text = "\(gameViewModel.game.player1.name)"
+        label.numberOfLines = 1
+        return label
+    }()
+    lazy var player1HpLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .font(size: 16, weight: .medium, design: .default)
+        label.text = "\(gameViewModel.game.player1Hp)/\(gameViewModel.game.initialHp)"
+        label.numberOfLines = 1
+        return label
+    }()
+    lazy var player2NameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .right
+        label.font = .font(size: 16, weight: .medium, design: .default)
+        label.text = "\(gameViewModel.game.player2.name)"
+        label.numberOfLines = 1
+        return label
+    }()
+    lazy var player2HpLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .font(size: 16, weight: .medium, design: .default)
+        label.text = "\(gameViewModel.game.player2Hp)/\(gameViewModel.game.initialHp)"
+        label.numberOfLines = 1
+        return label
+    }()
+    
     
     //MARK: App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        startTimeLeftTimer()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        timeLeftTimer?.invalidate()
+        gameViewModel.startTimeLeftTimer()
     }
     
     //MARK: Private Methods
     
-    private func startTimeLeftTimer() {
-        timeLeftTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTurnTime), userInfo: nil, repeats: true)
-    }
-    
     //MARK: Helpers
-    @objc func updateTurnTime() {
-        timeLeftCounter -= 1
-        if timeLeftCounter == 0 {
-            timeLeftTimer?.invalidate()
-//            setupSelectedTag()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.timeLeftCounter = 8
-                self.startTimeLeftTimer()
-            }
-        }
-    }
 }
 
 //MARK: Extensions
