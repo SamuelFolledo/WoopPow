@@ -11,7 +11,8 @@ import UIKit
 class GameController: UIViewController {
     
     //MARK: Properties
-    var coordinator: MainCoordinator!
+    var gameViewModel: GameViewModel!
+    var coordinator: AppCoordinator!
     var timeLeftTimer: Timer?
     var timeLeftCounter: Int = 8 {
         didSet { timeLeftLabel.text = "\(timeLeftCounter)" }
