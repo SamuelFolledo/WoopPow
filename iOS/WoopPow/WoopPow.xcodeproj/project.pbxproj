@@ -29,6 +29,8 @@
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
 		3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF124D7D80D0019C1C8 /* PreGameController.swift */; };
+		3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF424D7F7BF0019C1C8 /* Game.swift */; };
+		3378EFF724D7F9410019C1C8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF624D7F9410019C1C8 /* Player.swift */; };
 		33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* MoveSetView.swift */; };
 		33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
@@ -72,6 +74,8 @@
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
 		3378EFF124D7D80D0019C1C8 /* PreGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreGameController.swift; sourceTree = "<group>"; };
+		3378EFF424D7F7BF0019C1C8 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3378EFF624D7F9410019C1C8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		33E4FAAE24D0118D00C06527 /* MoveSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetView.swift; sourceTree = "<group>"; };
 		33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetButtonView.swift; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				3342938524CFCA230086D3F0 /* SceneDelegate.swift */,
 				3378EFE624D7CCB30019C1C8 /* Home */,
 				3378EFE724D7CCC60019C1C8 /* Game */,
+				3378EFF324D7F7AC0019C1C8 /* Models */,
 				33E4FAAD24D0115B00C06527 /* Views */,
 				334293A724CFCAA60086D3F0 /* Coordinators */,
 				334293AA24CFCACB0086D3F0 /* Helpers */,
@@ -231,6 +236,15 @@
 				3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */,
 			);
 			path = GameOver;
+			sourceTree = "<group>";
+		};
+		3378EFF324D7F7AC0019C1C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3378EFF424D7F7BF0019C1C8 /* Game.swift */,
+				3378EFF624D7F9410019C1C8 /* Player.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		33E4FAAD24D0115B00C06527 /* Views */ = {
@@ -449,6 +463,7 @@
 				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
+				3378EFF724D7F9410019C1C8 /* Player.swift in Sources */,
 				33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */,
 				334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */,
 				334293A924CFCABF0086D3F0 /* Constants.swift in Sources */,
@@ -456,6 +471,7 @@
 				334293A624CFCAA10086D3F0 /* MainCoordinator.swift in Sources */,
 				3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */,
 				3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */,
+				3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */,
 				334293B624CFCB410086D3F0 /* UIViewController+Extensions.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
 				334293B524CFCB410086D3F0 /* UIColor+Extensions.swift in Sources */,
