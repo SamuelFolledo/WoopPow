@@ -11,7 +11,7 @@ import UIKit
 class HomeController: UIViewController {
     
     //MARK: Properties
-    var coordinator: MainCoordinator!
+    var coordinator: AppCoordinator!
     
     //MARK: Views
     private lazy var backgroundImageView: UIImageView = {
