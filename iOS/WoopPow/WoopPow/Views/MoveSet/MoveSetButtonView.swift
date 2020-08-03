@@ -16,7 +16,7 @@ class MoveSetButtonView: UIView {
     //MARK: Views
     lazy var containerView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 15
+        view.layer.cornerRadius = 10
         view.layer.masksToBounds = false
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowOpacity = 0.4
