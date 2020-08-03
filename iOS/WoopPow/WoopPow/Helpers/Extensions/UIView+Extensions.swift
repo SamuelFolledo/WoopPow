@@ -39,4 +39,14 @@ extension UIView {
         guard externalBorder.name == Constants.externalBorderName else { return }
         externalBorder.removeFromSuperlayer()
     }
+    
+    /// Flip view horizontally.
+    func flipX() {
+        transform = CGAffineTransform(scaleX: -transform.a, y: transform.d)
+    }
+
+    /// Flip view vertically.
+    func flipY() {
+        transform = CGAffineTransform(scaleX: transform.a, y: -transform.d)
+    }
 }
