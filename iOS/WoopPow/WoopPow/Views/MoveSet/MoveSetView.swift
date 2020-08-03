@@ -35,27 +35,27 @@ class MoveSetView: UIView {
         return label
     }()
     
-    lazy var upMove: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .green
+    lazy var moveUp: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.moveUp)
+        move.containerView.backgroundColor = .green
         return move
     }()
     
-    lazy var backMove: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .blue
+    lazy var moveBack: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.moveBack)
+        move.containerView.backgroundColor = .blue
         return move
     }()
     
-    lazy var downMove: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .green
+    lazy var moveDown: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.moveDown)
+        move.containerView.backgroundColor = .green
         return move
     }()
     
-    lazy var forwardMove: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .red
+    lazy var moveForward: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.moveForward)
+        move.containerView.backgroundColor = .red
         return move
     }()
     
@@ -67,39 +67,39 @@ class MoveSetView: UIView {
         return label
     }()
     
-    lazy var upLightAttack: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .orange
+    lazy var attackUpLight: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.punchUpLight)
+        move.containerView.backgroundColor = .orange
         return move
     }()
     
-    lazy var upMediumAttack: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .orange
+    lazy var attackUpMedium: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.punchUpMedium)
+        move.containerView.backgroundColor = .orange
         return move
     }()
     
-    lazy var upHardAttack: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .orange
+    lazy var attackUpHard: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.punchUpHard)
+        move.containerView.backgroundColor = .orange
         return move
     }()
     
-    lazy var downLightAttack: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .systemPink
+    lazy var attackDownLight: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.punchDownLight)
+        move.containerView.backgroundColor = .systemPink
         return move
     }()
     
-    lazy var downMediumAttack: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .systemPink
+    lazy var attackDownMedium: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.punchDownMedium)
+        move.containerView.backgroundColor = .systemPink
         return move
     }()
     
-    lazy var downHardAttack: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: UIImage())
-        move.backgroundColor = .systemPink
+    lazy var attackDownHard: MoveSetButtonView = {
+        let move = MoveSetButtonView(moveImage: Constants.Images.punchDownHard)
+        move.containerView.backgroundColor = .systemPink
         return move
     }()
     
@@ -140,8 +140,8 @@ class MoveSetView: UIView {
             label.height.equalToSuperview().multipliedBy(0.15).priority(.required)
         }
         
-        movesStackView.addArrangedSubview(upMove)
-        upMove.snp.makeConstraints { (make) in
+        movesStackView.addArrangedSubview(moveUp)
+        moveUp.snp.makeConstraints { (make) in
             make.width.equalTo(movesStackView.snp.width).multipliedBy(0.3)
             make.height.equalTo(movesStackView.snp.width).multipliedBy(0.3)
         }
@@ -178,9 +178,10 @@ class MoveSetView: UIView {
         }
         let upAttacks: [MoveSetButtonView]
         if isLeft {
-            upAttacks = [upLightAttack, upMediumAttack, upHardAttack]
+            upAttacks = [attackUpLight, attackUpMedium, attackUpHard]
         } else {
-            upAttacks = [upHardAttack, upMediumAttack, upLightAttack]
+            upAttacks = [attackUpHard, attackUpMedium, attackUpLight]
+            upAttacks.forEach { $0.flipX() }
         }
         upAttacks.forEach {
             upAttacksStackView.addArrangedSubview($0)
@@ -193,20 +194,21 @@ class MoveSetView: UIView {
         }
         let downAttacks: [MoveSetButtonView]
         if isLeft {
-            downAttacks = [downLightAttack, downMediumAttack, downHardAttack]
+            downAttacks = [attackDownLight, attackDownMedium, attackDownHard]
         } else {
-            downAttacks = [downHardAttack, downMediumAttack, downLightAttack]
+            downAttacks = [attackDownHard, attackDownMedium, attackDownLight]
+            downAttacks.forEach { $0.flipX() }
         }
         downAttacks.forEach {
             downAttacksStackView.addArrangedSubview($0)
         }
         
         //make all the buttons have the same width and height
-        [backMove, downMove, forwardMove,
-        upLightAttack, upMediumAttack, upHardAttack,
-        downLightAttack, downMediumAttack, downHardAttack].forEach {
+        [moveBack, moveDown, moveForward,
+        attackUpLight, attackUpMedium, attackUpHard,
+        attackDownLight, attackDownMedium, attackDownHard].forEach {
             $0.snp.makeConstraints { (moveButton) in
-                moveButton.width.height.equalTo(upMove)
+                moveButton.width.height.equalTo(moveUp)
             }
         }
     }
