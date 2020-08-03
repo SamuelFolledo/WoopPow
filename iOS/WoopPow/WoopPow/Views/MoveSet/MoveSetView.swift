@@ -11,8 +11,11 @@ import SnapKit
 
 class MoveSetView: UIView {
     
+    //MARK: Properties
+    var isLeft: Bool
+    
     //MARK: Views
-    private lazy var containerView: UIView = {
+    lazy var containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = false
@@ -27,6 +30,7 @@ class MoveSetView: UIView {
     lazy var movesLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Moves"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textAlignment = .center
         return label
     }()
@@ -58,6 +62,7 @@ class MoveSetView: UIView {
     lazy var attacksLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Attacks"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textAlignment = .center
         return label
     }()
@@ -99,7 +104,8 @@ class MoveSetView: UIView {
     }()
     
     //MARK: Init
-    required init(size: CGSize) {
+    required init(isLeft: Bool) {
+        self.isLeft = isLeft
         super.init(frame: .zero)
         setup()
     }
@@ -145,7 +151,13 @@ class MoveSetView: UIView {
         bottomMovesStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
         }
-        [backMove, downMove, forwardMove].forEach { bottomMovesStackView.addArrangedSubview($0) }
+        let downMoves: [MoveSetButtonView]
+        if isLeft {
+            downMoves = [backMove, downMove, forwardMove]
+        } else {
+            downMoves = [forwardMove, downMove, backMove]
+        }
+        downMoves.forEach { bottomMovesStackView.addArrangedSubview($0) }
         
         //ATTACKS
         let attacksStackView = UIStackView(axis: .vertical, spacing: 5, distribution: .fillProportionally, alignment: .center) //contain the upAttacksStackView and downAttacksStackView
@@ -164,7 +176,13 @@ class MoveSetView: UIView {
         upAttacksStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
         }
-        [upLightAttack, upMediumAttack, upHardAttack].forEach {
+        let upAttacks: [MoveSetButtonView]
+        if isLeft {
+            upAttacks = [upLightAttack, upMediumAttack, upHardAttack]
+        } else {
+            upAttacks = [upHardAttack, upMediumAttack, upLightAttack]
+        }
+        upAttacks.forEach {
             upAttacksStackView.addArrangedSubview($0)
         }
         //lowerAttacks
@@ -173,7 +191,13 @@ class MoveSetView: UIView {
         downAttacksStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
         }
-        [downLightAttack, downMediumAttack, downHardAttack].forEach {
+        let downAttacks: [MoveSetButtonView]
+        if isLeft {
+            downAttacks = [downLightAttack, downMediumAttack, downHardAttack]
+        } else {
+            downAttacks = [downHardAttack, downMediumAttack, downLightAttack]
+        }
+        downAttacks.forEach {
             downAttacksStackView.addArrangedSubview($0)
         }
         
