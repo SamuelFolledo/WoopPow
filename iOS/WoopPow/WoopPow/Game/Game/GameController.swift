@@ -45,7 +45,7 @@ class GameController: UIViewController {
         label.textColor = .white
         label.textAlignment = .center
         label.font = .font(size: 16, weight: .medium, design: .default)
-        label.text = "\(gameViewModel.game.player1Hp)/\(gameViewModel.game.initialHp)"
+        label.text = "\(gameViewModel.game.initialHp)/\(gameViewModel.game.initialHp)"
         label.numberOfLines = 1
         return label
     }()
@@ -63,7 +63,7 @@ class GameController: UIViewController {
         label.textColor = .white
         label.textAlignment = .center
         label.font = .font(size: 16, weight: .medium, design: .default)
-        label.text = "\(gameViewModel.game.player2Hp)/\(gameViewModel.game.initialHp)"
+        label.text = "\(gameViewModel.game.initialHp)/\(gameViewModel.game.initialHp)"
         label.numberOfLines = 1
         return label
     }()
