@@ -16,7 +16,7 @@ class GameViewModel {
     let player1HPProgress = Progress(totalUnitCount: 30)
     let player2HPProgress = Progress(totalUnitCount: 30)
     var timeLeftTimer: Timer?
-    var timeLeftCounter: Int = 8 {
+    private(set) var timeLeftCounter: Int {
         didSet { delegate?.timeLeftLabel.text = "\(timeLeftCounter)" }
     }
     private(set) var player1HpText: String
@@ -27,6 +27,7 @@ class GameViewModel {
         self.game = game
         player1HpText = "\(game.player1Hp)/\(game.initialHp)"
         player2HpText = "\(game.player2Hp)/\(game.initialHp)"
+        timeLeftCounter = game.initialTime 
     }
     
     deinit {
@@ -45,7 +46,7 @@ class GameViewModel {
             timeLeftTimer?.invalidate()
             //            setupSelectedTag()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.timeLeftCounter = 8
+                self.timeLeftCounter = self.game.initialTime
                 self.startTimeLeftTimer()
             }
         }
