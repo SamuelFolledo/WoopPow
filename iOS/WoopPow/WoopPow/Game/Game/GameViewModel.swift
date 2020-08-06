@@ -19,10 +19,14 @@ class GameViewModel {
     var timeLeftCounter: Int = 8 {
         didSet { delegate?.timeLeftLabel.text = "\(timeLeftCounter)" }
     }
+    private(set) var player1HpText: String
+    private(set) var player2HpText: String
     
     //MARK: Init
     init(game: Game) {
         self.game = game
+        player1HpText = "\(game.player1Hp)/\(game.initialHp)"
+        player2HpText = "\(game.player2Hp)/\(game.initialHp)"
     }
     
     deinit {
