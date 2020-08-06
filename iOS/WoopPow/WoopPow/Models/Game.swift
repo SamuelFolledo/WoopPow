@@ -11,6 +11,7 @@ import UIKit
 struct Game {
     //MARK: Constants
     let initialHp: Int = 100
+    let initialTime: Int = 10
     
     //MARK: Properties
     var player1: Player
