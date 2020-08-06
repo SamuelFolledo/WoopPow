@@ -15,7 +15,7 @@ class GameViewModel {
     weak var delegate: GameController?
     let player1HPProgress = Progress(totalUnitCount: 30)
     let player2HPProgress = Progress(totalUnitCount: 30)
-    var timeLeftTimer: Timer?
+    private var timeLeftTimer: Timer?
     private(set) var timeLeftCounter: Int {
         didSet { delegate?.timeLeftLabel.text = "\(timeLeftCounter)" }
     }
@@ -27,7 +27,7 @@ class GameViewModel {
         self.game = game
         player1HpText = "\(game.player1Hp)/\(game.initialHp)"
         player2HpText = "\(game.player2Hp)/\(game.initialHp)"
-        timeLeftCounter = game.initialTime 
+        timeLeftCounter = game.initialTime
     }
     
     deinit {
