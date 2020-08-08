@@ -8,3 +8,6 @@
 
 import Foundation
 
+enum PlayerMove {
+    case up, down, back, forward
+}
