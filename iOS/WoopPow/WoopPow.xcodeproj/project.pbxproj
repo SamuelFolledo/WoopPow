@@ -32,6 +32,7 @@
 		3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF424D7F7BF0019C1C8 /* Game.swift */; };
 		3378EFF724D7F9410019C1C8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF624D7F9410019C1C8 /* Player.swift */; };
 		3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF824D7FB7A0019C1C8 /* GameViewModel.swift */; };
+		3378F00424DE55F80019C1C8 /* PlayerMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378F00324DE55F80019C1C8 /* PlayerMove.swift */; };
 		33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* MoveSetView.swift */; };
 		33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
@@ -78,6 +79,7 @@
 		3378EFF424D7F7BF0019C1C8 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3378EFF624D7F9410019C1C8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3378EFF824D7FB7A0019C1C8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		3378F00324DE55F80019C1C8 /* PlayerMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMove.swift; sourceTree = "<group>"; };
 		33E4FAAE24D0118D00C06527 /* MoveSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetView.swift; sourceTree = "<group>"; };
 		33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetButtonView.swift; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				3378EFF424D7F7BF0019C1C8 /* Game.swift */,
 				3378EFF624D7F9410019C1C8 /* Player.swift */,
+				3378F00324DE55F80019C1C8 /* PlayerMove.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */,
 				3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */,
 				3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */,
+				3378F00424DE55F80019C1C8 /* PlayerMove.swift in Sources */,
 				334293B624CFCB410086D3F0 /* UIViewController+Extensions.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
