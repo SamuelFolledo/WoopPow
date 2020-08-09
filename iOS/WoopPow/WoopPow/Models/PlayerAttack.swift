@@ -9,5 +9,6 @@
 import Foundation
 
 enum PlayerAttack {
-    
+    case punchUpLight, punchUpMedium, punchUpHard,
+    punchDownLight, punchDownMedium, punchDownHard
 }
