@@ -9,7 +9,6 @@
 import Foundation
 
 enum PlayerAttack {
-    
     case kick(attack: Kick)
     case punch(attack: Punch)
 }
@@ -63,6 +62,28 @@ extension PlayerAttack {
                 return 20
             }
         }
+        
+        var speed: Int {
+            switch self {
+            case .punchUpLight, .punchDownLight:
+                return 9
+            case .punchUpMedium, .punchDownMedium:
+                return 6
+            case .punchUpHard, .punchDownHard:
+                return 3
+            }
+        }
+        
+        var cooldown: Int {
+            switch self {
+            case .punchUpLight, .punchDownLight:
+                return 2
+            case .punchUpMedium, .punchDownMedium:
+                return 3
+            case .punchUpHard, .punchDownHard:
+                return 4
+            }
+        }
     }
     
     enum Kick {
@@ -77,6 +98,28 @@ extension PlayerAttack {
                 return 20
             case .kickUpHard, .kickDownHard:
                 return 25
+            }
+        }
+        
+        var speed: Int {
+            switch self {
+            case .kickUpLight, .kickDownLight:
+                return 6
+            case .kickUpMedium, .kickDownMedium:
+                return 4
+            case .kickUpHard, .kickDownHard:
+                return 2
+            }
+        }
+        
+        var cooldown: Int {
+            switch self {
+            case .kickUpLight, .kickDownLight:
+                return 3
+            case .kickUpMedium, .kickDownMedium:
+                return 4
+            case .kickUpHard, .kickDownHard:
+                return 5
             }
         }
     }
