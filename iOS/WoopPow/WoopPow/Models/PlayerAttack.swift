@@ -9,17 +9,41 @@
 import Foundation
 
 enum PlayerAttack {
-    case punchUpLight, punchUpMedium, punchUpHard,
-    punchDownLight, punchDownMedium, punchDownHard
     
-    var damage: Int {
-        switch self {
-        case .punchUpLight, .punchDownLight:
-            return 10
-        case .punchUpMedium, .punchDownMedium:
-            return 15
-        case .punchUpHard, .punchDownHard:
-            return 20
+    enum Punch {
+        case punchUpLight, punchUpMedium, punchUpHard,
+        punchDownLight, punchDownMedium, punchDownHard
+        
+        var damage: Int {
+            switch self {
+            case .punchUpLight, .punchDownLight:
+                return 10
+            case .punchUpMedium, .punchDownMedium:
+                return 15
+            case .punchUpHard, .punchDownHard:
+                return 20
+            }
         }
     }
+    
+    enum Kick {
+        case kickUpLight, kickUpMedium, kickUpHard,
+        kickDownLight, kickDownMedium, kickDownHard
+        
+        var damage: Int {
+            switch self {
+            case .kickUpLight, .kickDownLight:
+                return 10
+            case .kickUpMedium, .kickDownMedium:
+                return 15
+            case .kickUpHard, .kickDownHard:
+                return 20
+            }
+        }
+    }
+    
+    
+    
+    
+    
 }
