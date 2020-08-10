@@ -33,17 +33,15 @@ enum PlayerAttack {
         var damage: Int {
             switch self {
             case .kickUpLight, .kickDownLight:
-                return 10
-            case .kickUpMedium, .kickDownMedium:
                 return 15
-            case .kickUpHard, .kickDownHard:
+            case .kickUpMedium, .kickDownMedium:
                 return 20
+            case .kickUpHard, .kickDownHard:
+                return 25
             }
         }
     }
     
-    
-    
-    
-    
+    case kick(attack: Kick)
+    case punch(attack: Punch)
 }
