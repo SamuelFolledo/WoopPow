@@ -8,7 +8,47 @@
 
 import Foundation
 
-enum PlayerAttack {
+struct AttackSet {
+    var upLight: Attack = PlayerAttack.None.noneUpLight
+    var upMedium: Attack = PlayerAttack.None.noneUpMedium
+    var upHard: Attack = PlayerAttack.None.noneUpHard
+    var downLight: Attack = PlayerAttack.None.noneDownLight
+    var downMedium: Attack = PlayerAttack.None.noneDownMedium
+    var downHard: Attack = PlayerAttack.None.noneDownHard
+    
+    private var positions: [AttackPosition] = []
+    
+    init(attacks: [Attack]) {
+        if attacks.count != 6 {
+            print("Not enough attacks")
+        }
+        for attack in attacks {
+            addAttack(attack: attack)
+        }
+    }
+    
+    mutating func addAttack(attack: Attack) {
+        if positions.contains(attack.position) {
+            print("Position is already filled")
+        } else {
+            positions.append(attack.position)
+            switch attack.position {
+            case .upLight:
+                upLight = attack
+            case .upMedium:
+                upMedium = attack
+            case .upHard:
+                upHard = attack
+            case .downLight:
+                downLight = attack
+            case .downMedium:
+                downMedium = attack
+            case .downHard:
+                downHard = attack
+            }
+        }
+    }
+}
 
 protocol Attack {
     var damage: Int { get }
