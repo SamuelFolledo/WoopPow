@@ -9,12 +9,12 @@
 import Foundation
 
 struct AttackSet {
-    var upLight: Attack = PlayerAttack.None.noneUpLight
-    var upMedium: Attack = PlayerAttack.None.noneUpMedium
-    var upHard: Attack = PlayerAttack.None.noneUpHard
-    var downLight: Attack = PlayerAttack.None.noneDownLight
-    var downMedium: Attack = PlayerAttack.None.noneDownMedium
-    var downHard: Attack = PlayerAttack.None.noneDownHard
+    var upLight: Attack = PlayerAttack.none(attack: .noneUpLight)
+    var upMedium: Attack = PlayerAttack.none(attack: .noneUpMedium)
+    var upHard: Attack = PlayerAttack.none(attack: .noneUpHard)
+    var downLight: Attack = PlayerAttack.none(attack: .noneDownLight)
+    var downMedium: Attack = PlayerAttack.none(attack: .noneDownMedium)
+    var downHard: Attack = PlayerAttack.none(attack: .noneDownHard)
     
     private var positions: [AttackPosition] = []
     
@@ -28,7 +28,7 @@ struct AttackSet {
     }
     
     mutating func addAttack(attack: Attack) {
-        if positions.contains(attack.position) {
+        if positions.contains(attack.position) { //make sure position is not taken yet
             print("Position is already filled")
         } else {
             positions.append(attack.position)
@@ -48,6 +48,29 @@ struct AttackSet {
             }
         }
     }
+    
+    ///turn AttackType to None AttackType
+    mutating func removeAttack(attack: Attack) {
+        if !positions.contains(attack.position) { //make sure position to move exist
+            print("No position to remove")
+            return
+        } else {
+            switch attack.position {
+            case .upLight:
+                upLight = PlayerAttack.none(attack: .noneUpLight)
+            case .upMedium:
+                upMedium = PlayerAttack.none(attack: .noneUpMedium)
+            case .upHard:
+                upHard = PlayerAttack.none(attack: .noneUpHard)
+            case .downLight:
+                downLight = PlayerAttack.none(attack: .noneDownLight)
+            case .downMedium:
+                downMedium = PlayerAttack.none(attack: .noneDownMedium)
+            case .downHard:
+                downHard = PlayerAttack.none(attack: .noneDownHard)
+            }
+        }
+    }
 }
 
 protocol Attack {
@@ -61,6 +84,7 @@ protocol Attack {
 enum PlayerAttack: Attack {
     case kick(attack: Kick)
     case punch(attack: Punch)
+    case none(attack: None)
     
     var damage: Int {
         switch self {
@@ -68,6 +92,8 @@ enum PlayerAttack: Attack {
             return kick.damage
         case .punch(let punch):
             return punch.damage
+        case .none(let none):
+            return none.damage
         }
     }
     var speed: Int {
@@ -76,6 +102,8 @@ enum PlayerAttack: Attack {
             return kick.speed
         case .punch(let punch):
             return punch.speed
+        case .none(let none):
+            return none.speed
         }
     }
     var cooldown: Int {
@@ -84,7 +112,8 @@ enum PlayerAttack: Attack {
             return kick.cooldown
         case .punch(let punch):
             return punch.cooldown
-
+        case .none(let none):
+            return none.cooldown
         }
     }
     var direction: Direction {
@@ -93,15 +122,18 @@ enum PlayerAttack: Attack {
             return kick.direction
         case .punch(let punch):
             return punch.direction
+        case .none(let none):
+            return none.direction
         }
     }
-    
     var position: AttackPosition {
         switch self {
         case .kick(let kick):
             return kick.position
         case .punch(let punch):
             return punch.position
+        case .none(let none):
+            return none.position
         }
     }
 }
@@ -182,7 +214,6 @@ extension PlayerAttack {
                 return 20
             }
         }
-        
         var speed: Int {
             switch self {
             case .punchUpLight, .punchDownLight:
@@ -193,7 +224,6 @@ extension PlayerAttack {
                 return 3
             }
         }
-        
         var cooldown: Int {
             switch self {
             case .punchUpLight, .punchDownLight:
@@ -204,7 +234,6 @@ extension PlayerAttack {
                 return 4
             }
         }
-        
         var direction: Direction {
             switch self {
             case .punchUpLight, .punchUpMedium, .punchUpHard:
@@ -213,7 +242,6 @@ extension PlayerAttack {
                 return .down
             }
         }
-        
         var position: AttackPosition {
             switch self {
             case .punchUpLight:
@@ -246,7 +274,6 @@ extension PlayerAttack {
                 return 25
             }
         }
-        
         var speed: Int {
             switch self {
             case .kickUpLight, .kickDownLight:
@@ -257,7 +284,6 @@ extension PlayerAttack {
                 return 2
             }
         }
-        
         var cooldown: Int {
             switch self {
             case .kickUpLight, .kickDownLight:
@@ -268,7 +294,6 @@ extension PlayerAttack {
                 return 5
             }
         }
-        
         var direction: Direction {
             switch self {
             case .kickUpLight, .kickUpMedium, .kickUpHard:
@@ -277,7 +302,6 @@ extension PlayerAttack {
                 return .down
             }
         }
-        
         var position: AttackPosition {
             switch self {
             case .kickUpLight:
