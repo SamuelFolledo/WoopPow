@@ -42,6 +42,12 @@ class MoveSetButtonView: UIView {
         setup()
     }
     
+    required init(attack: AttackType) {
+        super.init(frame: .zero)
+        self.button.setImage(attack.image, for: .normal)
+        setup()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
