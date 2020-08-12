@@ -102,6 +102,31 @@ extension PlayerAttack {
 
 //MARK: Move Types
 extension PlayerAttack {
+    enum None: Attack {
+        case noneUpLight, noneUpMedium, noneUpHard,
+        noneDownLight, noneDownMedium, noneDownHard
+        
+        var damage: Int { return 0 }
+        var speed: Int { return 0 }
+        var cooldown: Int { return 0 }
+        var direction: Direction { return .mid }
+        var position: AttackPosition {
+            switch self {
+            case .noneUpLight:
+                return .upLight
+            case .noneUpMedium:
+                return .upMedium
+            case .noneUpHard:
+                return .upHard
+            case .noneDownLight:
+                return .downLight
+            case .noneDownMedium:
+                return .downMedium
+            case .noneDownHard:
+                return .downHard
+            }
+        }
+    }
         
     enum Punch: Attack {
         case punchUpLight, punchUpMedium, punchUpHard,
