@@ -9,13 +9,66 @@
 import Foundation
 
 enum PlayerAttack {
+
+protocol Attack {
+    var damage: Int { get }
+    var speed: Int { get }
+    var cooldown: Int { get }
+    var direction: Direction { get }
+    var position: AttackPosition { get }
+}
+
+enum PlayerAttack: Attack {
     case kick(attack: Kick)
     case punch(attack: Punch)
+    
+    var damage: Int {
+        switch self {
+        case .kick(let kick):
+            return kick.damage
+        case .punch(let punch):
+            return punch.damage
+        }
+    }
+    var speed: Int {
+        switch self {
+        case .kick(let kick):
+            return kick.speed
+        case .punch(let punch):
+            return punch.speed
+        }
+    }
+    var cooldown: Int {
+        switch self {
+        case .kick(let kick):
+            return kick.cooldown
+        case .punch(let punch):
+            return punch.cooldown
+
+        }
+    }
+    var direction: Direction {
+        switch self {
+        case .kick(let kick):
+            return kick.direction
+        case .punch(let punch):
+            return punch.direction
+        }
+    }
+    
+    var position: AttackPosition {
+        switch self {
+        case .kick(let kick):
+            return kick.position
+        case .punch(let punch):
+            return punch.position
+        }
+    }
 }
 
 //MARK: Initializers
 extension PlayerAttack {
-    init?(code: String) {
+    init(code: String) {
         switch code {
         case "1.1":
             self = .punch(attack: .punchUpLight)
@@ -41,14 +94,16 @@ extension PlayerAttack {
             self = .kick(attack: .kickDownMedium)
         case "2.6":
             self = .kick(attack: .kickDownHard)
-        default: return nil
+        default:
+            fatalError("Unsupported attack")
         }
     }
 }
 
 //MARK: Move Types
 extension PlayerAttack {
-    enum Punch {
+        
+    enum Punch: Attack {
         case punchUpLight, punchUpMedium, punchUpHard,
         punchDownLight, punchDownMedium, punchDownHard
         
@@ -84,9 +139,35 @@ extension PlayerAttack {
                 return 4
             }
         }
+        
+        var direction: Direction {
+            switch self {
+            case .punchUpLight, .punchUpMedium, .punchUpHard:
+                return .up
+            case .punchDownLight, .punchDownMedium, .punchDownHard:
+                return .down
+            }
+        }
+        
+        var position: AttackPosition {
+            switch self {
+            case .punchUpLight:
+                return .upLight
+            case .punchUpMedium:
+                return .upMedium
+            case .punchUpHard:
+                return .upHard
+            case .punchDownLight:
+                return .downLight
+            case .punchDownMedium:
+                return .downMedium
+            case .punchDownHard:
+                return .downHard
+            }
+        }
     }
     
-    enum Kick {
+    enum Kick: Attack {
         case kickUpLight, kickUpMedium, kickUpHard,
         kickDownLight, kickDownMedium, kickDownHard
         
@@ -120,6 +201,32 @@ extension PlayerAttack {
                 return 4
             case .kickUpHard, .kickDownHard:
                 return 5
+            }
+        }
+        
+        var direction: Direction {
+            switch self {
+            case .kickUpLight, .kickUpMedium, .kickUpHard:
+                return .up
+            case .kickDownLight, .kickDownMedium, .kickDownHard:
+                return .down
+            }
+        }
+        
+        var position: AttackPosition {
+            switch self {
+            case .kickUpLight:
+                return .upLight
+            case .kickUpMedium:
+                return .upMedium
+            case .kickUpHard:
+                return .upHard
+            case .kickDownLight:
+                return .downLight
+            case .kickDownMedium:
+                return .downMedium
+            case .kickDownHard:
+                return .downHard
             }
         }
     }
