@@ -1,5 +1,5 @@
 //
-//  PlayerAttack.swift
+//  AttackType.swift
 //  WoopPow
 //
 //  Created by Samuel Folledo on 8/7/20.
@@ -9,12 +9,12 @@
 import UIKit
 
 struct AttackSet {
-    var upLight: Attack = PlayerAttack.none(attack: .noneUpLight)
-    var upMedium: Attack = PlayerAttack.none(attack: .noneUpMedium)
-    var upHard: Attack = PlayerAttack.none(attack: .noneUpHard)
-    var downLight: Attack = PlayerAttack.none(attack: .noneDownLight)
-    var downMedium: Attack = PlayerAttack.none(attack: .noneDownMedium)
-    var downHard: Attack = PlayerAttack.none(attack: .noneDownHard)
+    var upLight: Attack = AttackType.none(attack: .noneUpLight)
+    var upMedium: Attack = AttackType.none(attack: .noneUpMedium)
+    var upHard: Attack = AttackType.none(attack: .noneUpHard)
+    var downLight: Attack = AttackType.none(attack: .noneDownLight)
+    var downMedium: Attack = AttackType.none(attack: .noneDownMedium)
+    var downHard: Attack = AttackType.none(attack: .noneDownHard)
     
     private var positions: [AttackPosition] = []
     
@@ -57,17 +57,17 @@ struct AttackSet {
         } else {
             switch attack.position {
             case .upLight:
-                upLight = PlayerAttack.none(attack: .noneUpLight)
+                upLight = AttackType.none(attack: .noneUpLight)
             case .upMedium:
-                upMedium = PlayerAttack.none(attack: .noneUpMedium)
+                upMedium = AttackType.none(attack: .noneUpMedium)
             case .upHard:
-                upHard = PlayerAttack.none(attack: .noneUpHard)
+                upHard = AttackType.none(attack: .noneUpHard)
             case .downLight:
-                downLight = PlayerAttack.none(attack: .noneDownLight)
+                downLight = AttackType.none(attack: .noneDownLight)
             case .downMedium:
-                downMedium = PlayerAttack.none(attack: .noneDownMedium)
+                downMedium = AttackType.none(attack: .noneDownMedium)
             case .downHard:
-                downHard = PlayerAttack.none(attack: .noneDownHard)
+                downHard = AttackType.none(attack: .noneDownHard)
             }
         }
     }
@@ -82,7 +82,7 @@ protocol Attack {
     var position: AttackPosition { get }
 }
 
-enum PlayerAttack: Attack {
+enum AttackType: Attack {
     case kick(attack: Kick)
     case punch(attack: Punch)
     case none(attack: None)
@@ -150,7 +150,7 @@ enum PlayerAttack: Attack {
 }
 
 //MARK: Initializers
-extension PlayerAttack {
+extension AttackType {
     init(code: String) {
         switch code {
         case "1.1":
@@ -184,7 +184,7 @@ extension PlayerAttack {
 }
 
 //MARK: Move Types
-extension PlayerAttack {
+extension AttackType {
     enum None: Attack {
         case noneUpLight, noneUpMedium, noneUpHard,
         noneDownLight, noneDownMedium, noneDownHard
