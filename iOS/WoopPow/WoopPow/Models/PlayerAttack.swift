@@ -6,7 +6,7 @@
 //  Copyright © 2020 SamuelFolledo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AttackSet {
     var upLight: Attack = PlayerAttack.none(attack: .noneUpLight)
@@ -77,6 +77,7 @@ protocol Attack {
     var damage: Int { get }
     var speed: Int { get }
     var cooldown: Int { get }
+    var image: UIImage { get }
     var direction: Direction { get }
     var position: AttackPosition { get }
 }
@@ -114,6 +115,16 @@ enum PlayerAttack: Attack {
             return punch.cooldown
         case .none(let none):
             return none.cooldown
+        }
+    }
+    var image: UIImage {
+        switch self {
+        case .kick(let kick):
+            return kick.image
+        case .punch(let punch):
+            return punch.image
+        case .none(let none):
+            return none.image
         }
     }
     var direction: Direction {
@@ -181,6 +192,7 @@ extension PlayerAttack {
         var damage: Int { return 0 }
         var speed: Int { return 0 }
         var cooldown: Int { return 0 }
+        var image: UIImage { return UIImage() }
         var direction: Direction { return .mid }
         var position: AttackPosition {
             switch self {
@@ -232,6 +244,22 @@ extension PlayerAttack {
                 return 3
             case .punchUpHard, .punchDownHard:
                 return 4
+            }
+        }
+        var image: UIImage {
+            switch self {
+            case .punchUpLight:
+                return Constants.Images.punchUpLight
+            case .punchUpMedium:
+                return Constants.Images.punchUpMedium
+            case .punchUpHard:
+                return Constants.Images.punchUpHard
+            case .punchDownLight:
+                return Constants.Images.punchDownLight
+            case .punchDownMedium:
+                return Constants.Images.punchDownMedium
+            case .punchDownHard:
+                return Constants.Images.punchDownHard
             }
         }
         var direction: Direction {
@@ -292,6 +320,22 @@ extension PlayerAttack {
                 return 4
             case .kickUpHard, .kickDownHard:
                 return 5
+            }
+        }
+        var image: UIImage {
+            switch self {
+            case .kickUpLight:
+                return Constants.Images.punchUpLight.withTintColor(.blue)
+            case .kickUpMedium:
+                return Constants.Images.punchUpMedium.withTintColor(.blue)
+            case .kickUpHard:
+                return Constants.Images.punchUpHard.withTintColor(.blue)
+            case .kickDownLight:
+                return Constants.Images.punchDownLight.withTintColor(.green)
+            case .kickDownMedium:
+                return Constants.Images.punchDownMedium.withTintColor(.green)
+            case .kickDownHard:
+                return Constants.Images.punchDownHard.withTintColor(.green)
             }
         }
         var direction: Direction {
