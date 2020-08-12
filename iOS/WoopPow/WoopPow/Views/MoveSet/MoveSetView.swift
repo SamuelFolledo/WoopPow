@@ -68,39 +68,39 @@ class MoveSetView: UIView {
     }()
     
     lazy var attackUpLight: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: Constants.Images.punchUpLight)
-        move.containerView.backgroundColor = .orange
-        return move
+        let control = MoveSetButtonView(attack: .punch(attack: .punchUpLight))
+        control.containerView.backgroundColor = .orange
+        return control
     }()
     
     lazy var attackUpMedium: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: Constants.Images.punchUpMedium)
-        move.containerView.backgroundColor = .orange
-        return move
+        let control = MoveSetButtonView(attack: .punch(attack: .punchUpMedium))
+        control.containerView.backgroundColor = .orange
+        return control
     }()
     
     lazy var attackUpHard: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: Constants.Images.punchUpHard)
-        move.containerView.backgroundColor = .orange
-        return move
+        let control = MoveSetButtonView(attack: .punch(attack: .punchUpHard))
+        control.containerView.backgroundColor = .orange
+        return control
     }()
     
     lazy var attackDownLight: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: Constants.Images.punchDownLight)
-        move.containerView.backgroundColor = .systemPink
-        return move
+        let control = MoveSetButtonView(attack: .punch(attack: .punchDownLight))
+        control.containerView.backgroundColor = .purple
+        return control
     }()
     
     lazy var attackDownMedium: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: Constants.Images.punchDownMedium)
-        move.containerView.backgroundColor = .systemPink
-        return move
+        let control = MoveSetButtonView(attack: .punch(attack: .punchDownMedium))
+        control.containerView.backgroundColor = .purple
+        return control
     }()
     
     lazy var attackDownHard: MoveSetButtonView = {
-        let move = MoveSetButtonView(moveImage: Constants.Images.punchDownHard)
-        move.containerView.backgroundColor = .systemPink
-        return move
+        let control = MoveSetButtonView(attack: .punch(attack: .punchDownHard))
+        control.containerView.backgroundColor = .purple
+        return control
     }()
     
     //MARK: Init
