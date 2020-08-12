@@ -8,78 +8,13 @@
 
 import UIKit
 
-struct AttackSet {
-    var upLight: Attack = AttackType.none(attack: .noneUpLight)
-    var upMedium: Attack = AttackType.none(attack: .noneUpMedium)
-    var upHard: Attack = AttackType.none(attack: .noneUpHard)
-    var downLight: Attack = AttackType.none(attack: .noneDownLight)
-    var downMedium: Attack = AttackType.none(attack: .noneDownMedium)
-    var downHard: Attack = AttackType.none(attack: .noneDownHard)
-    
-    private var positions: [AttackPosition] = []
-    
-    init(attacks: [Attack]) {
-        if attacks.count != 6 {
-            print("Not enough attacks")
-        }
-        for attack in attacks {
-            addAttack(attack: attack)
-        }
-    }
-    
-    mutating func addAttack(attack: Attack) {
-        if positions.contains(attack.position) { //make sure position is not taken yet
-            print("Position is already filled")
-        } else {
-            positions.append(attack.position)
-            switch attack.position {
-            case .upLight:
-                upLight = attack
-            case .upMedium:
-                upMedium = attack
-            case .upHard:
-                upHard = attack
-            case .downLight:
-                downLight = attack
-            case .downMedium:
-                downMedium = attack
-            case .downHard:
-                downHard = attack
-            }
-        }
-    }
-    
-    ///turn AttackType to None AttackType
-    mutating func removeAttack(attack: Attack) {
-        if !positions.contains(attack.position) { //make sure position to move exist
-            print("No position to remove")
-            return
-        } else {
-            switch attack.position {
-            case .upLight:
-                upLight = AttackType.none(attack: .noneUpLight)
-            case .upMedium:
-                upMedium = AttackType.none(attack: .noneUpMedium)
-            case .upHard:
-                upHard = AttackType.none(attack: .noneUpHard)
-            case .downLight:
-                downLight = AttackType.none(attack: .noneDownLight)
-            case .downMedium:
-                downMedium = AttackType.none(attack: .noneDownMedium)
-            case .downHard:
-                downHard = AttackType.none(attack: .noneDownHard)
-            }
-        }
-    }
-}
-
 protocol Attack {
     var damage: Int { get }
     var speed: Int { get }
     var cooldown: Int { get }
     var image: UIImage { get }
     var direction: Direction { get }
-    var position: AttackPosition { get }
+    var position: AttackSetPosition { get }
 }
 
 enum AttackType: Attack {
@@ -137,7 +72,7 @@ enum AttackType: Attack {
             return none.direction
         }
     }
-    var position: AttackPosition {
+    var position: AttackSetPosition {
         switch self {
         case .kick(let kick):
             return kick.position
@@ -194,7 +129,7 @@ extension AttackType {
         var cooldown: Int { return 0 }
         var image: UIImage { return UIImage() }
         var direction: Direction { return .mid }
-        var position: AttackPosition {
+        var position: AttackSetPosition {
             switch self {
             case .noneUpLight:
                 return .upLight
@@ -270,7 +205,7 @@ extension AttackType {
                 return .down
             }
         }
-        var position: AttackPosition {
+        var position: AttackSetPosition {
             switch self {
             case .punchUpLight:
                 return .upLight
@@ -346,7 +281,7 @@ extension AttackType {
                 return .down
             }
         }
-        var position: AttackPosition {
+        var position: AttackSetPosition {
             switch self {
             case .kickUpLight:
                 return .upLight

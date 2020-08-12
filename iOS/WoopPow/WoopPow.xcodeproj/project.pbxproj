@@ -25,7 +25,6 @@
 		334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B324CFCB410086D3F0 /* Date+Extensions.swift */; };
 		334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B424CFCB410086D3F0 /* UIView+Extensions.swift */; };
 		334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293BB24CFCC3A0086D3F0 /* Coordinator.swift */; };
-		335C03CC24E2002400A16812 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C03CB24E2002400A16812 /* Direction.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -35,6 +34,9 @@
 		3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFF824D7FB7A0019C1C8 /* GameViewModel.swift */; };
 		3378F00424DE55F80019C1C8 /* PlayerMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378F00324DE55F80019C1C8 /* PlayerMove.swift */; };
 		3378F00624DE56BF0019C1C8 /* AttackType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378F00524DE56BF0019C1C8 /* AttackType.swift */; };
+		33BB66BF24E38D4C00C9EF3A /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB66BE24E38D4C00C9EF3A /* Direction.swift */; };
+		33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB66C224E38DC200C9EF3A /* AttackSetPosition.swift */; };
+		33BB66C524E38DF400C9EF3A /* AttackSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB66C424E38DF400C9EF3A /* AttackSet.swift */; };
 		33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* MoveSetView.swift */; };
 		33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
@@ -74,7 +76,6 @@
 		334293B324CFCB410086D3F0 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		334293B424CFCB410086D3F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		334293BB24CFCC3A0086D3F0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		335C03CB24E2002400A16812 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -84,6 +85,9 @@
 		3378EFF824D7FB7A0019C1C8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		3378F00324DE55F80019C1C8 /* PlayerMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMove.swift; sourceTree = "<group>"; };
 		3378F00524DE56BF0019C1C8 /* AttackType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackType.swift; sourceTree = "<group>"; };
+		33BB66BE24E38D4C00C9EF3A /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		33BB66C224E38DC200C9EF3A /* AttackSetPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackSetPosition.swift; sourceTree = "<group>"; };
+		33BB66C424E38DF400C9EF3A /* AttackSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackSet.swift; sourceTree = "<group>"; };
 		33E4FAAE24D0118D00C06527 /* MoveSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetView.swift; sourceTree = "<group>"; };
 		33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetButtonView.swift; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -254,7 +258,6 @@
 				3378EFF624D7F9410019C1C8 /* Player.swift */,
 				33BB66BD24E38D2700C9EF3A /* Move */,
 				33BB66BC24E38D1D00C9EF3A /* Attack */,
-				335C03CB24E2002400A16812 /* Direction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,7 +265,9 @@
 		33BB66BC24E38D1D00C9EF3A /* Attack */ = {
 			isa = PBXGroup;
 			children = (
+				33BB66C424E38DF400C9EF3A /* AttackSet.swift */,
 				3378F00524DE56BF0019C1C8 /* AttackType.swift */,
+				33BB66C124E38D6800C9EF3A /* Properties */,
 			);
 			path = Attack;
 			sourceTree = "<group>";
@@ -271,8 +276,25 @@
 			isa = PBXGroup;
 			children = (
 				3378F00324DE55F80019C1C8 /* PlayerMove.swift */,
+				33BB66C024E38D5800C9EF3A /* Properties */,
 			);
 			path = Move;
+			sourceTree = "<group>";
+		};
+		33BB66C024E38D5800C9EF3A /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				33BB66BE24E38D4C00C9EF3A /* Direction.swift */,
+			);
+			path = Properties;
+			sourceTree = "<group>";
+		};
+		33BB66C124E38D6800C9EF3A /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				33BB66C224E38DC200C9EF3A /* AttackSetPosition.swift */,
+			);
+			path = Properties;
 			sourceTree = "<group>";
 		};
 		33E4FAAD24D0115B00C06527 /* Views */ = {
@@ -494,6 +516,7 @@
 				3378EFF724D7F9410019C1C8 /* Player.swift in Sources */,
 				33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */,
 				334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */,
+				33BB66C524E38DF400C9EF3A /* AttackSet.swift in Sources */,
 				334293A924CFCABF0086D3F0 /* Constants.swift in Sources */,
 				3342938824CFCA230086D3F0 /* HomeController.swift in Sources */,
 				334293A624CFCAA10086D3F0 /* AppCoordinator.swift in Sources */,
@@ -502,6 +525,7 @@
 				3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */,
 				3378F00424DE55F80019C1C8 /* PlayerMove.swift in Sources */,
 				334293B624CFCB410086D3F0 /* UIViewController+Extensions.swift in Sources */,
+				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
 				334293B524CFCB410086D3F0 /* UIColor+Extensions.swift in Sources */,
@@ -510,8 +534,8 @@
 				33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */,
 				3342938424CFCA230086D3F0 /* AppDelegate.swift in Sources */,
 				334293B824CFCB410086D3F0 /* UIFont+Extensions.swift in Sources */,
-				335C03CC24E2002400A16812 /* Direction.swift in Sources */,
 				3342938624CFCA230086D3F0 /* SceneDelegate.swift in Sources */,
+				33BB66BF24E38D4C00C9EF3A /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -657,7 +681,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
