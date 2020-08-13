@@ -6,12 +6,6 @@
 //  Copyright © 2020 SamuelFolledo. All rights reserved.
 //
 
-import Foundation
-
-//enum MoveType {
-//    case up, down, back, forward
-//}
-
 import UIKit
 
 protocol Move {
@@ -25,7 +19,6 @@ protocol Move {
 enum MoveType: Move {
     
     case up, down, back, forward, none
-    
     
     var defenseMultiplier: CGFloat {
         switch self {
