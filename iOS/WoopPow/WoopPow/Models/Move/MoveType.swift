@@ -15,18 +15,28 @@ import Foundation
 import UIKit
 
 protocol Move {
-//    var damage: Int { get }
+    var defenseMultiplier: CGFloat { get }
     var speedMultiplier: CGFloat { get }
     var cooldown: Int { get }
     var image: UIImage { get }
     var direction: Direction { get }
-//    var position: AttackSetPosition { get }
 }
 
 enum MoveType: Move {
     
     case up, down, back, forward, none
     
+    
+    var defenseMultiplier: CGFloat {
+        switch self {
+        case .up, .down, .none:
+            return 1
+        case .back:
+            return 0.75
+        case .forward:
+            return 1.1
+        }
+    }
     var speedMultiplier: CGFloat {
         switch self {
         case .up, .down, .none:
@@ -62,20 +72,6 @@ enum MoveType: Move {
             return .mid
         }
     }
-//    var position: AttackSetPosition {
-//        switch self {
-//        case .up:
-//            return 1
-//        case .down:
-//            return 1
-//        case .back:
-//            return 0.5
-//        case .forward:
-//            return 2
-//        case .none:
-//            return 1
-//        }
-//    }
 }
 
 //MARK: Initializers
