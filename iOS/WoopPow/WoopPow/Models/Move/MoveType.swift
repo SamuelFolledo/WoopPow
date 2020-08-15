@@ -16,9 +16,9 @@ protocol Move {
     var direction: Direction { get }
 }
 
-enum MoveType: Move {
+enum MoveType: String, Move {
     
-    case up, down, back, forward, none
+    case up = "1.1", back = "1.2", down = "1.3", forward = "1.4", none = "1.0"
     
     var defenseMultiplier: CGFloat {
         switch self {
