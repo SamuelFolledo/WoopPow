@@ -18,7 +18,7 @@ protocol Move {
 
 enum MoveType: String, Move {
     
-    case up = "1.1", back = "1.2", down = "1.3", forward = "1.4", none = "1.0"
+    case up, back, down, forward, none
     
     var defenseMultiplier: CGFloat {
         switch self {
@@ -63,24 +63,6 @@ enum MoveType: String, Move {
             return .down
         case .back, .forward, .none:
             return .mid
-        }
-    }
-}
-
-//MARK: Initializers
-extension MoveType {
-    init(code: String?) {
-        switch code {
-        case "1.1":
-            self = .up
-        case "1.2":
-            self = .back
-        case "1.3":
-            self = .down
-        case "1.4":
-            self = .forward
-        default:
-            self = .none
         }
     }
 }
