@@ -8,15 +8,6 @@
 
 import UIKit
 
-protocol Attack {
-    var damage: Int { get }
-    var speed: Int { get }
-    var cooldown: Int { get }
-    var image: UIImage { get }
-    var direction: Direction { get }
-    var position: AttackSetPosition { get }
-}
-
 enum AttackType: Attack {
     case kick(attack: Kick)
     case punch(attack: Punch)

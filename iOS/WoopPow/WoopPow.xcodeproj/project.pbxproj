@@ -28,6 +28,8 @@
 		335900B624EA12A200386D66 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B524EA12A200386D66 /* Control.swift */; };
 		335900B824EA695E00386D66 /* MoveSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B724EA695E00386D66 /* MoveSet.swift */; };
 		335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B924EA6B1D00386D66 /* MoveSetPosition.swift */; };
+		335900BD24EB2B8100386D66 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900BC24EB2B8100386D66 /* Attack.swift */; };
+		335900BF24EB2BAF00386D66 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900BE24EB2BAF00386D66 /* Move.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -82,6 +84,8 @@
 		335900B524EA12A200386D66 /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		335900B724EA695E00386D66 /* MoveSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSet.swift; sourceTree = "<group>"; };
 		335900B924EA6B1D00386D66 /* MoveSetPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetPosition.swift; sourceTree = "<group>"; };
+		335900BC24EB2B8100386D66 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
+		335900BE24EB2BAF00386D66 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -280,8 +284,9 @@
 		33BB66BC24E38D1D00C9EF3A /* Attack */ = {
 			isa = PBXGroup;
 			children = (
-				33BB66C424E38DF400C9EF3A /* AttackSet.swift */,
+				335900BC24EB2B8100386D66 /* Attack.swift */,
 				3378F00524DE56BF0019C1C8 /* AttackType.swift */,
+				33BB66C424E38DF400C9EF3A /* AttackSet.swift */,
 				33BB66C124E38D6800C9EF3A /* Properties */,
 			);
 			path = Attack;
@@ -290,8 +295,9 @@
 		33BB66BD24E38D2700C9EF3A /* Move */ = {
 			isa = PBXGroup;
 			children = (
-				335900B724EA695E00386D66 /* MoveSet.swift */,
+				335900BE24EB2BAF00386D66 /* Move.swift */,
 				3378F00324DE55F80019C1C8 /* MoveType.swift */,
+				335900B724EA695E00386D66 /* MoveSet.swift */,
 				33BB66C024E38D5800C9EF3A /* Properties */,
 			);
 			path = Move;
@@ -526,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				335900BD24EB2B8100386D66 /* Attack.swift in Sources */,
 				334293AE24CFCB370086D3F0 /* LocalNotificationManager.swift in Sources */,
 				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */,
@@ -553,6 +560,7 @@
 				334293B724CFCB410086D3F0 /* UITextField+Extensions.swift in Sources */,
 				33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */,
 				3342938424CFCA230086D3F0 /* AppDelegate.swift in Sources */,
+				335900BF24EB2BAF00386D66 /* Move.swift in Sources */,
 				334293B824CFCB410086D3F0 /* UIFont+Extensions.swift in Sources */,
 				3342938624CFCA230086D3F0 /* SceneDelegate.swift in Sources */,
 				33BB66BF24E38D4C00C9EF3A /* Direction.swift in Sources */,

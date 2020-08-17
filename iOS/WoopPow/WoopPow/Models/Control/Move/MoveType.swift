@@ -8,15 +8,6 @@
 
 import UIKit
 
-protocol Move {
-    var defenseMultiplier: CGFloat { get }
-    var speedMultiplier: CGFloat { get }
-    var cooldown: Int { get }
-    var image: UIImage { get }
-    var direction: Direction { get }
-    var position: MoveSetPosition { get }
-}
-
 enum MoveType: String, Move {
     
     case up, back, down, forward, none
