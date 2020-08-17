@@ -1,5 +1,5 @@
 //
-//  MoveSetView.swift
+//  ControlView.swift
 //  WoopPow
 //
 //  Created by Samuel Folledo on 7/28/20.
@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MoveSetView: UIView {
+class ControlView: UIView {
     
     //MARK: Properties
     let isLeft: Bool
@@ -36,27 +36,27 @@ class MoveSetView: UIView {
         return label
     }()
     
-    lazy var moveUp: MoveSetButtonView = {
+    lazy var moveUp: MoveButtonView = {
         let move = self.control.moveSet.up
-        let control = MoveSetButtonView(move: move)
+        let control = MoveButtonView(move: move)
         return control
     }()
     
-    lazy var moveBack: MoveSetButtonView = {
+    lazy var moveBack: MoveButtonView = {
         let move = self.control.moveSet.back
-        let control = MoveSetButtonView(move: move)
+        let control = MoveButtonView(move: move)
         return control
     }()
     
-    lazy var moveDown: MoveSetButtonView = {
+    lazy var moveDown: MoveButtonView = {
         let move = self.control.moveSet.down
-        let control = MoveSetButtonView(move: move)
+        let control = MoveButtonView(move: move)
         return control
     }()
     
-    lazy var moveForward: MoveSetButtonView = {
+    lazy var moveForward: MoveButtonView = {
         let move = self.control.moveSet.forward
-        let control = MoveSetButtonView(move: move)
+        let control = MoveButtonView(move: move)
         return control
     }()
     
@@ -68,39 +68,39 @@ class MoveSetView: UIView {
         return label
     }()
     
-    lazy var attackUpLight: MoveSetButtonView = {
+    lazy var attackUpLight: AttackButtonView = {
         let attack = self.control.attackSet.upLight
-        let control = MoveSetButtonView(attack: attack)
+        let control = AttackButtonView(attack: attack)
         return control
     }()
     
-    lazy var attackUpMedium: MoveSetButtonView = {
+    lazy var attackUpMedium: AttackButtonView = {
         let attack = self.control.attackSet.upMedium
-        let control = MoveSetButtonView(attack: attack)
+        let control = AttackButtonView(attack: attack)
         return control
     }()
     
-    lazy var attackUpHard: MoveSetButtonView = {
+    lazy var attackUpHard: AttackButtonView = {
         let attack = self.control.attackSet.upHard
-        let control = MoveSetButtonView(attack: attack)
+        let control = AttackButtonView(attack: attack)
         return control
     }()
     
-    lazy var attackDownLight: MoveSetButtonView = {
+    lazy var attackDownLight: AttackButtonView = {
         let attack = self.control.attackSet.downLight
-        let control = MoveSetButtonView(attack: attack)
+        let control = AttackButtonView(attack: attack)
         return control
     }()
     
-    lazy var attackDownMedium: MoveSetButtonView = {
+    lazy var attackDownMedium: AttackButtonView = {
         let attack = self.control.attackSet.downMedium
-        let control = MoveSetButtonView(attack: attack)
+        let control = AttackButtonView(attack: attack)
         return control
     }()
     
-    lazy var attackDownHard: MoveSetButtonView = {
+    lazy var attackDownHard: AttackButtonView = {
         let attack = self.control.attackSet.downHard
-        let control = MoveSetButtonView(attack: attack)
+        let control = AttackButtonView(attack: attack)
         return control
     }()
     
@@ -153,7 +153,7 @@ class MoveSetView: UIView {
         bottomMovesStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
         }
-        let downMoves: [MoveSetButtonView]
+        let downMoves: [MoveButtonView]
         if isLeft {
             downMoves = [moveBack, moveDown, moveForward]
         } else {
@@ -179,7 +179,7 @@ class MoveSetView: UIView {
         upAttacksStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
         }
-        let upAttacks: [MoveSetButtonView]
+        let upAttacks: [AttackButtonView]
         if isLeft {
             upAttacks = [attackUpLight, attackUpMedium, attackUpHard]
         } else {
@@ -194,7 +194,7 @@ class MoveSetView: UIView {
         downAttacksStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
         }
-        let downAttacks: [MoveSetButtonView]
+        let downAttacks: [AttackButtonView]
         if isLeft {
             downAttacks = [attackDownLight, attackDownMedium, attackDownHard]
         } else {

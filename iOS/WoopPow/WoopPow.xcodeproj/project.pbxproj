@@ -30,6 +30,7 @@
 		335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B924EA6B1D00386D66 /* MoveSetPosition.swift */; };
 		335900BD24EB2B8100386D66 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900BC24EB2B8100386D66 /* Attack.swift */; };
 		335900BF24EB2BAF00386D66 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900BE24EB2BAF00386D66 /* Move.swift */; };
+		335900C124EB337F00386D66 /* AttackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900C024EB337F00386D66 /* AttackButtonView.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -42,8 +43,8 @@
 		33BB66BF24E38D4C00C9EF3A /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB66BE24E38D4C00C9EF3A /* Direction.swift */; };
 		33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB66C224E38DC200C9EF3A /* AttackSetPosition.swift */; };
 		33BB66C524E38DF400C9EF3A /* AttackSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB66C424E38DF400C9EF3A /* AttackSet.swift */; };
-		33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* MoveSetView.swift */; };
-		33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */; };
+		33E4FAAF24D0118D00C06527 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* ControlView.swift */; };
+		33E4FAB224D0171100C06527 /* MoveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveButtonView.swift */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		335900B924EA6B1D00386D66 /* MoveSetPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetPosition.swift; sourceTree = "<group>"; };
 		335900BC24EB2B8100386D66 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		335900BE24EB2BAF00386D66 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		335900C024EB337F00386D66 /* AttackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackButtonView.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -98,8 +100,8 @@
 		33BB66BE24E38D4C00C9EF3A /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		33BB66C224E38DC200C9EF3A /* AttackSetPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackSetPosition.swift; sourceTree = "<group>"; };
 		33BB66C424E38DF400C9EF3A /* AttackSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackSet.swift; sourceTree = "<group>"; };
-		33E4FAAE24D0118D00C06527 /* MoveSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetView.swift; sourceTree = "<group>"; };
-		33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetButtonView.swift; sourceTree = "<group>"; };
+		33E4FAAE24D0118D00C06527 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		33E4FAB124D0171100C06527 /* MoveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveButtonView.swift; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
 		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,8 +333,9 @@
 		33E4FAB024D0166000C06527 /* MoveSet */ = {
 			isa = PBXGroup;
 			children = (
-				33E4FAAE24D0118D00C06527 /* MoveSetView.swift */,
-				33E4FAB124D0171100C06527 /* MoveSetButtonView.swift */,
+				33E4FAAE24D0118D00C06527 /* ControlView.swift */,
+				33E4FAB124D0171100C06527 /* MoveButtonView.swift */,
+				335900C024EB337F00386D66 /* AttackButtonView.swift */,
 			);
 			path = MoveSet;
 			sourceTree = "<group>";
@@ -534,12 +537,13 @@
 			files = (
 				335900BD24EB2B8100386D66 /* Attack.swift in Sources */,
 				334293AE24CFCB370086D3F0 /* LocalNotificationManager.swift in Sources */,
+				335900C124EB337F00386D66 /* AttackButtonView.swift in Sources */,
 				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */,
 				335900B824EA695E00386D66 /* MoveSet.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
 				3378EFF724D7F9410019C1C8 /* Player.swift in Sources */,
-				33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */,
+				33E4FAAF24D0118D00C06527 /* ControlView.swift in Sources */,
 				334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */,
 				33BB66C524E38DF400C9EF3A /* AttackSet.swift in Sources */,
 				334293A924CFCABF0086D3F0 /* Constants.swift in Sources */,
@@ -558,7 +562,7 @@
 				334293B524CFCB410086D3F0 /* UIColor+Extensions.swift in Sources */,
 				3378F00624DE56BF0019C1C8 /* AttackType.swift in Sources */,
 				334293B724CFCB410086D3F0 /* UITextField+Extensions.swift in Sources */,
-				33E4FAB224D0171100C06527 /* MoveSetButtonView.swift in Sources */,
+				33E4FAB224D0171100C06527 /* MoveButtonView.swift in Sources */,
 				3342938424CFCA230086D3F0 /* AppDelegate.swift in Sources */,
 				335900BF24EB2BAF00386D66 /* Move.swift in Sources */,
 				334293B824CFCB410086D3F0 /* UIFont+Extensions.swift in Sources */,

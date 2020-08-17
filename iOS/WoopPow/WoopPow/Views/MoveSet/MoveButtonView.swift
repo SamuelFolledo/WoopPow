@@ -1,5 +1,5 @@
 //
-//  MoveSetButtonView.swift
+//  MoveButtonView.swift
 //  WoopPow
 //
 //  Created by Samuel Folledo on 7/28/20.
@@ -9,9 +9,10 @@
 import UIKit
 import SnapKit
 
-class MoveSetButtonView: UIView {
+class MoveButtonView: UIView {
     
     //MARK: Properties
+    var move: Move
     
     //MARK: Views
     lazy var containerView: UIView = {
@@ -22,11 +23,13 @@ class MoveSetButtonView: UIView {
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 3
         view.layer.shadowColor = UIColor.gray.cgColor
+        view.backgroundColor = move.backgroundColor
         return view
     }()
     
     lazy var button: UIButton = {
         let button = UIButton(frame: .zero)
+        button.setImage(move.image, for: .normal)
         return button
     }()
     
@@ -37,14 +40,8 @@ class MoveSetButtonView: UIView {
     
     //MARK: Init
     required init(move: Move) {
+        self.move = move
         super.init(frame: .zero)
-        self.button.setImage(move.image, for: .normal)
-        setup()
-    }
-    
-    required init(attack: Attack) {
-        super.init(frame: .zero)
-        self.button.setImage(attack.image, for: .normal)
         setup()
     }
     

@@ -134,23 +134,23 @@ private extension GameController {
         let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
-        let moveSetView = MoveSetView(isLeft: true, control: control)
-        moveSetView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        view.addSubview(moveSetView)
-        moveSetView.snp.makeConstraints { (make) in
+        let controlView = ControlView(isLeft: true, control: control)
+        controlView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view.addSubview(controlView)
+        controlView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.centerY.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
         
-        let attackSet2 = AttackSet(codes: ["2.1", "1.2", "1.3", "1.4", "2.5", "2.6"])
+        let attackSet2 = AttackSet(codes: ["2.1", "2.2", "1.3", "1.4", "2.5", "2.6"])
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
-        let moveSetView2 = MoveSetView(isLeft: false, control: control2)
-        moveSetView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        view.addSubview(moveSetView2)
-        moveSetView2.snp.makeConstraints { (make) in
+        let controlView2 = ControlView(isLeft: false, control: control2)
+        controlView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view.addSubview(controlView2)
+        controlView2.snp.makeConstraints { (make) in
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
             make.centerY.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)

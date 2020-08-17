@@ -73,6 +73,16 @@ enum AttackType: Attack {
             return none.position
         }
     }
+    var backgroundColor: UIColor {
+        switch self {
+        case .kick(let kick):
+            return kick.backgroundColor
+        case .punch(let punch):
+            return punch.backgroundColor
+        case .none(let none):
+            return none.backgroundColor
+        }
+    }
 }
 
 //MARK: Initializers
@@ -136,6 +146,7 @@ extension AttackType {
                 return .downHard
             }
         }
+        var backgroundColor: UIColor { return .clear }
     }
         
     enum Punch: Attack {
@@ -212,6 +223,14 @@ extension AttackType {
                 return .downHard
             }
         }
+        var backgroundColor: UIColor {
+            switch self {
+            case .punchUpLight, .punchUpMedium, .punchUpHard:
+                return .orange
+            case .punchDownLight, .punchDownMedium, .punchDownHard:
+                return .orange
+            }
+        }
     }
     
     enum Kick: Attack {
@@ -251,17 +270,17 @@ extension AttackType {
         var image: UIImage {
             switch self {
             case .kickUpLight:
-                return Constants.Images.punchUpLight.withTintColor(.blue)
+                return Constants.Images.punchUpLight//.withTintColor(.blue)
             case .kickUpMedium:
-                return Constants.Images.punchUpMedium.withTintColor(.blue)
+                return Constants.Images.punchUpMedium//.withTintColor(.blue)
             case .kickUpHard:
-                return Constants.Images.punchUpHard.withTintColor(.blue)
+                return Constants.Images.punchUpHard//.withTintColor(.blue)
             case .kickDownLight:
-                return Constants.Images.punchDownLight.withTintColor(.green)
+                return Constants.Images.punchDownLight//.withTintColor(.green)
             case .kickDownMedium:
-                return Constants.Images.punchDownMedium.withTintColor(.green)
+                return Constants.Images.punchDownMedium//.withTintColor(.green)
             case .kickDownHard:
-                return Constants.Images.punchDownHard.withTintColor(.green)
+                return Constants.Images.punchDownHard//.withTintColor(.green)
             }
         }
         var direction: Direction {
@@ -286,6 +305,14 @@ extension AttackType {
                 return .downMedium
             case .kickDownHard:
                 return .downHard
+            }
+        }
+        var backgroundColor: UIColor {
+            switch self {
+            case .kickUpLight, .kickUpMedium, .kickUpHard:
+                return .cyan
+            case .kickDownLight, .kickDownMedium, .kickDownHard:
+                return .cyan
             }
         }
     }

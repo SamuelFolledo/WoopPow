@@ -71,6 +71,18 @@ enum MoveType: String, Move {
             return .none
         }
     }
+    var backgroundColor: UIColor {
+        switch self {
+        case .up, .down:
+            return .green
+        case .back:
+            return .blue
+        case .forward:
+            return .red
+        case .none:
+            return .clear
+        }
+    }
 }
 
 extension MoveType {
