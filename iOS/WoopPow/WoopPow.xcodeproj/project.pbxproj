@@ -69,7 +69,7 @@
 		3342938A24CFCA230086D3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3342938C24CFCA270086D3F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3342938F24CFCA270086D3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3342939124CFCA270086D3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3342939124CFCA270086D3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "WoopPow/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		3342939624CFCA270086D3F0 /* WoopPowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoopPowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3342939A24CFCA270086D3F0 /* WoopPowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopPowTests.swift; sourceTree = "<group>"; };
 		3342939C24CFCA270086D3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,7 +89,8 @@
 		335900BC24EB2B8100386D66 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		335900BE24EB2BAF00386D66 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		335900C024EB337F00386D66 /* AttackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackButtonView.swift; sourceTree = "<group>"; };
-		335900C224EB45D600386D66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		335900C224EB45D600386D66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		335900C624EB4C1C00386D66 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 		3342937724CFCA230086D3F0 = {
 			isa = PBXGroup;
 			children = (
+				335900C624EB4C1C00386D66 /* README.md */,
 				3342938224CFCA230086D3F0 /* WoopPow */,
 				3342939924CFCA270086D3F0 /* WoopPowTests */,
 				3342938124CFCA230086D3F0 /* Products */,
@@ -173,10 +175,8 @@
 				334293A724CFCAA60086D3F0 /* Coordinators */,
 				334293AA24CFCACB0086D3F0 /* Helpers */,
 				3342938924CFCA230086D3F0 /* Main.storyboard */,
-				3342938C24CFCA270086D3F0 /* Assets.xcassets */,
-				3342938E24CFCA270086D3F0 /* LaunchScreen.storyboard */,
-				335900C224EB45D600386D66 /* GoogleService-Info.plist */,
-				3342939124CFCA270086D3F0 /* Info.plist */,
+				335900C424EB4B3B00386D66 /* Resources */,
+				335900C524EB4B4800386D66 /* Supporting Files */,
 			);
 			path = WoopPow;
 			sourceTree = "<group>";
@@ -231,6 +231,24 @@
 				33BB66BC24E38D1D00C9EF3A /* Attack */,
 			);
 			path = Control;
+			sourceTree = "<group>";
+		};
+		335900C424EB4B3B00386D66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3342938C24CFCA270086D3F0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		335900C524EB4B4800386D66 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3342938E24CFCA270086D3F0 /* LaunchScreen.storyboard */,
+				335900C224EB45D600386D66 /* GoogleService-Info.plist */,
+				3342939124CFCA270086D3F0 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		3378EFE624D7CCB30019C1C8 /* Home */ = {
@@ -734,7 +752,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NY68F4K3P;
-				INFOPLIST_FILE = WoopPow/Info.plist;
+				INFOPLIST_FILE = "WoopPow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -753,7 +771,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NY68F4K3P;
-				INFOPLIST_FILE = WoopPow/Info.plist;
+				INFOPLIST_FILE = "WoopPow/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
