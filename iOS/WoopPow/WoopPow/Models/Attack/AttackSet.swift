@@ -18,6 +18,13 @@ struct AttackSet {
     
     private var positions: [AttackSetPosition] = []
     
+    init(codes: [String]) {
+        for code in codes {
+            let attack = AttackType(code: code)
+            addAttack(attack: attack)
+        }
+    }
+    
     init(attacks: [Attack]) {
         if attacks.count != 6 {
             print("Not enough attacks")
