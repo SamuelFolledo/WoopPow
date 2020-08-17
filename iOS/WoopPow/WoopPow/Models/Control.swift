@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct Control {
+    
+    var attackSet: AttackSet
+    var moves: [MoveType]
+    
+    init(attackSet: AttackSet, moves: [MoveType]) {
+        self.attackSet = attackSet
+        self.moves = moves
+    }
+}
