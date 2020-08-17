@@ -14,6 +14,7 @@ protocol Move {
     var cooldown: Int { get }
     var image: UIImage { get }
     var direction: Direction { get }
+    var position: MoveSetPosition { get }
 }
 
 enum MoveType: String, Move {
@@ -63,6 +64,20 @@ enum MoveType: String, Move {
             return .down
         case .back, .forward, .none:
             return .mid
+        }
+    }
+    var position: MoveSetPosition {
+        switch self {
+        case .up:
+            return .up
+        case .back:
+            return .back
+        case .down:
+            return .down
+        case .forward:
+            return .forward
+        default:
+            return .none
         }
     }
 }
