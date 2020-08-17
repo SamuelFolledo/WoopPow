@@ -39,28 +39,24 @@ class MoveSetView: UIView {
     lazy var moveUp: MoveSetButtonView = {
         let move = self.control.moveSet.up
         let control = MoveSetButtonView(move: move)
-        control.containerView.backgroundColor = .green
         return control
     }()
     
     lazy var moveBack: MoveSetButtonView = {
         let move = self.control.moveSet.back
         let control = MoveSetButtonView(move: move)
-        control.containerView.backgroundColor = .blue
         return control
     }()
     
     lazy var moveDown: MoveSetButtonView = {
         let move = self.control.moveSet.down
         let control = MoveSetButtonView(move: move)
-        control.containerView.backgroundColor = .green
         return control
     }()
     
     lazy var moveForward: MoveSetButtonView = {
         let move = self.control.moveSet.forward
         let control = MoveSetButtonView(move: move)
-        control.containerView.backgroundColor = .red
         return control
     }()
     
@@ -75,42 +71,36 @@ class MoveSetView: UIView {
     lazy var attackUpLight: MoveSetButtonView = {
         let attack = self.control.attackSet.upLight
         let control = MoveSetButtonView(attack: attack)
-        control.containerView.backgroundColor = .orange
         return control
     }()
     
     lazy var attackUpMedium: MoveSetButtonView = {
         let attack = self.control.attackSet.upMedium
         let control = MoveSetButtonView(attack: attack)
-        control.containerView.backgroundColor = .orange
         return control
     }()
     
     lazy var attackUpHard: MoveSetButtonView = {
         let attack = self.control.attackSet.upHard
         let control = MoveSetButtonView(attack: attack)
-        control.containerView.backgroundColor = .orange
         return control
     }()
     
     lazy var attackDownLight: MoveSetButtonView = {
         let attack = self.control.attackSet.downLight
         let control = MoveSetButtonView(attack: attack)
-        control.containerView.backgroundColor = .purple
         return control
     }()
     
     lazy var attackDownMedium: MoveSetButtonView = {
         let attack = self.control.attackSet.downMedium
         let control = MoveSetButtonView(attack: attack)
-        control.containerView.backgroundColor = .purple
         return control
     }()
     
     lazy var attackDownHard: MoveSetButtonView = {
         let attack = self.control.attackSet.downHard
         let control = MoveSetButtonView(attack: attack)
-        control.containerView.backgroundColor = .purple
         return control
     }()
     
