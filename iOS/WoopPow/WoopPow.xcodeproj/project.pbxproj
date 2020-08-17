@@ -214,6 +214,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		335900BB24EB2A6200386D66 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				335900B524EA12A200386D66 /* Control.swift */,
+				33BB66BD24E38D2700C9EF3A /* Move */,
+				33BB66BC24E38D1D00C9EF3A /* Attack */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
 		3378EFE624D7CCB30019C1C8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,9 +272,7 @@
 			children = (
 				3378EFF424D7F7BF0019C1C8 /* Game.swift */,
 				3378EFF624D7F9410019C1C8 /* Player.swift */,
-				335900B524EA12A200386D66 /* Control.swift */,
-				33BB66BD24E38D2700C9EF3A /* Move */,
-				33BB66BC24E38D1D00C9EF3A /* Attack */,
+				335900BB24EB2A6200386D66 /* Control */,
 			);
 			path = Models;
 			sourceTree = "<group>";
