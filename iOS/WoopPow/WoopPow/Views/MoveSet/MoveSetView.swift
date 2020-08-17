@@ -12,7 +12,8 @@ import SnapKit
 class MoveSetView: UIView {
     
     //MARK: Properties
-    var isLeft: Bool
+    let isLeft: Bool
+    let control: Control
     
     //MARK: Views
     lazy var containerView: UIView = {
@@ -104,8 +105,9 @@ class MoveSetView: UIView {
     }()
     
     //MARK: Init
-    required init(isLeft: Bool) {
+    required init(isLeft: Bool, control: Control) {
         self.isLeft = isLeft
+        self.control = control
         super.init(frame: .zero)
         setup()
     }
