@@ -36,13 +36,13 @@ class MoveSetButtonView: UIView {
     }()
     
     //MARK: Init
-    required init(moveImage: UIImage) {
+    required init(move: Move) {
         super.init(frame: .zero)
-        self.button.setImage(moveImage, for: .normal)
+        self.button.setImage(move.image, for: .normal)
         setup()
     }
     
-    required init(attack: AttackType) {
+    required init(attack: Attack) {
         super.init(frame: .zero)
         self.button.setImage(attack.image, for: .normal)
         setup()
