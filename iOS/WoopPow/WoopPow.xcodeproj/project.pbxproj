@@ -31,6 +31,7 @@
 		335900BD24EB2B8100386D66 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900BC24EB2B8100386D66 /* Attack.swift */; };
 		335900BF24EB2BAF00386D66 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900BE24EB2BAF00386D66 /* Move.swift */; };
 		335900C124EB337F00386D66 /* AttackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900C024EB337F00386D66 /* AttackButtonView.swift */; };
+		335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 335900C224EB45D600386D66 /* GoogleService-Info.plist */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -88,6 +89,7 @@
 		335900BC24EB2B8100386D66 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		335900BE24EB2BAF00386D66 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		335900C024EB337F00386D66 /* AttackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackButtonView.swift; sourceTree = "<group>"; };
+		335900C224EB45D600386D66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				3342938924CFCA230086D3F0 /* Main.storyboard */,
 				3342938C24CFCA270086D3F0 /* Assets.xcassets */,
 				3342938E24CFCA270086D3F0 /* LaunchScreen.storyboard */,
+				335900C224EB45D600386D66 /* GoogleService-Info.plist */,
 				3342939124CFCA270086D3F0 /* Info.plist */,
 			);
 			path = WoopPow;
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3342939024CFCA270086D3F0 /* LaunchScreen.storyboard in Resources */,
+				335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */,
 				3342938D24CFCA270086D3F0 /* Assets.xcassets in Resources */,
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
 			);
