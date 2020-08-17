@@ -131,7 +131,10 @@ private extension GameController {
     }
     
     func constraintMoveSets() {
-        let moveSetView = MoveSetView(isLeft: true)
+        let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
+        let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
+        let control = Control(attackSet: attackSet, moveSet: moveSet)
+        let moveSetView = MoveSetView(isLeft: true, control: control)
         moveSetView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         view.addSubview(moveSetView)
         moveSetView.snp.makeConstraints { (make) in
@@ -141,7 +144,10 @@ private extension GameController {
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
         
-        let moveSetView2 = MoveSetView(isLeft: false)
+        let attackSet2 = AttackSet(codes: ["2.1", "1.2", "1.3", "1.4", "2.5", "2.6"])
+        let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
+        let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
+        let moveSetView2 = MoveSetView(isLeft: true, control: control2)
         moveSetView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         view.addSubview(moveSetView2)
         moveSetView2.snp.makeConstraints { (make) in

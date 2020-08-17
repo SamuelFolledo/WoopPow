@@ -26,6 +26,8 @@
 		334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B424CFCB410086D3F0 /* UIView+Extensions.swift */; };
 		334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293BB24CFCC3A0086D3F0 /* Coordinator.swift */; };
 		335900B624EA12A200386D66 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B524EA12A200386D66 /* Control.swift */; };
+		335900B824EA695E00386D66 /* MoveSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B724EA695E00386D66 /* MoveSet.swift */; };
+		335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B924EA6B1D00386D66 /* MoveSetPosition.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -78,6 +80,8 @@
 		334293B424CFCB410086D3F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		334293BB24CFCC3A0086D3F0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		335900B524EA12A200386D66 /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		335900B724EA695E00386D66 /* MoveSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSet.swift; sourceTree = "<group>"; };
+		335900B924EA6B1D00386D66 /* MoveSetPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetPosition.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 		33BB66BD24E38D2700C9EF3A /* Move */ = {
 			isa = PBXGroup;
 			children = (
+				335900B724EA695E00386D66 /* MoveSet.swift */,
 				3378F00324DE55F80019C1C8 /* MoveType.swift */,
 				33BB66C024E38D5800C9EF3A /* Properties */,
 			);
@@ -288,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				33BB66BE24E38D4C00C9EF3A /* Direction.swift */,
+				335900B924EA6B1D00386D66 /* MoveSetPosition.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				334293AE24CFCB370086D3F0 /* LocalNotificationManager.swift in Sources */,
 				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */,
+				335900B824EA695E00386D66 /* MoveSet.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
 				3378EFF724D7F9410019C1C8 /* Player.swift in Sources */,
 				33E4FAAF24D0118D00C06527 /* MoveSetView.swift in Sources */,
@@ -529,6 +536,7 @@
 				3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */,
 				3378F00424DE55F80019C1C8 /* MoveType.swift in Sources */,
 				334293B624CFCB410086D3F0 /* UIViewController+Extensions.swift in Sources */,
+				335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */,
 				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
