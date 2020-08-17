@@ -11,10 +11,10 @@ import Foundation
 struct Control {
     
     var attackSet: AttackSet
-    var moves: [MoveType]
+    var moveSet: MoveSet
     
-    init(attackSet: AttackSet, moves: [MoveType]) {
+    init(attackSet: AttackSet, moveSet: MoveSet) {
         self.attackSet = attackSet
-        self.moves = moves
+        self.moveSet = moveSet
     }
 }
