@@ -81,3 +81,20 @@ enum MoveType: String, Move {
         }
     }
 }
+
+extension MoveType {
+    init(code: String) {
+        switch code {
+        case "up":
+            self = .up
+        case "back":
+            self = .back
+        case "down":
+            self = .down
+        case "forward":
+            self = .forward
+        default:
+            self = .none
+        }
+    }
+}
