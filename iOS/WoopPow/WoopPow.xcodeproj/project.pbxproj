@@ -325,19 +325,19 @@
 		33E4FAAD24D0115B00C06527 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				33E4FAB024D0166000C06527 /* MoveSet */,
+				33E4FAB024D0166000C06527 /* Control */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		33E4FAB024D0166000C06527 /* MoveSet */ = {
+		33E4FAB024D0166000C06527 /* Control */ = {
 			isa = PBXGroup;
 			children = (
 				33E4FAAE24D0118D00C06527 /* ControlView.swift */,
 				33E4FAB124D0171100C06527 /* MoveButtonView.swift */,
 				335900C024EB337F00386D66 /* AttackButtonView.swift */,
 			);
-			path = MoveSet;
+			path = Control;
 			sourceTree = "<group>";
 		};
 		65E3665666129F6A43B375E8 /* Frameworks */ = {
