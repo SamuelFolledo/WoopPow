@@ -259,10 +259,34 @@
 			children = (
 				3378EFE624D7CCB30019C1C8 /* Home */,
 				3378EFE724D7CCC60019C1C8 /* Game */,
-				335900C924EB5EE000386D66 /* CreateAccountController.swift */,
-				335900CB24EB5EEC00386D66 /* SignInController.swift */,
+				335900CD24EB69DF00386D66 /* SignInUpFlow */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		335900CD24EB69DF00386D66 /* SignInUpFlow */ = {
+			isa = PBXGroup;
+			children = (
+				335900CE24EB69F700386D66 /* CreateAccount */,
+				335900CF24EB69FF00386D66 /* SignIn */,
+			);
+			path = SignInUpFlow;
+			sourceTree = "<group>";
+		};
+		335900CE24EB69F700386D66 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				335900C924EB5EE000386D66 /* CreateAccountController.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		335900CF24EB69FF00386D66 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				335900CB24EB5EEC00386D66 /* SignInController.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		3378EFE624D7CCB30019C1C8 /* Home */ = {
