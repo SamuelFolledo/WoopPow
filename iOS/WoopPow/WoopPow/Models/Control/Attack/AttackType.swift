@@ -119,7 +119,7 @@ extension AttackType {
     }
 }
 
-//MARK: Move Types
+//MARK: Attack Types
 extension AttackType {
     enum None: Attack {
         case noneUpLight, noneUpMedium, noneUpHard,
