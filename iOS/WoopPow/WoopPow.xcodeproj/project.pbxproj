@@ -34,6 +34,9 @@
 		335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 335900C224EB45D600386D66 /* GoogleService-Info.plist */; };
 		335900CA24EB5EE000386D66 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900C924EB5EE000386D66 /* CreateAccountController.swift */; };
 		335900CC24EB5EEC00386D66 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900CB24EB5EEC00386D66 /* SignInController.swift */; };
+		335900D124EB6A2400386D66 /* CreateAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900D024EB6A2400386D66 /* CreateAccountFormView.swift */; };
+		335900D324EB6C7C00386D66 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900D224EB6C7C00386D66 /* UnderlinedTextField.swift */; };
+		335900D524EC787000386D66 /* ABAnimateProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900D424EC787000386D66 /* ABAnimateProgressView.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -95,6 +98,9 @@
 		335900C624EB4C1C00386D66 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		335900C924EB5EE000386D66 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		335900CB24EB5EEC00386D66 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		335900D024EB6A2400386D66 /* CreateAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountFormView.swift; sourceTree = "<group>"; };
+		335900D224EB6C7C00386D66 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		335900D424EC787000386D66 /* ABAnimateProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABAnimateProgressView.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -175,9 +181,9 @@
 				3342938524CFCA230086D3F0 /* SceneDelegate.swift */,
 				335900C824EB5E1100386D66 /* Features */,
 				334293A724CFCAA60086D3F0 /* Coordinators */,
-				334293AA24CFCACB0086D3F0 /* Helpers */,
 				3378EFF324D7F7AC0019C1C8 /* Models */,
 				33E4FAAD24D0115B00C06527 /* Views */,
+				334293AA24CFCACB0086D3F0 /* Helpers */,
 				335900C424EB4B3B00386D66 /* Resources */,
 				335900C524EB4B4800386D66 /* Supporting Files */,
 			);
@@ -277,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				335900C924EB5EE000386D66 /* CreateAccountController.swift */,
+				335900D024EB6A2400386D66 /* CreateAccountFormView.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -385,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				33E4FAB024D0166000C06527 /* Control */,
+				335900D224EB6C7C00386D66 /* UnderlinedTextField.swift */,
+				335900D424EC787000386D66 /* ABAnimateProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -601,6 +610,7 @@
 				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */,
 				335900B824EA695E00386D66 /* MoveSet.swift in Sources */,
+				335900D524EC787000386D66 /* ABAnimateProgressView.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
 				3378EFF724D7F9410019C1C8 /* Player.swift in Sources */,
 				33E4FAAF24D0118D00C06527 /* ControlView.swift in Sources */,
@@ -617,6 +627,7 @@
 				3378F00424DE55F80019C1C8 /* MoveType.swift in Sources */,
 				334293B624CFCB410086D3F0 /* UIViewController+Extensions.swift in Sources */,
 				335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */,
+				335900D124EB6A2400386D66 /* CreateAccountFormView.swift in Sources */,
 				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,
 				335900CC24EB5EEC00386D66 /* SignInController.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
@@ -628,6 +639,7 @@
 				3342938424CFCA230086D3F0 /* AppDelegate.swift in Sources */,
 				335900BF24EB2BAF00386D66 /* Move.swift in Sources */,
 				334293B824CFCB410086D3F0 /* UIFont+Extensions.swift in Sources */,
+				335900D324EB6C7C00386D66 /* UnderlinedTextField.swift in Sources */,
 				3342938624CFCA230086D3F0 /* SceneDelegate.swift in Sources */,
 				33BB66BF24E38D4C00C9EF3A /* Direction.swift in Sources */,
 			);
