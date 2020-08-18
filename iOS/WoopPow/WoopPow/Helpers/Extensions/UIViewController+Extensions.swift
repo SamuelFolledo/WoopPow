@@ -7,8 +7,36 @@
 //
 
 import UIKit.UIViewController
+import NVActivityIndicatorView
 
 extension UIViewController {
+    
+    //takes a view and add
+    func startActivityIndicator(type: NVActivityIndicatorType = .ballClipRotateMultiple) {
+        let frame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 40)
+        let activityIndicator = NVActivityIndicatorView(frame: frame, type: type, color: .label, padding: 0.0)
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        UIView.animate(withDuration: 0.2) {
+            self.view.isUserInteractionEnabled = false
+            activityIndicator.startAnimating()
+        }
+    }
+    
+    func stopActivityIndicator() {
+        UIView.animate(withDuration: 0.2) {
+            self.view.isUserInteractionEnabled = true
+        }
+        self.view.isUserInteractionEnabled = true
+        Constants.Views.indicatorView.stopAnimating()
+        Constants.Views.indicatorView.removeFromSuperview()
+    }
+    
+    ///remove keyboard when view is tapped
     func hideKeyboardOnTap() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
