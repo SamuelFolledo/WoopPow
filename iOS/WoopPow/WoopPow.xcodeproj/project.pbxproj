@@ -168,9 +168,9 @@
 			children = (
 				3342938324CFCA230086D3F0 /* AppDelegate.swift */,
 				3342938524CFCA230086D3F0 /* SceneDelegate.swift */,
-				3378EFE624D7CCB30019C1C8 /* Home */,
-				3378EFE724D7CCC60019C1C8 /* Game */,
-				335900C724EB52F900386D66 /* Common */,
+				335900C824EB5E1100386D66 /* Features */,
+				33E4FAAD24D0115B00C06527 /* Views */,
+				3378EFF324D7F7AC0019C1C8 /* Models */,
 				334293A724CFCAA60086D3F0 /* Coordinators */,
 				334293AA24CFCACB0086D3F0 /* Helpers */,
 				3342938924CFCA230086D3F0 /* Main.storyboard */,
@@ -250,13 +250,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		335900C724EB52F900386D66 /* Common */ = {
+		335900C824EB5E1100386D66 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				3378EFF324D7F7AC0019C1C8 /* Models */,
-				33E4FAAD24D0115B00C06527 /* Views */,
+				3378EFE624D7CCB30019C1C8 /* Home */,
+				3378EFE724D7CCC60019C1C8 /* Game */,
 			);
-			path = Common;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		3378EFE624D7CCB30019C1C8 /* Home */ = {
