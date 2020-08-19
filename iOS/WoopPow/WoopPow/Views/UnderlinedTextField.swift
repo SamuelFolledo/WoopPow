@@ -44,7 +44,7 @@ class UnderlinedTextField: UITextField {
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
         bottomLine.backgroundColor = defaultUnderlineColor
         self.addSubview(bottomLine)
-        bottomLine.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true //updated to make the line closer to the text
+        bottomLine.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true //updated to make the line closer to the text
         bottomLine.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         bottomLine.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         bottomLine.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
