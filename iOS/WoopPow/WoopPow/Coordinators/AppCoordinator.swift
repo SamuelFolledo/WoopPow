@@ -31,9 +31,15 @@ class AppCoordinator: Coordinator {
 //        navigationController.pushViewController(vc, animated: false)
 //    }
     func start() {
-        let vc = CreateAccountController()
+        let vc = SignInController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    @objc func goToCreateAccountController() {
+        let vc = CreateAccountController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func goToGameController() {
