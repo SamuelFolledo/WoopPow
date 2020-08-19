@@ -19,6 +19,11 @@ class CreateAccountController: UIViewController {
     
     // MARK: - UI Components
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton().asBackButton()
+        return button
+    }()
+    
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = .systemBackground
@@ -96,10 +101,12 @@ class CreateAccountController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        transparentNavigationBar()
         formView.configureTextFieldDelegate(with: self)
         configureAutoLayout()
         configureNavigationItem()
         hideKeyboardOnTap()
+        addKeyboardObservers()
     }
     
     private func configureAutoLayout() {
@@ -120,51 +127,44 @@ class CreateAccountController: UIViewController {
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
-            $0.leading.trailing.bottom.equalToSuperview()
+//            $0.leading.equalToSuperview().offset(20)
+//            $0.trailing.equalToSuperview().offset(-20)
+            $0.width.equalTo(300)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         [createYourAccountLabel, formView, creatingAccountLabel, termsAndConditionsButton, nextButton].forEach {
-//            stackView.addSubview($0)
             stackView.addArrangedSubview($0)
+            $0.snp.makeConstraints { (make) in
+                make.width.equalToSuperview()
+            }
         }
         
-        createYourAccountLabel.snp.makeConstraints { (make) in
-            make.height.equalTo(35)
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25)
-            make.right.equalToSuperview().offset(-20)
-            make.left.equalToSuperview().offset(20)
+        createYourAccountLabel.snp.makeConstraints {
+            $0.height.equalTo(35)
         }
         
-        formView.snp.makeConstraints { (make) in
-//            make.top.equalTo(createYourAccountLabel.snp.bottom).offset(40)
-//            make.height.equalToSuperview().multipliedBy(0.45)
-            make.height.equalTo(350)
-            make.right.equalToSuperview().offset(-20)
-            make.left.equalToSuperview().offset(20)
+        formView.snp.makeConstraints {
+            $0.height.equalTo(350)
         }
         
-        creatingAccountLabel.snp.makeConstraints { (make) in
-//            make.top.equalTo(formView.snp.bottom).offset(30)
-            make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
+        creatingAccountLabel.snp.makeConstraints {
+            $0.height.equalTo(30)
         }
         
-        termsAndConditionsButton.snp.makeConstraints { (make) in
-            make.height.equalTo(20)
-//            make.top.equalTo(creatingAccountLabel.snp.bottom)
-            make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
+        termsAndConditionsButton.snp.makeConstraints {
+            $0.height.equalTo(20)
         }
         
-        nextButton.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-10)
-            make.width.height.equalTo(60)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-15)
+        nextButton.snp.makeConstraints {
+            $0.height.equalTo(60)
         }
     }
     
     private func configureNavigationItem() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(dismissCreateAccountController))
+        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIButton().asBackButton())
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(dismissCreateAccountController))
     }
     
 //    private func handleTextFieldChanges() {
@@ -323,31 +323,31 @@ class CreateAccountController: UIViewController {
 //}
 
 extension CreateAccountController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        var formViewY: CGFloat = 0
-        var nextButtonY: CGFloat = 0
-        switch textField {
-        case self.formView.emailTextField:
-            formViewY = -70
-            nextButtonY = 0
-        case self.formView.passwordTextField:
-            formViewY = -160
-            nextButtonY = -50
-        default:
-            formViewY = 0
-            nextButtonY = 0
-        }
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.transform = CGAffineTransform(translationX: 0, y: formViewY)
-            self.nextButton.transform = CGAffineTransform(translationX: 0, y: nextButtonY)
-        })
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        var formViewY: CGFloat = 0
+//        var nextButtonY: CGFloat = 0
+//        switch textField {
+//        case self.formView.emailTextField:
+//            formViewY = -70
+//            nextButtonY = 0
+//        case self.formView.passwordTextField:
+//            formViewY = -160
+//            nextButtonY = -50
+//        default:
+//            formViewY = 0
+//            nextButtonY = 0
+//        }
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.view.transform = CGAffineTransform(translationX: 0, y: formViewY)
+//            self.nextButton.transform = CGAffineTransform(translationX: 0, y: nextButtonY)
+//        })
+//    }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.transform = CGAffineTransform(translationX: 0, y: 0)
-        })
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        UIView.animate(withDuration: 0.2, animations: {
+//            self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+//        })
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
@@ -361,5 +361,26 @@ extension CreateAccountController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+//MARK: Keyboard methods
+private extension CreateAccountController {
+    func addKeyboardObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let keyboardFrame: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        let keyboardHeight = keyboardFrame.height
+        scrollView.contentInset.bottom = keyboardHeight + 30
     }
 }
