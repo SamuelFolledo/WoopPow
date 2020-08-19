@@ -84,7 +84,7 @@ class CreateAccountController: UIViewController {
         button.imageEdgeInsets = UIEdgeInsets(top: 18, left: 10, bottom: 18, right: 10)
         button.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         button.clipsToBounds = true
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 20
         button.layer.masksToBounds = false
         button.layer.shadowColor = UIColor.label.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -111,24 +111,22 @@ class CreateAccountController: UIViewController {
     
     private func configureAutoLayout() {
         view.insertSubview(scrollView, at: 0)
-        scrollView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view)
+        scrollView.snp.makeConstraints {
+            $0.edges.equalTo(view)
         }
         
         scrollView.addSubview(contentView)
-        contentView.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(scrollView)
-            make.left.right.equalTo(view)
-            make.height.equalTo(scrollView.contentLayoutGuide.snp.height)
-            make.width.equalTo(scrollView.contentLayoutGuide.snp.width)
+        contentView.snp.makeConstraints {
+            $0.top.bottom.equalTo(scrollView)
+            $0.left.right.equalTo(view)
+            $0.height.equalTo(scrollView.contentLayoutGuide.snp.height)
+            $0.width.equalTo(scrollView.contentLayoutGuide.snp.width)
         }
         
         let stackView = UIStackView(arrangedSubviews: [], axis: .vertical, alignment: .leading, distribution: .fillProportionally, spacing: 20)
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
-//            $0.leading.equalToSuperview().offset(20)
-//            $0.trailing.equalToSuperview().offset(-20)
             $0.width.equalTo(300)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -158,7 +156,7 @@ class CreateAccountController: UIViewController {
         }
         
         nextButton.snp.makeConstraints {
-            $0.height.equalTo(60)
+            $0.height.equalTo(45)
         }
     }
     

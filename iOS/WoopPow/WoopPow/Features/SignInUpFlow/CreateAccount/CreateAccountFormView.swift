@@ -128,10 +128,10 @@ class CreateAccountFormView: UIView {
         }
         
         usernameTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(enterUsernameLabel.snp.bottom).offset(10)
+            make.top.equalTo(enterUsernameLabel.snp.bottom).offset(5)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalTo(45)
+            make.height.equalTo(35)
         }
         
         enterEmailLabel.snp.makeConstraints { (make) in
@@ -141,10 +141,10 @@ class CreateAccountFormView: UIView {
         }
         
         emailTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(enterEmailLabel.snp.bottom).offset(10)
+            make.top.equalTo(enterEmailLabel.snp.bottom).offset(5)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalTo(45)
+            make.height.equalTo(35)
         }
         
         enterPasswordLabel.snp.makeConstraints { (make) in
@@ -154,14 +154,14 @@ class CreateAccountFormView: UIView {
         }
         
         passwordTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(enterPasswordLabel.snp.bottom).offset(10)
+            make.top.equalTo(enterPasswordLabel.snp.bottom).offset(5)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalTo(45)
+            make.height.equalTo(35)
         }
         
         passwordRequirementsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(5)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
