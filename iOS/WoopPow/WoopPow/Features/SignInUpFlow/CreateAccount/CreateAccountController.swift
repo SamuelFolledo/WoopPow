@@ -58,7 +58,7 @@ class CreateAccountController: UIViewController {
         let label = UILabel()
         label.text = "By creating your account, you agree to our"
         label.textAlignment = .left
-        label.font = .font(size: 16, weight: .medium, design: .default)
+        label.font = .font(size: 15, weight: .medium, design: .default)
         label.textColor = .black
         return label
     }()
@@ -92,6 +92,19 @@ class CreateAccountController: UIViewController {
         button.layer.shadowRadius = 3
         button.addTarget(self, action: #selector(presentDriversLicenseVerificationPromptController), for: .touchUpInside)
         button.setTitle("Create Account", for: .normal)
+        return button
+    }()
+    let alreadyHaveAccountButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.clear
+        button.imageEdgeInsets = UIEdgeInsets(top: 18, left: 10, bottom: 18, right: 10)
+        button.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = false
+        button.addTarget(self, action: #selector(presentDriversLicenseVerificationPromptController), for: .touchUpInside)
+        button.setTitleColor(.label, for: .normal)
+        button.setTitle("Already have an account?", for: .normal)
         return button
     }()
     
@@ -132,7 +145,9 @@ class CreateAccountController: UIViewController {
             $0.bottom.equalToSuperview()
         }
         
-        [createYourAccountLabel, formView, creatingAccountLabel, termsAndConditionsButton, nextButton].forEach {
+        let tocStackView = UIStackView(arrangedSubviews: [creatingAccountLabel, termsAndConditionsButton], axis: .vertical, alignment: .leading, distribution: .fill, spacing: 5)
+        
+        [createYourAccountLabel, formView, tocStackView, nextButton, alreadyHaveAccountButton].forEach {
             stackView.addArrangedSubview($0)
             $0.snp.makeConstraints { (make) in
                 make.width.equalToSuperview()
@@ -144,11 +159,14 @@ class CreateAccountController: UIViewController {
         }
         
         formView.snp.makeConstraints {
-            $0.height.equalTo(350)
+            $0.height.equalTo(230)
         }
         
+        tocStackView.snp.makeConstraints {
+            $0.height.equalTo(45)
+        }
         creatingAccountLabel.snp.makeConstraints {
-            $0.height.equalTo(30)
+            $0.height.equalTo(20)
         }
         
         termsAndConditionsButton.snp.makeConstraints {
@@ -157,6 +175,9 @@ class CreateAccountController: UIViewController {
         
         nextButton.snp.makeConstraints {
             $0.height.equalTo(45)
+        }
+        alreadyHaveAccountButton.snp.makeConstraints {
+            $0.height.width.equalTo(nextButton)
         }
     }
     

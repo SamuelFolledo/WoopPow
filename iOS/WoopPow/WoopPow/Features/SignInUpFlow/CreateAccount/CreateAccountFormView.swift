@@ -93,7 +93,7 @@ class CreateAccountFormView: UIView {
         label.textAlignment = .left
         label.font = .font(size: 15, weight: .medium, design: .rounded)
         label.text = "Password must be longer than 6 characters"
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         return label
     }()
     
