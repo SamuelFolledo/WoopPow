@@ -10,6 +10,18 @@ import UIKit
 
 extension UIStackView {
     
+    convenience init(arrangedSubviews: [UIView],
+                     axis:  NSLayoutConstraint.Axis,
+                     alignment: Alignment,
+                     distribution: Distribution,
+                     spacing: CGFloat) {
+        self.init(arrangedSubviews: arrangedSubviews)
+        self.axis = axis
+        self.alignment = alignment
+        self.distribution = distribution
+        self.spacing = spacing
+    }
+    
     convenience init(axis: NSLayoutConstraint.Axis, spacing: CGFloat, distribution: UIStackView.Distribution, alignment: UIStackView.Alignment) {
         self.init()
         self.translatesAutoresizingMaskIntoConstraints = false
