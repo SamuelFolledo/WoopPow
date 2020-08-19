@@ -13,6 +13,8 @@ struct Constants {
     struct Views {
         //https://github.com/ninjaprox/NVActivityIndicatorView
         static var indicatorView: NVActivityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40), type: .ballClipRotateMultiple, color: .label, padding: 0.0)
+        
+        //https://github.com/ankurbatham/ABAnimateProgressView
         static var indicatorWithImageView: ABAnimateProgressView = ABAnimateProgressView()
     }
     
