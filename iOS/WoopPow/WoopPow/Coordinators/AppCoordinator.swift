@@ -21,13 +21,18 @@ class AppCoordinator: Coordinator {
     }
     
     //MARK: Methods
+//    func start() {
+////        let vc = HomeController()
+//        let vc = GameController()
+//        vc.coordinator = self
+//        let gameViewModel = GameViewModel(game: gameSample())
+//        gameViewModel.delegate = vc
+//        vc.gameViewModel = gameViewModel
+//        navigationController.pushViewController(vc, animated: false)
+//    }
     func start() {
-//        let vc = HomeController()
-        let vc = GameController()
+        let vc = CreateAccountController()
         vc.coordinator = self
-        let gameViewModel = GameViewModel(game: gameSample())
-        gameViewModel.delegate = vc
-        vc.gameViewModel = gameViewModel
         navigationController.pushViewController(vc, animated: false)
     }
     

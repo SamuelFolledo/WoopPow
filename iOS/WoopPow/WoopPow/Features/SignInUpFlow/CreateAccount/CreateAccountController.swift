@@ -16,7 +16,6 @@ class CreateAccountController: UIViewController {
     
     // MARK: - Properties
     var coordinator: AppCoordinator!
-//    let validityType: String.ValidityType = .password
     
     // MARK: - UI Components
     
@@ -74,21 +73,6 @@ class CreateAccountController: UIViewController {
         return button
     }()
     
-    private let privacyPolicyButton: UIButton = {
-        let headlineAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font : UIFont.font(size: 16, weight: .semibold, design: .default),
-            NSAttributedString.Key.foregroundColor : UIColor.systemBlue
-        ]
-        let headlineText = NSMutableAttributedString(string: "• Privacy Policy", attributes: headlineAttributes)
-        let combination = NSMutableAttributedString()
-        combination.append(headlineText)
-        let button = UIButton(type: .system)
-        button.setAttributedTitle(combination, for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.addTarget(self, action: #selector(handlePrivacyPolicy), for: .touchUpInside)
-        return button
-    }()
-    
     let nextButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.systemBlue
@@ -139,7 +123,7 @@ class CreateAccountController: UIViewController {
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
-        [createYourAccountLabel, formView, creatingAccountLabel, termsAndConditionsButton, privacyPolicyButton, nextButton].forEach {
+        [createYourAccountLabel, formView, creatingAccountLabel, termsAndConditionsButton, nextButton].forEach {
 //            stackView.addSubview($0)
             stackView.addArrangedSubview($0)
         }
@@ -168,13 +152,6 @@ class CreateAccountController: UIViewController {
         termsAndConditionsButton.snp.makeConstraints { (make) in
             make.height.equalTo(20)
 //            make.top.equalTo(creatingAccountLabel.snp.bottom)
-            make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
-        }
-        
-        privacyPolicyButton.snp.makeConstraints { (make) in
-            make.height.equalTo(20)
-//            make.top.equalTo(termsAndConditionsButton.snp.bottom)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
         }
@@ -331,15 +308,6 @@ class CreateAccountController: UIViewController {
     
     @objc func handleTermsAndConditions() {
 //        guard let url = URL(string: Constants.URLs.termsAndConditions) else { return }
-//        let configuration = SFSafariViewController.Configuration()
-//        configuration.entersReaderIfAvailable = true
-//        let controller = SFSafariViewController(url: url, configuration: configuration)
-//        controller.delegate = self
-//        navigationController?.present(controller, animated: true)
-    }
-    
-    @objc private func handlePrivacyPolicy() {
-//        guard let url = URL(string: Constants.URLs.privacyPolicy) else { return }
 //        let configuration = SFSafariViewController.Configuration()
 //        configuration.entersReaderIfAvailable = true
 //        let controller = SFSafariViewController(url: url, configuration: configuration)
