@@ -90,7 +90,7 @@ class CreateAccountController: UIViewController {
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
         button.layer.shadowOpacity = 0.3
         button.layer.shadowRadius = 3
-        button.addTarget(self, action: #selector(presentDriversLicenseVerificationPromptController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
         button.setTitle("Create Account", for: .normal)
         return button
     }()
@@ -248,76 +248,23 @@ class CreateAccountController: UIViewController {
 //        formView.passwordTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
 //    }
     
-    private func createTenantUser(with email: String, password: String, name: String) {
+    private func createPlayerUser(with email: String, password: String, username: String) {
         startActivityIndicator()
-//        TenantService.createUser(withEmail: email, password: password, name: name) { (result) in
-////            switch result {
-////            case .success(let tenant):
-////                guard let email = tenant.email,
-////                      let userId = tenant.userId,
-////                      let name = tenant.name
-////                else { return }
-////                self.createCustomer(userType: .Tenant, userId: userId, email: email, name: name)
-////
-////            case .failure(let error):
-////                DispatchQueue.main.async {
-////                    self.stopActivityIndicator()
-////                    self.showErrorMessageAlertView(error: error)
-////                }
-////            }
-//        }
-    }
-    
-    private func createLandlordUser(with email: String, password: String, name: String) {
-        startActivityIndicator()
-//        LandlordService.createUser(withEmail: email, password: password, name: name) { (result) in
-//            switch result {
-//            case .success(let landlord):
-//                guard let email = landlord.email,
-//                      let userId = landlord.userId,
-//                      let name = landlord.name
-//                else { return }
-//                self.createCustomer(userType: .Landlord, userId: userId, email: email, name: name)
-//
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-//                    self.stopActivityIndicator()
-//                    self.showErrorMessageAlertView(error: error)
-//                }
-//            }
-//        }
-    }
-    
-    fileprivate func createCustomer(userType: String, userId: String, email: String, name: String) {
-//        FirestoreService.createCustomer(userId: userId, email: email, name: name, type: userType, environment: .production) {
-//            if let user = Auth.auth().currentUser {
-//                let changeRequest = user.createProfileChangeRequest()
-//                changeRequest.displayName = name
-//                changeRequest.commitChanges { (error) in
-//                    if let error = error {
-//                        self.presentAlert(title: "Failed to Update Name", message: error.localizedDescription)
-//                        self.stopActivityIndicator()
-//                        return
-//                    }
-//                    DispatchQueue.main.async {
-//                        self.stopActivityIndicator()
-//                        switch userType {
-//                        case .Tenant:
-//                            let vc = DriversLicenseVerificationPromptController()
-//                            self.navigationController?.pushViewController(vc, animated: true)
-//
-//                        case .Landlord:
-//                            DispatchQueue.main.async {
-//                                self.stopActivityIndicator()
-//                                let vc = LandlordTypeController()
-//                                self.navigationController?.pushViewController(vc, animated: true)
-//                            }
-//                        default: break
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        PlayerService.createUser(withEmail: email, password: password, username: username) { (result) in
+            switch result {
+            case .success(let player):
+                print("\(player.username!) successfully created an account")
+                Defaults.hasLoggedInOrCreatedAccount = true
+                DispatchQueue.main.async {
+                    self.coordinator.goToHomeController()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.showErrorMessageAlertView(error: error)
+                }
+            }
+        }
     }
     
     private func showErrorMessageAlertView(error: Error) {
@@ -345,42 +292,20 @@ class CreateAccountController: UIViewController {
     
     // MARK: - @objc Selector Methods
     
-    @objc func presentDriversLicenseVerificationPromptController() {
-//        guard let name = formView.nameTextField.text,
-//              let email = formView.emailTextField.text?.trimWhiteSpacesAndLines,
-//              let password = formView.passwordTextField.text
-////            email.contains("@") && password.count > 8 && !password.isEmpty
-//        else { return }
-//        guard let account = Defaults.valueOfAccountType(),
-//              let accountType = UserType(rawValue: account)
-//        else { return }
-//
-//        let keychain = KeychainSwift()
-//        keychain.set(password, forKey: Constants.securedPass)
-//
-//        switch accountType {
-//        case .Tenant:
-//            createTenantUser(with: email, password: password, name: name)
-//        case .Landlord:
-//            createLandlordUser(with: email, password: password, name: name)
-//        default: break
-//        }
+    @objc func goToNextController() {
+        guard let username = formView.usernameTextField.text,
+              let email = formView.emailTextField.text?.trimWhiteSpacesAndLines,
+              let password = formView.passwordTextField.text
+        else { return }
+        let keychain = KeychainSwift()
+        keychain.set(password, forKey: Constants.password)
+        createPlayerUser(with: email, password: password, username: username)
     }
     
     @objc func dismissCreateAccountController() {
-//        Defaults._removeUser(true)
+        Defaults._removeUser(true)
         navigationController?.popViewController(animated: true)
     }
-    
-//    @objc func textFieldDidChange(textField: UITextField) {
-//        guard let email = formView.emailTextField.text,
-//              let password = formView.passwordTextField.text,
-//              let name = formView.nameTextField.text
-//        else { return }
-//        nextButton.alpha = 0.6
-//
-//        nextButton.isEnabled = !email.isEmpty && !password.isEmpty && !name.isEmpty
-//    }
     
     @objc func handleTermsAndConditions() {
 //        guard let url = URL(string: Constants.URLs.termsAndConditions) else { return }
@@ -399,32 +324,6 @@ class CreateAccountController: UIViewController {
 //}
 
 extension CreateAccountController: UITextFieldDelegate {
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        var formViewY: CGFloat = 0
-//        var nextButtonY: CGFloat = 0
-//        switch textField {
-//        case self.formView.emailTextField:
-//            formViewY = -70
-//            nextButtonY = 0
-//        case self.formView.passwordTextField:
-//            formViewY = -160
-//            nextButtonY = -50
-//        default:
-//            formViewY = 0
-//            nextButtonY = 0
-//        }
-//        UIView.animate(withDuration: 0.3, animations: {
-//            self.view.transform = CGAffineTransform(translationX: 0, y: formViewY)
-//            self.nextButton.transform = CGAffineTransform(translationX: 0, y: nextButtonY)
-//        })
-//    }
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        UIView.animate(withDuration: 0.2, animations: {
-//            self.view.transform = CGAffineTransform(translationX: 0, y: 0)
-//        })
-//    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case formView.usernameTextField:

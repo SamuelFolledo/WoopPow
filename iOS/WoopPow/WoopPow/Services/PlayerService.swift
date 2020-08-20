@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 enum NetworkError: Error, CustomStringConvertible {
     case createUser
@@ -36,12 +37,21 @@ struct PlayerService {
             guard let result = result else { return }
             var player = Player(userId: result.user.uid, username: username, email: email)
             player.userType = .Player
-            saveAccountInformation { (error) in
+            Player.setCurrent(player, writeToUserDefaults: true)
+            //update displayName
+            guard let user = Auth.auth().currentUser else { return }
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = username
+            changeRequest.commitChanges { (error) in
                 if let error = error {
-                    return completion(.failure(NetworkError.custom(errorMessage: error)))
+                    return completion(.failure(error))
                 }
-                Player.setCurrent(player, writeToUserDefaults: true)
-                completion(.success(player))
+                saveAccountInformation { (error) in
+                    if let error = error {
+                        return completion(.failure(NetworkError.custom(errorMessage: error)))
+                    }
+                    completion(.success(player))
+                }
             }
         }
     }
