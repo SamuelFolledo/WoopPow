@@ -52,8 +52,8 @@ class AppCoordinator: Coordinator {
     }
     
     fileprivate func gameSample() -> Game {
-        let player1 = Player(name: "Samuel", playerId: "123")
-        let player2 = Player(name: "Raquel", playerId: "321")
+        let player1 = Player(userId: "123", username: "Samuel", email: "ss")
+        let player2 = Player(userId: "123", username: "Raquel", email: "ss")
         let game = Game(player1: player1, player2: player2)
         return game
     }

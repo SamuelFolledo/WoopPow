@@ -8,20 +8,27 @@
 
 import UIKit
 
+enum UserType: String {
+    case player, admin
+}
+
 struct Player {
     
-    var name: String
-    var playerId: String
+    private(set) var username: String
+    private(set) var email: String
+    private(set) var userId: String
     
     //implement later
-    var imageUrl: String?
-    var image: UIImage?
-    var userType: String?
+    private(set) var imageUrl: String?
+    private(set) var image: UIImage?
+    var userType: UserType?
     var server: String = "0.1.0"
     
     //MARK: Initializers
-    init(name: String, playerId: String) {
-        self.name = name
-        self.playerId = playerId
+    init(userId: String, username: String, email: String) {
+        self.username = username
+        self.userId = userId
+        self.email = email
+        self.userType = .player
     }
 }
