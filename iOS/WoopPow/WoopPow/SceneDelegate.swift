@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window!.makeKeyAndVisible()
         window!.windowScene = windowScene
         coordinator = AppCoordinator(window: window!)
-        coordinator.start()
+//        coordinator.start()
+        configureInitialRootViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -53,3 +54,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    fileprivate func configureInitialRootViewController() {
+        if let _ = Player.current, UserDefaults.isAccountLoggedInOrCreated {
+            coordinator.goToHomeController()
+        } else {
+            coordinator.start()
+        }
+    }
+}
