@@ -9,6 +9,17 @@
 import Foundation
 
 struct UsersKeys {
+    struct CollectionKeys {
+        static let users: String = "Users"
+        static let userType: String = "UserType"
+    }
+    
+    struct UserInfo {
+        static let email: String = "email"
+        static let username: String = "username"
+        static let userId: String = "userId"
+    }
+    
     struct UserTypeKeys {
         static let type = "type"
         static let player = "Player"
