@@ -36,7 +36,7 @@ class GameController: UIViewController {
         label.textColor = .white
         label.textAlignment = .left
         label.font = .font(size: 16, weight: .medium, design: .default)
-        label.text = "\(gameViewModel.game.player1.username)"
+        label.text = "\(gameViewModel.game.player1.username!)"
         label.numberOfLines = 1
         return label
     }()
