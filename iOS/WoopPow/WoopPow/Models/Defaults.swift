@@ -13,15 +13,13 @@ struct Defaults {
             
     static func _removeUser(_ removeFromUserDefaults: Bool = false) {
         
-        guard let userTypeString = Defaults.valueOfUserType(),
-              let accountType = UserType(rawValue: userTypeString)
-        else { return }
+        guard let userType = Defaults.valueOfUserType() else { return }
         
         if removeFromUserDefaults {
-            switch accountType {
-            case .player:
+            switch userType {
+            case .Player:
                 UserDefaults.standard.removeObject(forKey: Constants.playerType)
-            case .admin:
+            case .Admin:
                 UserDefaults.standard.removeObject(forKey: Constants.adminType)
             }
             //clear everything in UserDefaults
@@ -36,8 +34,9 @@ struct Defaults {
         }
     }
     
-    static func valueOfUserType() -> String? {
-        guard let value = UserDefaults.standard.value(forKey: Constants.userType) else { return nil }
-        return value as? String
+    static func valueOfUserType() -> UserType? {
+        guard let userTypeString = UserDefaults.standard.value(forKey: Constants.userType) as? String else { return nil }
+        guard let userType = UserType(rawValue: userTypeString) else { return nil }
+        return userType
     }
 }

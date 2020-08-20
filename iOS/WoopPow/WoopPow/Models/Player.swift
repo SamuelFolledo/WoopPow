@@ -9,7 +9,7 @@
 import UIKit
 
 enum UserType: String {
-    case player, admin
+    case Player, Admin
 }
 
 struct Player {
@@ -29,6 +29,6 @@ struct Player {
         self.username = username
         self.userId = userId
         self.email = email
-        self.userType = .player
+        self.userType = .Player
     }
 }
