@@ -18,9 +18,9 @@ struct Defaults {
         if removeFromUserDefaults {
             switch userType {
             case .Player:
-                UserDefaults.standard.removeObject(forKey: Constants.playerType)
+                UserDefaults.standard.removeObject(forKey: Constants.playerUser)
             case .Admin:
-                UserDefaults.standard.removeObject(forKey: Constants.adminType)
+                UserDefaults.standard.removeObject(forKey: Constants.adminUser)
             }
             //clear everything in UserDefaults
             UserDefaults.standard.deleteAllKeys(exemptedKeys: ["onboard"])
