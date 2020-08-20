@@ -8,6 +8,13 @@
 
 import UIKit
 import NVActivityIndicatorView
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseFirestore
+
+public let db = Firestore.firestore()
+public let auth = Auth.auth()
+public let storage = Storage.storage()
 
 struct Constants {
     struct Views {
@@ -45,6 +52,6 @@ struct Constants {
     
     static let password: String = "password"
     static let userType: String = "userType"
-    static let playerType: String = "playerType"
-    static let adminType: String = "adminType"
+    static let playerUser: String = "playerUser"
+    static let adminUser: String = "adminUser"
 }
