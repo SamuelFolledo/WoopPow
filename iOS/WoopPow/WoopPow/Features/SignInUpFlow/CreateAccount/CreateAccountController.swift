@@ -102,12 +102,11 @@ class CreateAccountController: UIViewController {
         button.clipsToBounds = true
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = false
-        button.addTarget(self, action: #selector(presentDriversLicenseVerificationPromptController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToSigninController), for: .touchUpInside)
         button.setTitleColor(.label, for: .normal)
         button.setTitle("Already have an account?", for: .normal)
         return button
     }()
-    
     
     // MARK: - View Lifecycle Methods
     
@@ -181,8 +180,66 @@ class CreateAccountController: UIViewController {
         }
     }
     
+    @objc fileprivate func goToSigninController() {
+        coordinator.navigationController.popViewController(animated: true)
+    }
+    
     private func configureNavigationItem() {
-        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIButton().asBackButton())
+        let backButtonImage = Constants.Images.backButton//.stretchableImage(withLeftCapWidth: 15, topCapHeight: 50)
+        
+        let barButtonItemAppearance = UIBarButtonItem.appearance()
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .highlighted)
+//        let backImg: UIImage = UIImage(named: "back")!
+        barButtonItemAppearance.setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+
+        let image = UIImage()
+
+        UINavigationBar.appearance().backIndicatorImage = image
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
+
+        
+//        let barAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
+        
+//        UINavigationBar.appearance().backIndicatorImage = backButtonImage
+//        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
+//
+//        // Nudge the back UIBarButtonItem image down a bit.
+//        let barButtonAppearance =
+//            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
+//        barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5), for: .default)
+        
+//        navigationItem.hidesBackButton = true
+
+//        let backButton = UIBarButtonItem(image: backButtonImage,
+//                                      style: .plain,
+//                                      target: navigationController,
+//                                      action: #selector(UINavigationController.popViewController(animated:)))
+//        backButton.imageInsets.left = 0
+//        navigationItem.leftBarButtonItem = backButton
+        
+        
+//        let yourBackImage = UIImage(named: "back_button_image")
+//        self.navigationController?.navigationBar.backIndicatorImage = Constants.Images.backButton
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = Constants.Images.backButton
+//        self.navigationController?.navigationBar.backItem?.title = ""
+        
+        //        navigationItem.backBarButtonItem = backBTN
+        
+        
+//        let backButtonImage = Constants.Images.backButton.stretchableImage(withLeftCapWidth: 15, topCapHeight: 30)
+//        let backBTN = UIBarButtonItem(image: backButtonImage,
+//                                      style: .plain,
+//                                      target: navigationController,
+//                                      action: #selector(UINavigationController.popViewController(animated:)))
+//        navigationItem.backBarButtonItem = backBTN
+        
+//        navigationItem.leftBarButtonItem = backBTN
+        
+//        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+        
+//        navigationController?.interactivePopGestureRecognizer?.delegate = self
+//        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIButton().asBackButton())
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(dismissCreateAccountController))
     }
     

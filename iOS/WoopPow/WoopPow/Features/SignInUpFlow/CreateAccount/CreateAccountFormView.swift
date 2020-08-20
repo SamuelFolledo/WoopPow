@@ -89,9 +89,9 @@ class CreateAccountFormView: UIView {
     
     private lazy var passwordRequirementsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .label
+        label.textColor = .secondaryLabel
         label.textAlignment = .left
-        label.font = .font(size: 15, weight: .medium, design: .rounded)
+        label.font = .font(size: 12, weight: .medium, design: .rounded)
         label.text = "Password must be longer than 6 characters"
         label.numberOfLines = 2
         return label

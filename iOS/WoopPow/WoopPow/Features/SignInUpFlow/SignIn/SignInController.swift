@@ -71,15 +71,20 @@ class SignInController: UIViewController {
         return button
     }()
     
-    private let createAccountButton: UIButton = {
+    private lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Don't have an account? Sign Up.", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.addTarget(self, action: #selector(presentSelectRealEstateProfileController), for: .touchUpInside)
         button.titleLabel?.font = .font(size: 17, weight: .medium, design: .rounded)//UIFont(name: "Avenir-Light", size: 17)
+        button.addTarget(self, action: #selector(goToCreateAccountController), for: .touchUpInside)
         return button
     }()
+    
+    @objc fileprivate func goToCreateAccountController() {
+        coordinator.goToCreateAccountController()
+    }
     
     // MARK: - View Lifecycle Methods
     
@@ -130,7 +135,7 @@ class SignInController: UIViewController {
         }
         
         formView.snp.makeConstraints {
-            $0.height.equalTo(170)
+            $0.height.equalTo(140)
         }
         
         signInButton.snp.makeConstraints {
