@@ -42,6 +42,12 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func goToHomeController() {
+        let vc = HomeController()
+        vc.coordinator = self
+        navigationController.initRootVC(vc: vc)
+    }
+    
     func goToGameController() {
         let vc = GameController()
         let gameViewModel = GameViewModel(game: gameSample())
