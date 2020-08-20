@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     fileprivate func configureInitialRootViewController() {
-        if let _ = Player.current, UserDefaults.isAccountLoggedInOrCreated {
+        if let _ = Player.current, Defaults.hasLoggedInOrCreatedAccount {
             coordinator.goToHomeController()
         } else {
             coordinator.start()
