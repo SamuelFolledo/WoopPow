@@ -48,8 +48,8 @@ class SignInFormView: UIView {
         return label
     }()
     
-    let passwordTextField: UITextField = {
-        let textField = UITextField()
+    let passwordTextField: UnderlinedTextField = {
+        let textField = UnderlinedTextField()
         textField.placeholder = "Enter password"
 //        textField.backgroundColor = UIColor(r: 242, g: 242, b: 242, a: 1)
 //        textField.setPadding(left: 15, right: 15)
