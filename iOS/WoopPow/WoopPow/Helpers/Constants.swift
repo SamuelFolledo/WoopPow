@@ -42,4 +42,9 @@ struct Constants {
         static let punchDownMedium: UIImage = UIImage(named: "punchDown")!
         static let punchDownHard: UIImage = UIImage(named: "punchDownHard")!
     }
+    
+    static let password: String = "password"
+    static let userType: String = "userType"
+    static let playerType: String = "playerType"
+    static let adminType: String = "adminType"
 }

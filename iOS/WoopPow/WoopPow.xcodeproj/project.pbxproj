@@ -41,6 +41,8 @@
 		335900DB24ECF55C00386D66 /* SignInFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900DA24ECF55C00386D66 /* SignInFormView.swift */; };
 		335900DD24ECF69900386D66 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900DC24ECF69900386D66 /* String+Extensions.swift */; };
 		335900DF24EDD23E00386D66 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900DE24EDD23E00386D66 /* UINavigationController+Extensions.swift */; };
+		335900E124EE0FD300386D66 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900E024EE0FD300386D66 /* Defaults.swift */; };
+		335900E324EE10C200386D66 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900E224EE10C200386D66 /* UserDefaults+Extensions.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -109,6 +111,8 @@
 		335900DA24ECF55C00386D66 /* SignInFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInFormView.swift; sourceTree = "<group>"; };
 		335900DC24ECF69900386D66 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		335900DE24EDD23E00386D66 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		335900E024EE0FD300386D66 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		335900E224EE10C200386D66 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				335900D624ECE62100386D66 /* UIButton+Extensions.swift */,
 				335900DC24ECF69900386D66 /* String+Extensions.swift */,
 				335900DE24EDD23E00386D66 /* UINavigationController+Extensions.swift */,
+				335900E224EE10C200386D66 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				3378EFF424D7F7BF0019C1C8 /* Game.swift */,
 				3378EFF624D7F9410019C1C8 /* Player.swift */,
 				335900BB24EB2A6200386D66 /* Control */,
+				335900E024EE0FD300386D66 /* Defaults.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 				335900C124EB337F00386D66 /* AttackButtonView.swift in Sources */,
 				3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */,
 				3378EFF224D7D80D0019C1C8 /* PreGameController.swift in Sources */,
+				335900E124EE0FD300386D66 /* Defaults.swift in Sources */,
 				335900B824EA695E00386D66 /* MoveSet.swift in Sources */,
 				335900D524EC787000386D66 /* ABAnimateProgressView.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
@@ -645,6 +652,7 @@
 				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,
 				335900D724ECE62100386D66 /* UIButton+Extensions.swift in Sources */,
 				335900CC24EB5EEC00386D66 /* SignInController.swift in Sources */,
+				335900E324EE10C200386D66 /* UserDefaults+Extensions.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
 				334293B524CFCB410086D3F0 /* UIColor+Extensions.swift in Sources */,
