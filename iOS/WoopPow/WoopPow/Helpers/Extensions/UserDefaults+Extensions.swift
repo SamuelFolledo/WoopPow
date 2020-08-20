@@ -10,66 +10,6 @@ import Foundation
 
 extension UserDefaults {
     
-    // MARK: - Keys
-    
-    private enum Keys {
-        static let onboard = "onboard"
-        static let cards = "cards"
-        static let account = "account"
-        static let rewardOnboard = "rewardOnboard"
-    }
-    
-    class var onboard: Bool {
-        get { return UserDefaults.standard.bool(forKey: Keys.onboard) }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Keys.onboard)
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    class var hasLoggedInOrCreatedAccount: Bool {
-        get { return UserDefaults.standard.bool(forKey: Keys.account) }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Keys.account)
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    class var rewardOnboard: Bool {
-        get { return UserDefaults.standard.bool(forKey: Keys.rewardOnboard) }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Keys.rewardOnboard)
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    class var isOnboardingFinished: Bool {
-        return onboard
-    }
-    
-    class var isAccountLoggedInOrCreated: Bool {
-        return hasLoggedInOrCreatedAccount
-    }
-    
-    class var isRewardOnboardFinished: Bool {
-        return rewardOnboard
-    }
-    
-//    class var cards: [Card] {
-//        get {
-//            guard let data = UserDefaults.standard.value(forKey: Keys.cards) as? Data,
-//                  let cards = try? JSONDecoder().decode([Card].self, from: data) else {
-//                return []
-//            }
-//            return cards
-//        }
-//        set {
-//            guard let data = try? JSONEncoder().encode(newValue) else { return }
-//            UserDefaults.standard.set(data, forKey: Keys.cards)
-//            UserDefaults.standard.synchronize()
-//        }
-//    }
-    
     open func setStruct<T: Codable>(_ value: T?, forKey defaultName: String){
         let data = try? JSONEncoder().encode(value)
         set(data, forKey: defaultName)

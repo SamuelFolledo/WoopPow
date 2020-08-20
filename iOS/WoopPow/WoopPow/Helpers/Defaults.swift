@@ -10,11 +10,40 @@ import Foundation
 import FirebaseAuth
 
 struct Defaults {
-            
+    private enum Keys {
+        static let onboard = "onboard"
+        static let cards = "cards"
+        static let account = "account"
+        static let rewardOnboard = "rewardOnboard"
+    }
+    
+    static var onboard: Bool {
+        get { return UserDefaults.standard.bool(forKey: Keys.onboard) }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.onboard)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    static var hasLoggedInOrCreatedAccount: Bool {
+        get { return UserDefaults.standard.bool(forKey: Keys.account) }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.account)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    static var rewardOnboard: Bool {
+        get { return UserDefaults.standard.bool(forKey: Keys.rewardOnboard) }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.rewardOnboard)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    //MARK: Methods
     static func _removeUser(_ removeFromUserDefaults: Bool = false) {
-        
         guard let userType = Defaults.valueOfUserType() else { return }
-        
         if removeFromUserDefaults {
             switch userType {
             case .Player:
