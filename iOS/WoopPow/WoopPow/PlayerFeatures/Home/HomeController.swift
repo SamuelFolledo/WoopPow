@@ -32,6 +32,7 @@ class HomeController: UIViewController {
     private lazy var playButton: UIButton = {
         let button = AppService.playButton()
         button.addTarget(self, action: #selector(goToGame), for: .touchUpInside)
+        button.addGlowAnimation(withColor: .systemYellow, withEffect: .large)
         return button
     }()
     
