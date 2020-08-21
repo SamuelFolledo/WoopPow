@@ -50,3 +50,36 @@ extension UIView {
         transform = CGAffineTransform(scaleX: transform.a, y: -transform.d)
     }
 }
+
+//MARK: Glow effect
+extension UIView {
+    enum GlowEffect: Float {
+      case small = 0.4, medium = 5, large = 10, extraLarge = 15
+    }
+    
+    func addGlowAnimation(withColor color: UIColor, withEffect effect: GlowEffect = .medium) {
+      layer.masksToBounds = false
+      layer.shadowColor = color.cgColor
+      layer.shadowRadius = 0
+      layer.shadowOpacity = 1
+      layer.shadowOffset = CGSize(width: 0, height: 3)
+      let glowAnimationRadius = CABasicAnimation(keyPath: "shadowRadius")
+      glowAnimationRadius.fromValue = 0
+      glowAnimationRadius.toValue = effect.rawValue
+      glowAnimationRadius.beginTime = CACurrentMediaTime()+0.3
+      glowAnimationRadius.duration = CFTimeInterval(1.3)
+      glowAnimationRadius.fillMode = .removed
+      glowAnimationRadius.autoreverses = true
+      glowAnimationRadius.repeatCount = .infinity
+      layer.add(glowAnimationRadius, forKey: "shadowGlowingAnimationRadius")
+      let glowAnimationOpacity = CABasicAnimation(keyPath: "shadowOpacity")
+      glowAnimationOpacity.fromValue = 0
+      glowAnimationOpacity.toValue = 1
+      glowAnimationOpacity.beginTime = CACurrentMediaTime()+0.3
+      glowAnimationOpacity.duration = CFTimeInterval(1.3)
+      glowAnimationOpacity.fillMode = .removed
+      glowAnimationOpacity.autoreverses = true
+      glowAnimationOpacity.repeatCount = .infinity
+      layer.add(glowAnimationOpacity, forKey: "shadowGlowingAnimationOpacity")
+    }
+}
