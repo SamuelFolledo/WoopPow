@@ -30,7 +30,7 @@ struct UserService {
     }
     
     ///fetch userType in UserType collection
-    static func fetchUserType(with userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
+    static func fetchUserType(userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
         db.collection(UsersKeys.Collection.UserType)
             .document(userId)
             .getDocument { (snapshot, error) in
@@ -49,7 +49,7 @@ struct UserService {
     }
     
     ///fetch userType in Users collectiion
-    static func fetchUserTypeinUsers(with userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
+    static func fetchUserTypeinUsers(userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
             .document(userId)
             .getDocument { (snapshot, error) in
