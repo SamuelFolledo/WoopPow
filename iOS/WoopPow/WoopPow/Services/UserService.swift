@@ -13,7 +13,7 @@ import FirebaseAuth.FIRUser
 struct UserService {
     
     // MARK: - Type Aliases
-    typealias UserTypeCompletion = (UserType?, Error?) -> Void
+//    typealias UserTypeCompletion = (UserType?, Error?) -> Void
     
     // MARK: - Static Methods
     
