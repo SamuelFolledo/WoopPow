@@ -34,6 +34,7 @@ struct Constants {
         static let yesButton: UIImage = UIImage(named: "yesButton")!
         static let restartButton: UIImage = UIImage(named: "restartButton")!
         static let resumeButton: UIImage = UIImage(named: "resumeButton")!
+        static let playButton: UIImage = UIImage(named: "playButton")!
         //Backgrounds
         static let gameControllerBackground1: UIImage = UIImage(named: "gameControllerBackground1")!
         //Moves

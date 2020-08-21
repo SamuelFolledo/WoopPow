@@ -46,6 +46,7 @@
 		335900E524EE147700386D66 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900E424EE147700386D66 /* PlayerService.swift */; };
 		335900E824EE1A0D00386D66 /* UserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900E724EE1A0D00386D66 /* UserKeys.swift */; };
 		335900EB24EF658900386D66 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EA24EF658900386D66 /* UserService.swift */; };
+		335900ED24EF89B300386D66 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EC24EF89B300386D66 /* AppService.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -119,6 +120,7 @@
 		335900E424EE147700386D66 /* PlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		335900E724EE1A0D00386D66 /* UserKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeys.swift; sourceTree = "<group>"; };
 		335900EA24EF658900386D66 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		335900EC24EF89B300386D66 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			children = (
 				335900E424EE147700386D66 /* PlayerService.swift */,
 				335900EA24EF658900386D66 /* UserService.swift */,
+				335900EC24EF89B300386D66 /* AppService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,
 				335900D724ECE62100386D66 /* UIButton+Extensions.swift in Sources */,
 				335900CC24EB5EEC00386D66 /* SignInController.swift in Sources */,
+				335900ED24EF89B300386D66 /* AppService.swift in Sources */,
 				335900E324EE10C200386D66 /* UserDefaults+Extensions.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
