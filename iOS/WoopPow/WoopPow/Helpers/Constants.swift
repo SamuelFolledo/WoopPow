@@ -26,6 +26,10 @@ struct Constants {
     }
     
     struct Images {
+        //Views
+        static let gameBackground1: UIImage = UIImage(named: "gameControllerBackground1.png")!
+        static let homeBackground: UIImage = UIImage(named: "homeBackground.png")!
+        static let navBarView: UIImage = UIImage(named: "navBarView.png")!
         //Buttons
         static let backButton: UIImage = UIImage(named: "backButton")!
         static let homeButton: UIImage = UIImage(named: "homeButton")!
