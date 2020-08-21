@@ -18,19 +18,13 @@ class HomeController: UIViewController {
         let imageView = UIImageView()
         imageView.clipsToBounds = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage()
+        imageView.image = Constants.Images.homeBackground
         imageView.backgroundColor = .systemBackground
         return imageView
     }()
     
     private lazy var playButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Play", for: .normal)
-        button.titleLabel?.font = .font(size: 32, weight: .bold, design: .rounded)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
+        let button = AppService.playButton()
         button.addTarget(self, action: #selector(goToGame), for: .touchUpInside)
         return button
     }()
@@ -55,6 +49,7 @@ class HomeController: UIViewController {
     
     fileprivate func setupBackground() {
         view.backgroundColor = .systemBackground
+        navigationController?.isNavigationBarHidden = true
         view.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalTo(view)
