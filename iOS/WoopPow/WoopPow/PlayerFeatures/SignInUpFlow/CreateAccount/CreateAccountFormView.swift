@@ -28,8 +28,6 @@ class CreateAccountFormView: UIView {
         textField.placeholder = "Enter your username"
         textField.font = .font(size: 18, weight: .medium, design: .rounded)
         textField.textColor = .black
-//        textField.backgroundColor = UIColor(r: 242, g: 242, b: 242, a: 1)
-//        textField.setPadding(left: 15, right: 15)
         textField.layer.cornerRadius = 10
         textField.textAlignment = .left
         textField.returnKeyType = .continue
@@ -52,8 +50,6 @@ class CreateAccountFormView: UIView {
         textField.placeholder = "Enter email"
         textField.font = .font(size: 18, weight: .medium, design: .rounded)
         textField.textColor = .black
-//        textField.backgroundColor = UIColor(r: 242, g: 242, b: 242, a: 1)
-//        textField.setPadding(left: 15, right: 15)
         textField.layer.cornerRadius = 10
         textField.textAlignment = .left
         textField.returnKeyType = .continue
@@ -75,8 +71,6 @@ class CreateAccountFormView: UIView {
     let passwordTextField: UnderlinedTextField = {
         let textField = UnderlinedTextField()
         textField.placeholder = "Enter password"
-//        textField.backgroundColor = UIColor(r: 242, g: 242, b: 242, a: 1)
-//        textField.setPadding(left: 15, right: 15)
         textField.layer.cornerRadius = 10
         textField.font = .font(size: 18, weight: .medium, design: .rounded)
         textField.textColor = .black
