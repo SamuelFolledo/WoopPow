@@ -13,17 +13,15 @@ extension UIViewController {
     
     //takes a view and add
     func startActivityIndicator(type: NVActivityIndicatorType = .ballClipRotateMultiple) {
-        let frame: CGRect = CGRect(x: 0, y: 0, width: 40, height: 40)
-        let activityIndicator = NVActivityIndicatorView(frame: frame, type: type, color: .label, padding: 0.0)
-        activityIndicator.center = view.center
-        view.addSubview(activityIndicator)
-        activityIndicator.snp.makeConstraints { (make) in
+        Constants.Views.indicatorView.center = view.center
+        view.addSubview(Constants.Views.indicatorView)
+        Constants.Views.indicatorView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         UIView.animate(withDuration: 0.2) {
             self.view.isUserInteractionEnabled = false
-            activityIndicator.startAnimating()
+            Constants.Views.indicatorView.startAnimating()
         }
     }
     
