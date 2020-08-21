@@ -20,7 +20,7 @@ class CreateAccountController: UIViewController {
     // MARK: - UI Components
     
     private lazy var backButton: UIButton = {
-        let button = UIButton().asBackButton()
+        let button = AppService.backButton()
         return button
     }()
     
