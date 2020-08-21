@@ -12,6 +12,9 @@ class HomeController: UIViewController {
     
     //MARK: Properties
     var coordinator: AppCoordinator!
+    var player: Player! {
+        get { getUser() }
+    }
     
     //MARK: Views
     private lazy var backgroundImageView: UIImageView = {
@@ -22,7 +25,10 @@ class HomeController: UIViewController {
         imageView.backgroundColor = .systemBackground
         return imageView
     }()
-    
+    private lazy var navBarView: NavBarView = {
+        let navBarView = NavBarView(player: player)
+        return navBarView
+    }()
     private lazy var playButton: UIButton = {
         let button = AppService.playButton()
         button.addTarget(self, action: #selector(goToGame), for: .touchUpInside)
@@ -35,9 +41,31 @@ class HomeController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     //MARK: Private Methods
+    
+    func getUser() -> Player? {
+        switch Defaults.valueOfUserType() {
+        case .Player:
+            guard let player = Player.current else { return nil }
+            return player
+        case .Admin:
+            print("Admin userType is not supported yet")
+            return nil
+        default: return nil
+        }
+    }
+    
     fileprivate func setupViews() {
         setupBackground()
+        view.addSubview(navBarView)
+        navBarView.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+            $0.height.equalTo(50)
+        }
         view.addSubview(playButton)
         playButton.snp.makeConstraints {
             $0.height.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.2)
