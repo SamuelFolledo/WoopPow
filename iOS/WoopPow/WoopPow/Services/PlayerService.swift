@@ -67,12 +67,12 @@ struct PlayerService {
             UsersKeys.UserInfo.userId: player.userId ?? "",
             UsersKeys.UserInfo.username: player.username ?? ""
         ]
-        let userInfoRef = db.collection(UsersKeys.CollectionKeys.users).document(userId)
+        let userInfoRef = db.collection(UsersKeys.Collection.Users).document(userId)
         //Save user type
         let userTypeData: [String: Any] = [
-            UsersKeys.UserTypeKeys.type: UsersKeys.UserTypeKeys.player
+            UsersKeys.UserInfo.type: UsersKeys.UserType.Player
         ]
-        let userTypeRef = db.collection(UsersKeys.CollectionKeys.userType).document(userId)
+        let userTypeRef = db.collection(UsersKeys.Collection.UserType).document(userId)
         //Get a new batch
         let batch = db.batch()
         batch.setData(userInfoDocData, forDocument: userInfoRef)

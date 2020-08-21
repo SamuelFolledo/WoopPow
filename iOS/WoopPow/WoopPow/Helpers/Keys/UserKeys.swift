@@ -9,20 +9,24 @@
 import Foundation
 
 struct UsersKeys {
-    struct CollectionKeys {
-        static let users: String = "Users"
-        static let userType: String = "UserType"
+    
+    ///keys for all Collections in the database
+    struct Collection {
+        static let Users: String = "Users"
+        static let UserType: String = "UserType"
     }
     
+    ///keys for all User properties
     struct UserInfo {
         static let email: String = "email"
         static let username: String = "username"
         static let userId: String = "userId"
+        static let type: String = "type"
     }
     
-    struct UserTypeKeys {
-        static let type = "type"
-        static let player = "Player"
-        static let admin = "Admin"
+    ///keys for all UserType
+    struct UserType {
+        static let Player: String = "Player"
+        static let Admin: String = "Admin"
     }
 }
