@@ -118,9 +118,9 @@ iOSInjectionProject/
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-### Specific files
+### Specific files and directories
 GoogleService-Info.plist
 ApiKeys.swift
-
+Private/
 
 # End of https://www.gitignore.io/api/swift,xcode,firebase,cocoapods
