@@ -17,53 +17,53 @@ struct UserService {
     
     // MARK: - Static Methods
     
-    static func signIn(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+    static func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
-                return completion(nil, error)
+                return completion(.failure(error))
             }
             guard let user = result?.user else {
-                return completion(nil, error)
+                return completion(.failure(NetworkError.custom(errorMessage: "No user found")))
             }
-            return completion(user, nil)
+            return completion(.success(user))
         }
     }
     
     ///fetch userType in UserType collection
-    static func fetchUserType(with userId: String, completion: @escaping UserTypeCompletion) {
+    static func fetchUserType(with userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
         db.collection(UsersKeys.Collection.UserType)
             .document(userId)
             .getDocument { (snapshot, error) in
                 if let error = error {
-                    return completion(nil, error)
+                    return completion(.failure(error))
                 }
                 guard let snapshot = snapshot,
                     let data = snapshot.data(),
                     let userTypeString = data[UsersKeys.UserInfo.type] as? String,
                     let userType = UserType(rawValue: userTypeString)
-                    else {
-                        return completion(nil, NetworkError.custom(errorMessage: "No user type"))
+                else {
+                    return completion(.failure(NetworkError.custom(errorMessage: "No user type")))
                 }
-                completion(userType, nil)
+                completion(.success(userType))
         }
     }
     
     ///fetch userType in Users collectiion
-    static func fetchUserTypeinUsers(with userId: String, completion: @escaping UserTypeCompletion) {
+    static func fetchUserTypeinUsers(with userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
             .document(userId)
             .getDocument { (snapshot, error) in
                 if let error = error {
-                    return completion(nil, error)
+                    return completion(.failure(error))
                 }
                 guard let snapshot = snapshot,
                     let data = snapshot.data(),
                     let userTypeString = data[UsersKeys.UserInfo.type] as? String,
                     let userType = UserType(rawValue: userTypeString)
-                    else {
-                        return completion(nil, NetworkError.custom(errorMessage: "No user type"))
+                else {
+                    return completion(.failure(NetworkError.custom(errorMessage: "No user type")))
                 }
-                completion(userType, nil)
+                completion(.success(userType))
         }
     }
     
@@ -76,46 +76,45 @@ struct UserService {
         })
     }
     
-    //fetch userId of a user given an email
-    static func fetchUserId(email: String, completion: @escaping (_ userId: String?, _ error: String?) -> Void) {
+    ///fetch userId of a user given an email
+    static func fetchUserId(email: String, completion: @escaping (Result<String, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
             .whereField(UsersKeys.UserInfo.email, isEqualTo: email)
             .getDocuments { (snapshot, error) in
                 if let error = error {
-                    completion(nil, error.localizedDescription)
-                    return
+                    return completion(.failure(error))
                 }
                 guard let snapshot = snapshot,
                     let userDoc = snapshot.documents.first
-                    else { return }
+                else {
+                    return completion(.failure(NetworkError.custom(errorMessage: "No userId")))
+                }
                 let userId = userDoc.documentID
-                completion(userId, nil)
+                completion(.success(userId))
         }
     }
     
-    ///Fetch Tenant's Document ID with their Email
-    static func fetchPlayerUid(withEmail email: String, completion: @escaping (String?, Error?) -> Void) {
+    ///Fetch Player's userId
+    static func fetchPlayerUid(withEmail email: String, completion: @escaping (Result<String, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
             .whereField(UsersKeys.UserInfo.type, isEqualTo: UsersKeys.UserType.Player)
             .whereField(UsersKeys.UserInfo.email, isEqualTo: email)
             .getDocuments { (snapshot, error) in
                 if let error = error {
-                    completion(nil, error)
-                    return
+                    return completion(.failure(error))
                 }
-                
-                guard let snapshot = snapshot else { return }
-                
+                guard let snapshot = snapshot else {
+                    return completion(.failure(NetworkError.custom(errorMessage: "No user found with that email")))
+                }
                 if snapshot.documents.isEmpty {
-                    completion(nil, nil)
+                    completion(.failure(NetworkError.custom(errorMessage: "No userId found with that email")))
                 }
-                
                 for document in snapshot.documents {
                     if document.exists {
-                        completion(document.documentID, nil)
+                        let userId = document.documentID
+                        completion(.success(userId))
                     }
                 }
-                
         }
     }
 }
