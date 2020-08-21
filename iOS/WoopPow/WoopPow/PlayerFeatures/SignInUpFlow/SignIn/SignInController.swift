@@ -76,15 +76,10 @@ class SignInController: UIViewController {
         button.setTitle("Don't have an account? Sign Up.", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.addTarget(self, action: #selector(presentSelectRealEstateProfileController), for: .touchUpInside)
-        button.titleLabel?.font = .font(size: 17, weight: .medium, design: .rounded)//UIFont(name: "Avenir-Light", size: 17)
+        button.titleLabel?.font = .font(size: 17, weight: .medium, design: .rounded)
         button.addTarget(self, action: #selector(goToCreateAccountController), for: .touchUpInside)
         return button
     }()
-    
-    @objc fileprivate func goToCreateAccountController() {
-        coordinator.goToCreateAccountController()
-    }
     
     // MARK: - View Lifecycle Methods
     
@@ -94,7 +89,6 @@ class SignInController: UIViewController {
         formView.configureTextFieldDelegate(with: self)
         hideKeyboardOnTap()
         configureAutoLayout()
-        configureNavigationItem()
         addKeyboardObservers()
     }
     
@@ -147,10 +141,6 @@ class SignInController: UIViewController {
         }
     }
     
-    private func configureNavigationItem() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(dismissCreateAccountController))
-    }
-    
     private func showErrorMessageAlertView(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -160,8 +150,8 @@ class SignInController: UIViewController {
     
     // MARK: - @ObjC Methods
     
-    @objc func dismissCreateAccountController() {
-        navigationController?.popViewController(animated: true)
+    @objc fileprivate func goToCreateAccountController() {
+        coordinator.goToCreateAccountController()
     }
     
     @objc func signInUser() {
@@ -201,17 +191,6 @@ class SignInController: UIViewController {
                     }
                 }
             }
-        }
-    }
-    
-    @objc func presentSelectRealEstateProfileController() {
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
-        } else { //if user logged out and wants to create account
-//            let vc = SelectUserTypeController()
-//            let navigationController = UINavigationController(rootViewController: vc)
-//            self.view.window?.rootViewController = navigationController
-            self.view.window?.makeKeyAndVisible()
         }
     }
     

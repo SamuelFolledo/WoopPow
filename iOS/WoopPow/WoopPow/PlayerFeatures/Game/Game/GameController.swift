@@ -86,7 +86,6 @@ class GameController: UIViewController {
 //MARK: Setup and Constraints Views
 private extension GameController {
     func setupViews() {
-        self.navigationController?.navigationBar.isHidden = true
         setupBackground()
         constraintTopViews()
         constraintMoveSets()
