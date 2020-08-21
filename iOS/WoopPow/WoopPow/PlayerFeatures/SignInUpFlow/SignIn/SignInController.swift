@@ -170,16 +170,38 @@ class SignInController: UIViewController {
         else { return }
         signInButton.isEnabled = !email.isEmpty && !password.isEmpty
         startActivityIndicator()
-//        UserService.signIn(email: email, password: password) { [weak self] (user, error) in
-//            guard let self = self else { return }
-//            if let error = error {
-//                self.stopActivityIndicator()
-//                self.showErrorMessageAlertView(message: error.localizedDescription)
-//                return
-//            }
-//            guard let user = user else { return }
-//            self.continueWithUser(isPhoneAuth: false, user: user)
-//        }
+        //sign user in
+        UserService.signIn(email: email, password: password) { (result) in
+            switch result {
+            case .failure(let error):
+                self.stopActivityIndicator()
+                self.presentAlert(title: "Sign In Error", message: error.localizedDescription)
+            case .success(let user):
+                //get user type
+                UserService.fetchUserType(userId: user.uid) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        self.stopActivityIndicator()
+                        self.presentAlert(title: "Error Fetching User Type", message: error.localizedDescription)
+                    case .success(let userType):
+                        //save the user
+                        Defaults.setUserType(userType, writeToUserDefaults: true)
+                        Defaults.hasLoggedInOrCreatedAccount = true
+                        switch userType {
+                        case .Player:
+                            var player = Player(userId: user.uid, username: user.displayName!, email: user.email!)
+                            player.userType = userType
+                            Player.setCurrent(player, writeToUserDefaults: true)
+                            //go to home
+                            self.coordinator.goToHomeController()
+                        case .Admin:
+                            print("Admin user type unsupported")
+                            self.stopActivityIndicator()
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @objc func presentSelectRealEstateProfileController() {
