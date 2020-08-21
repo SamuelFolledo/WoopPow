@@ -19,7 +19,7 @@ class GameController: UIViewController {
         let imageView = UIImageView()
         imageView.clipsToBounds = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = Constants.Images.gameControllerBackground1
+        imageView.image = Constants.Images.gameBackground1
         return imageView
     }()
     lazy var timeLeftLabel: UILabel = {
