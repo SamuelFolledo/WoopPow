@@ -48,6 +48,7 @@
 		335900EB24EF658900386D66 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EA24EF658900386D66 /* UserService.swift */; };
 		335900ED24EF89B300386D66 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EC24EF89B300386D66 /* AppService.swift */; };
 		335900EF24EF8AE600386D66 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EE24EF8AE600386D66 /* NavBarView.swift */; };
+		335900F224EFB14D00386D66 /* homeMockUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 335900F124EFB14D00386D66 /* homeMockUp.png */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -123,6 +124,8 @@
 		335900EA24EF658900386D66 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		335900EC24EF89B300386D66 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		335900EE24EF8AE600386D66 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
+		335900F024EFB10300386D66 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		335900F124EFB14D00386D66 /* homeMockUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeMockUp.png; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 		3378EFE624D7CCB30019C1C8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				335900F024EFB10300386D66 /* README.md */,
+				335900F124EFB14D00386D66 /* homeMockUp.png */,
 				3342938724CFCA230086D3F0 /* HomeController.swift */,
 			);
 			path = Home;
@@ -553,6 +558,7 @@
 			files = (
 				3342939024CFCA270086D3F0 /* LaunchScreen.storyboard in Resources */,
 				335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */,
+				335900F224EFB14D00386D66 /* homeMockUp.png in Resources */,
 				3342938D24CFCA270086D3F0 /* Assets.xcassets in Resources */,
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
 			);
