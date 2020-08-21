@@ -64,7 +64,7 @@ struct Defaults {
     }
     
     static func valueOfUserType() -> UserType? {
-        guard let userTypeString = UserDefaults.standard.value(forKey: Constants.userType) as? String else { return nil }
+        guard let userTypeString = UserDefaults.standard.string(forKey: Constants.userType) else { return nil }
         guard let userType = UserType(rawValue: userTypeString) else { return nil }
         return userType
     }
