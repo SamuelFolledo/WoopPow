@@ -109,7 +109,7 @@ class ControlView: UIView {
         self.isLeft = isLeft
         self.control = control
         super.init(frame: .zero)
-        setup()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -118,7 +118,7 @@ class ControlView: UIView {
     
     //MARK: Private Methods
     
-    fileprivate func setup() {
+    fileprivate func setupView() {
         addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
