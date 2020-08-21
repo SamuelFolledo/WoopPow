@@ -47,6 +47,7 @@
 		335900E824EE1A0D00386D66 /* UserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900E724EE1A0D00386D66 /* UserKeys.swift */; };
 		335900EB24EF658900386D66 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EA24EF658900386D66 /* UserService.swift */; };
 		335900ED24EF89B300386D66 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EC24EF89B300386D66 /* AppService.swift */; };
+		335900EF24EF8AE600386D66 /* HomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900EE24EF8AE600386D66 /* HomeTopView.swift */; };
 		3378EFE324D699000019C1C8 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */; };
 		3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFE424D7CCAA0019C1C8 /* GameController.swift */; };
 		3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */; };
@@ -121,6 +122,7 @@
 		335900E724EE1A0D00386D66 /* UserKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeys.swift; sourceTree = "<group>"; };
 		335900EA24EF658900386D66 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		335900EC24EF89B300386D66 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		335900EE24EF8AE600386D66 /* HomeTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopView.swift; sourceTree = "<group>"; };
 		3378EFE224D699000019C1C8 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		3378EFE424D7CCAA0019C1C8 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3378EFEE24D7D7DA0019C1C8 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 		33E4FAAD24D0115B00C06527 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				335900EE24EF8AE600386D66 /* HomeTopView.swift */,
 				33E4FAB024D0166000C06527 /* Control */,
 				335900D224EB6C7C00386D66 /* UnderlinedTextField.swift */,
 				335900D424EC787000386D66 /* ABAnimateProgressView.swift */,
@@ -667,6 +670,7 @@
 				33BB66C524E38DF400C9EF3A /* AttackSet.swift in Sources */,
 				334293A924CFCABF0086D3F0 /* Constants.swift in Sources */,
 				335900DF24EDD23E00386D66 /* UINavigationController+Extensions.swift in Sources */,
+				335900EF24EF8AE600386D66 /* HomeTopView.swift in Sources */,
 				335900B624EA12A200386D66 /* Control.swift in Sources */,
 				335900DD24ECF69900386D66 /* String+Extensions.swift in Sources */,
 				3342938824CFCA230086D3F0 /* HomeController.swift in Sources */,
