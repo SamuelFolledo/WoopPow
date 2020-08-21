@@ -11,6 +11,12 @@ import NVActivityIndicatorView
 
 extension UIViewController {
     
+    func addBackButton() {
+        let backButtonImage = Constants.Images.backButton
+        let backButton = UIBarButtonItem(image: backButtonImage, style: .plain, target: navigationController, action: #selector(UINavigationController.popViewController(animated:)))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
     //takes a view and add
     func startActivityIndicator(type: NVActivityIndicatorType = .ballClipRotateMultiple) {
         Constants.Views.indicatorView.center = view.center
