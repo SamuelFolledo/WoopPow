@@ -11,7 +11,9 @@ import UIKit
 class NavigationBarView: UIView {
     
     var isLeft: Bool
+    var player: Player
     
+    //MARK: Views
     @IBOutlet var contentView: UIView!
     @IBOutlet var navBarImageView: UIImageView!
     @IBOutlet var userView: UIView!
@@ -19,10 +21,12 @@ class NavigationBarView: UIView {
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var levelView: UIView!
     @IBOutlet var levelLabel: UILabel!
+    @IBOutlet var usernameLabel: UILabel!
     
-    
-    required init(isLeft: Bool) {
+    //MARK: Initializers
+    required init(isLeft: Bool, player: Player) {
         self.isLeft = isLeft
+        self.player = player
         super.init(frame: .zero)
         commonInit()
         setupViews()
