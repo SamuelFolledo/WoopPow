@@ -12,7 +12,7 @@ class GameViewModel {
     
     //MARK: Properties
     let game: Game
-    weak var delegate: GameController?
+    weak var delegate: GameController2D?
     let player1HPProgress = Progress(totalUnitCount: 30)
     let player2HPProgress = Progress(totalUnitCount: 30)
     private var timeLeftTimer: Timer?
