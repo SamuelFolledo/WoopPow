@@ -26,7 +26,6 @@ class HomeController: UIViewController {
         return imageView
     }()
     private lazy var navBarView: NavigationBarView = {
-//        let navBarView = NavBarView(player: player)
         let navBarView = NavigationBarView(isLeft: true)
         return navBarView
     }()

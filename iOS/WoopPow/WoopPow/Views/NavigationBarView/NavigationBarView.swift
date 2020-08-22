@@ -40,6 +40,6 @@ class NavigationBarView: UIView {
     }
     
     fileprivate func setupViews() {
-//        navBarImageView.topAlignmentAndAspectFit(to: self)
+        levelView.layer.cornerRadius = levelView.frame.height / 2
     }
 }
