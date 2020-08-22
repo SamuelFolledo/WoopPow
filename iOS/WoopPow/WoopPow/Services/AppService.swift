@@ -9,6 +9,28 @@
 import UIKit
 
 struct AppService {
+    
+    //MARK: Global Service Methods
+    static func getMaxExperienceNeeded(fromLevel level: Int) -> CGFloat {
+        var num: Int = 100
+        switch level {
+        case _ where level > 0:
+            print("You are level \(level)")
+            num = ((level * (level / 2)) * 100) * (level / 2)
+            /*  level 1 = 25
+                level 2 = 200
+                level 3 = 675
+                level 4 = 1600
+                level 5 = 3125
+                level 10 = 25000
+            */
+        default: break
+        }
+        return CGFloat(num)
+    }
+    
+    //MARK: View Services
+    
     static func playButton() -> UIButton {
         let button = UIButton(frame: .zero)
         button.setImage(Constants.Images.playButton, for: .normal)
