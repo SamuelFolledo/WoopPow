@@ -25,8 +25,9 @@ class HomeController: UIViewController {
         imageView.backgroundColor = .systemBackground
         return imageView
     }()
-    private lazy var navBarView: NavBarView = {
-        let navBarView = NavBarView(player: player)
+    private lazy var navBarView: NavigationBarView = {
+//        let navBarView = NavBarView(player: player)
+        let navBarView = NavigationBarView(isLeft: true)
         return navBarView
     }()
     private lazy var playButton: UIButton = {
@@ -64,8 +65,9 @@ class HomeController: UIViewController {
         setupBackground()
         view.addSubview(navBarView)
         navBarView.snp.makeConstraints {
-            $0.top.left.right.equalToSuperview()
-            $0.height.equalTo(50)
+            $0.top.centerX.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(80)
         }
         view.addSubview(playButton)
         playButton.snp.makeConstraints {

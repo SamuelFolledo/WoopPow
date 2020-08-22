@@ -25,6 +25,10 @@
 		334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B324CFCB410086D3F0 /* Date+Extensions.swift */; };
 		334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293B424CFCB410086D3F0 /* UIView+Extensions.swift */; };
 		334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334293BB24CFCC3A0086D3F0 /* Coordinator.swift */; };
+		33575A9F24F085080015448A /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33575A9E24F085080015448A /* UserImageView.swift */; };
+		33575AA124F092860015448A /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33575AA024F092860015448A /* NavigationBarView.xib */; };
+		33575AA424F09A230015448A /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33575AA224F0999D0015448A /* NavigationBarView.swift */; };
+		33575AA624F0A9EC0015448A /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33575AA524F0A9EC0015448A /* UIImageView+Extensions.swift */; };
 		335900B624EA12A200386D66 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B524EA12A200386D66 /* Control.swift */; };
 		335900B824EA695E00386D66 /* MoveSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B724EA695E00386D66 /* MoveSet.swift */; };
 		335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335900B924EA6B1D00386D66 /* MoveSetPosition.swift */; };
@@ -100,6 +104,10 @@
 		334293B324CFCB410086D3F0 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		334293B424CFCB410086D3F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		334293BB24CFCC3A0086D3F0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		33575A9E24F085080015448A /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
+		33575AA024F092860015448A /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
+		33575AA224F0999D0015448A /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		33575AA524F0A9EC0015448A /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		335900B524EA12A200386D66 /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		335900B724EA695E00386D66 /* MoveSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSet.swift; sourceTree = "<group>"; };
 		335900B924EA6B1D00386D66 /* MoveSetPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSetPosition.swift; sourceTree = "<group>"; };
@@ -260,6 +268,7 @@
 				335900DC24ECF69900386D66 /* String+Extensions.swift */,
 				335900DE24EDD23E00386D66 /* UINavigationController+Extensions.swift */,
 				335900E224EE10C200386D66 /* UserDefaults+Extensions.swift */,
+				33575AA524F0A9EC0015448A /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -444,7 +453,10 @@
 		33E4FAAD24D0115B00C06527 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33575AA024F092860015448A /* NavigationBarView.xib */,
+				33575AA224F0999D0015448A /* NavigationBarView.swift */,
 				335900EE24EF8AE600386D66 /* NavBarView.swift */,
+				33575A9E24F085080015448A /* UserImageView.swift */,
 				33E4FAB024D0166000C06527 /* Control */,
 				335900D224EB6C7C00386D66 /* UnderlinedTextField.swift */,
 				335900D424EC787000386D66 /* ABAnimateProgressView.swift */,
@@ -560,6 +572,7 @@
 				335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */,
 				335900F224EFB14D00386D66 /* homeMockUp.png in Resources */,
 				3342938D24CFCA270086D3F0 /* Assets.xcassets in Resources */,
+				33575AA124F092860015448A /* NavigationBarView.xib in Resources */,
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,6 +683,7 @@
 				335900D524EC787000386D66 /* ABAnimateProgressView.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
 				3378EFF724D7F9410019C1C8 /* Player.swift in Sources */,
+				33575AA424F09A230015448A /* NavigationBarView.swift in Sources */,
 				33E4FAAF24D0118D00C06527 /* ControlView.swift in Sources */,
 				335900E824EE1A0D00386D66 /* UserKeys.swift in Sources */,
 				334293BC24CFCC3A0086D3F0 /* Coordinator.swift in Sources */,
@@ -684,10 +698,12 @@
 				3378EFEF24D7D7DA0019C1C8 /* GameOverController.swift in Sources */,
 				3378EFE524D7CCAA0019C1C8 /* GameController.swift in Sources */,
 				335900EB24EF658900386D66 /* UserService.swift in Sources */,
+				33575AA624F0A9EC0015448A /* UIImageView+Extensions.swift in Sources */,
 				335900CA24EB5EE000386D66 /* CreateAccountController.swift in Sources */,
 				3378EFF524D7F7BF0019C1C8 /* Game.swift in Sources */,
 				3378F00424DE55F80019C1C8 /* MoveType.swift in Sources */,
 				334293B624CFCB410086D3F0 /* UIViewController+Extensions.swift in Sources */,
+				33575A9F24F085080015448A /* UserImageView.swift in Sources */,
 				335900BA24EA6B1D00386D66 /* MoveSetPosition.swift in Sources */,
 				335900D124EB6A2400386D66 /* CreateAccountFormView.swift in Sources */,
 				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,

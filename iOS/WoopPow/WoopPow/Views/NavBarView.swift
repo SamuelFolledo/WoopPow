@@ -31,6 +31,10 @@ class NavBarView: UIView {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
+    lazy var userImageView: UserImageBackground = {
+        let view = UserImageBackground(isLeft: true)
+        return view
+    }()
     
     //MARK: Init
     required init(player: Player) {
@@ -53,6 +57,13 @@ class NavBarView: UIView {
         addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        addSubview(userImageView)
+        userImageView.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(5)
+            $0.top.equalToSuperview().offset(20)
+            $0.height.equalTo(self.snp.height).multipliedBy(1.3)
+            $0.width.equalTo(self.snp.height).multipliedBy(1.3).offset(30)
         }
     }
 }
