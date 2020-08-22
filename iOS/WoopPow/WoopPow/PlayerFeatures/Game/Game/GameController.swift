@@ -28,10 +28,9 @@ class GameController: UIViewController {
         // create and add a camera to the scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        scene.rootNode.addChildNode(cameraNode)
-        
-        // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 1050, z: 120)
+        scene.rootNode.addChildNode(cameraNode)
+        // place the camera
         
         // create and add a light to the scene
         let lightNode = SCNNode()

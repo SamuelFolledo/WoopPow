@@ -399,8 +399,7 @@
 		3378EFE824D7D7790019C1C8 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				3378EFE424D7CCAA0019C1C8 /* GameController2D.swift */,
-				3378EFF824D7FB7A0019C1C8 /* GameViewModel.swift */,
+				33DCD01524F1E399000E9430 /* GameController2D */,
 				3321CC3C24F1BE2F002C23DA /* GameController.swift */,
 			);
 			path = Game;
@@ -469,6 +468,15 @@
 				33BB66C224E38DC200C9EF3A /* AttackSetPosition.swift */,
 			);
 			path = Properties;
+			sourceTree = "<group>";
+		};
+		33DCD01524F1E399000E9430 /* GameController2D */ = {
+			isa = PBXGroup;
+			children = (
+				3378EFE424D7CCAA0019C1C8 /* GameController2D.swift */,
+				3378EFF824D7FB7A0019C1C8 /* GameViewModel.swift */,
+			);
+			path = GameController2D;
 			sourceTree = "<group>";
 		};
 		33E4FAAD24D0115B00C06527 /* Views */ = {
@@ -905,6 +913,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NY68F4K3P;
 				INFOPLIST_FILE = "WoopPow/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -924,6 +933,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NY68F4K3P;
 				INFOPLIST_FILE = "WoopPow/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
