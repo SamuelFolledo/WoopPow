@@ -9,6 +9,9 @@
 import UIKit
 
 extension UIColor {
+    
+    static let woopPowYellow = UIColor(r: 250, g: 227, b: 15, a: 1)
+    
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
