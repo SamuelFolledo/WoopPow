@@ -49,6 +49,15 @@ class AppCoordinator: Coordinator {
     }
     
     func goToGameController() {
+        let vc = GameController()
+//        let gameViewModel = GameViewModel(game: gameSample())
+//        gameViewModel.delegate = vc
+//        vc.gameViewModel = gameViewModel
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func goToGameController2D() {
         let vc = GameController2D()
         let gameViewModel = GameViewModel(game: gameSample())
         gameViewModel.delegate = vc
