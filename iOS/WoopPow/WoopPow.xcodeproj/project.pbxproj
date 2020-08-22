@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EDAC04C9ED9E9443EE0047A /* Pods_WoopPow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */; };
+		3321CC3B24F1BC59002C23DA /* 3DAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321CC3A24F1BC59002C23DA /* 3DAssets.scnassets */; };
 		3342938424CFCA230086D3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342938324CFCA230086D3F0 /* AppDelegate.swift */; };
 		3342938624CFCA230086D3F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342938524CFCA230086D3F0 /* SceneDelegate.swift */; };
 		3342938824CFCA230086D3F0 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342938724CFCA230086D3F0 /* HomeController.swift */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.release.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.debug.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.debug.xcconfig"; sourceTree = "<group>"; };
+		3321CC3A24F1BC59002C23DA /* 3DAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = 3DAssets.scnassets; sourceTree = "<group>"; };
 		3342938024CFCA230086D3F0 /* WoopPow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoopPow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3342938324CFCA230086D3F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3342938524CFCA230086D3F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				3342938C24CFCA270086D3F0 /* Assets.xcassets */,
+				3321CC3A24F1BC59002C23DA /* 3DAssets.scnassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 			files = (
 				3342939024CFCA270086D3F0 /* LaunchScreen.storyboard in Resources */,
 				335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */,
+				3321CC3B24F1BC59002C23DA /* 3DAssets.scnassets in Resources */,
 				335900F224EFB14D00386D66 /* homeMockUp.png in Resources */,
 				3342938D24CFCA270086D3F0 /* Assets.xcassets in Resources */,
 				33575AA124F092860015448A /* NavigationBarView.xib in Resources */,
