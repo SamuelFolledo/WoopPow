@@ -49,7 +49,7 @@ class AppCoordinator: Coordinator {
     }
     
     func goToGameController() {
-        let vc = GameController()
+        let vc = GameController2D()
         let gameViewModel = GameViewModel(game: gameSample())
         gameViewModel.delegate = vc
         vc.gameViewModel = gameViewModel

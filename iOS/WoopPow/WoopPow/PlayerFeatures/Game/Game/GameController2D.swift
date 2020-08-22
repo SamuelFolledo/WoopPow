@@ -1,5 +1,5 @@
 //
-//  GameController.swift
+//  GameController2D.swift
 //  WoopPow
 //
 //  Created by Samuel Folledo on 8/3/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameController: UIViewController {
+class GameController2D: UIViewController {
     
     //MARK: Properties
     var gameViewModel: GameViewModel!
