@@ -15,7 +15,8 @@ class NavigationBarView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet var navBarImageView: UIImageView!
     @IBOutlet var userView: UIView!
-    @IBOutlet var userImageView: UIView!
+    @IBOutlet var userImageViewBackground: UIImageView!
+    @IBOutlet var userImageView: UIImageView!
     @IBOutlet var levelView: UIView!
     @IBOutlet var levelLabel: UILabel!
     

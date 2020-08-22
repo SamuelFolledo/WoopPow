@@ -13,7 +13,8 @@
                 <outlet property="levelLabel" destination="Y8O-cw-Ti9" id="a3s-yE-1pm"/>
                 <outlet property="levelView" destination="qNy-MC-Mpz" id="a6J-40-ozb"/>
                 <outlet property="navBarImageView" destination="GNK-8o-251" id="qZ7-fs-HVS"/>
-                <outlet property="userImageView" destination="AXP-W3-Vrg" id="Qi0-DU-GHQ"/>
+                <outlet property="userImageView" destination="FO5-ac-fDH" id="0eE-FT-6ng"/>
+                <outlet property="userImageViewBackground" destination="AXP-W3-Vrg" id="0qx-u0-dbc"/>
                 <outlet property="userView" destination="ogE-Rd-lGD" id="cG2-w0-JzF"/>
             </connections>
         </placeholder>
@@ -29,8 +30,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-Rd-lGD" userLabel="userView">
                     <rect key="frame" x="16" y="21" width="76" height="68"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AXP-W3-Vrg">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AXP-W3-Vrg" userLabel="userImageViewBackground">
                             <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FO5-ac-fDH" userLabel="userImageView">
+                            <rect key="frame" x="4" y="4" width="60" height="60"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNy-MC-Mpz" userLabel="levelView">
                             <rect key="frame" x="56" y="34" width="20" height="20"/>
@@ -56,11 +60,15 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="AXP-W3-Vrg" firstAttribute="width" secondItem="ogE-Rd-lGD" secondAttribute="width" constant="-8" id="3EI-cn-GiL"/>
+                        <constraint firstItem="FO5-ac-fDH" firstAttribute="centerY" secondItem="AXP-W3-Vrg" secondAttribute="centerY" id="NVs-ZX-YAB"/>
+                        <constraint firstItem="FO5-ac-fDH" firstAttribute="centerX" secondItem="AXP-W3-Vrg" secondAttribute="centerX" id="Qke-sv-sI3"/>
                         <constraint firstItem="AXP-W3-Vrg" firstAttribute="top" secondItem="ogE-Rd-lGD" secondAttribute="top" id="Uzg-jO-8aB"/>
                         <constraint firstItem="AXP-W3-Vrg" firstAttribute="leading" secondItem="ogE-Rd-lGD" secondAttribute="leading" id="XrP-wn-rJx"/>
                         <constraint firstAttribute="trailing" secondItem="qNy-MC-Mpz" secondAttribute="trailing" id="ZRr-KK-4yd"/>
                         <constraint firstItem="AXP-W3-Vrg" firstAttribute="height" secondItem="ogE-Rd-lGD" secondAttribute="height" id="Zh7-9r-Bhn"/>
+                        <constraint firstItem="FO5-ac-fDH" firstAttribute="width" secondItem="AXP-W3-Vrg" secondAttribute="width" constant="-8" id="j8p-dj-1SM"/>
                         <constraint firstItem="qNy-MC-Mpz" firstAttribute="centerY" secondItem="ogE-Rd-lGD" secondAttribute="centerY" multiplier="1.3:1" id="pWB-i4-6Vn"/>
+                        <constraint firstItem="FO5-ac-fDH" firstAttribute="height" secondItem="AXP-W3-Vrg" secondAttribute="height" constant="-8" id="ud2-ZC-Mu5"/>
                         <constraint firstAttribute="width" secondItem="ogE-Rd-lGD" secondAttribute="height" constant="8" id="zBJ-u9-bGK"/>
                     </constraints>
                 </view>
