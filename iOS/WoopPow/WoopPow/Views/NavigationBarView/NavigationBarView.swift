@@ -37,7 +37,7 @@ class NavigationBarView: UIView {
         let layer = CAShapeLayer()
         layer.path = circularPath.cgPath
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.yellow.cgColor
+        layer.strokeColor = UIColor.woopPowYellow.cgColor
         layer.lineWidth = expBarWidth
         layer.lineCap = CAShapeLayerLineCap.square //stroke end
         layer.strokeEnd = 0
