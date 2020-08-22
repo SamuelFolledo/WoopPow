@@ -11,11 +11,14 @@ import UIKit
 struct AppService {
     
     //MARK: Global Service Methods
+    
+    /// Get maximum experience needed to level up
+    /// - Parameter level: player's current level
+    /// - Returns: experience needed to level up
     static func getMaxExperienceNeeded(fromLevel level: Int) -> CGFloat {
         var num: Int = 100
         switch level {
         case _ where level > 0:
-            print("You are level \(level)")
             num = ((level * (level / 2)) * 100) * (level / 2)
             /*  level 1 = 25
                 level 2 = 200
