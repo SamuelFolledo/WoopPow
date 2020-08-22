@@ -36,6 +36,10 @@ class NavigationBarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        levelView.layer.cornerRadius = levelView.frame.height / 2
+    }
+    
     fileprivate func commonInit() {
         Bundle.main.loadNibNamed("NavigationBarView", owner: self, options: nil)
         addSubview(contentView)
@@ -45,5 +49,6 @@ class NavigationBarView: UIView {
     
     fileprivate func setupViews() {
         levelView.layer.cornerRadius = levelView.frame.height / 2
+        usernameLabel.text = player.username!
     }
 }
