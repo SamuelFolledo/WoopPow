@@ -84,7 +84,7 @@ class GameController2D: UIViewController {
 //MARK: Extensions
 
 //MARK: Setup and Constraints Views
-private extension GameController {
+private extension GameController2D {
     func setupViews() {
         setupBackground()
         constraintTopViews()
