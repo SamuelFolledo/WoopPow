@@ -20,7 +20,7 @@ class ControlView: UIView {
         let view = UIView()
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = false
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 3
