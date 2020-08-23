@@ -62,6 +62,7 @@ struct AttackSet {
             print("No position to remove")
             return
         } else {
+            positions.remove(at: positions.firstIndex(of: attack.position)!) //safe because we made sure positions array contains attack's position
             switch attack.position {
             case .upLight:
                 upLight = AttackType.none(attack: .noneUpLight)
