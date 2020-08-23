@@ -12,8 +12,13 @@ import SceneKit
 
 class GameController: UIViewController {
     
+    enum GameState {
+        case loading, playing
+    }
+    
     //MARK: Properties
     var coordinator: AppCoordinator!
+    var gameState: GameState = .loading
     
     //MARK: Views
     var gameView: GameView! {
@@ -26,59 +31,7 @@ class GameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScene()
-        // create a new scene
-//        let scene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")!
-//
-//        // create and add a camera to the scene
-//        let cameraNode = SCNNode()
-//        cameraNode.camera = SCNCamera()
-//        cameraNode.position = SCNVector3(x: 0, y: 1050, z: 120)
-//        scene.rootNode.addChildNode(cameraNode)
-//        // place the camera
-//
-//        // create and add a light to the scene
-//        let lightNode = SCNNode()
-//        lightNode.light = SCNLight()
-//        lightNode.light!.type = .directional //directional, omni
-//        lightNode.position = SCNVector3(x: 0, y: 20, z: 20)
-//        scene.rootNode.addChildNode(lightNode)
-//
-//        // create and add an ambient light to the scene
-//        let ambientLightNode = SCNNode()
-//        ambientLightNode.light = SCNLight()
-//        ambientLightNode.light!.type = .ambient
-//        ambientLightNode.light!.color = UIColor.darkGray
-//        scene.rootNode.addChildNode(ambientLightNode)
-//
-//        // retrieve the ship node
-////        let ship = scene.rootNode.childNode(withName: "mixamorig_Hips", recursively: true)!
-//
-//        // animate the 3d object
-////        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
-//
-//        // retrieve the SCNView
-////        sceneView = self.view as! SCNView
-//
-//        self.view = sceneView
-//        let scnView = self.view as! SCNView
-//        // set the scene to the view
-//        scnView.scene = scene
-//
-//        // allows the user to manipulate the camera
-//        scnView.allowsCameraControl = true
-//
-//        // show statistics such as fps and timing information
-//        scnView.showsStatistics = true
-//
-//        // configure the view
-//        scnView.backgroundColor = UIColor.black
-//
-//        // add a tap gesture recognizer
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-//        scnView.addGestureRecognizer(tapGesture)
-//
-//        //MARK: Floor
-//
+        gameState = .playing
     }
     
     override var shouldAutorotate: Bool { return true }
@@ -105,6 +58,7 @@ extension GameController {
         scnView.scene = mainScene
         scnView.isPlaying = true //start game loop and animation
         addFloor()
+        addControls()
     }
     
     fileprivate func addFloor() {
@@ -115,6 +69,34 @@ extension GameController {
         floorGeo.firstMaterial = floorMaterial
         let floorNode = SCNNode(geometry: floorGeo)
         mainScene.rootNode.addChildNode(floorNode)
+    }
+    
+    fileprivate func addControls() {
+        let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
+        let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
+        let control = Control(attackSet: attackSet, moveSet: moveSet)
+        let controlView = ControlView(isLeft: true, control: control)
+        controlView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view.addSubview(controlView)
+        controlView.snp.makeConstraints { (make) in
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
+        }
+        
+        let attackSet2 = AttackSet(codes: ["2.1", "2.2", "1.3", "1.4", "2.5", "2.6"])
+        let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
+        let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
+        let controlView2 = ControlView(isLeft: false, control: control2)
+        controlView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view.addSubview(controlView2)
+        controlView2.snp.makeConstraints { (make) in
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
+        }
     }
 }
 
