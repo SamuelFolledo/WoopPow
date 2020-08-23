@@ -26,6 +26,8 @@ class GameController: UIViewController {
         return GameView(frame: frame)
     }
     var mainScene: SCNScene!
+    var player1ControlView: ControlView!
+    var player2ControlView: ControlView!
     
     //MARK: App Life Cycle
     override func viewDidLoad() {
@@ -58,7 +60,7 @@ extension GameController {
         scnView.scene = mainScene
         scnView.isPlaying = true //start game loop and animation
         addFloor()
-        addControls()
+        setupControls()
     }
     
     fileprivate func addFloor() {
@@ -71,16 +73,15 @@ extension GameController {
         mainScene.rootNode.addChildNode(floorNode)
     }
     
-    fileprivate func addControls() {
+    fileprivate func setupControls() {
         let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
-        let controlView = ControlView(isLeft: true, control: control)
-        controlView.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        view.addSubview(controlView)
-        controlView.snp.makeConstraints { (make) in
+        player1ControlView = ControlView(isLeft: false, control: control)
+        view.addSubview(player1ControlView)
+        player1ControlView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
             make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
@@ -88,12 +89,11 @@ extension GameController {
         let attackSet2 = AttackSet(codes: ["2.1", "2.2", "1.3", "1.4", "2.5", "2.6"])
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
-        let controlView2 = ControlView(isLeft: false, control: control2)
-        controlView2.containerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        view.addSubview(controlView2)
-        controlView2.snp.makeConstraints { (make) in
+        player2ControlView = ControlView(isLeft: false, control: control2)
+        view.addSubview(player2ControlView)
+        player2ControlView.snp.makeConstraints { (make) in
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
             make.width.equalTo(view.safeAreaLayoutGuide.snp.height).multipliedBy(0.4)
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
