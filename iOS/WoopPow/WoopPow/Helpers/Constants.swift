@@ -31,27 +31,32 @@ struct Constants {
         static let homeBackground: UIImage = UIImage(named: "homeBackground.png")!
         static let navBarView: UIImage = UIImage(named: "navBarView.png")!
         static let userImageBackground: UIImage = UIImage(named: "userImageBackground.png")!
+        static let currencyContainer: UIImage = UIImage(named: "currencyContainer.png")!
+        static let coin: UIImage = UIImage(named: "coin.png")!
+        static let diamond: UIImage = UIImage(named: "diamond.png")!
         //Buttons
-        static let backButton: UIImage = UIImage(named: "backButton")!
-        static let homeButton: UIImage = UIImage(named: "homeButton")!
-        static let homeButtonSelected: UIImage = UIImage(named: "homeButtonSelected")!
-        static let noButton: UIImage = UIImage(named: "noButton")!
-        static let yesButton: UIImage = UIImage(named: "yesButton")!
-        static let restartButton: UIImage = UIImage(named: "restartButton")!
-        static let resumeButton: UIImage = UIImage(named: "resumeButton")!
-        static let playButton: UIImage = UIImage(named: "playButton")!
+        static let plus: UIImage = UIImage(named: "plus.png")!
+        static let plusButton: UIImage = UIImage(named: "plusButton.png")!
+        static let backButton: UIImage = UIImage(named: "backButton.png")!
+        static let homeButton: UIImage = UIImage(named: "homeButton.png")!
+        static let homeButtonSelected: UIImage = UIImage(named: "homeButtonSelected.png")!
+        static let noButton: UIImage = UIImage(named: "noButton.png")!
+        static let yesButton: UIImage = UIImage(named: "yesButton.png")!
+        static let restartButton: UIImage = UIImage(named: "restartButton.png")!
+        static let resumeButton: UIImage = UIImage(named: "resumeButton.png")!
+        static let playButton: UIImage = UIImage(named: "playButton.png")!
         //Moves
-        static let moveUp: UIImage = UIImage(named: "moveUp")!
-        static let moveBack: UIImage = UIImage(named: "moveBack")!
-        static let moveDown: UIImage = UIImage(named: "moveDown")!
-        static let moveForward: UIImage = UIImage(named: "moveForward")!
+        static let moveUp: UIImage = UIImage(named: "moveUp.png")!
+        static let moveBack: UIImage = UIImage(named: "moveBack.png")!
+        static let moveDown: UIImage = UIImage(named: "moveDown.png")!
+        static let moveForward: UIImage = UIImage(named: "moveForward.png")!
         //Punches
-        static let punchUpLight: UIImage = UIImage(named: "punchUp")!
-        static let punchUpMedium: UIImage = UIImage(named: "punchUp")!
-        static let punchUpHard: UIImage = UIImage(named: "punchUpHard")!
-        static let punchDownLight: UIImage = UIImage(named: "punchDown")!
-        static let punchDownMedium: UIImage = UIImage(named: "punchDown")!
-        static let punchDownHard: UIImage = UIImage(named: "punchDownHard")!
+        static let punchUpLight: UIImage = UIImage(named: "punchUp.png")!
+        static let punchUpMedium: UIImage = UIImage(named: "punchUp.png")!
+        static let punchUpHard: UIImage = UIImage(named: "punchUpHard.png")!
+        static let punchDownLight: UIImage = UIImage(named: "punchDown.png")!
+        static let punchDownMedium: UIImage = UIImage(named: "punchDown.png")!
+        static let punchDownHard: UIImage = UIImage(named: "punchDownHard.png")!
     }
     
     static let password: String = "password"
