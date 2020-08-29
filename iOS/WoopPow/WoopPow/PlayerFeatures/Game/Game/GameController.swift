@@ -29,6 +29,8 @@ class GameController: UIViewController {
     var player1ControlView: ControlView!
     var player2ControlView: ControlView!
     
+    var samuelAxeKick = SCNAnimationPlayer()
+    
     //MARK: App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,19 +61,57 @@ extension GameController {
         scnView.antialiasingMode = .multisampling4X
         scnView.scene = mainScene
         scnView.isPlaying = true //start game loop and animation
-        addFloor()
+//        addFloor()
         setupControls()
+        setupAnimations()
     }
     
-    fileprivate func addFloor() {
-        let floorGeo = SCNFloor()
-        let floorMaterial = SCNMaterial()
-        floorMaterial.diffuse.contents = UIColor(red: 0.1, green: 0.5, blue: 0.1, alpha: 1.0)
-        floorMaterial.specular.contents = UIColor.black
-        floorGeo.firstMaterial = floorMaterial
-        let floorNode = SCNNode(geometry: floorGeo)
-        mainScene.rootNode.addChildNode(floorNode)
+    fileprivate func setupAnimations() {
+        guard let samuel = mainScene.rootNode.childNode(withName: "male reference", recursively: true) else {
+            print("Failed to find samuel")
+            return
+        }
+//        "AnyConv.com__Male@AxeKick.dae"
+//        samuelAxeKick = SCNAnimationPlayer.loadAnimation(fromSceneNamed: "3DAssets.scnassets/Characters/Samuel/Animations/AnyConv.com__Male@AxeKick.dae")
+        
+//        samuelAxeKick = SCNAnimationPlayer.loadAnimation(fromSceneNamed: "3DAssets.scnassets/Idle.dae")
+//        samuel.addAnimationPlayer(samuelAxeKick, forKey: "AxeKick")
+        
+        
+//        guard let animation = myAnimation(path: "3DAssets.scnassets/Idle.dae") else {
+//            print("No animation found")
+//            return
+//        }
+        
+        guard let animation = myAnimation(path: "Resources/3DAssets.scnassets/Male-AxeKick.dae") else {
+            print("No animation found")
+            return
+        }
+        samuel.addAnimation(animation, forKey: "Idle")
     }
+    
+    func myAnimation(path: String) -> SCNAnimation? {
+        let scene = SCNScene(named: path)
+        var animation: SCNAnimationPlayer?
+        scene?.rootNode.enumerateChildNodes( { (child, stop) in
+            if let animationKey = child.animationKeys.first {
+                animation = child.animationPlayer(forKey: animationKey)
+                // variable pointee: ObjCBool { get nonmutating set }
+                stop.pointee = true
+            }
+        })
+        return animation?.animation
+    }
+    
+//    fileprivate func addFloor() {
+//        let floorGeo = SCNFloor()
+//        let floorMaterial = SCNMaterial()
+//        floorMaterial.diffuse.contents = UIColor(red: 0.1, green: 0.5, blue: 0.1, alpha: 1.0)
+//        floorMaterial.specular.contents = UIColor.black
+//        floorGeo.firstMaterial = floorMaterial
+//        let floorNode = SCNNode(geometry: floorGeo)
+//        mainScene.rootNode.addChildNode(floorNode)
+//    }
     
     fileprivate func setupControls() {
         let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
@@ -102,7 +142,7 @@ extension GameController {
 
 extension SCNAnimationPlayer {
     class func loadAnimation(fromSceneNamed sceneName: String) -> SCNAnimationPlayer {
-        let scene = SCNScene( named: sceneName )!
+        let scene = SCNScene(named: sceneName)!
         // find top level animation
         var animationPlayer: SCNAnimationPlayer! = nil
         scene.rootNode.enumerateChildNodes { (child, stop) in
