@@ -18,12 +18,17 @@ class NavigationBarView: UIView {
     //MARK: Views
     @IBOutlet var contentView: UIView!
     @IBOutlet var navBarImageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var userView: UIView!
     @IBOutlet var userImageViewBackground: UIImageView!
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var levelView: UIView!
     @IBOutlet var levelLabel: UILabel!
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet weak var coinLabel: UIButton!
+    @IBOutlet weak var coinAddButton: UIButton!
+    @IBOutlet weak var diamondLabel: UIButton!
+    @IBOutlet weak var diamondAddButton: UIButton!
     lazy var trackLayer: CAShapeLayer = {
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath

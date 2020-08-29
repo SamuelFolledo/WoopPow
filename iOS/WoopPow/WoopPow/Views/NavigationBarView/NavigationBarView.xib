@@ -9,10 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBarView" customModule="WoopPow" customModuleProvider="target">
             <connections>
+                <outlet property="coinAddButton" destination="UKn-Ti-3i3" id="S8c-JK-Zw8"/>
+                <outlet property="coinLabel" destination="VOo-Yc-emk" id="WMI-CF-AJG"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="1Gk-RH-j9C"/>
+                <outlet property="diamondAddButton" destination="rDh-rN-R3m" id="TZO-Gi-YJT"/>
+                <outlet property="diamondLabel" destination="coD-4D-85R" id="BVN-9u-4Ql"/>
                 <outlet property="levelLabel" destination="Y8O-cw-Ti9" id="a3s-yE-1pm"/>
                 <outlet property="levelView" destination="qNy-MC-Mpz" id="a6J-40-ozb"/>
                 <outlet property="navBarImageView" destination="GNK-8o-251" id="qZ7-fs-HVS"/>
+                <outlet property="titleLabel" destination="cel-GD-nBg" id="UEa-Nd-LyK"/>
                 <outlet property="userImageView" destination="FO5-ac-fDH" id="0eE-FT-6ng"/>
                 <outlet property="userImageViewBackground" destination="AXP-W3-Vrg" id="0qx-u0-dbc"/>
                 <outlet property="userView" destination="ogE-Rd-lGD" id="cG2-w0-JzF"/>
