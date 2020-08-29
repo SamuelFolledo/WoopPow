@@ -82,6 +82,63 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cel-GD-nBg">
+                    <rect key="frame" x="234" y="7" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Htf-gX-4RT">
+                    <rect key="frame" x="572" y="14" width="108" height="20"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="currencyContainer" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-HC-UrN">
+                            <rect key="frame" x="-9" y="-1" width="126" height="22"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iQ-kP-2Bl">
+                            <rect key="frame" x="95" y="-1" width="20" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="plus"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZO-up-36J">
+                            <rect key="frame" x="-3" y="-1" width="87" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title=" 100000" image="coin"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="aEg-HC-UrN" firstAttribute="width" secondItem="Htf-gX-4RT" secondAttribute="width" id="Q1F-Gw-DUg"/>
+                        <constraint firstItem="aEg-HC-UrN" firstAttribute="centerY" secondItem="Htf-gX-4RT" secondAttribute="centerY" id="bse-cD-f09"/>
+                        <constraint firstItem="aEg-HC-UrN" firstAttribute="centerX" secondItem="Htf-gX-4RT" secondAttribute="centerX" id="cW8-2E-cNn"/>
+                        <constraint firstItem="aEg-HC-UrN" firstAttribute="height" secondItem="Htf-gX-4RT" secondAttribute="height" id="vZX-9n-loT"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Va-VP-J0q">
+                    <rect key="frame" x="711" y="14" width="108" height="20"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="currencyContainer" translatesAutoresizingMaskIntoConstraints="NO" id="qn6-1R-Lzg">
+                            <rect key="frame" x="-9" y="-1" width="126" height="22"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDh-rN-R3m">
+                            <rect key="frame" x="91" y="-1" width="24" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="plusButton"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coD-4D-85R">
+                            <rect key="frame" x="-4" y="-1" width="90" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title=" 100000" image="diamond"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="qn6-1R-Lzg" firstAttribute="centerY" secondItem="2Va-VP-J0q" secondAttribute="centerY" id="6v2-2u-kJi"/>
+                        <constraint firstItem="qn6-1R-Lzg" firstAttribute="height" secondItem="2Va-VP-J0q" secondAttribute="height" id="OHC-8a-FHB"/>
+                        <constraint firstItem="qn6-1R-Lzg" firstAttribute="centerX" secondItem="2Va-VP-J0q" secondAttribute="centerX" id="YHe-eg-6YP"/>
+                        <constraint firstItem="qn6-1R-Lzg" firstAttribute="width" secondItem="2Va-VP-J0q" secondAttribute="width" id="mqg-iM-w9m"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -101,7 +158,12 @@
         </view>
     </objects>
     <resources>
-        <image name="navBarView" width="960.5" height="70.5"/>
+        <image name="coin" width="18.666666030883789" height="17.333333969116211"/>
+        <image name="currencyContainer" width="82" height="16.333333969116211"/>
+        <image name="diamond" width="22" height="17.666666030883789"/>
+        <image name="navBarView" width="640.33331298828125" height="45.666667938232422"/>
+        <image name="plus" width="9.3333330154418945" height="9.3333330154418945"/>
+        <image name="plusButton" width="22.666666030883789" height="21.333333969116211"/>
         <image name="userImageBackground" width="53" height="53"/>
     </resources>
 </document>
