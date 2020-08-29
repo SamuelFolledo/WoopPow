@@ -78,15 +78,14 @@
                         <constraint firstAttribute="height" constant="20" id="1Id-AE-lhx"/>
                         <constraint firstAttribute="width" constant="90" id="RMc-SL-pcP"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cel-GD-nBg">
-                    <rect key="frame" x="234" y="7" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Main Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cel-GD-nBg">
+                    <rect key="frame" x="248" y="8" width="304" height="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="c5X-km-Lzn">
@@ -195,12 +194,16 @@
                 <constraint firstItem="c5X-km-Lzn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="G2b-pS-DlC"/>
                 <constraint firstItem="GNK-8o-251" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.074" id="GgV-dh-n70"/>
                 <constraint firstItem="GNK-8o-251" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-1" id="HAf-ze-ILZ"/>
+                <constraint firstItem="cel-GD-nBg" firstAttribute="trailing" secondItem="c5X-km-Lzn" secondAttribute="leading" constant="-40" id="V1s-6C-Bri"/>
                 <constraint firstItem="c5X-km-Lzn" firstAttribute="width" secondItem="GNK-8o-251" secondAttribute="width" multiplier="0.257848" id="bX2-EV-exY"/>
                 <constraint firstItem="c5X-km-Lzn" firstAttribute="height" secondItem="GNK-8o-251" secondAttribute="height" multiplier="0.35" id="fhV-p3-QDN"/>
                 <constraint firstItem="ogE-Rd-lGD" firstAttribute="width" secondItem="GNK-8o-251" secondAttribute="height" constant="25" id="geM-98-hDQ"/>
+                <constraint firstItem="cel-GD-nBg" firstAttribute="leading" secondItem="Awy-rb-zVf" secondAttribute="trailing" constant="60" id="ifN-0Y-B1L"/>
                 <constraint firstItem="GNK-8o-251" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ipu-Ha-sbV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="c5X-km-Lzn" secondAttribute="trailing" constant="30" id="k7x-Zt-neG"/>
                 <constraint firstItem="GNK-8o-251" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="q3L-z4-37f"/>
+                <constraint firstItem="cel-GD-nBg" firstAttribute="top" secondItem="c5X-km-Lzn" secondAttribute="top" id="qrX-XH-xfc"/>
+                <constraint firstItem="cel-GD-nBg" firstAttribute="bottom" secondItem="c5X-km-Lzn" secondAttribute="bottom" id="rVv-tk-zSw"/>
                 <constraint firstItem="Awy-rb-zVf" firstAttribute="leading" secondItem="ogE-Rd-lGD" secondAttribute="trailing" constant="-9" id="xV3-bf-q3R"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
