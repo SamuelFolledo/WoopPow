@@ -221,7 +221,7 @@
         <image name="currencyContainer" width="82" height="16.333333969116211"/>
         <image name="diamond" width="22" height="17.666666030883789"/>
         <image name="navBarView" width="640.33331298828125" height="45.666667938232422"/>
-        <image name="plusButton" width="22.666666030883789" height="21.333333969116211"/>
+        <image name="plusButton" width="22.666666030883789" height="20.666666030883789"/>
         <image name="userImageBackground" width="53" height="53"/>
     </resources>
 </document>
