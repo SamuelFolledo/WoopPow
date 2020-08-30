@@ -85,4 +85,23 @@ struct PlayerService {
             completion(nil)
         }
     }
+    
+    ///fetch player info and return a player
+    static func fetchPlayer(userId: String, completion: @escaping (Result<Player, Error>) -> Void) {
+        db.collection(UsersKeys.Collection.Users)
+            .document(userId)
+            .getDocument { (snapshot, error) in
+                if let error = error {
+                    return completion(.failure(error))
+                }
+                guard let snapshot = snapshot,
+                    let data = snapshot.data(),
+                    let username = data[UsersKeys.UserInfo.username] as? String,
+                    let email = data[UsersKeys.UserInfo.email] as? String
+                else { return completion(.failure(NetworkError.custom(errorMessage: "User not found"))) }
+                var player = Player(userId: userId, username: username, email: email)
+                player.userType = .Player
+                completion(.success(player))
+        }
+    }
 }

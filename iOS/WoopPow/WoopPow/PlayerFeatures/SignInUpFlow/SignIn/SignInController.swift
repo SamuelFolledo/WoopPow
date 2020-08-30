@@ -56,7 +56,8 @@ class SignInController: UIViewController {
     
     let signInButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7) // default state
+        button.backgroundColor = UIColor.systemGray2
+        button.isEnabled = false
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .font(size: 16, weight: .semibold, design: .rounded)
@@ -179,11 +180,17 @@ class SignInController: UIViewController {
                         Defaults.hasLoggedInOrCreatedAccount = true
                         switch userType {
                         case .Player:
-                            var player = Player(userId: user.uid, username: user.displayName!, email: user.email!)
-                            player.userType = userType
-                            Player.setCurrent(player, writeToUserDefaults: true)
-                            //go to home
-                            self.coordinator.goToHomeController()
+                            PlayerService.fetchPlayer(userId: user.uid) { (result) in
+                                switch result {
+                                case .failure(let error):
+                                    self.stopActivityIndicator()
+                                    self.presentAlert(title: "Error Fetching User Type", message: error.localizedDescription)
+                                case .success(let player):
+                                    Player.setCurrent(player, writeToUserDefaults: true)
+                                    //go to home
+                                    self.coordinator.goToHomeController()
+                                }
+                            }
                         case .Admin:
                             print("Admin user type unsupported")
                             self.stopActivityIndicator()
@@ -203,7 +210,7 @@ class SignInController: UIViewController {
                 return
         }
         signInButton.isEnabled = false
-        signInButton.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7)
+        signInButton.backgroundColor = UIColor.systemGray2
     }
 }
 

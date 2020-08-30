@@ -49,7 +49,7 @@ struct UserService {
     }
     
     ///fetch userType in Users collectiion
-    static func fetchUserTypeinUsers(userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
+    static func fetchUserTypeInUsers(userId: String, completion: @escaping (Result<UserType, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
             .document(userId)
             .getDocument { (snapshot, error) in
@@ -76,28 +76,10 @@ struct UserService {
         })
     }
     
-    ///fetch userId of a user given an email
-    static func fetchUserId(email: String, completion: @escaping (Result<String, Error>) -> Void) {
+    ///Fetch User's userId
+    static func fetchUserUid(userType: UserType, withEmail email: String, completion: @escaping (Result<String, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
-            .whereField(UsersKeys.UserInfo.email, isEqualTo: email)
-            .getDocuments { (snapshot, error) in
-                if let error = error {
-                    return completion(.failure(error))
-                }
-                guard let snapshot = snapshot,
-                    let userDoc = snapshot.documents.first
-                else {
-                    return completion(.failure(NetworkError.custom(errorMessage: "No userId")))
-                }
-                let userId = userDoc.documentID
-                completion(.success(userId))
-        }
-    }
-    
-    ///Fetch Player's userId
-    static func fetchPlayerUid(withEmail email: String, completion: @escaping (Result<String, Error>) -> Void) {
-        db.collection(UsersKeys.Collection.Users)
-            .whereField(UsersKeys.UserInfo.type, isEqualTo: UsersKeys.UserType.Player)
+            .whereField(UsersKeys.UserInfo.type, isEqualTo: userType.rawValue)
             .whereField(UsersKeys.UserInfo.email, isEqualTo: email)
             .getDocuments { (snapshot, error) in
                 if let error = error {
