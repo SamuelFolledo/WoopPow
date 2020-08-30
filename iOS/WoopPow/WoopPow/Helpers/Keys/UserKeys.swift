@@ -21,7 +21,7 @@ struct UsersKeys {
         static let email: String = "email"
         static let username: String = "username"
         static let userId: String = "userId"
-        static let type: String = "type"
+        static let userType: String = "userType"
     }
     
     ///keys for all UserType

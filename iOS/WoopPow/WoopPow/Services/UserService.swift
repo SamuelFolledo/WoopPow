@@ -39,7 +39,7 @@ struct UserService {
                 }
                 guard let snapshot = snapshot,
                     let data = snapshot.data(),
-                    let userTypeString = data[UsersKeys.UserInfo.type] as? String,
+                    let userTypeString = data[UsersKeys.UserInfo.userType] as? String,
                     let userType = UserType(rawValue: userTypeString)
                 else {
                     return completion(.failure(NetworkError.custom(errorMessage: "No user type")))
@@ -58,7 +58,7 @@ struct UserService {
                 }
                 guard let snapshot = snapshot,
                     let data = snapshot.data(),
-                    let userTypeString = data[UsersKeys.UserInfo.type] as? String,
+                    let userTypeString = data[UsersKeys.UserInfo.userType] as? String,
                     let userType = UserType(rawValue: userTypeString)
                 else {
                     return completion(.failure(NetworkError.custom(errorMessage: "No user type")))
@@ -79,7 +79,7 @@ struct UserService {
     ///Fetch User's userId
     static func fetchUserUid(userType: UserType, withEmail email: String, completion: @escaping (Result<String, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
-            .whereField(UsersKeys.UserInfo.type, isEqualTo: userType.rawValue)
+            .whereField(UsersKeys.UserInfo.userType, isEqualTo: userType.rawValue)
             .whereField(UsersKeys.UserInfo.email, isEqualTo: email)
             .getDocuments { (snapshot, error) in
                 if let error = error {

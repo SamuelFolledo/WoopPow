@@ -1,41 +1,23 @@
 //
-//  PlayerService.swift
+//  AdminService.swift
 //  WoopPow
 //
-//  Created by Samuel Folledo on 8/19/20.
+//  Created by Samuel Folledo on 8/30/20.
 //  Copyright © 2020 SamuelFolledo. All rights reserved.
 //
 
 import Foundation
 
-enum NetworkError: Error, CustomStringConvertible {
-    case createUser
-    case getProperties
-    case removeProperty
-    case addProperty
-    case custom(errorMessage: String)
-    
-    var description: String {
-        switch self {
-        case .createUser: return "Failed to save and create a user on Firebase..."
-        case .getProperties: return "We weren't able get your properties. Make sure you have strong internet connection."
-        case .removeProperty: return "Failed to remove a user's property from Firestore..."
-        case .addProperty: return "Failed to add a property..."
-        case .custom(let errorMessage): return errorMessage
-        }
-    }
-}
-
-struct PlayerService {
+struct AdminService {
     ///register and create a user
-    static func createUser(withEmail email: String, password: String, username: String, completion: @escaping (Result<Player, Error>) -> Void) {
+    static func createUser(withEmail email: String, password: String, username: String, completion: @escaping (Result<Admin, Error>) -> Void) {
         auth.createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 return completion(.failure(error))
             }
             guard let result = result else { return }
-            let player = Player(userId: result.user.uid, username: username, email: email)
-            Player.setCurrent(player, writeToUserDefaults: true)
+            let admin = Admin(userId: result.user.uid, username: username, email: email)
+            Admin.setCurrent(admin, writeToUserDefaults: true)
             //update displayName
             guard let user = auth.currentUser else { return }
             let changeRequest = user.createProfileChangeRequest()
@@ -48,7 +30,7 @@ struct PlayerService {
                     if let error = error {
                         return completion(.failure(NetworkError.custom(errorMessage: error)))
                     }
-                    completion(.success(player))
+                    completion(.success(admin))
                 }
             }
         }
@@ -56,19 +38,20 @@ struct PlayerService {
     
     ///save user's info
     static func saveAccountInformation(completion: @escaping (_ error: String?) -> Void) {
-        guard let player = Player.current,
-              let userId = player.userId
+        guard let admin = Admin.current,
+              let userId = admin.userId
         else { return }
         //Save user info
         let userInfoDocData: [String: Any] = [
-            UsersKeys.UserInfo.email: player.email ?? "",
-            UsersKeys.UserInfo.userId: player.userId ?? "",
-            UsersKeys.UserInfo.username: player.username ?? ""
+            UsersKeys.UserInfo.email: admin.email ?? "",
+            UsersKeys.UserInfo.userId: admin.userId ?? "",
+            UsersKeys.UserInfo.username: admin.username ?? "",
+            UsersKeys.UserInfo.userType: admin.userType.rawValue,
         ]
         let userInfoRef = db.collection(UsersKeys.Collection.Users).document(userId)
         //Save user type
         let userTypeData: [String: Any] = [
-            UsersKeys.UserInfo.userType: UsersKeys.UserType.Player
+            UsersKeys.UserInfo.userType: UsersKeys.UserType.Admin
         ]
         let userTypeRef = db.collection(UsersKeys.Collection.UserType).document(userId)
         //Get a new batch
@@ -84,8 +67,8 @@ struct PlayerService {
         }
     }
     
-    ///fetch player info and return a player
-    static func fetchPlayer(userId: String, completion: @escaping (Result<Player, Error>) -> Void) {
+    ///fetch admin info and return a admin
+    static func fetchAdmin(userId: String, completion: @escaping (Result<Admin, Error>) -> Void) {
         db.collection(UsersKeys.Collection.Users)
             .document(userId)
             .getDocument { (snapshot, error) in
@@ -97,8 +80,8 @@ struct PlayerService {
                     let username = data[UsersKeys.UserInfo.username] as? String,
                     let email = data[UsersKeys.UserInfo.email] as? String
                 else { return completion(.failure(NetworkError.custom(errorMessage: "User not found"))) }
-                let player = Player(userId: userId, username: username, email: email)
-                completion(.success(player))
+                let admin = Admin(userId: userId, username: username, email: email)
+                completion(.success(admin))
         }
     }
 }
