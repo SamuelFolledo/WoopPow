@@ -52,7 +52,13 @@ class CreateAccountController: UIViewController {
         return label
     }()
     
-    private let formView = CreateAccountFormView()
+    private lazy var formView: CreateAccountFormView = {
+        let view = CreateAccountFormView()
+        view.usernameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        view.emailTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        view.passwordTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        return view
+    }()
     
     private lazy var creatingAccountLabel: UILabel = {
         let label = UILabel()
@@ -80,7 +86,8 @@ class CreateAccountController: UIViewController {
     
     let nextButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.systemBlue
+        button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.7)
+        button.isEnabled = false
         button.imageEdgeInsets = UIEdgeInsets(top: 18, left: 10, bottom: 18, right: 10)
         button.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         button.clipsToBounds = true
@@ -112,7 +119,7 @@ class CreateAccountController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         transparentNavigationBar()
         addBackButton()
         formView.configureTextFieldDelegate(with: self)
@@ -255,6 +262,19 @@ class CreateAccountController: UIViewController {
 //        let controller = SFSafariViewController(url: url, configuration: configuration)
 //        controller.delegate = self
 //        navigationController?.present(controller, animated: true)
+    }
+    
+    @objc func textFieldDidChange(textField: UITextField) {
+        guard let username = formView.usernameTextField.text,
+              let email = formView.emailTextField.text,
+              let password = formView.passwordTextField.text,
+              email.isEmpty || password.isEmpty || username.isEmpty else {
+                nextButton.isEnabled = true
+                nextButton.backgroundColor = .systemBlue
+                return
+        }
+        nextButton.isEnabled = false
+        nextButton.backgroundColor = UIColor.systemGray.withAlphaComponent(0.7)
     }
 }
 
