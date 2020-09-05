@@ -42,7 +42,12 @@ struct Player: Codable {
         self.username = username
         self.userId = userId
         self.email = email
-        self.userType = .Player
+    }
+    
+    init(userDictionary: [String: Any]) {
+        self.username = userDictionary[UsersKeys.UserInfo.username] as? String
+        self.userId = userDictionary[UsersKeys.UserInfo.userId] as? String
+        self.email = userDictionary[UsersKeys.UserInfo.email] as? String
     }
     
     init() {}
@@ -63,5 +68,22 @@ extension Player {
             Defaults._removeUser(true)
         }
         _current = nil
+    }
+}
+
+//MARK: Current Player methods
+extension Player {
+    static func updateCurrent(userDictionary: [String: Any]) {
+        guard var current = Player.current else { return }
+        if let username = userDictionary[UsersKeys.UserInfo.username] as? String {
+            current.username = username
+        }
+        if let userId = userDictionary[UsersKeys.UserInfo.userId] as? String {
+            current.userId = userId
+        }
+        if let email = userDictionary[UsersKeys.UserInfo.email] as? String {
+            current.email = email
+        }
+        Player.setCurrent(current, writeToUserDefaults: true)
     }
 }

@@ -12,6 +12,7 @@ import Firebase
 import NVActivityIndicatorView
 import KeychainSwift
 import FirebaseUI
+import GoogleSignIn
 
 class SignInController: UIViewController {
     
@@ -72,6 +73,23 @@ class SignInController: UIViewController {
         return button
     }()
     
+    let googleSigninButton: UIButton = {
+            let button = UIButton()
+    //        button.style = .wide
+            button.backgroundColor = .systemBackground
+            button.setTitle("Continue with Google", for: .normal)
+            button.setTitleColor(.label, for: .normal)
+            button.titleLabel?.font = .font(size: 16, weight: .semibold, design: .rounded)
+            button.layer.masksToBounds = false
+            button.layer.shadowColor = UIColor.label.cgColor
+            button.layer.shadowOffset = CGSize(width: 0, height: 0)
+            button.layer.shadowOpacity = 0.3
+            button.layer.shadowRadius = 3
+            button.layer.cornerRadius = 22.5
+            button.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
+            return button
+        }()
+    
     private lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Don't have an account? Sign Up.", for: .normal)
@@ -118,7 +136,7 @@ class SignInController: UIViewController {
             $0.bottom.equalToSuperview()
         }
         
-        [signInLabel, formView, signInButton, createAccountButton].forEach {
+        [signInLabel, formView, signInButton, googleSigninButton, createAccountButton].forEach {
             stackView.addArrangedSubview($0)
             $0.snp.makeConstraints { (make) in
                 make.width.equalToSuperview()
@@ -137,6 +155,18 @@ class SignInController: UIViewController {
             $0.height.equalTo(45)
         }
         
+        googleSigninButton.snp.makeConstraints {
+            $0.width.height.equalTo(signInButton)
+        }
+        
+        let googleImageView = UIImageView(image: UIImage(named: "googleLogo"))
+        googleSigninButton.addSubview(googleImageView)
+        googleImageView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(googleSigninButton.snp.height).multipliedBy(0.6)
+            $0.left.equalToSuperview().offset(20)
+        }
+        
         createAccountButton.snp.makeConstraints {
             $0.width.height.equalTo(signInButton)
         }
@@ -148,6 +178,41 @@ class SignInController: UIViewController {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
+    
+    fileprivate func setupUserName(title: String = "Choose your username") {
+        presentAlertWithField(title: title, inputPlaceholder: "Enter your username", inputKeyboardType: .default,
+        cancelHandler: { (_) in
+            print("Canceled")
+            UserService.deleteUser()
+            return
+        }) { (username) in
+            guard let username = username else { return }
+            //check if username exist
+            db.collection(UsersKeys.Collection.Users).whereField(UsersKeys.UserInfo.username, isEqualTo: username).getDocuments { (snapshot, error) in
+                if let error = error {
+                    self.presentAlert(title: "Error", message: error.localizedDescription)
+                    return
+                }
+                guard let snapshot = snapshot else { return }
+                if snapshot.isEmpty { //if username does not exist
+                    let userData = [UsersKeys.UserInfo.username: username]
+                    UserService.updateUserData(userData: userData) { (error) in
+                        if let error = error {
+                            self.presentAlert(title: "Error Updating Username", message: error)
+                            return
+                        }
+                        self.coordinator.goToHomeController()
+                    }
+                } else {
+                    print("Username already exist please try again")
+                    self.stopActivityIndicator()
+                    self.setupUserName(title: "Username is already taken")
+                }
+            }
+        }
+    }
+    
+    
     
     // MARK: - @ObjC Methods
     
@@ -201,6 +266,12 @@ class SignInController: UIViewController {
         }
     }
     
+    @objc func googleButtonTapped(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+    
     @objc func textFieldDidChange(textField: UITextField) {
         guard let email = formView.emailTextField.text,
               let password = formView.passwordTextField.text,
@@ -244,5 +315,68 @@ private extension SignInController {
         guard let keyboardFrame: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let keyboardHeight = keyboardFrame.height
         scrollView.contentInset.bottom = keyboardHeight + 50
+    }
+}
+
+//MARK: Google Signin Delegate Methods
+extension SignInController: GIDSignInDelegate {
+    func signInWillDispatch(_ signIn: GIDSignIn!, error: Error!) {
+        print("GOOGLE SIGNIN WILL DISPATCH?")
+    }
+    
+    func signIn(_ signIn: GIDSignIn!,
+                presentViewController viewController: UIViewController!) { //presents the google signin screen
+        print("Presenting VC")
+        startActivityIndicator()
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func signIn(_ signIn: GIDSignIn!,
+                dismissViewController viewController: UIViewController!) { //when user dismisses the google signin screen
+        startActivityIndicator()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            stopActivityIndicator()
+            if error.localizedDescription == "The user canceled the sign-in flow." {
+                print("User Canceled Google Auth")
+            } else {
+                presentAlert(title: "Google Signin Error", message: error.localizedDescription)
+            }
+            return
+        }
+        var userDictionary = [
+//            UsersKeys.UserInfo.username: user.profile.givenName ?? "",
+//            UsersKeys.UserInfo.lastName: user.profile.familyName ?? "",
+            UsersKeys.UserInfo.email: user.profile.email ?? "",
+            UsersKeys.UserInfo.userType: UserType.Player.rawValue,
+        ]
+        
+        if user.profile.hasImage {
+            userDictionary[UsersKeys.UserInfo.photoUrl] = user.profile.imageURL(withDimension: 100)?.absoluteString
+            print("Image URL from Google = \(userDictionary[UsersKeys.UserInfo.photoUrl]!)")
+        }
+        guard let authentication = user.authentication else {
+            self.stopActivityIndicator()
+            return
+        }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken) //are we goin to need a session token
+        
+        UserService.authenticateUser(credential: credential, userDictionary: userDictionary) { (result) in //authenticate user with credentials and get user
+            self.stopActivityIndicator()
+            switch result {
+            case .failure(let error):
+                self.presentAlert(title: "Google Error", message: error.localizedDescription)
+            case .success(let isNewUser):
+                if isNewUser {
+                    self.setupUserName()
+                } else {
+                    self.coordinator.goToHomeController()
+                }
+            }
+        }
     }
 }

@@ -10,17 +10,15 @@ import Foundation
 
 enum NetworkError: Error, CustomStringConvertible {
     case createUser
-    case getProperties
-    case removeProperty
-    case addProperty
+    case noUserFound
+    case noUserTypeFound
     case custom(errorMessage: String)
     
     var description: String {
         switch self {
         case .createUser: return "Failed to save and create a user on Firebase..."
-        case .getProperties: return "We weren't able get your properties. Make sure you have strong internet connection."
-        case .removeProperty: return "Failed to remove a user's property from Firestore..."
-        case .addProperty: return "Failed to add a property..."
+        case .noUserFound: return "Failed to find a user"
+        case .noUserTypeFound: return "Failed to find user's user type"
         case .custom(let errorMessage): return errorMessage
         }
     }
@@ -34,38 +32,55 @@ struct PlayerService {
                 return completion(.failure(error))
             }
             guard let result = result else { return }
-            let player = Player(userId: result.user.uid, username: username, email: email)
-            Player.setCurrent(player, writeToUserDefaults: true)
-            //update displayName
-            guard let user = auth.currentUser else { return }
-            let changeRequest = user.createProfileChangeRequest()
-            changeRequest.displayName = username
-            changeRequest.commitChanges { (error) in
-                if let error = error {
-                    return completion(.failure(error))
-                }
-                saveAccountInformation { (error) in
-                    if let error = error {
-                        return completion(.failure(NetworkError.custom(errorMessage: error)))
-                    }
+            let userDictionary: [String: String] = [
+                UsersKeys.UserInfo.userId: result.user.uid,
+                UsersKeys.UserInfo.username: username,
+                UsersKeys.UserInfo.email: email,
+            ]
+            finishCreatingUser(userDictionary: userDictionary) { (result) in
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let player):
                     completion(.success(player))
                 }
             }
         }
     }
     
-    ///save user's info
-    static func saveAccountInformation(completion: @escaping (_ error: String?) -> Void) {
-        guard let player = Player.current,
-              let userId = player.userId
-        else { return }
+    ///update user's name and photoUrl if available and returns patient or error
+    static func finishCreatingUser(userDictionary: [String: String], completion: @escaping (Result<Player, Error>) -> Void) {
+        let player = Player(userDictionary: userDictionary)
+        //update user's displayName and photoUrl
+        guard let user = auth.currentUser else { return }
+        let changeRequest = user.createProfileChangeRequest()
+        changeRequest.displayName = player.username
+        if let userPhotoUrl = userDictionary[UsersKeys.UserInfo.photoUrl] { //update user's photoUrl if available
+            changeRequest.photoURL = URL(string: userPhotoUrl)
+        }
+        changeRequest.commitChanges { (error) in
+            if let error = error {
+                return completion(.failure(error))
+            }
+            saveAccountInformation(userDictionary: userDictionary) { (error) in
+                if let error = error {
+                    return completion(.failure(NetworkError.custom(errorMessage: error)))
+                }
+                Player.setCurrent(player, writeToUserDefaults: true)
+                Defaults.hasLoggedInOrCreatedAccount = true
+                Defaults.setUserType(.Player, writeToUserDefaults: true)
+                completion(.success(player))
+            }
+        }
+    }
+    
+    ///save user's newly created account info
+    static func saveAccountInformation(userDictionary: [String: String], completion: @escaping (_ error: String?) -> Void) {
+        var userDictionary = userDictionary
+        userDictionary.removeValue(forKey: UsersKeys.UserInfo.photoUrl) //remove photoUrl
+        guard let userId = userDictionary[UsersKeys.UserInfo.userId] else { return }
         //Save user info
-        let userInfoDocData: [String: Any] = [
-            UsersKeys.UserInfo.email: player.email ?? "",
-            UsersKeys.UserInfo.userId: player.userId ?? "",
-            UsersKeys.UserInfo.username: player.username ?? ""
-        ]
-        let userInfoRef = db.collection(UsersKeys.Collection.Users).document(userId)
+        let userRef = db.collection(UsersKeys.Collection.Users).document(userId)
         //Save user type
         let userTypeData: [String: Any] = [
             UsersKeys.UserInfo.userType: UsersKeys.UserType.Player
@@ -73,7 +88,7 @@ struct PlayerService {
         let userTypeRef = db.collection(UsersKeys.Collection.UserType).document(userId)
         //Get a new batch
         let batch = db.batch()
-        batch.setData(userInfoDocData, forDocument: userInfoRef)
+        batch.setData(userDictionary, forDocument: userRef)
         batch.setData(userTypeData, forDocument: userTypeRef)
         // Commit the batch
         batch.commit { (error) in

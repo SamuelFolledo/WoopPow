@@ -202,7 +202,6 @@ class CreateAccountController: UIViewController {
             switch result {
             case .success(let player):
                 print("\(player.username!) successfully created an account")
-                Defaults.hasLoggedInOrCreatedAccount = true
                 DispatchQueue.main.async {
                     self.coordinator.goToHomeController()
                 }

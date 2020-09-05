@@ -29,6 +29,9 @@ target 'WoopPow' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
 
+  # Pods for Firebase Google Authentication
+  pod 'GoogleSignIn'
+
 
   target 'WoopPowTests' do
     inherit! :search_paths
