@@ -197,8 +197,8 @@ class CreateAccountController: UIViewController {
 //    }
     
     private func createPlayerUser(with email: String, password: String, username: String) {
-        startActivityIndicator()
         PlayerService.createUser(withEmail: email, password: password, username: username) { (result) in
+            self.stopActivityIndicator()
             switch result {
             case .success(let player):
                 print("\(player.username!) successfully created an account")
@@ -207,7 +207,6 @@ class CreateAccountController: UIViewController {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.stopActivityIndicator()
                     self.showErrorMessageAlertView(error: error)
                 }
             }
@@ -240,13 +239,29 @@ class CreateAccountController: UIViewController {
     // MARK: - @objc Selector Methods
     
     @objc func goToNextController() {
+        startActivityIndicator()
         guard let username = formView.usernameTextField.text,
               let email = formView.emailTextField.text?.trimWhiteSpacesAndLines,
               let password = formView.passwordTextField.text
         else { return }
-        let keychain = KeychainSwift()
-        keychain.set(password, forKey: Constants.password)
-        createPlayerUser(with: email, password: password, username: username)
+        //check if username already exist
+        db.collection(UsersKeys.Collection.Users).whereField(UsersKeys.UserInfo.username, isEqualTo: username).getDocuments { (snapshot, error) in
+            if let error = error {
+                self.stopActivityIndicator()
+                self.presentAlert(title: "Error", message: error.localizedDescription)
+                return
+            }
+            guard let snapshot = snapshot else { return }
+            if snapshot.isEmpty { //if username does not exist, store password and create user
+                let keychain = KeychainSwift()
+                keychain.set(password, forKey: Constants.password)
+                self.createPlayerUser(with: email, password: password, username: username)
+            } else { //username is already taken
+                self.stopActivityIndicator()
+                self.formView.usernameTextField.hasError()
+                self.presentAlert(title: "User is already taken")
+            }
+        }
     }
     
     @objc func dismissCreateAccountController() {
