@@ -130,7 +130,7 @@ private extension GameController2D {
     }
     
     func constraintMoveSets() {
-        let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
+        let attackSet = AttackSet(attackCodes: ["punchUpLight", "kickUpMedium", "kickUpHard", "kickDownLight", "punchDownMedium", "punchDownHard"])
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
         let controlView = ControlView(isLeft: true, control: control)
@@ -143,7 +143,7 @@ private extension GameController2D {
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
         
-        let attackSet2 = AttackSet(codes: ["2.1", "2.2", "1.3", "1.4", "2.5", "2.6"])
+        let attackSet2 = AttackSet(attackCodes: ["kickUpLight", "punchUpMedium", "punchUpHard", "punchDownLight", "kickDownMedium", "kickDownHard"])
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
         let controlView2 = ControlView(isLeft: false, control: control2)

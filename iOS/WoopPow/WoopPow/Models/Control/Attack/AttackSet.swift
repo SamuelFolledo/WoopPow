@@ -18,9 +18,9 @@ struct AttackSet {
     
     private var positions: [AttackSetPosition] = []
     
-    init(codes: [String]) {
-        for code in codes {
-            let attack = AttackType(code: code)
+    init(attackCodes: [String]) {
+        for code in attackCodes {
+            let attack = AttackType(attackCode: code)
             addAttack(attack: attack)
         }
     }
