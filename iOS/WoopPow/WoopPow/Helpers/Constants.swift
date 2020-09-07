@@ -50,13 +50,23 @@ struct Constants {
         static let moveBack: UIImage = UIImage(named: "moveBack.png")!
         static let moveDown: UIImage = UIImage(named: "moveDown.png")!
         static let moveForward: UIImage = UIImage(named: "moveForward.png")!
+        //Control
+        static let controlBackground: UIImage = UIImage(named: "controlButton.png")!
+        static let controlBackgroundRed: UIImage = UIImage(named: "controlButtonRed.png")!
         //Punches
-        static let punchUpLight: UIImage = UIImage(named: "punchUp.png")!
-        static let punchUpMedium: UIImage = UIImage(named: "punchUp.png")!
+        static let punchUpLight: UIImage = UIImage(named: "punchUpLight.png")!
+        static let punchUpMedium: UIImage = UIImage(named: "punchUpMedium.png")!
         static let punchUpHard: UIImage = UIImage(named: "punchUpHard.png")!
-        static let punchDownLight: UIImage = UIImage(named: "punchDown.png")!
-        static let punchDownMedium: UIImage = UIImage(named: "punchDown.png")!
+        static let punchDownLight: UIImage = UIImage(named: "punchDownLight.png")!
+        static let punchDownMedium: UIImage = UIImage(named: "punchDownMedium.png")!
         static let punchDownHard: UIImage = UIImage(named: "punchDownHard.png")!
+        //Kicks
+        static let kickUpLight: UIImage = UIImage(named: "kickUpLight.png")!
+        static let kickUpMedium: UIImage = UIImage(named: "kickUpMedium.png")!
+        static let kickUpHard: UIImage = UIImage(named: "kickUpHard.png")!
+        static let kickDownLight: UIImage = UIImage(named: "kickDownLight.png")!
+        static let kickDownMedium: UIImage = UIImage(named: "kickDownMedium.png")!
+        static let kickDownHard: UIImage = UIImage(named: "kickDownHard.png")!
     }
     
     static let password: String = "password"
