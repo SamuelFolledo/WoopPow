@@ -19,6 +19,8 @@ class GameController: UIViewController {
     //MARK: Properties
     var coordinator: AppCoordinator!
     var gameState: GameState = .loading
+    var samuelAnimations = [String: CAAnimation]()
+    var idle: Bool = true
     
     //MARK: Views
     var gameView: GameView! {
@@ -54,6 +56,7 @@ class GameController: UIViewController {
 extension GameController {
     fileprivate func setupScene() {
         self.view = gameView
+        self.coordinator.navigationController.isNavigationBarHidden = true
         mainScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")! //load Stage1.scn as our mainScene
         let scnView = self.view as! GameView
         // set the scene to the view
@@ -67,27 +70,33 @@ extension GameController {
     }
     
     fileprivate func setupAnimations() {
-        guard let samuel = mainScene.rootNode.childNode(withName: "male reference", recursively: true) else {
+        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuelIdle", recursively: true) else {
             print("Failed to find samuel")
             return
         }
-//        "AnyConv.com__Male@AxeKick.dae"
-//        samuelAxeKick = SCNAnimationPlayer.loadAnimation(fromSceneNamed: "3DAssets.scnassets/Characters/Samuel/Animations/AnyConv.com__Male@AxeKick.dae")
+        print("Samuel's position=", samuelNode.position)
         
-//        samuelAxeKick = SCNAnimationPlayer.loadAnimation(fromSceneNamed: "3DAssets.scnassets/Idle.dae")
-//        samuel.addAnimationPlayer(samuelAxeKick, forKey: "AxeKick")
+        let idleScene = SCNScene(named: "3DAssets.scnassets/Characters/Samuel/animation/idleFixed.dae")!
+        loadAnimation(withKey: "kickDownHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/kickDownHard", animationIdentifier: "kickDownHard")
+        loadAnimation(withKey: "punchUpHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/punchUpHard", animationIdentifier: "punchUpHard")
+        loadAnimation(withKey: "moveForward", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/moveForward", animationIdentifier: "moveForward")
+        print(samuelAnimations.count)
+    }
+    
+    func loadAnimation(withKey: String, sceneName:String, animationIdentifier:String) {
+        let sceneURL = Bundle.main.url(forResource: sceneName, withExtension: "dae")
+        let sceneSource = SCNSceneSource(url: sceneURL!, options: nil)
         
-        
-//        guard let animation = myAnimation(path: "3DAssets.scnassets/Idle.dae") else {
-//            print("No animation found")
-//            return
-//        }
-        
-        guard let animation = myAnimation(path: "Resources/3DAssets.scnassets/Male-AxeKick.dae") else {
-            print("No animation found")
-            return
+        if let animationObject = sceneSource?.entryWithIdentifier(animationIdentifier, withClass: CAAnimation.self) {
+            // The animation will only play once
+            animationObject.repeatCount = 1
+            // To create smooth transitions between animations
+            animationObject.fadeInDuration = CGFloat(1)
+            animationObject.fadeOutDuration = CGFloat(0.5)
+            
+            // Store the animation for later use
+            samuelAnimations[withKey] = animationObject
         }
-        samuel.addAnimation(animation, forKey: "Idle")
     }
     
     func myAnimation(path: String) -> SCNAnimation? {
@@ -103,6 +112,49 @@ extension GameController {
         return animation?.animation
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let location = touches.first!.location(in: gameView)
+        
+        // Let's test if a 3D Object was touch
+        var hitTestOptions = [SCNHitTestOption: Any]()
+        hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
+        
+        let hitResults: [SCNHitTestResult]  = gameView.hitTest(location, options: hitTestOptions)
+        
+        if idle {
+            playAnimation(key: "kickDownHard")
+        } else {
+            stopAnimation(key: "kickDownHard")
+        }
+        idle = !idle
+//        if hitResults.first != nil {
+//            if(idle) {
+//                playAnimation(key: "kickDownHard")
+//            } else {
+//                stopAnimation(key: "kickDownHard")
+//            }
+//            idle = !idle
+//            return
+//        }
+    }
+    
+    func playAnimation(key: String) {
+        // Add the animation to start playing it right away
+        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuelIdle", recursively: true) else {
+            print("Failed to find samuel")
+            return
+        }
+        samuelNode.addAnimation(samuelAnimations[key]!, forKey: key)
+    }
+    
+    func stopAnimation(key: String) {
+        // Stop the animation with a smooth transition
+        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuelIdle", recursively: true) else {
+            print("Failed to find samuel")
+            return
+        }
+        samuelNode.removeAnimation(forKey: key, blendOutDuration: CGFloat(0.5))
+    }
 //    fileprivate func addFloor() {
 //        let floorGeo = SCNFloor()
 //        let floorMaterial = SCNMaterial()
@@ -114,10 +166,10 @@ extension GameController {
 //    }
     
     fileprivate func setupControls() {
-        let attackSet = AttackSet(codes: ["1.1", "2.2", "2.3", "2.4", "1.5", "1.6"])
+        let attackSet = AttackSet(attackCodes: ["punchUpLight", "kickUpMedium", "kickUpHard", "kickDownLight", "punchDownMedium", "punchDownHard"])
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
-        player1ControlView = ControlView(isLeft: false, control: control)
+        player1ControlView = ControlView(isLeft: true, control: control)
         view.addSubview(player1ControlView)
         player1ControlView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
@@ -126,7 +178,7 @@ extension GameController {
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.6)
         }
         
-        let attackSet2 = AttackSet(codes: ["2.1", "2.2", "1.3", "1.4", "2.5", "2.6"])
+        let attackSet2 = AttackSet(attackCodes: ["kickUpLight", "punchUpMedium", "punchUpHard", "punchDownLight", "kickDownMedium", "kickDownHard"])
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
         player2ControlView = ControlView(isLeft: false, control: control2)
