@@ -23,18 +23,22 @@ class AttackButtonView: UIView {
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 3
         view.layer.shadowColor = UIColor.gray.cgColor
-        view.backgroundColor = attack.backgroundColor
+//        view.backgroundColor = attack.backgroundColor
         return view
     }()
     
     lazy var button: UIButton = {
         let button = UIButton(frame: .zero)
         button.setImage(attack.image, for: .normal)
+        button.imageView?.contentMode = .scaleToFill
+        button.imageView?.addGlow(withColor: .woopPowLightBlue, size: .extraLarge)
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         return button
     }()
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
+        imageView.image = Constants.Images.controlBackground
         return imageView
     }()
     

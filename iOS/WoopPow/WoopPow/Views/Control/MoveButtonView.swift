@@ -23,18 +23,22 @@ class MoveButtonView: UIView {
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 3
         view.layer.shadowColor = UIColor.gray.cgColor
-        view.backgroundColor = move.backgroundColor
+//        view.backgroundColor = move.backgroundColor
         return view
     }()
     
     lazy var button: UIButton = {
         let button = UIButton(frame: .zero)
         button.setImage(move.image, for: .normal)
+        button.imageView?.contentMode = .scaleToFill
+        button.imageView?.addGlow(withColor: .woopPowLightBlue, size: .medium)
+        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return button
     }()
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
+        imageView.image = Constants.Images.controlBackground
         return imageView
     }()
     
