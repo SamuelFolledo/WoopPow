@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="burbank-big-condensed-black.otf">
+            <string>BurbankBigCondensed-Black</string>
+        </array>
+        <array key="burbank-big-condensed-bold.otf">
+            <string>BurbankBigCondensed-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBarView" customModule="WoopPow" customModuleProvider="target">
             <connections>
@@ -46,8 +54,8 @@
                             <rect key="frame" x="63.5" y="40" width="27.5" height="28"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y8O-cw-Ti9" userLabel="levelLabel">
-                                    <rect key="frame" x="2.5" y="6.5" width="22" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                    <rect key="frame" x="2.5" y="4" width="22" height="20"/>
+                                    <fontDescription key="fontDescription" name="BurbankBigCondensed-Bold" family="Burbank Big Condensed" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -83,24 +91,24 @@
                         <constraint firstAttribute="height" constant="20" id="1Id-AE-lhx"/>
                         <constraint firstAttribute="width" constant="90" id="RMc-SL-pcP"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="BurbankBigCondensed-Bold" family="Burbank Big Condensed" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Main Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cel-GD-nBg">
                     <rect key="frame" x="248" y="8" width="304" height="23"/>
-                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="BurbankBigCondensed-Black" family="Burbank Big Condensed" pointSize="32"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="c5X-km-Lzn">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="c5X-km-Lzn">
                     <rect key="frame" x="592" y="8" width="230" height="23"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgB-IZ-TrM">
-                            <rect key="frame" x="0.0" y="0.0" width="97" height="23"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgB-IZ-TrM" userLabel="goldView">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="23"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currencyContainer" translatesAutoresizingMaskIntoConstraints="NO" id="b2J-rH-Q99">
-                                    <rect key="frame" x="-5" y="0.0" width="109" height="23"/>
+                                    <rect key="frame" x="-5" y="0.0" width="105" height="23"/>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="Agt-UU-1qw">
                                     <rect key="frame" x="-10" y="-5" width="30" height="30"/>
@@ -109,15 +117,15 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ARo-dY-9AH">
-                                    <rect key="frame" x="22" y="0.0" width="82" height="23"/>
+                                    <rect key="frame" x="22" y="0.0" width="78" height="23"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-Yc-emk">
-                                            <rect key="frame" x="0.0" y="0.0" width="57" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="53" height="23"/>
+                                            <fontDescription key="fontDescription" name="BurbankBigCondensed-Bold" family="Burbank Big Condensed" pointSize="17"/>
                                             <state key="normal" title=" 100000"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKn-Ti-3i3" userLabel="plusButton">
-                                            <rect key="frame" x="59" y="0.0" width="23" height="23"/>
+                                            <rect key="frame" x="55" y="0.0" width="23" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="UKn-Ti-3i3" secondAttribute="height" id="nec-CW-lmb"/>
                                             </constraints>
@@ -134,6 +142,7 @@
                                 <constraint firstItem="ARo-dY-9AH" firstAttribute="top" secondItem="b2J-rH-Q99" secondAttribute="top" id="1QX-97-SSj"/>
                                 <constraint firstItem="b2J-rH-Q99" firstAttribute="top" secondItem="AgB-IZ-TrM" secondAttribute="top" id="21n-lu-3do"/>
                                 <constraint firstItem="ARo-dY-9AH" firstAttribute="bottom" secondItem="b2J-rH-Q99" secondAttribute="bottom" id="Jat-YO-alv"/>
+                                <constraint firstAttribute="trailing" secondItem="b2J-rH-Q99" secondAttribute="trailing" id="Ty1-Ee-kxN"/>
                                 <constraint firstItem="b2J-rH-Q99" firstAttribute="leading" secondItem="AgB-IZ-TrM" secondAttribute="leading" constant="-5" id="YWo-Bn-Ref"/>
                                 <constraint firstItem="ARo-dY-9AH" firstAttribute="leading" secondItem="Agt-UU-1qw" secondAttribute="trailing" constant="2" id="gIo-yG-l9S"/>
                                 <constraint firstItem="Agt-UU-1qw" firstAttribute="leading" secondItem="AgB-IZ-TrM" secondAttribute="leading" constant="-10" id="gJb-8I-nM2"/>
@@ -143,11 +152,11 @@
                                 <constraint firstItem="Agt-UU-1qw" firstAttribute="top" secondItem="AgB-IZ-TrM" secondAttribute="top" constant="-5" id="v4B-fS-GlG"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Va-VP-J0q">
-                            <rect key="frame" x="127" y="0.0" width="103" height="23"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Va-VP-J0q" userLabel="diamondView">
+                            <rect key="frame" x="130" y="0.0" width="100" height="23"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currencyContainer" translatesAutoresizingMaskIntoConstraints="NO" id="qn6-1R-Lzg">
-                                    <rect key="frame" x="-5" y="0.0" width="118" height="23"/>
+                                    <rect key="frame" x="-5" y="0.0" width="115" height="23"/>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond" translatesAutoresizingMaskIntoConstraints="NO" id="fMG-6r-Q3D">
                                     <rect key="frame" x="-10" y="-5" width="30" height="30"/>
@@ -156,15 +165,15 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="4RZ-Si-qvs">
-                                    <rect key="frame" x="22" y="0.0" width="91" height="23"/>
+                                    <rect key="frame" x="22" y="0.0" width="88" height="23"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coD-4D-85R">
-                                            <rect key="frame" x="0.0" y="0.0" width="66" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="63" height="23"/>
+                                            <fontDescription key="fontDescription" name="BurbankBigCondensed-Bold" family="Burbank Big Condensed" pointSize="17"/>
                                             <state key="normal" title=" 100000"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDh-rN-R3m" userLabel="plusButton">
-                                            <rect key="frame" x="68" y="0.0" width="23" height="23"/>
+                                            <rect key="frame" x="65" y="0.0" width="23" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="rDh-rN-R3m" secondAttribute="height" id="viR-t2-1gH"/>
                                             </constraints>
