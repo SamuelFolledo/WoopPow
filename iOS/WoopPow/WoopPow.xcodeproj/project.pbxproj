@@ -86,6 +86,11 @@
 		33DCD01724F1E3F5000E9430 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DCD01624F1E3F5000E9430 /* GameView.swift */; };
 		33E4FAAF24D0118D00C06527 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAAE24D0118D00C06527 /* ControlView.swift */; };
 		33E4FAB224D0171100C06527 /* MoveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4FAB124D0171100C06527 /* MoveButtonView.swift */; };
+		33FEB8E42507532900843DA7 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FEB8E32507532900843DA7 /* UIImage+Extensions.swift */; };
+		33FEB8EC2507592C00843DA7 /* burbank-big-condensed-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8E82507592C00843DA7 /* burbank-big-condensed-medium.otf */; };
+		33FEB8ED2507592C00843DA7 /* burbank-big-condensed-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */; };
+		33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */; };
+		33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +192,11 @@
 		33DCD01624F1E3F5000E9430 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		33E4FAAE24D0118D00C06527 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		33E4FAB124D0171100C06527 /* MoveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveButtonView.swift; sourceTree = "<group>"; };
+		33FEB8E32507532900843DA7 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		33FEB8E82507592C00843DA7 /* burbank-big-condensed-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-medium.otf"; sourceTree = "<group>"; };
+		33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-light.otf"; sourceTree = "<group>"; };
+		33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-bold.otf"; sourceTree = "<group>"; };
+		33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-black.otf"; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
 		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +335,7 @@
 				334293AD24CFCB370086D3F0 /* LocalNotificationManager.swift */,
 				335900E924EE1B5000386D66 /* Keys */,
 				334293AB24CFCAD80086D3F0 /* Extensions */,
+				33FEB8E52507557400843DA7 /* Fonts */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -344,6 +355,7 @@
 				335900DE24EDD23E00386D66 /* UINavigationController+Extensions.swift */,
 				335900E224EE10C200386D66 /* UserDefaults+Extensions.swift */,
 				33575AA524F0A9EC0015448A /* UIImageView+Extensions.swift */,
+				33FEB8E32507532900843DA7 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -580,6 +592,17 @@
 			path = Control;
 			sourceTree = "<group>";
 		};
+		33FEB8E52507557400843DA7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */,
+				33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */,
+				33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */,
+				33FEB8E82507592C00843DA7 /* burbank-big-condensed-medium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		65E3665666129F6A43B375E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,14 +698,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33FEB8ED2507592C00843DA7 /* burbank-big-condensed-light.otf in Resources */,
 				333AB4AC24FA468200181D48 /* settings.png in Resources */,
 				3342939024CFCA270086D3F0 /* LaunchScreen.storyboard in Resources */,
 				333AB4AA24FA468200181D48 /* leaderboard.png in Resources */,
 				333AB4A124FA461C00181D48 /* gameplay.png in Resources */,
+				33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */,
 				333AB4AB24FA468200181D48 /* mission selection.png in Resources */,
 				335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */,
 				333AB4AF24FA468200181D48 /* store.png in Resources */,
 				333AB49D24FA461C00181D48 /* exit.png in Resources */,
+				33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */,
 				333AB49E24FA461C00181D48 /* finding.png in Resources */,
 				333AB49524FA3AD600181D48 /* singup.png in Resources */,
 				3321CC3B24F1BC59002C23DA /* 3DAssets.scnassets in Resources */,
@@ -693,6 +719,7 @@
 				3397D83425055D09009E8F66 /* Atlas2.png in Resources */,
 				333AB4B024FA468200181D48 /* character selection.png in Resources */,
 				333AB4AE24FA468200181D48 /* new.png in Resources */,
+				33FEB8EC2507592C00843DA7 /* burbank-big-condensed-medium.otf in Resources */,
 				333AB49624FA3AD600181D48 /* login.png in Resources */,
 				33575AA124F092860015448A /* NavigationBarView.xib in Resources */,
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
@@ -833,6 +860,7 @@
 				335900D124EB6A2400386D66 /* CreateAccountFormView.swift in Sources */,
 				33BB66C324E38DC200C9EF3A /* AttackSetPosition.swift in Sources */,
 				335900D724ECE62100386D66 /* UIButton+Extensions.swift in Sources */,
+				33FEB8E42507532900843DA7 /* UIImage+Extensions.swift in Sources */,
 				335900CC24EB5EEC00386D66 /* SignInController.swift in Sources */,
 				335900ED24EF89B300386D66 /* AppService.swift in Sources */,
 				335900E324EE10C200386D66 /* UserDefaults+Extensions.swift in Sources */,
