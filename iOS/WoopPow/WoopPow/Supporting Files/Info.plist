@@ -59,6 +59,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>burbank-big-condensed-black.otf</string>
+		<string>burbank-big-condensed-bold.otf</string>
+		<string>burbank-big-condensed-medium.otf</string>
+		<string>burbank-big-condensed-light.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
