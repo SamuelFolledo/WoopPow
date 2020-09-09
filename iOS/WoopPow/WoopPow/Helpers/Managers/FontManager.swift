@@ -8,8 +8,9 @@
 
 import UIKit.UIFont
 
-class FontManager: UIFont {
-//    ["BurbankBigCondensed-Black", "BurbankBigCondensed-Light", "BurbankBigCondensed-Bold", "BurbankBigCondensed-Medium"]
+struct FontManager {
+    
+    //MARK: Enum
     enum FontType: String {
         case black = "BurbankBigCondensed-Black"
         case bold = "HelveticaNeue-UltraLight"
@@ -17,7 +18,8 @@ class FontManager: UIFont {
         case light = "BurbankBigCondensed-Light"
     }
     
-    class func setFont(size: CGFloat, fontType: String = FontType.bold.rawValue) -> UIFont {
+    //MARK: Methods
+    static func setFont(size: CGFloat, fontType: String = FontType.bold.rawValue) -> UIFont {
         let defaultFontSize: CGFloat = 16
         
         switch ATDeviceDetector().screenType {
