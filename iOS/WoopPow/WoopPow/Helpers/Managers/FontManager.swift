@@ -19,28 +19,28 @@ struct FontManager {
     }
     
     //MARK: Methods
-    static func setFont(size: CGFloat, fontType: String = FontType.bold.rawValue) -> UIFont {
+    static func setFont(size: CGFloat, fontType: FontType = .bold) -> UIFont {
         let defaultFontSize: CGFloat = 16
         
         switch ATDeviceDetector().screenType {
         case .iPhone4:
-            return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize - 5)!
+            return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize - 5)!
         case .iPhone5:
-            return UIFont(name: fontType, size: size) ??  UIFont(name: fontType, size: defaultFontSize - 3)!
+            return UIFont(name: fontType.rawValue, size: size) ??  UIFont(name: fontType.rawValue, size: defaultFontSize - 3)!
         case .iPhone6AndIphone7:
-                return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize - 2)!
+                return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize - 2)!
         case .iPhone6PAndIPhone7P:
-            return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize)!
+            return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize)!
         case .iPhoneX:
-            return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize)!
+            return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize)!
         case .iPadMini:
-            return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize + 2)!
+            return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize + 2)!
         case .iPadPro10Inch:
-            return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize + 4)!
+            return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize + 4)!
         case .iPadPro:
-            return UIFont(name: fontType, size: size) ?? UIFont(name: fontType, size: defaultFontSize + 6)!
+            return UIFont(name: fontType.rawValue, size: size) ?? UIFont(name: fontType.rawValue, size: defaultFontSize + 6)!
         default:
-            return UIFont(name: fontType, size: size)!
+            return UIFont(name: fontType.rawValue, size: size)!
         }
     }
 }
