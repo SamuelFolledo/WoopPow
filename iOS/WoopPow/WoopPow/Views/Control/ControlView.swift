@@ -31,7 +31,7 @@ class ControlView: UIView {
     lazy var movesLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Moves"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = FontManager.setFont()
         label.textAlignment = .center
         return label
     }()
@@ -63,7 +63,7 @@ class ControlView: UIView {
     lazy var attacksLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Attacks"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = FontManager.setFont()
         label.textAlignment = .center
         return label
     }()

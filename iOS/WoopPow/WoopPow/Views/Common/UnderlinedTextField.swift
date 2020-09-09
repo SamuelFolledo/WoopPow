@@ -40,7 +40,7 @@ class UnderlinedTextField: UITextField {
         contentVerticalAlignment = .center //added
         clearButtonMode = .unlessEditing //added
         tintColor = defaultUnderlineColor
-        font = UIFont.boldSystemFont(ofSize: 18) //added
+        font = FontManager.setFont(size: 18, fontType: .medium)
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
         bottomLine.backgroundColor = defaultUnderlineColor
         self.addSubview(bottomLine)

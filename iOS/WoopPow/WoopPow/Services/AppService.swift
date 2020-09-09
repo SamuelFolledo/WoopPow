@@ -34,6 +34,45 @@ struct AppService {
     
     //MARK: View Services
     
+    
+    ///returns the app's textfield for names
+    static func nameTextField() -> UnderlinedTextField {
+        let textField = UnderlinedTextField()
+        textField.font = FontManager.setFont(fontType: .bold)
+        textField.textColor = .label
+        textField.layer.cornerRadius = 10
+        textField.textAlignment = .left
+        textField.returnKeyType = .continue
+        textField.autocapitalizationType = .words
+        return textField
+    }
+    
+    ///returns the app's textfield for email
+    static func emailTextField() -> UnderlinedTextField {
+        let textField = UnderlinedTextField()
+        textField.font = FontManager.setFont(fontType: .bold)
+        textField.textColor = .label
+        textField.layer.cornerRadius = 10
+        textField.textAlignment = .left
+        textField.returnKeyType = .continue
+        textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
+        return textField
+    }
+    
+    ///returns the app's textfield for password
+    static func passwordTextField() -> UnderlinedTextField {
+        let textField = UnderlinedTextField()
+        textField.font = FontManager.setFont(fontType: .bold)
+        textField.textColor = .label
+        textField.layer.cornerRadius = 10
+        textField.textAlignment = .left
+        textField.returnKeyType = .done
+        textField.isSecureTextEntry = true
+        //        textField.textContentType = .password
+        return textField
+    }
+    
     static func playButton() -> UIButton {
         let button = UIButton(frame: .zero)
         button.setImage(Constants.Images.playButton, for: .normal)

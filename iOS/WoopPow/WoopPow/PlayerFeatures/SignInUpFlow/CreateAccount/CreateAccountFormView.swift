@@ -16,76 +16,49 @@ class CreateAccountFormView: UIView {
      private let enterUsernameLabel: UILabel = {
          let label = UILabel()
          label.textColor = .label
-         label.textAlignment = .left
-         label.font = .font(size: 16, weight: .bold, design: .default)
+         label.font = FontManager.setFont()
          label.text = "Username"
-         label.numberOfLines = 1
          return label
      }()
     
     let usernameTextField: UnderlinedTextField = {
-        let textField = UnderlinedTextField()
+        let textField = AppService.nameTextField()
         textField.placeholder = "Enter your username"
-        textField.font = .font(size: 18, weight: .medium, design: .rounded)
-        textField.textColor = .label
-        textField.layer.cornerRadius = 10
-        textField.textAlignment = .left
-        textField.returnKeyType = .continue
-        textField.autocapitalizationType = .words
         return textField
     }()
     
     private let enterEmailLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.textAlignment = .left
-        label.font = .font(size: 16, weight: .bold, design: .default)
+        label.font = FontManager.setFont()
         label.text = "Email"
-        label.numberOfLines = 1
         return label
     }()
     
     let emailTextField: UnderlinedTextField = {
-        let textField = UnderlinedTextField()
+        let textField = AppService.emailTextField()
         textField.placeholder = "Enter email"
-        textField.font = .font(size: 18, weight: .medium, design: .rounded)
-        textField.textColor = .label
-        textField.layer.cornerRadius = 10
-        textField.textAlignment = .left
-        textField.returnKeyType = .continue
-        textField.keyboardType = .emailAddress
-        textField.autocapitalizationType = .none
         return textField
     }()
     
     private let enterPasswordLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.textAlignment = .left
-        label.font = .font(size: 16, weight: .bold, design: .default)
+        label.font = FontManager.setFont()
         label.text = "Password"
-        label.numberOfLines = 1
         return label
     }()
 
     let passwordTextField: UnderlinedTextField = {
-        let textField = UnderlinedTextField()
+        let textField = AppService.passwordTextField()
         textField.placeholder = "Enter password"
-        textField.layer.cornerRadius = 10
-        textField.font = .font(size: 18, weight: .medium, design: .rounded)
-        textField.textColor = .label
-        textField.textAlignment = .left
-        textField.returnKeyType = .done
-        textField.isSecureTextEntry = true
-        textField.textContentType = .password
         return textField
     }()
     
     private lazy var passwordRequirementsLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
-        label.textAlignment = .left
-        label.font = .font(size: 12, weight: .medium, design: .rounded)
+        label.font = FontManager.setFont(size: 16, fontType: .medium)
         label.text = "Password must be longer than 6 characters"
         label.numberOfLines = 2
         return label

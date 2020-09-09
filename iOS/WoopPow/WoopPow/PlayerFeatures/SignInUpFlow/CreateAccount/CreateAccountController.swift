@@ -46,8 +46,8 @@ class CreateAccountController: UIViewController {
         let label = UILabel()
         label.text = "Create your account"
         label.textAlignment = NSTextAlignment.left
-        label.textColor = .black
-        label.font = .font(size: 30, weight: .bold, design: .default)
+        label.textColor = .label
+        label.font = FontManager.setFont(size: 32, fontType: .black)
         label.numberOfLines = 2
         return label
     }()
@@ -64,15 +64,15 @@ class CreateAccountController: UIViewController {
         let label = UILabel()
         label.text = "By creating your account, you agree to our"
         label.textAlignment = .left
-        label.font = .font(size: 15, weight: .medium, design: .default)
-        label.textColor = .black
+        label.font = FontManager.setFont(size: 16, fontType: .medium)
+        label.textColor = .label
         return label
     }()
     
     private let termsAndConditionsButton: UIButton = {
         let headlineAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font : UIFont.font(size: 16, weight: .semibold, design: .default),
-            NSAttributedString.Key.foregroundColor : UIColor.systemBlue
+            NSAttributedString.Key.font: FontManager.setFont(size: 18, fontType: .medium),
+            NSAttributedString.Key.foregroundColor: UIColor.systemBlue
         ]
         let headlineText = NSMutableAttributedString(string: "• Terms & Conditions", attributes: headlineAttributes)
         let combination = NSMutableAttributedString()
@@ -86,6 +86,7 @@ class CreateAccountController: UIViewController {
     
     let nextButton: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = FontManager.setFont()
         button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.7)
         button.isEnabled = false
         button.imageEdgeInsets = UIEdgeInsets(top: 18, left: 10, bottom: 18, right: 10)
@@ -103,6 +104,7 @@ class CreateAccountController: UIViewController {
     }()
     let alreadyHaveAccountButton: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = FontManager.setFont()
         button.backgroundColor = UIColor.clear
         button.imageEdgeInsets = UIEdgeInsets(top: 18, left: 10, bottom: 18, right: 10)
         button.imageView?.contentMode = UIView.ContentMode.scaleAspectFit

@@ -16,50 +16,28 @@ class SignInFormView: UIView {
     private let enterEmailLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.label
-        label.textAlignment = .left
-        label.font = .font(size: 16, weight: .bold, design: .default)//UIFont(name: "Avenir-Heavy", size: 18)
+        label.font = FontManager.setFont()
         label.text = "Email or Username"
-        label.numberOfLines = 1
         return label
     }()
     
     let emailTextField: UnderlinedTextField = {
-        let textField = UnderlinedTextField()
+        let textField = AppService.emailTextField()
         textField.placeholder = "Enter email or username"
-        textField.font = .font(size: 18, weight: .medium, design: .rounded)
-        textField.textColor = UIColor.label
-//        textField.backgroundColor = UIColor(r: 242, g: 242, b: 242, a: 1)
-//        textField.setPadding(left: 15, right: 15)
-        textField.layer.cornerRadius = 10
-        textField.textAlignment = .left
-        textField.returnKeyType = .next
-        textField.keyboardType = .emailAddress
-        textField.autocapitalizationType = .none
         return textField
     }()
     
     private let enterPasswordLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.label
-        label.textAlignment = .left
-        label.font = .font(size: 16, weight: .bold, design: .default)
+        label.font = FontManager.setFont()
         label.text = "Password"
-        label.numberOfLines = 1
         return label
     }()
     
     let passwordTextField: UnderlinedTextField = {
-        let textField = UnderlinedTextField()
+        let textField = AppService.passwordTextField()
         textField.placeholder = "Enter password"
-//        textField.backgroundColor = UIColor(r: 242, g: 242, b: 242, a: 1)
-//        textField.setPadding(left: 15, right: 15)
-        textField.layer.cornerRadius = 10
-        textField.font = .font(size: 18, weight: .medium, design: .rounded)
-        textField.textColor = UIColor.label
-        textField.textAlignment = .left
-        textField.returnKeyType = .done
-        textField.isSecureTextEntry = true
-        textField.textContentType = .password
         return textField
     }()
     

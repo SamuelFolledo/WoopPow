@@ -41,10 +41,8 @@ class SignInController: UIViewController {
     let signInLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign in"
-        label.textColor = .black
-        label.textAlignment = .left
-        label.font = .font(size: 30, weight: .bold, design: .default)
-        label.numberOfLines = 2
+        label.textColor = .label
+        label.font = FontManager.setFont(size: 32, fontType: .black)
         return label
     }()
     
@@ -61,7 +59,7 @@ class SignInController: UIViewController {
         button.isEnabled = false
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .font(size: 16, weight: .semibold, design: .rounded)
+        button.titleLabel?.font = FontManager.setFont()
         button.layer.masksToBounds = false
         button.layer.shadowColor = UIColor.label.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -74,28 +72,28 @@ class SignInController: UIViewController {
     }()
     
     let googleSigninButton: UIButton = {
-            let button = UIButton()
-    //        button.style = .wide
-            button.backgroundColor = .systemBackground
-            button.setTitle("Continue with Google", for: .normal)
-            button.setTitleColor(.label, for: .normal)
-            button.titleLabel?.font = .font(size: 16, weight: .semibold, design: .rounded)
-            button.layer.masksToBounds = false
-            button.layer.shadowColor = UIColor.label.cgColor
-            button.layer.shadowOffset = CGSize(width: 0, height: 0)
-            button.layer.shadowOpacity = 0.3
-            button.layer.shadowRadius = 3
-            button.layer.cornerRadius = 22.5
-            button.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
-            return button
-        }()
+        let button = UIButton()
+        //        button.style = .wide
+        button.backgroundColor = .systemBackground
+        button.setTitle("Continue with Google", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = FontManager.setFont()
+        button.layer.masksToBounds = false
+        button.layer.shadowColor = UIColor.label.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowRadius = 3
+        button.layer.cornerRadius = 22.5
+        button.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Don't have an account? Sign Up.", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = .font(size: 17, weight: .medium, design: .rounded)
+        button.titleLabel?.font = FontManager.setFont()
         button.addTarget(self, action: #selector(goToCreateAccountController), for: .touchUpInside)
         return button
     }()
@@ -104,7 +102,8 @@ class SignInController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
+        transparentNavigationBar()
         formView.configureTextFieldDelegate(with: self)
         hideKeyboardOnTap()
         configureAutoLayout()
