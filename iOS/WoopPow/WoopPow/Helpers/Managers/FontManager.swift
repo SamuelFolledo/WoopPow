@@ -13,14 +13,14 @@ struct FontManager {
     //MARK: Enum
     enum FontType: String {
         case black = "BurbankBigCondensed-Black"
-        case bold = "HelveticaNeue-UltraLight"
+        case bold = "BurbankBigCondensed-Bold"
         case medium = "BurbankBigCondensed-Medium"
         case light = "BurbankBigCondensed-Light"
     }
     
     //MARK: Methods
-    static func setFont(size: CGFloat, fontType: FontType = .bold) -> UIFont {
-        let defaultFontSize: CGFloat = 16
+    static func setFont(size: CGFloat = 20, fontType: FontType = .bold) -> UIFont {
+        let defaultFontSize: CGFloat = 20
         
         switch ATDeviceDetector().screenType {
         case .iPhone4:
