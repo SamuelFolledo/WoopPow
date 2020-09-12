@@ -76,10 +76,10 @@ extension GameController {
         }
         print("Samuel's position=", samuelNode.position)
         
-        let idleScene = SCNScene(named: "3DAssets.scnassets/Characters/Samuel/animation/idleFixed.dae")!
-        loadAnimation(withKey: "kickDownHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/kickDownHard", animationIdentifier: "kickDownHard")
-        loadAnimation(withKey: "punchUpHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/punchUpHard", animationIdentifier: "punchUpHard")
-        loadAnimation(withKey: "moveForward", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/moveForward", animationIdentifier: "moveForward")
+//        let idleScene = SCNScene(named: "3DAssets.scnassets/Characters/Samuel/animation/idleFixed.dae")!
+//        loadAnimation(withKey: "kickDownHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/kickDownHard", animationIdentifier: "kickDownHard")
+//        loadAnimation(withKey: "punchUpHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/punchUpHard", animationIdentifier: "punchUpHard")
+//        loadAnimation(withKey: "moveForward", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/moveForward", animationIdentifier: "moveForward")
         print(samuelAnimations.count)
     }
     
@@ -144,7 +144,7 @@ extension GameController {
             print("Failed to find samuel")
             return
         }
-        samuelNode.addAnimation(samuelAnimations[key]!, forKey: key)
+//        samuelNode.addAnimation(samuelAnimations[key]!, forKey: key)
     }
     
     func stopAnimation(key: String) {
