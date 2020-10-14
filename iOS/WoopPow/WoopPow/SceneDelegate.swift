@@ -55,6 +55,7 @@ extension SceneDelegate {
     fileprivate func configureInitialRootViewController() {
         if let _ = Player.current, Defaults.hasLoggedInOrCreatedAccount {
             coordinator.goToHomeController()
+//            coordinator.goToGameController()
         } else {
             coordinator.start()
         }

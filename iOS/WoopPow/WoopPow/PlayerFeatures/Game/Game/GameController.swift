@@ -70,12 +70,13 @@ extension GameController {
     }
     
     fileprivate func setupAnimations() {
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuelIdle", recursively: true) else {
+        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
         print("Samuel's position=", samuelNode.position)
-        
+        loadAnimation(withKey: "kickUpFinisher", sceneName: "3DAssets.scnassets/Characters/Samuel/male samuel (1)/Animations/Male/Kick/kickUpFinisher", animationIdentifier: "kickUpFinisher")
+        loadAnimation(withKey: "punchUpMedium", sceneName: "3DAssets.scnassets/Characters/Samuel/male samuel (1)/Animations/Male/punch/punchUpMedium", animationIdentifier: "punchUpMedium")
 //        let idleScene = SCNScene(named: "3DAssets.scnassets/Characters/Samuel/animation/idleFixed.dae")!
 //        loadAnimation(withKey: "kickDownHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/kickDownHard", animationIdentifier: "kickDownHard")
 //        loadAnimation(withKey: "punchUpHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/punchUpHard", animationIdentifier: "punchUpHard")
@@ -83,7 +84,7 @@ extension GameController {
         print(samuelAnimations.count)
     }
     
-    func loadAnimation(withKey: String, sceneName:String, animationIdentifier:String) {
+    func loadAnimation(withKey: String, sceneName: String, animationIdentifier: String) {
         let sceneURL = Bundle.main.url(forResource: sceneName, withExtension: "dae")
         let sceneSource = SCNSceneSource(url: sceneURL!, options: nil)
         
@@ -93,7 +94,7 @@ extension GameController {
             // To create smooth transitions between animations
             animationObject.fadeInDuration = CGFloat(1)
             animationObject.fadeOutDuration = CGFloat(0.5)
-            
+//            animationObject.isRemovedOnCompletion = true
             // Store the animation for later use
             samuelAnimations[withKey] = animationObject
         }
@@ -120,11 +121,11 @@ extension GameController {
         hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
         
         let hitResults: [SCNHitTestResult]  = gameView.hitTest(location, options: hitTestOptions)
-        
+        //TODO: Scale dae animation when played on a charater
         if idle {
-            playAnimation(key: "kickDownHard")
+            playAnimation(key: "punchUpMedium")
         } else {
-            stopAnimation(key: "kickDownHard")
+            stopAnimation(key: "punchUpMedium")
         }
         idle = !idle
 //        if hitResults.first != nil {
@@ -140,16 +141,16 @@ extension GameController {
     
     func playAnimation(key: String) {
         // Add the animation to start playing it right away
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuelIdle", recursively: true) else {
+        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
-//        samuelNode.addAnimation(samuelAnimations[key]!, forKey: key)
+        samuelNode.addAnimation(samuelAnimations[key]!, forKey: key)
     }
     
     func stopAnimation(key: String) {
         // Stop the animation with a smooth transition
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuelIdle", recursively: true) else {
+        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }

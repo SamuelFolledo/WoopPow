@@ -6,7 +6,6 @@
 //  Copyright © 2020 SamuelFolledo. All rights reserved.
 //
 
-import UIKit
 import SnapKit
 
 class CreateAccountFormView: UIView {
