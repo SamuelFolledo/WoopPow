@@ -58,7 +58,7 @@ extension GameController {
         setupControls()
         setupAnimations()
         setupGamePlayersView()
-        gameViewModel.startTimeLeftTimer()
+        gameViewModel.startRound()
     }
     
     private func setupGamePlayersView() {

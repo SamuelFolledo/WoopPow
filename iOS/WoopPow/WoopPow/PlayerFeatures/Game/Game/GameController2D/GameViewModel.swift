@@ -26,14 +26,20 @@ class GameViewModel {
             delegate.gamePlayersView.timeLabel.text = "\(timeLeftCounter)"
         }
     }
-    private(set) var player1HpText: String
-    private(set) var player2HpText: String
+    private(set) var player1Hp: Int = 0 {
+        didSet {
+            delegate.gamePlayersView.player1HpLabel.text = "\(player1Hp)/\(game.initialHp)"
+        }
+    }
+    private(set) var player2Hp: Int = 0 {
+        didSet {
+            delegate.gamePlayersView.player2HpLabel.text = "\(player2Hp)/\(game.initialHp)"
+        }
+    }
     
     //MARK: Init
     init(game: Game) {
         self.game = game
-        player1HpText = "\(game.player1Hp)/\(game.initialHp)"
-        player2HpText = "\(game.player2Hp)/\(game.initialHp)"
         timeLeftCounter = game.initialTime
     }
     
@@ -43,16 +49,21 @@ class GameViewModel {
     
     //MARK: Methods
     
-    func startTimeLeftTimer() {
+    func startRound() {
+        player1Hp = game.player1Hp
+        player2Hp = game.player2Hp
+        startTimeLeftTimer()
+    }
+    
+    private func startTimeLeftTimer() {
         timeLeftTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTurnTime), userInfo: nil, repeats: true)
     }
     
-    @objc func updateTurnTime() {
+    @objc private func updateTurnTime() {
         timeLeftCounter -= 1
         if timeLeftCounter == 0 {
             timeLeftTimer?.invalidate()
-            //            setupSelectedTag()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { //wait 2 seconds t start time again
                 self.timeLeftCounter = self.game.initialTime
                 self.startTimeLeftTimer()
             }

@@ -40,14 +40,14 @@ class GamePlayersView: UIView {
     //MARK: Player 1 View Properties
     lazy var player1View: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 15
         view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
-        view.clipsToBounds = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
         return view
     }()
     lazy var player1NameLabel: UILabel = {
         let label = UILabel()
-//        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .left
         label.font = FontManager.setFont(size: 22, fontType: .bold)
         label.text = "\(player1.username ?? "")"
@@ -56,23 +56,23 @@ class GamePlayersView: UIView {
     }()
     lazy var player1HpLabel: UILabel = {
         let label = UILabel()
-//        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .center
-        label.font = FontManager.setFont(size: 22, fontType: .bold)
+        label.font = FontManager.setFont(size: 18, fontType: .bold)
         label.numberOfLines = 1
         return label
     }()
     //MARK: Player 1 View Properties
     lazy var player2View: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 15
         view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
-        view.clipsToBounds = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 15
         return view
     }()
     lazy var player2NameLabel: UILabel = {
         let label = UILabel()
-//        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .right
         label.font = FontManager.setFont(size: 22, fontType: .bold)
         label.text = "\(player2.username ?? "")"
@@ -81,9 +81,9 @@ class GamePlayersView: UIView {
     }()
     lazy var player2HpLabel: UILabel = {
         let label = UILabel()
-//        label.textColor = .white
+        label.textColor = .label
         label.textAlignment = .center
-        label.font = FontManager.setFont(size: 22, fontType: .bold)
+        label.font = FontManager.setFont(size: 18, fontType: .bold)
         label.numberOfLines = 1
         return label
     }()
@@ -132,8 +132,10 @@ class GamePlayersView: UIView {
             $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2)
         }
         p1StackView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
+            $0.top.equalToSuperview().offset(2)
+            $0.left.equalToSuperview().offset(5)
+            $0.right.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-5)
         }
         //time
         timeImageView.snp.makeConstraints {
@@ -155,8 +157,9 @@ class GamePlayersView: UIView {
         }
         player2View.addSubview(p2StackView)
         p2StackView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
+            $0.top.equalToSuperview().offset(2)
+            $0.left.equalToSuperview()
+            $0.bottom.right.equalToSuperview().offset(-5)
         }
         player2View.snp.makeConstraints {
             $0.height.equalToSuperview().multipliedBy(0.7)
@@ -166,8 +169,8 @@ class GamePlayersView: UIView {
     
     private func populateViews() {
         player1NameLabel.text = player1.username
-        player1HpLabel.text = "\(30)/\(30)"
+//        player1HpLabel.text = "\(30)/\(30)"
         player2NameLabel.text = player2.username
-        player2HpLabel.text = "\(30)/\(30)"
+//        player2HpLabel.text = "\(30)/\(30)"
     }
 }
