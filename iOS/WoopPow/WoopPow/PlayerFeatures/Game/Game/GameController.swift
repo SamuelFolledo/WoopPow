@@ -24,7 +24,8 @@ class GameController: UIViewController {
         let gameView = GameView(frame: .zero)
         gameView.allowsCameraControl = true
         gameView.antialiasingMode = .multisampling4X
-        gameView.scene = Constants.Game.mainScene
+        let mainScene: SCNScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")!
+        gameView.scene = mainScene
         return gameView
     }()
     var player1ControlView: ControlView!
@@ -76,7 +77,7 @@ extension GameController {
     }
     
     fileprivate func setupAnimations() {
-        guard let samuelNode = Constants.Game.mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
+        guard let samuelNode = gameView.scene!.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
@@ -147,7 +148,7 @@ extension GameController {
     
     func playAnimation(key: String) {
         // Add the animation to start playing it right away
-        guard let samuelNode = Constants.Game.mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
+        guard let samuelNode = gameView.scene!.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
@@ -156,7 +157,7 @@ extension GameController {
     
     func stopAnimation(key: String) {
         // Stop the animation with a smooth transition
-        guard let samuelNode = Constants.Game.mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
+        guard let samuelNode = gameView.scene!.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }

@@ -72,10 +72,6 @@ struct Constants {
         static let kickDownHard: UIImage = UIImage(named: "kickDownHard.png")!
     }
     
-    struct Game {
-        static let mainScene: SCNScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")!
-    }
-    
     static let password: String = "password"
     static let userType: String = "userType"
     static let playerUser: String = "playerUser"
