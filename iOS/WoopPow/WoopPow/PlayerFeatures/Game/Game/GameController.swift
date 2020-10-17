@@ -67,7 +67,7 @@ extension GameController {
         gamePlayersView.snp.makeConstraints {
             $0.top.left.equalToSuperview().offset(5)
             $0.right.equalToSuperview().offset(-5)
-            $0.height.equalTo(80)
+            $0.height.equalTo(GamePlayersView.viewHeight)
         }
     }
     

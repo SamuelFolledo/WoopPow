@@ -13,10 +13,12 @@ class GamePlayersView: UIView {
     //MARK: Properties
     var player1: Player
     var player2: Player
+    static let viewHeight: Int = 80
     
     //MARK: View Properties
     lazy var containerView: UIView = {
         let view = UIView()
+        view.backgroundColor = .clear
         view.clipsToBounds = false
         return view
     }()
@@ -35,6 +37,14 @@ class GamePlayersView: UIView {
         label.numberOfLines = 1
         return label
     }()
+    //MARK: Player 1 View Properties
+    lazy var player1View: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+        view.clipsToBounds = false
+        return view
+    }()
     lazy var player1NameLabel: UILabel = {
         let label = UILabel()
 //        label.textColor = .white
@@ -51,6 +61,14 @@ class GamePlayersView: UIView {
         label.font = FontManager.setFont(size: 22, fontType: .bold)
         label.numberOfLines = 1
         return label
+    }()
+    //MARK: Player 1 View Properties
+    lazy var player2View: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+        view.clipsToBounds = false
+        return view
     }()
     lazy var player2NameLabel: UILabel = {
         let label = UILabel()
@@ -97,6 +115,9 @@ class GamePlayersView: UIView {
             $0.right.equalToSuperview().offset(-10)
             $0.bottom.equalToSuperview().offset(-5)
         }
+        [player1View, timeImageView, player2View].forEach {
+            stackView.addArrangedSubview($0)
+        }
         //player 1
         let p1StackView = UIStackView(axis: .vertical, spacing: 5, distribution: .fill, alignment: .leading)
         [player1HpLabel, player1NameLabel].forEach {
@@ -105,9 +126,16 @@ class GamePlayersView: UIView {
                 $0.width.equalToSuperview()
             }
         }
-        stackView.addArrangedSubview(p1StackView)
+        player1View.addSubview(p1StackView)
+        player1View.snp.makeConstraints {
+            $0.height.equalToSuperview().multipliedBy(0.7)
+            $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2)
+        }
+        p1StackView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
+        }
         //time
-        stackView.addArrangedSubview(timeImageView)
         timeImageView.snp.makeConstraints {
             $0.height.width.equalTo(stackView.snp.height)
         }
@@ -125,14 +153,14 @@ class GamePlayersView: UIView {
                 $0.width.equalToSuperview()
             }
         }
-        stackView.addArrangedSubview(p2StackView)
-        p1StackView.snp.makeConstraints {
-            $0.height.equalToSuperview().multipliedBy(0.7)
-            $0.width.equalToSuperview().multipliedBy(0.5).offset(-50)
-        }
+        player2View.addSubview(p2StackView)
         p2StackView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
+        }
+        player2View.snp.makeConstraints {
             $0.height.equalToSuperview().multipliedBy(0.7)
-            $0.width.equalToSuperview().multipliedBy(0.5).offset(-50)
+            $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2) //because stackView's height is 70 and timeImageView's width and height is 70
         }
     }
     
