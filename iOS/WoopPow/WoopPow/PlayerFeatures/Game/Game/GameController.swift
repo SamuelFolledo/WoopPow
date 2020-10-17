@@ -23,9 +23,8 @@ class GameController: UIViewController {
     var idle: Bool = true
     
     //MARK: Views
-    lazy var gameView: GameView = {
-        let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        let gameView = GameView(frame: frame)
+    let gameView: GameView = {
+        let gameView = GameView(frame: .zero)
         gameView.allowsCameraControl = true
         gameView.antialiasingMode = .multisampling4X
         gameView.scene = Constants.Game.mainScene
@@ -34,24 +33,23 @@ class GameController: UIViewController {
     var player1ControlView: ControlView!
     var player2ControlView: ControlView!
     
-    //MARK: App Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupScene()
-        gameState = .playing
-    }
-    
+    //MARK: Override properties
     override var shouldAutorotate: Bool { return true }
-    
     override var prefersStatusBarHidden: Bool { return true }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
         } else {
             return .all
         }
+    }
+    
+    //MARK: App Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupScene()
+        gameState = .playing
     }
 }
 
