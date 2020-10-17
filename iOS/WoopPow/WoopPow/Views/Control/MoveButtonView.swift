@@ -23,6 +23,8 @@ class MoveButtonView: UIView {
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 3
         view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shouldRasterize = true
+        view.layer.rasterizationScale = UIScreen.main.scale
 //        view.backgroundColor = move.backgroundColor
         return view
     }()

@@ -12,13 +12,10 @@ import SceneKit
 
 class GameController: UIViewController {
     
-    enum GameState {
-        case loading, playing
-    }
-    
     //MARK: Properties
+    var gameViewModel: GameViewModel!
+    var gamePlayersView: GamePlayersView!
     var coordinator: AppCoordinator!
-    var gameState: GameState = .loading
     var samuelAnimations = [String: CAAnimation]()
     var idle: Bool = true
     
@@ -49,7 +46,7 @@ class GameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScene()
-        gameState = .playing
+        gameViewModel.gameState = .playing
     }
 }
 
@@ -59,6 +56,18 @@ extension GameController {
         setupGameScene()
         setupControls()
         setupAnimations()
+        setupGamePlayersView()
+        gameViewModel.startTimeLeftTimer()
+    }
+    
+    private func setupGamePlayersView() {
+        gamePlayersView = GamePlayersView(player1: gameViewModel.game.player1, player2: gameViewModel.game.player2)
+        view.addSubview(gamePlayersView)
+        gamePlayersView.snp.makeConstraints {
+            $0.top.left.equalToSuperview().offset(5)
+            $0.right.equalToSuperview().offset(-5)
+            $0.height.equalTo(80)
+        }
     }
     
     private func setupGameScene() {

@@ -10,14 +10,21 @@ import Foundation
 
 class GameViewModel {
     
+    enum GameState {
+        case loading, playing, gameOver
+    }
+    
     //MARK: Properties
     let game: Game
-    weak var delegate: GameController2D?
+    var gameState: GameState = .loading
+    weak var delegate: GameController!
     let player1HPProgress = Progress(totalUnitCount: 30)
     let player2HPProgress = Progress(totalUnitCount: 30)
     private var timeLeftTimer: Timer?
     private(set) var timeLeftCounter: Int {
-        didSet { delegate?.timeLeftLabel.text = "\(timeLeftCounter)" }
+        didSet {
+            delegate.gamePlayersView.timeLabel.text = "\(timeLeftCounter)"
+        }
     }
     private(set) var player1HpText: String
     private(set) var player2HpText: String
