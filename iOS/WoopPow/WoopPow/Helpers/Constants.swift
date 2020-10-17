@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore
+import SceneKit
 
 public let db = Firestore.firestore()
 public let auth = Auth.auth()
@@ -67,6 +68,10 @@ struct Constants {
         static let kickDownLight: UIImage = UIImage(named: "kickDownLight.png")!
         static let kickDownMedium: UIImage = UIImage(named: "kickDownMedium.png")!
         static let kickDownHard: UIImage = UIImage(named: "kickDownHard.png")!
+    }
+    
+    struct Game {
+        static let mainScene: SCNScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")!
     }
     
     static let password: String = "password"

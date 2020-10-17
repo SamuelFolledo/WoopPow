@@ -23,17 +23,19 @@ class GameController: UIViewController {
     var idle: Bool = true
     
     //MARK: Views
-    var gameView: GameView! {
+    lazy var gameView: GameView = {
         let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        return GameView(frame: frame)
-    }
-    var mainScene: SCNScene!
+        let gameView = GameView(frame: frame)
+        gameView.allowsCameraControl = true
+        gameView.antialiasingMode = .multisampling4X
+        gameView.scene = Constants.Game.mainScene
+        return gameView
+    }()
     var player1ControlView: ControlView!
     var player2ControlView: ControlView!
     
-    var samuelAxeKick = SCNAnimationPlayer()
-    
     //MARK: App Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScene()
@@ -55,22 +57,19 @@ class GameController: UIViewController {
 
 extension GameController {
     fileprivate func setupScene() {
-        self.view = gameView
         self.coordinator.navigationController.isNavigationBarHidden = true
-        mainScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")! //load Stage1.scn as our mainScene
-        let scnView = self.view as! GameView
-        // set the scene to the view
-        scnView.allowsCameraControl = true
-        scnView.antialiasingMode = .multisampling4X
-        scnView.scene = mainScene
-        scnView.isPlaying = true //start game loop and animation
-//        addFloor()
+        setupGameScene()
         setupControls()
         setupAnimations()
     }
     
+    private func setupGameScene() {
+        self.view = gameView
+        gameView.isPlaying = true //start game loop and animation
+    }
+    
     fileprivate func setupAnimations() {
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
+        guard let samuelNode = Constants.Game.mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
@@ -141,7 +140,7 @@ extension GameController {
     
     func playAnimation(key: String) {
         // Add the animation to start playing it right away
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
+        guard let samuelNode = Constants.Game.mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
@@ -150,21 +149,12 @@ extension GameController {
     
     func stopAnimation(key: String) {
         // Stop the animation with a smooth transition
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
+        guard let samuelNode = Constants.Game.mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
             print("Failed to find samuel")
             return
         }
         samuelNode.removeAnimation(forKey: key, blendOutDuration: CGFloat(0.5))
     }
-//    fileprivate func addFloor() {
-//        let floorGeo = SCNFloor()
-//        let floorMaterial = SCNMaterial()
-//        floorMaterial.diffuse.contents = UIColor(red: 0.1, green: 0.5, blue: 0.1, alpha: 1.0)
-//        floorMaterial.specular.contents = UIColor.black
-//        floorGeo.firstMaterial = floorMaterial
-//        let floorNode = SCNNode(geometry: floorGeo)
-//        mainScene.rootNode.addChildNode(floorNode)
-//    }
     
     fileprivate func setupControls() {
         let attackSet = AttackSet(attackCodes: ["punchUpLight", "kickUpMedium", "kickUpHard", "kickDownLight", "punchDownMedium", "punchDownHard"])
