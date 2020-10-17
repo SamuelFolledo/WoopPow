@@ -93,11 +93,12 @@
 		33FEB8ED2507592C00843DA7 /* burbank-big-condensed-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */; };
 		33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */; };
 		33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */; };
-		5489EAE5253AD7B200D67696 /* Preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADB253AD7B200D67696 /* Preview.jpg */; };
+		5489EAE5253AD7B200D67696 /* loadingScreenImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */; };
 		5489EAE6253AD7B200D67696 /* PSD.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADC253AD7B200D67696 /* PSD.psd */; };
 		5489EAE8253AD7B200D67696 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADF253AD7B200D67696 /* 1024.png */; };
 		5489EB41253AF44800D67696 /* GamePlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5489EB40253AF44800D67696 /* GamePlayersView.swift */; };
 		5489EB45253AF6B100D67696 /* gameScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EB44253AF6B100D67696 /* gameScreen.png */; };
+		5489EB4B253B91DD00D67696 /* cityBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EB4A253B91DC00D67696 /* cityBackground.jpg */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -206,11 +207,12 @@
 		33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-light.otf"; sourceTree = "<group>"; };
 		33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-bold.otf"; sourceTree = "<group>"; };
 		33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-black.otf"; sourceTree = "<group>"; };
-		5489EADB253AD7B200D67696 /* Preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Preview.jpg; sourceTree = "<group>"; };
+		5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loadingScreenImage.jpg; sourceTree = "<group>"; };
 		5489EADC253AD7B200D67696 /* PSD.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSD.psd; sourceTree = "<group>"; };
 		5489EADF253AD7B200D67696 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		5489EB40253AF44800D67696 /* GamePlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayersView.swift; sourceTree = "<group>"; };
 		5489EB44253AF6B100D67696 /* gameScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameScreen.png; sourceTree = "<group>"; };
+		5489EB4A253B91DC00D67696 /* cityBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cityBackground.jpg; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
 		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -639,7 +641,8 @@
 		5489EADA253AD7B200D67696 /* app icons */ = {
 			isa = PBXGroup;
 			children = (
-				5489EADB253AD7B200D67696 /* Preview.jpg */,
+				5489EB4A253B91DC00D67696 /* cityBackground.jpg */,
+				5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */,
 				5489EADF253AD7B200D67696 /* 1024.png */,
 				5489EADC253AD7B200D67696 /* PSD.psd */,
 			);
@@ -777,7 +780,8 @@
 				33FEB8EC2507592C00843DA7 /* burbank-big-condensed-medium.otf in Resources */,
 				333AB49624FA3AD600181D48 /* login.png in Resources */,
 				33575AA124F092860015448A /* NavigationBarView.xib in Resources */,
-				5489EAE5253AD7B200D67696 /* Preview.jpg in Resources */,
+				5489EB4B253B91DD00D67696 /* cityBackground.jpg in Resources */,
+				5489EAE5253AD7B200D67696 /* loadingScreenImage.jpg in Resources */,
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
 				333AB4AD24FA468200181D48 /* main menu.png in Resources */,
 				5489EAE8253AD7B200D67696 /* 1024.png in Resources */,
