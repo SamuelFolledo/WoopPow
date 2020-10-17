@@ -95,12 +95,7 @@
 		33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */; };
 		5489EAE5253AD7B200D67696 /* Preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADB253AD7B200D67696 /* Preview.jpg */; };
 		5489EAE6253AD7B200D67696 /* PSD.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADC253AD7B200D67696 /* PSD.psd */; };
-		5489EAE7253AD7B200D67696 /* icons.zip in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADD253AD7B200D67696 /* icons.zip */; };
 		5489EAE8253AD7B200D67696 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADF253AD7B200D67696 /* 1024.png */; };
-		5489EAE9253AD7B200D67696 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EAE0253AD7B200D67696 /* 512.png */; };
-		5489EAEA253AD7B200D67696 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EAE2253AD7B200D67696 /* 1024.png */; };
-		5489EAEB253AD7B200D67696 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EAE3253AD7B200D67696 /* 512.png */; };
-		5489EAEC253AD7B200D67696 /* PSD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 5489EAE4253AD7B200D67696 /* PSD.zip */; };
 		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -211,12 +206,7 @@
 		33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-black.otf"; sourceTree = "<group>"; };
 		5489EADB253AD7B200D67696 /* Preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Preview.jpg; sourceTree = "<group>"; };
 		5489EADC253AD7B200D67696 /* PSD.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSD.psd; sourceTree = "<group>"; };
-		5489EADD253AD7B200D67696 /* icons.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = icons.zip; sourceTree = "<group>"; };
 		5489EADF253AD7B200D67696 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
-		5489EAE0253AD7B200D67696 /* 512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512.png; sourceTree = "<group>"; };
-		5489EAE2253AD7B200D67696 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
-		5489EAE3253AD7B200D67696 /* 512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512.png; sourceTree = "<group>"; };
-		5489EAE4253AD7B200D67696 /* PSD.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = PSD.zip; sourceTree = "<group>"; };
 		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
 		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -652,31 +642,10 @@
 			isa = PBXGroup;
 			children = (
 				5489EADB253AD7B200D67696 /* Preview.jpg */,
+				5489EADF253AD7B200D67696 /* 1024.png */,
 				5489EADC253AD7B200D67696 /* PSD.psd */,
-				5489EADD253AD7B200D67696 /* icons.zip */,
-				5489EADE253AD7B200D67696 /* iOS */,
-				5489EAE1253AD7B200D67696 /* Android */,
-				5489EAE4253AD7B200D67696 /* PSD.zip */,
 			);
 			path = "app icons";
-			sourceTree = "<group>";
-		};
-		5489EADE253AD7B200D67696 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5489EADF253AD7B200D67696 /* 1024.png */,
-				5489EAE0253AD7B200D67696 /* 512.png */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		5489EAE1253AD7B200D67696 /* Android */ = {
-			isa = PBXGroup;
-			children = (
-				5489EAE2253AD7B200D67696 /* 1024.png */,
-				5489EAE3253AD7B200D67696 /* 512.png */,
-			);
-			path = Android;
 			sourceTree = "<group>";
 		};
 		5489EAEF253AD7BF00D67696 /* App Assets */ = {
@@ -790,11 +759,8 @@
 				333AB4AA24FA468200181D48 /* leaderboard.png in Resources */,
 				333AB4A124FA461C00181D48 /* gameplay.png in Resources */,
 				33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */,
-				5489EAEB253AD7B200D67696 /* 512.png in Resources */,
 				333AB4AB24FA468200181D48 /* mission selection.png in Resources */,
 				335900C324EB45D600386D66 /* GoogleService-Info.plist in Resources */,
-				5489EAE7253AD7B200D67696 /* icons.zip in Resources */,
-				5489EAEA253AD7B200D67696 /* 1024.png in Resources */,
 				333AB4AF24FA468200181D48 /* store.png in Resources */,
 				333AB49D24FA461C00181D48 /* exit.png in Resources */,
 				5489EAE6253AD7B200D67696 /* PSD.psd in Resources */,
@@ -804,7 +770,6 @@
 				3321CC3B24F1BC59002C23DA /* 3DAssets.scnassets in Resources */,
 				333AB4B324FA472000181D48 /* Atlas.png in Resources */,
 				3342938D24CFCA270086D3F0 /* Assets.xcassets in Resources */,
-				5489EAE9253AD7B200D67696 /* 512.png in Resources */,
 				333AB4A024FA461C00181D48 /* game-over.png in Resources */,
 				333AB4B124FA468200181D48 /* profile.png in Resources */,
 				3397D83425055D09009E8F66 /* Atlas2.png in Resources */,
@@ -817,7 +782,6 @@
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
 				333AB4AD24FA468200181D48 /* main menu.png in Resources */,
 				5489EAE8253AD7B200D67696 /* 1024.png in Resources */,
-				5489EAEC253AD7B200D67696 /* PSD.zip in Resources */,
 				333AB49F24FA461C00181D48 /* game paused.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
