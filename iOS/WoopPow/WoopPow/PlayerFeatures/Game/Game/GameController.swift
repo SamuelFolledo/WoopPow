@@ -18,6 +18,9 @@ class GameController: UIViewController {
     var coordinator: AppCoordinator!
     var samuelAnimations = [String: CAAnimation]()
     var idle: Bool = true
+    var player1: PlayerNode!
+    var player2: PlayerNode!
+    
     
     //MARK: Views
     let gameView: GameView = {
@@ -77,18 +80,17 @@ extension GameController {
     }
     
     fileprivate func setupAnimations() {
-        guard let samuelNode = gameView.scene!.rootNode.childNode(withName: "samuel", recursively: true) else {
-            print("Failed to find samuel")
-            return
-        }
-        print("Samuel's position=", samuelNode.position)
-        loadAnimation(withKey: "kickUpFinisher", sceneName: "3DAssets.scnassets/Characters/Samuel/male samuel (1)/Animations/Male/Kick/kickUpFinisher", animationIdentifier: "kickUpFinisher")
-        loadAnimation(withKey: "punchUpMedium", sceneName: "3DAssets.scnassets/Characters/Samuel/male samuel (1)/Animations/Male/punch/punchUpMedium", animationIdentifier: "punchUpMedium")
-//        let idleScene = SCNScene(named: "3DAssets.scnassets/Characters/Samuel/animation/idleFixed.dae")!
-//        loadAnimation(withKey: "kickDownHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/kickDownHard", animationIdentifier: "kickDownHard")
-//        loadAnimation(withKey: "punchUpHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/punchUpHard", animationIdentifier: "punchUpHard")
-//        loadAnimation(withKey: "moveForward", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/moveForward", animationIdentifier: "moveForward")
-        print(samuelAnimations.count)
+        player1 = PlayerNode(playerType: .samuel, isPlayer1: true)
+        player1!.scale = SCNVector3Make(0.02, 0.02, 0.02)
+        player1!.position = SCNVector3Make(0.0, 0.0, 0.0)
+        player1!.rotation = SCNVector4Make(0, 1, 0, Float.pi)
+        
+        gameView.scene!.rootNode.addChildNode(player1!)
+        player1.playAnimation(type: .idleFight)
+        
+        
+//        player1!.setupCollider(with: 0.0026)
+//        player1!.setupWeaponCollider(with: 0.0026)
     }
     
     func loadAnimation(withKey: String, sceneName: String, animationIdentifier: String) {
@@ -129,12 +131,12 @@ extension GameController {
         
         let hitResults: [SCNHitTestResult]  = gameView.hitTest(location, options: hitTestOptions)
         //TODO: Scale dae animation when played on a charater
-        if idle {
-            playAnimation(key: "punchUpMedium")
-        } else {
-            stopAnimation(key: "punchUpMedium")
-        }
-        idle = !idle
+//        if idle {
+//            playAnimation(key: "punchUpMedium")
+//        } else {
+//            stopAnimation(key: "punchUpMedium")
+//        }
+//        idle = !idle
 //        if hitResults.first != nil {
 //            if(idle) {
 //                playAnimation(key: "kickDownHard")
@@ -144,6 +146,8 @@ extension GameController {
 //            idle = !idle
 //            return
 //        }
+        
+        player1.playAnimation(type: .kickDownHard)
     }
     
     func playAnimation(key: String) {
