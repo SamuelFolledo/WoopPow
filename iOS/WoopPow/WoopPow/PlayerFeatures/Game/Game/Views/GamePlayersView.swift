@@ -62,7 +62,7 @@ class GamePlayersView: UIView {
         label.numberOfLines = 1
         return label
     }()
-    //MARK: Player 1 View Properties
+    //MARK: Player 2 View Properties
     lazy var player2View: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
