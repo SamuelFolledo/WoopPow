@@ -22,8 +22,10 @@ struct Game {
     var gameId: String = ""
     var text: String?
     var winnerUid: String?
-    var roundNumber = 0
+    var round = 0
     var gameType: String?
+    
+    var isMultiplayer: Bool = false
     
     init(player1: Player, player2: Player) {
         self.player1 = player1

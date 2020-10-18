@@ -69,6 +69,7 @@ class PlayerNode: SCNNode {
         super.init()
         setupModel()
         loadAnimations()
+        playAnimation(type: .idleFight)
     }
     
     required init?(coder: NSCoder) {

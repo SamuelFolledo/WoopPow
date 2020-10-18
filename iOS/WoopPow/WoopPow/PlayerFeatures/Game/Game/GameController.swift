@@ -86,9 +86,7 @@ extension GameController {
         player1!.rotation = SCNVector4Make(0, 1, 0, Float.pi)
         
         gameView.scene!.rootNode.addChildNode(player1!)
-        player1.playAnimation(type: .idleFight)
-        
-        
+//        player1.playAnimation(type: .idleFight)
 //        player1!.setupCollider(with: 0.0026)
 //        player1!.setupWeaponCollider(with: 0.0026)
     }
