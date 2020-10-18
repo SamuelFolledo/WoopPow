@@ -11,7 +11,6 @@ import SnapKit
 import Firebase
 import NVActivityIndicatorView
 import KeychainSwift
-import FirebaseUI
 import GoogleSignIn
 
 class SignInController: UIViewController {
