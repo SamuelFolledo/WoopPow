@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct Round {
+    var p1AttackType: AttackType
+    var p1AttackMove: MoveType
+    var p2AttackType: AttackType
+    var p2AttackMove: MoveType
+}
+
 struct Game {
     //MARK: Constants
     let initialHp: Int = 100
@@ -24,13 +31,17 @@ struct Game {
     var winnerUid: String?
     var round = 0
     var gameType: String?
-    
     var isMultiplayer: Bool = false
+    var gameHistory = [Int: Round]()
     
     init(player1: Player, player2: Player) {
         self.player1 = player1
         self.player2 = player2
         self.player1Hp = initialHp
         self.player2Hp = initialHp
+    }
+    
+    mutating func addRound(roundNumber: Int, round: Round) {
+        gameHistory[roundNumber] = round
     }
 }

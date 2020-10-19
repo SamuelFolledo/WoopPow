@@ -20,7 +20,10 @@ class GameController: UIViewController {
     var idle: Bool = true
     var player1: PlayerNode!
     var player2: PlayerNode!
-    
+    var p1Attack: AttackType = .none(attack: .noneUpLight)
+    var p1Move: MoveType = .none
+    var p2Attack: AttackType = .none(attack: .noneUpLight)
+    var p2Move: MoveType = .none
     
     //MARK: Views
     let gameView: GameView = {
