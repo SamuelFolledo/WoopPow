@@ -20,10 +20,10 @@ class GameController: UIViewController {
     var idle: Bool = true
     var player1: PlayerNode!
     var player2: PlayerNode!
-    var p1Attack: AttackType = .none(attack: .noneUpLight)
-    var p1Move: MoveType = .none
-    var p2Attack: AttackType = .none(attack: .noneUpLight)
-    var p2Move: MoveType = .none
+    var p1SelectedAttack: Attack = AttackType.None.noneUpLight
+    var p1SelectedMove: Move = MoveType.none
+    var p2SelectedAttack: Attack = AttackType.None.noneUpLight
+    var p2SelectedMove: Move = MoveType.none
     
     //MARK: Views
     let gameView: GameView = {
@@ -115,6 +115,7 @@ extension GameController {
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
         player1ControlView = ControlView(isLeft: true, control: control)
+        player1ControlView.delegate = self
         view.addSubview(player1ControlView)
         player1ControlView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
@@ -127,6 +128,7 @@ extension GameController {
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
         player2ControlView = ControlView(isLeft: false, control: control2)
+        player2ControlView.delegate = self
         view.addSubview(player2ControlView)
         player2ControlView.snp.makeConstraints { (make) in
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
@@ -137,3 +139,20 @@ extension GameController {
     }
 }
 
+extension GameController: ControlViewProtocol {
+    func attackSelected(isPlayer1: Bool, attack: Attack) {
+        if isPlayer1 {
+            p1SelectedAttack = attack
+        } else {
+            p2SelectedAttack = attack
+        }
+    }
+    
+    func moveSelected(isPlayer1: Bool, move: Move) {
+        if isPlayer1 {
+            p1SelectedMove = move
+        } else {
+            p2SelectedMove = move
+        }
+    }
+}

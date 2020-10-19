@@ -63,10 +63,38 @@ class GameViewModel {
         startTimeLeftTimer()
     }
     
-    func roundEnded(completion: @escaping (Result<RoundResult, Error>) -> Void) {
-//        switch getRoundResultFromControls(p1Move: <#Move?#>, p1Attack: <#Attack?#>, p2Move: <#Move?#>, p2Attack: <#Attack?#>) {
-//        case .
-//        }
+    func endRound(completion: @escaping (Result<RoundResult, Error>) -> Void) {
+        var turn1: Turn
+        var turn2: Turn
+        var round: Round
+        if game.isMultiplayer { //for multiplayer
+            print("multi player not supported yet")
+            if game.player1.userId == auth.currentUser!.uid { //if user is player1
+                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
+                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
+            } else { //user is player 2
+                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
+                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
+            }
+        } else {
+            if game.player1.userId == auth.currentUser!.uid { //if user is player1
+                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
+                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
+            } else { //user is player 2
+                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
+                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
+            }
+        }
+        round = Round(p1Turn: turn1, p2Turn: turn2)
+        switch getRoundResultFromControls(round: round) {
+        case .p1Won:
+            completion(.success(.p1Won))
+        case .p2Won:
+            completion(.success(.p2Won))
+        case .continueRound:
+            completion(.success(.continueRound))
+        default: return
+        }
     }
     
     
@@ -78,7 +106,7 @@ class GameViewModel {
         timeLeftCounter -= 1
         if timeLeftCounter == 0 {
             timeLeftTimer?.invalidate()
-            roundEnded { (result) in
+            endRound { (result) in
                 switch result {
                 case .failure(let error):
                     print("ERROR rounded ended \(error.localizedDescription)")
@@ -90,7 +118,9 @@ class GameViewModel {
                         print("P2 Won")
                     case .continueRound:
                         print("Continuing round")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //wait 2 seconds t start time again
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //wait 2 seconds to start time again
+                            self.delegate.player1ControlView.newRound()
+                            self.delegate.player2ControlView.newRound()
                             self.game.round += 1
                             self.timeLeftCounter = self.game.initialTime
                             self.startTimeLeftTimer()
@@ -105,12 +135,15 @@ class GameViewModel {
 //MARK: Helper Methods
 extension GameViewModel {
     
-    func getRoundResultFromControls(p1Move: Move?, p1Attack: Attack?, p2Move: Move?, p2Attack: Attack?) -> RoundResult? {
+    func getRoundResultFromControls(round: Round) -> RoundResult? {
         if game.isMultiplayer {
             print("Imeplement multiplayer later")
             return .continueRound
         } else {
-            guard let p1Move = p1Move, let p1Attack = p1Attack, let p2Move = p2Move, let p2Attack = p2Attack else { return nil }
+            let p1Move = round.p1Turn.move
+            let p1Attack = round.p1Turn.attack
+            let p2Move = round.p2Turn.move
+            let p2Attack = round.p2Turn.attack
             let p1Speed = Int(CGFloat(p1Attack.speed) * p1Move.speedMultiplier) + (p1HasSpeedBoost ? 1 : 0)
             let p2Speed = Int(CGFloat(p2Attack.speed) * p2Move.speedMultiplier) + (p1HasSpeedBoost ? 0 : 1)
             if p1Speed > p2Speed { //p1 goes first

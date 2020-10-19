@@ -10,8 +10,8 @@ import UIKit
 import SnapKit
 
 protocol ControlViewProtocol {
-    func attackSelected(position: AttackSetPosition)
-    func moveSelected(position: MoveSetPosition)
+    func attackSelected(isPlayer1: Bool, attack: Attack)
+    func moveSelected(isPlayer1: Bool, move: Move)
 }
 
 class ControlView: UIView {
@@ -19,6 +19,7 @@ class ControlView: UIView {
     //MARK: Properties
     let isLeft: Bool
     let control: Control
+    var delegate: ControlViewProtocol?
     
     //MARK: Views
     lazy var containerView: UIView = {
@@ -46,24 +47,28 @@ class ControlView: UIView {
     lazy var moveUp: MoveButtonView = {
         let move = self.control.moveSet.up
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var moveBack: MoveButtonView = {
         let move = self.control.moveSet.back
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var moveDown: MoveButtonView = {
         let move = self.control.moveSet.down
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var moveForward: MoveButtonView = {
         let move = self.control.moveSet.forward
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
@@ -78,36 +83,42 @@ class ControlView: UIView {
     lazy var attackUpLight: AttackButtonView = {
         let attack = self.control.attackSet.upLight
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var attackUpMedium: AttackButtonView = {
         let attack = self.control.attackSet.upMedium
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var attackUpHard: AttackButtonView = {
         let attack = self.control.attackSet.upHard
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var attackDownLight: AttackButtonView = {
         let attack = self.control.attackSet.downLight
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var attackDownMedium: AttackButtonView = {
         let attack = self.control.attackSet.downMedium
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
     lazy var attackDownHard: AttackButtonView = {
         let attack = self.control.attackSet.downHard
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
         return control
     }()
     
@@ -116,7 +127,13 @@ class ControlView: UIView {
         self.isLeft = isLeft
         self.control = control
         super.init(frame: .zero)
-        setupView()
+        setupViews()
+        [attackUpLight, attackUpMedium, attackUpHard, attackDownLight, attackDownMedium, attackDownHard].forEach {
+            $0.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        }
+        [moveUp, moveDown, moveForward, moveBack].forEach {
+            $0.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -125,7 +142,7 @@ class ControlView: UIView {
     
     //MARK: Private Methods
     
-    fileprivate func setupView() {
+    fileprivate func setupViews() {
         addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
@@ -223,12 +240,50 @@ class ControlView: UIView {
             }
         }
     }
+    
+    @objc func attackButtonTapped(_ sender: UIButton) {
+        let attack: Attack
+        switch sender {
+        case attackUpLight.button:
+            attack = attackUpLight.attack
+        case attackUpMedium.button:
+            attack = attackUpMedium.attack
+        case attackUpHard.button:
+            attack = attackUpHard.attack
+        case attackDownLight.button:
+            attack = attackDownLight.attack
+        case attackDownMedium.button:
+            attack = attackDownMedium.attack
+        case attackDownHard.button:
+            attack = attackDownHard.attack
+        default:
+            attack = AttackType.none(attack: .noneUpLight)
+        }
+        delegate?.attackSelected(isPlayer1: isLeft, attack: attack)
+    }
+    @objc func moveButtonTapped(_ sender: MoveButtonView) {
+        let move: Move
+        switch sender {
+        case moveUp.button:
+            move = moveUp.move
+        case moveBack.button:
+            move = moveBack.move
+        case moveDown.button:
+            move = moveDown.move
+        case moveForward.button:
+            move = moveForward.move
+        default:
+            move = MoveType.none
+        }
+        delegate?.moveSelected(isPlayer1: isLeft, move: move)
+    }
 }
 
 //MARK: Helpers
 extension ControlView {
     func newRound() {
-        [moveBack, moveDown, moveForward].forEach {
+        //reduce cooldown
+        [moveUp, moveBack, moveDown, moveForward].forEach {
             $0.cooldown -= 1
         }
         [attackUpLight, attackUpMedium, attackUpHard,

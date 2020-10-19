@@ -8,11 +8,21 @@
 
 import UIKit
 
+struct Turn {
+    var attack: Attack
+    var move: Move
+    var isPlayer1: Bool
+    
+    init(isPlayer1: Bool, move: Move, attack: Attack) {
+        self.isPlayer1 = isPlayer1
+        self.move = move
+        self.attack = attack
+    }
+}
+
 struct Round {
-    var p1AttackType: AttackType
-    var p1AttackMove: MoveType
-    var p2AttackType: AttackType
-    var p2AttackMove: MoveType
+    var p1Turn: Turn
+    var p2Turn: Turn
 }
 
 struct Game {
