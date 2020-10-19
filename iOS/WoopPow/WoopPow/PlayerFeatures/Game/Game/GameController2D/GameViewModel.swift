@@ -105,8 +105,10 @@ class GameViewModel {
                     switch result {
                     case .p1Won:
                         print("P1 Won")
+                        self.gameOver(didPlayer1Won: true)
                     case .p2Won:
                         print("P2 Won")
+                        self.gameOver(didPlayer1Won: false)
                     case .continueRound:
                         print("Continuing round")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //wait 1 seconds to start time again
@@ -143,23 +145,29 @@ extension GameViewModel {
                 p1HasSpeedBoost = true //set who has +1 speed next round
                 let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
                 player2Hp -= p1Damage //apply damage
-                if player2Hp > 0 { //p2 is still alive
-                    let p2Damage = getDamage(playerAttack: p2Attack, enemyMove: p1Move)
-                    player1Hp -= p2Damage //apply damage
+                if player2Hp <= 0 { //p2 died
+                    return .p1Won
+                }
+                let p2Damage = getDamage(playerAttack: p2Attack, enemyMove: p1Move)
+                player1Hp -= p2Damage //apply damage
+                if player1Hp > 0 { //if p1 died
                     return .continueRound
                 } else {
-                    return .p1Won
+                    return .p2Won
                 }
             } else { //p2 goes first
                 p1HasSpeedBoost = false
                 let p2Damage = getDamage(playerAttack: p2Attack, enemyMove: p1Move)
                 player1Hp -= p2Damage
-                if player1Hp > 0 { //p1 is still alive
-                    let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
-                    player2Hp -= p1Damage
+                if player1Hp <= 0 { //p1 died
+                    return .p2Won
+                }
+                let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
+                player2Hp -= p1Damage //apply damage
+                if player2Hp > 0 { //if p2 died
                     return .continueRound
                 } else {
-                    return .p2Won
+                    return .p1Won
                 }
             }
         }
@@ -174,5 +182,23 @@ extension GameViewModel {
             print("Player \(playerAttack) missed")
         }
         return damage
+    }
+}
+
+extension GameViewModel {
+    func gameOver(didPlayer1Won: Bool) {
+        if didPlayer1Won { //p1 won
+            self.delegate.gamePlayersView.player1HpLabel.text = "Winner"
+            self.delegate.gamePlayersView.player2HpLabel.text = "Loser"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.delegate.coordinator.navigationController.popViewController(animated: true)
+            }
+        } else { //p2 won
+            self.delegate.gamePlayersView.player2HpLabel.text = "Winner"
+            self.delegate.gamePlayersView.player1HpLabel.text = "Loser"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.delegate.coordinator.navigationController.popViewController(animated: true)
+            }
+        }
     }
 }
