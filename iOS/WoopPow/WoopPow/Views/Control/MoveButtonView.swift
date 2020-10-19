@@ -13,6 +13,13 @@ class MoveButtonView: UIView {
     
     //MARK: Properties
     var move: Move
+    var cooldown: Int = 0 {
+        didSet {
+            if cooldown > 0 { //keep it disabled
+                
+            }
+        }
+    }
     
     //MARK: Views
     lazy var containerView: UIView = {

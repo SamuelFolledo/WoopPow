@@ -9,6 +9,11 @@
 import UIKit
 import SnapKit
 
+protocol ControlViewProtocol {
+    func attackSelected(position: AttackSetPosition)
+    func moveSelected(position: MoveSetPosition)
+}
+
 class ControlView: UIView {
     
     //MARK: Properties
@@ -216,6 +221,19 @@ class ControlView: UIView {
             if !isLeft {
                 $0.flipX()
             }
+        }
+    }
+}
+
+//MARK: Helpers
+extension ControlView {
+    func newRound() {
+        [moveBack, moveDown, moveForward].forEach {
+            $0.cooldown -= 1
+        }
+        [attackUpLight, attackUpMedium, attackUpHard,
+        attackDownLight, attackDownMedium, attackDownHard].forEach {
+            $0.cooldown -= 1
         }
     }
 }

@@ -14,6 +14,10 @@ class GameViewModel {
         case loading, playing, gameOver
     }
     
+    enum RoundResult {
+        case p1Won, p2Won, continueRound
+    }
+    
     //MARK: Properties
     var game: Game
     var gameState: GameState = .loading
@@ -59,22 +63,66 @@ class GameViewModel {
         startTimeLeftTimer()
     }
     
-    func addMoveSets(p1Move: Move?, p1Attack: Attack?, p2Move: Move?, p2Attack: Attack?) {
+    func roundEnded(completion: @escaping (Result<RoundResult, Error>) -> Void) {
+//        switch getRoundResultFromControls(p1Move: <#Move?#>, p1Attack: <#Attack?#>, p2Move: <#Move?#>, p2Attack: <#Attack?#>) {
+//        case .
+//        }
+    }
+    
+    
+    private func startTimeLeftTimer() {
+        timeLeftTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTurnTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTurnTime() {
+        timeLeftCounter -= 1
+        if timeLeftCounter == 0 {
+            timeLeftTimer?.invalidate()
+            roundEnded { (result) in
+                switch result {
+                case .failure(let error):
+                    print("ERROR rounded ended \(error.localizedDescription)")
+                case .success(let result):
+                    switch result {
+                    case .p1Won:
+                        print("P1 Won")
+                    case .p2Won:
+                        print("P2 Won")
+                    case .continueRound:
+                        print("Continuing round")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //wait 2 seconds t start time again
+                            self.game.round += 1
+                            self.timeLeftCounter = self.game.initialTime
+                            self.startTimeLeftTimer()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//MARK: Helper Methods
+extension GameViewModel {
+    
+    func getRoundResultFromControls(p1Move: Move?, p1Attack: Attack?, p2Move: Move?, p2Attack: Attack?) -> RoundResult? {
         if game.isMultiplayer {
             print("Imeplement multiplayer later")
+            return .continueRound
         } else {
-            guard let p1Move = p1Move, let p1Attack = p1Attack, let p2Move = p2Move, let p2Attack = p2Attack else { return }
+            guard let p1Move = p1Move, let p1Attack = p1Attack, let p2Move = p2Move, let p2Attack = p2Attack else { return nil }
             let p1Speed = Int(CGFloat(p1Attack.speed) * p1Move.speedMultiplier) + (p1HasSpeedBoost ? 1 : 0)
             let p2Speed = Int(CGFloat(p2Attack.speed) * p2Move.speedMultiplier) + (p1HasSpeedBoost ? 0 : 1)
             if p1Speed > p2Speed { //p1 goes first
-                p1HasSpeedBoost = true
+                p1HasSpeedBoost = true //set who has +1 speed next round
                 let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
                 player2Hp -= p1Damage //apply damage
                 if player2Hp > 0 { //p2 is still alive
                     let p2Damage = getDamage(playerAttack: p2Attack, enemyMove: p1Move)
                     player1Hp -= p2Damage //apply damage
+                    return .continueRound
                 } else {
-                    print("Player 1 won!")
+                    return .p1Won
                 }
             } else { //p2 goes first
                 p1HasSpeedBoost = false
@@ -83,8 +131,9 @@ class GameViewModel {
                 if player1Hp > 0 { //p1 is still alive
                     let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
                     player2Hp -= p1Damage
+                    return .continueRound
                 } else {
-                    print("Player 2 won!")
+                    return .p2Won
                 }
             }
         }
@@ -99,21 +148,5 @@ class GameViewModel {
             print("Player \(playerAttack) missed")
         }
         return damage
-    }
-    
-    private func startTimeLeftTimer() {
-        timeLeftTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTurnTime), userInfo: nil, repeats: true)
-    }
-    
-    @objc private func updateTurnTime() {
-        timeLeftCounter -= 1
-        if timeLeftCounter == 0 {
-            timeLeftTimer?.invalidate()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { //wait 2 seconds t start time again
-                self.game.round += 1
-                self.timeLeftCounter = self.game.initialTime
-                self.startTimeLeftTimer()
-            }
-        }
     }
 }

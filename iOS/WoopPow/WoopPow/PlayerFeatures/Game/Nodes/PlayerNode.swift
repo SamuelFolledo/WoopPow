@@ -17,7 +17,7 @@ enum PlayerType {
         case .samuel:
             return "3DAssets.scnassets/Characters/Samuel/samuel"
         case .raquel:
-            return "3DAssets.scnassets/Characters/Raquel/raquel"
+            return "3DAssets.scnassets/Characters/Raquel/Raquel"
         }
     }
 }
@@ -70,10 +70,27 @@ class PlayerNode: SCNNode {
         setupModel()
         loadAnimations()
         playAnimation(type: .idleFight)
+        positionModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func positionModel() {
+        switch playerType {
+        case .samuel:
+            scale = SCNVector3Make(0.0002, 0.0002, 0.0002)
+            position = SCNVector3Make(0.5, 0.5, 1.0)
+        case .raquel:
+            scale = SCNVector3Make(2, 2, 2)
+            position = SCNVector3Make(0.5, 0.5, 5.0)
+        }
+        if isPlayer1 {
+            rotation = SCNVector4Make(0, 1, 0, 0) //face right
+        } else {
+            rotation = SCNVector4Make(0, 1, 0, Float.pi) //face left
+        }
     }
     
     private func setupModel() {
@@ -147,6 +164,7 @@ class PlayerNode: SCNNode {
         animationObject.fadeOutDuration = CGFloat(0.5)
         
         playerAnimations[identifier] = animationObject
+        
     }
     
     func playAnimation(type: PlayerAnimationType) {
