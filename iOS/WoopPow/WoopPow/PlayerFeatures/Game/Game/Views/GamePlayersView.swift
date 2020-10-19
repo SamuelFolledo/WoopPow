@@ -40,9 +40,9 @@ class GamePlayersView: UIView {
     //MARK: Player 1 View Properties
     lazy var player1View: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 15
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0)
+//        view.clipsToBounds = true
+//        view.layer.cornerRadius = 15
         return view
     }()
     lazy var player1NameLabel: UILabel = {
@@ -60,14 +60,24 @@ class GamePlayersView: UIView {
         label.textAlignment = .center
         label.font = FontManager.setFont(size: 18, fontType: .bold)
         label.numberOfLines = 1
+        label.flipX()
         return label
     }()
+    lazy var player1HpBar: UIProgressView = {
+        let bar = UIProgressView(progressViewStyle: .bar)
+//        bar.center = self.center
+        bar.setProgress(0, animated: true)
+        bar.trackTintColor = .blue
+        bar.tintColor = .lightGray
+        bar.transform = CGAffineTransform(scaleX: -1, y: 1) //flips it horizontally to act like an hp bar
+        bar.layer.cornerRadius = 15
+        return bar
+    }()
+    
     //MARK: Player 2 View Properties
     lazy var player2View: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 15
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0)
         return view
     }()
     lazy var player2NameLabel: UILabel = {
@@ -87,6 +97,15 @@ class GamePlayersView: UIView {
         label.numberOfLines = 1
         return label
     }()
+    lazy var player2HpBar: UIProgressView = {
+        let bar = UIProgressView(progressViewStyle: .bar)
+        bar.center = self.center
+        bar.setProgress(0, animated: true)
+        bar.trackTintColor = .blue
+        bar.tintColor = .lightGray
+        bar.layer.cornerRadius = 15
+        return bar
+    }()
     
     //MARK: Initializers
     init(player1: Player, player2: Player) {
@@ -95,6 +114,9 @@ class GamePlayersView: UIView {
         super.init(frame: .zero)
         setupViews()
         populateViews()
+        
+        player1HpBar.transform = player1HpBar.transform.scaledBy(x: 1, y: 1)
+        player2HpBar.transform = player2HpBar.transform.scaledBy(x: 1, y: 1)
     }
     
     required init?(coder: NSCoder) {
@@ -120,22 +142,27 @@ class GamePlayersView: UIView {
         }
         //player 1
         let p1StackView = UIStackView(axis: .vertical, spacing: 5, distribution: .fill, alignment: .leading)
-        [player1HpLabel, player1NameLabel].forEach {
+        [player1HpBar, player1NameLabel].forEach {
             p1StackView.addArrangedSubview($0)
             $0.snp.makeConstraints {
                 $0.width.equalToSuperview()
             }
         }
-        player1View.addSubview(p1StackView)
         player1View.snp.makeConstraints {
             $0.height.equalToSuperview().multipliedBy(0.7)
             $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2)
         }
+        player1View.addSubview(p1StackView)
         p1StackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(2)
             $0.left.equalToSuperview().offset(5)
             $0.right.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-5)
+        }
+        
+        player1HpBar.addSubview(player1HpLabel)
+        player1HpLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         //time
         timeImageView.snp.makeConstraints {
@@ -149,11 +176,15 @@ class GamePlayersView: UIView {
         }
         //player 2
         let p2StackView = UIStackView(axis: .vertical, spacing: 5, distribution: .fill, alignment: .trailing)
-        [player2HpLabel, player2NameLabel].forEach {
+        [player2HpBar, player2NameLabel].forEach {
             p2StackView.addArrangedSubview($0)
             $0.snp.makeConstraints {
                 $0.width.equalToSuperview()
             }
+        }
+        player2View.snp.makeConstraints {
+            $0.height.equalToSuperview().multipliedBy(0.7)
+            $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2) //because stackView's height is 70 and timeImageView's width and height is 70
         }
         player2View.addSubview(p2StackView)
         p2StackView.snp.makeConstraints {
@@ -161,9 +192,9 @@ class GamePlayersView: UIView {
             $0.left.equalToSuperview()
             $0.bottom.right.equalToSuperview().offset(-5)
         }
-        player2View.snp.makeConstraints {
-            $0.height.equalToSuperview().multipliedBy(0.7)
-            $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2) //because stackView's height is 70 and timeImageView's width and height is 70
+        player2HpBar.addSubview(player2HpLabel)
+        player2HpLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     

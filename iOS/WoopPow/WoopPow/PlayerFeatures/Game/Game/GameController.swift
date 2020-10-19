@@ -60,7 +60,7 @@ extension GameController {
         self.coordinator.navigationController.isNavigationBarHidden = true
         setupGameScene()
         setupControls()
-        setupPlayers()
+//        setupPlayers()
         setupGamePlayersView()
         gameViewModel.startRound()
     }
@@ -104,8 +104,8 @@ extension GameController {
         hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
         
         let hitResults: [SCNHitTestResult]  = gameView.hitTest(location, options: hitTestOptions)
-        player1.playAnimation(type: .punchUpLight)
-        player2.playAnimation(type: .punchUpHard)
+//        player1.playAnimation(type: .punchUpLight)
+//        player2.playAnimation(type: .punchUpHard)
     }
     
     fileprivate func setupControls() {
