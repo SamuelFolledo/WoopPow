@@ -13,7 +13,23 @@ class AttackButtonView: UIView {
     
     //MARK: Properties
     var attack: Attack
-    var cooldown: Int = 0
+    var cooldown: Int = 0 {
+        didSet {
+            if cooldown > 0 { //keep it disabled
+                button.isEnabled = false
+                button.alpha = 0.4
+                imageView.alpha = 0.4
+                titleLabel.text = "\(cooldown)"
+                titleLabel.isHidden = false
+            } else {
+                button.isEnabled = true
+                button.alpha = 1
+                imageView.alpha = 1
+                titleLabel.isHidden = true
+                titleLabel.text = ""
+            }
+        }
+    }
     
     //MARK: Views
     lazy var containerView: UIView = {
@@ -45,6 +61,16 @@ class AttackButtonView: UIView {
         return imageView
     }()
     
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = FontManager.setFont(size: 30, fontType: .bold)
+        label.numberOfLines = 1
+        label.isHidden = true
+        return label
+    }()
+    
     //MARK: Init
     
     required init(attack: Attack) {
@@ -71,6 +97,10 @@ class AttackButtonView: UIView {
         containerView.addSubview(button)
         button.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        containerView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }

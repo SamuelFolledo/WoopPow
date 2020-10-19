@@ -210,7 +210,7 @@ class ControlView: UIView {
             downMoves = [moveBack, moveDown, moveForward]
         } else {
             downMoves = [moveForward, moveDown, moveBack]
-            moveUp.flipX()
+            moveUp.button.flipX()
         }
         downMoves.forEach { bottomMovesStackView.addArrangedSubview($0) }
         
@@ -256,14 +256,21 @@ class ControlView: UIView {
             downAttacksStackView.addArrangedSubview($0)
         }
         //make all the buttons have the same width and height
-        [moveBack, moveDown, moveForward,
-        attackUpLight, attackUpMedium, attackUpHard,
+        [moveBack, moveDown, moveForward].forEach {
+            $0.snp.makeConstraints { (moveButton) in
+                moveButton.width.height.equalTo(moveUp)
+            }
+            if !isLeft {
+                $0.button.flipX()
+            }
+        }
+        [attackUpLight, attackUpMedium, attackUpHard,
         attackDownLight, attackDownMedium, attackDownHard].forEach {
             $0.snp.makeConstraints { (moveButton) in
                 moveButton.width.height.equalTo(moveUp)
             }
             if !isLeft {
-                $0.flipX()
+                $0.button.flipX()
             }
         }
     }
@@ -311,8 +318,18 @@ extension ControlView {
         allAttacks.forEach {
             $0.cooldown -= 1
         }
-        selectedMoveView = nil
-        selectedAttackView = nil
+        if let selectedMove = selectedMoveView {
+            for moveButton in allMoves where moveButton.move.position == selectedMove.move.position {
+                moveButton.cooldown = moveButton.move.cooldown
+            }
+            selectedMoveView = nil
+        }
+        if let selectedAttack = selectedAttackView {
+            for attackButton in allAttacks where attackButton.attack.position == selectedAttack.attack.position { //put selected button on cooldown
+                attackButton.cooldown = attackButton.attack.cooldown
+            }
+            selectedAttackView = nil
+        }
     }
     
     private func resetButtons(attacks shouldResetAttacks: Bool = true, moves shouldResetMoves: Bool = true) {
