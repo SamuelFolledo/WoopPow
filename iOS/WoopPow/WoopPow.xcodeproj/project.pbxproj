@@ -93,6 +93,10 @@
 		33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */; };
 		5434E363253E146E00987115 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E362253E146E00987115 /* Turn.swift */; };
 		5434E367253E147F00987115 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E366253E147F00987115 /* Round.swift */; };
+		5434E390253E1B9000987115 /* strongRedFire.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5434E38C253E1B8F00987115 /* strongRedFire.gif */; };
+		5434E391253E1B9000987115 /* weakBlueFire.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5434E38D253E1B9000987115 /* weakBlueFire.gif */; };
+		5434E392253E1B9000987115 /* strongBlueFire.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5434E38E253E1B9000987115 /* strongBlueFire.gif */; };
+		5434E393253E1B9000987115 /* weakRedFire.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5434E38F253E1B9000987115 /* weakRedFire.gif */; };
 		543E22AF253CDB4200849F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 543E22AE253CDB4200849F9B /* GoogleService-Info.plist */; };
 		5489EAE5253AD7B200D67696 /* loadingScreenImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */; };
 		5489EAE6253AD7B200D67696 /* PSD.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADC253AD7B200D67696 /* PSD.psd */; };
@@ -210,6 +214,10 @@
 		33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-black.otf"; sourceTree = "<group>"; };
 		5434E362253E146E00987115 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		5434E366253E147F00987115 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		5434E38C253E1B8F00987115 /* strongRedFire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = strongRedFire.gif; sourceTree = "<group>"; };
+		5434E38D253E1B9000987115 /* weakBlueFire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = weakBlueFire.gif; sourceTree = "<group>"; };
+		5434E38E253E1B9000987115 /* strongBlueFire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = strongBlueFire.gif; sourceTree = "<group>"; };
+		5434E38F253E1B9000987115 /* weakRedFire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = weakRedFire.gif; sourceTree = "<group>"; };
 		543E22AE253CDB4200849F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loadingScreenImage.jpg; sourceTree = "<group>"; };
 		5489EADC253AD7B200D67696 /* PSD.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSD.psd; sourceTree = "<group>"; };
@@ -655,6 +663,17 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		5434E38B253E1B7600987115 /* FireGIFs */ = {
+			isa = PBXGroup;
+			children = (
+				5434E38E253E1B9000987115 /* strongBlueFire.gif */,
+				5434E38C253E1B8F00987115 /* strongRedFire.gif */,
+				5434E38D253E1B9000987115 /* weakBlueFire.gif */,
+				5434E38F253E1B9000987115 /* weakRedFire.gif */,
+			);
+			path = FireGIFs;
+			sourceTree = "<group>";
+		};
 		5489EADA253AD7B200D67696 /* app icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +688,7 @@
 		5489EAEF253AD7BF00D67696 /* App Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5434E38B253E1B7600987115 /* FireGIFs */,
 				333AB4B224FA472000181D48 /* Atlas.png */,
 				3397D83325055D09009E8F66 /* Atlas2.png */,
 				5489EADA253AD7B200D67696 /* app icons */,
@@ -779,13 +799,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5434E392253E1B9000987115 /* strongBlueFire.gif in Resources */,
 				33FEB8ED2507592C00843DA7 /* burbank-big-condensed-light.otf in Resources */,
 				333AB4AC24FA468200181D48 /* settings.png in Resources */,
 				3342939024CFCA270086D3F0 /* LaunchScreen.storyboard in Resources */,
 				333AB4AA24FA468200181D48 /* leaderboard.png in Resources */,
 				5489EB45253AF6B100D67696 /* gameScreen.png in Resources */,
+				5434E390253E1B9000987115 /* strongRedFire.gif in Resources */,
 				333AB4A124FA461C00181D48 /* gameplay.png in Resources */,
 				33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */,
+				5434E391253E1B9000987115 /* weakBlueFire.gif in Resources */,
 				333AB4AB24FA468200181D48 /* mission selection.png in Resources */,
 				333AB4AF24FA468200181D48 /* store.png in Resources */,
 				333AB49D24FA461C00181D48 /* exit.png in Resources */,
@@ -800,6 +823,7 @@
 				333AB4B124FA468200181D48 /* profile.png in Resources */,
 				3397D83425055D09009E8F66 /* Atlas2.png in Resources */,
 				333AB4B024FA468200181D48 /* character selection.png in Resources */,
+				5434E393253E1B9000987115 /* weakRedFire.gif in Resources */,
 				333AB4AE24FA468200181D48 /* new.png in Resources */,
 				33FEB8EC2507592C00843DA7 /* burbank-big-condensed-medium.otf in Resources */,
 				333AB49624FA3AD600181D48 /* login.png in Resources */,

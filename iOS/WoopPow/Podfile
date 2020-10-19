@@ -27,6 +27,9 @@ target 'WoopPow' do
 
   # Pods for Firebase Google Authentication
   pod 'GoogleSignIn'
+  
+  # For the fire GIFs
+  pod 'Gifu'
 
 
   target 'WoopPowTests' do
