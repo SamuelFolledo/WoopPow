@@ -23,8 +23,14 @@ class GameViewModel {
     var gameState: GameState = .loading
     var p1HasSpeedBoost: Bool = true
     weak var delegate: GameController!
-    let player1HPProgress = Progress(totalUnitCount: 30)
-    let player2HPProgress = Progress(totalUnitCount: 30)
+    lazy var player1HPProgress: Progress = {
+        let progress = Progress(totalUnitCount: Int64(game.initialHp))
+        return progress
+    }()
+    lazy var player2HPProgress: Progress = {
+        let progress = Progress(totalUnitCount: Int64(game.initialHp))
+        return progress
+    }()
     private var timeLeftTimer: Timer?
     private(set) var timeLeftCounter: Int {
         didSet {
@@ -35,12 +41,14 @@ class GameViewModel {
         didSet {
             game.player1Hp = player1Hp
             delegate.gamePlayersView.player1HpLabel.text = "\(player1Hp)/\(game.initialHp)"
+//            delegate.gamePlayersView.player1HpBar.setProgress(Float(player1Hp), animated: true)
         }
     }
     private(set) var player2Hp: Int = 0 {
         didSet {
             game.player2Hp = player2Hp
             delegate.gamePlayersView.player2HpLabel.text = "\(player2Hp)/\(game.initialHp)"
+//            delegate.gamePlayersView.player2HpBar.setProgress(Float(player2Hp), animated: true)
         }
     }
     
@@ -145,11 +153,17 @@ extension GameViewModel {
                 p1HasSpeedBoost = true //set who has +1 speed next round
                 let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
                 player2Hp -= p1Damage //apply damage
+                self.player2HPProgress.completedUnitCount += Int64(p1Damage)
+                let player2ProgressFloat = Float(self.player2HPProgress.fractionCompleted)
+                delegate.gamePlayersView.player2HpBar.setProgress(player2ProgressFloat, animated: true)
                 if player2Hp <= 0 { //p2 died
                     return .p1Won
                 }
                 let p2Damage = getDamage(playerAttack: p2Attack, enemyMove: p1Move)
                 player1Hp -= p2Damage //apply damage
+                self.player1HPProgress.completedUnitCount += Int64(p2Damage)
+                let player1ProgressFloat = Float(self.player1HPProgress.fractionCompleted)
+                delegate.gamePlayersView.player1HpBar.setProgress(player1ProgressFloat, animated: true)
                 if player1Hp > 0 { //if p1 died
                     return .continueRound
                 } else {
@@ -159,11 +173,17 @@ extension GameViewModel {
                 p1HasSpeedBoost = false
                 let p2Damage = getDamage(playerAttack: p2Attack, enemyMove: p1Move)
                 player1Hp -= p2Damage
+                self.player1HPProgress.completedUnitCount += Int64(p2Damage)
+                let player1ProgressFloat = Float(self.player1HPProgress.fractionCompleted)
+                delegate.gamePlayersView.player1HpBar.setProgress(player1ProgressFloat, animated: true)
                 if player1Hp <= 0 { //p1 died
                     return .p2Won
                 }
                 let p1Damage = getDamage(playerAttack: p1Attack, enemyMove: p2Move)
                 player2Hp -= p1Damage //apply damage
+                self.player2HPProgress.completedUnitCount += Int64(p1Damage)
+                let player2ProgressFloat = Float(self.player2HPProgress.fractionCompleted)
+                delegate.gamePlayersView.player2HpBar.setProgress(player2ProgressFloat, animated: true)
                 if player2Hp > 0 { //if p2 died
                     return .continueRound
                 } else {
