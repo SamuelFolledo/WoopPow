@@ -20,6 +20,7 @@ class ControlView: UIView {
     let isLeft: Bool
     let control: Control
     var delegate: ControlViewProtocol?
+    
     lazy var allMoves: [MoveButtonView] = {
         return [moveUp, moveBack, moveDown, moveForward]
     }()
@@ -162,6 +163,7 @@ class ControlView: UIView {
         self.control = control
         super.init(frame: .zero)
         setupViews()
+        attachFireAnimations(fromAttack: attackUpLight)
     }
     
     required init?(coder: NSCoder) {
@@ -328,6 +330,7 @@ extension ControlView {
             for attackButton in allAttacks where attackButton.attack.position == selectedAttack.attack.position { //put selected button on cooldown
                 attackButton.cooldown = attackButton.attack.cooldown
             }
+            attachFireAnimations(fromAttack: selectedAttack)
             selectedAttackView = nil
         }
     }
@@ -345,5 +348,9 @@ extension ControlView {
                 $0.button.removeOuterBorders()
             }
         }
+    }
+    
+    private func attachFireAnimations(fromAttack: AttackButtonView) {
+//        fromAttack.fireImageView.startAnimatingGIF()
     }
 }
