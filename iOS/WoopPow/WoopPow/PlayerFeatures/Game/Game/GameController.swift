@@ -59,7 +59,7 @@ extension GameController {
         self.coordinator.navigationController.isNavigationBarHidden = true
         setupGameScene()
         setupControls()
-        setupAnimations()
+        setupPlayers()
         setupGamePlayersView()
         gameViewModel.startRound()
     }
@@ -79,12 +79,14 @@ extension GameController {
         gameView.isPlaying = true //start game loop and animation
     }
     
-    fileprivate func setupAnimations() {
+    fileprivate func setupPlayers() {
         player1 = PlayerNode(playerType: .samuel, isPlayer1: true)
         gameView.scene!.rootNode.addChildNode(player1!)
+        player1.playAnimation(type: .idleFight)
         
         player2 = PlayerNode(playerType: .raquel, isPlayer1: false)
         gameView.scene!.rootNode.addChildNode(player2!)
+        player2.playAnimation(type: .idleFight)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -95,8 +97,8 @@ extension GameController {
         hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
         
         let hitResults: [SCNHitTestResult]  = gameView.hitTest(location, options: hitTestOptions)
-        player1.playAnimation(type: .kickDownHard)
-        player2.playAnimation(type: .kickUpMedium)
+        player1.playAnimation(type: .punchUpLight)
+        player2.playAnimation(type: .punchUpHard)
     }
     
     fileprivate func setupControls() {

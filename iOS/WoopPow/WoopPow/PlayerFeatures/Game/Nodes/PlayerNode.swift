@@ -69,7 +69,6 @@ class PlayerNode: SCNNode {
         super.init()
         setupModel()
         loadAnimations()
-        playAnimation(type: .idleFight)
         positionModel()
     }
     
@@ -101,14 +100,12 @@ class PlayerNode: SCNNode {
             daeHolderNode.addChildNode(child)
         }
         addChildNode(daeHolderNode)
-        
         switch playerType {
         case .samuel:
             characterNode = daeHolderNode.childNode(withName: "Armature", recursively: true)!
         case .raquel:
             characterNode = daeHolderNode.childNode(withName: "Armature-001", recursively: true)!
         }
-//        characterNode = daeHolderNode.childNode(withName: "Armature", recursively: true)!
     }
     
     private func loadAnimations() {
@@ -128,7 +125,7 @@ class PlayerNode: SCNNode {
         loadAnimation(animationType: .hitHeadMedium, inSceneNameed: "3DAssets.scnassets/Characters/Samuel/Animations/hit/head/hitHeadMedium", withIdentifier: "hitHeadMedium")
         
         //MARK: Idle
-        loadAnimation(animationType: .hitHeadMedium, inSceneNameed: "3DAssets.scnassets/Characters/Samuel/Animations/idle/idleFight", withIdentifier: "idleFight")
+        loadAnimation(animationType: .idleFight, inSceneNameed: "3DAssets.scnassets/Characters/Samuel/Animations/idle/idleFight", withIdentifier: "idleFight")
         
         //MARK: Kick Animations
         loadAnimation(animationType: .kickFlying, inSceneNameed: "3DAssets.scnassets/Characters/Samuel/Animations/kick/kickFlying", withIdentifier: "kickFlying")
@@ -156,26 +153,23 @@ class PlayerNode: SCNNode {
     private func loadAnimation(animationType: PlayerAnimationType, inSceneNameed scene: String, withIdentifier identifier: String) {
         let scenenURL = Bundle.main.url(forResource: scene, withExtension: "dae")!
         let sceneSource = SCNSceneSource(url: scenenURL, options: nil)!
-        
         let animationObject: CAAnimation = sceneSource.entryWithIdentifier("\(identifier)-1", withClass: CAAnimation.self)!
-        
-        animationObject.repeatCount = 1
-        animationObject.fadeInDuration = CGFloat(1)
-        animationObject.fadeOutDuration = CGFloat(0.5)
-        
-        playerAnimations[identifier] = animationObject
-        
+        animationObject.repeatCount = 0
+        animationObject.fadeInDuration = CGFloat(0.2)
+        animationObject.fadeOutDuration = CGFloat(0.2)
+//        animationObject.usesSceneTimeBase = false
+//        animationObject.fillMode = .forwards
+        switch animationType {
+        case .idleFight:
+            animationObject.repeatCount = Float.greatestFiniteMagnitude
+        case .deathBackLight, .deathBackMedium, .deathUpHard:
+            animationObject.isRemovedOnCompletion = false
+        default: break
+        }
+        playerAnimations[identifier] = animationObject //add animation to dictionary
     }
     
     func playAnimation(type: PlayerAnimationType) {
-//        switch type {
-//        case .de:
-//            <#code#>
-//        default:
-//
-//        }
         characterNode.addAnimation(playerAnimations[type.rawValue]!, forKey: type.rawValue)
-        print(type)
     }
-    
 }
