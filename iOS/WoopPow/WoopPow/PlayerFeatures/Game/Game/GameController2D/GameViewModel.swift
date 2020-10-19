@@ -65,6 +65,7 @@ class GameViewModel {
     //MARK: Methods
     
     func startRound() {
+        gameState = .playing
         player1Hp = game.player1Hp
         player2Hp = game.player2Hp
         game.round += 1
@@ -87,8 +88,10 @@ class GameViewModel {
         //get the result
         switch getRoundResultFromControls(round: round) {
         case .p1Won:
+            gameState = .gameOver
             completion(.success(.p1Won))
         case .p2Won:
+            gameState = .gameOver
             completion(.success(.p2Won))
         case .continueRound:
             completion(.success(.continueRound))
