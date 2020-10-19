@@ -15,9 +15,11 @@ enum PlayerType {
     var playerUrl: String {
         switch self {
         case .samuel:
-            return "3DAssets.scnassets/Characters/Samuel/samuel"
+//            return "3DAssets.scnassets/Characters/Samuel/samuel"
+            return "3DAssets.scnassets/Characters/Samuel/Animations/idle/idleFight"
         case .raquel:
-            return "3DAssets.scnassets/Characters/Raquel/Raquel"
+//            return "3DAssets.scnassets/Characters/Raquel/Raquel"
+            return "3DAssets.scnassets/Characters/Raquel/Animations/idle/idleFight"
         }
     }
 }
@@ -80,10 +82,12 @@ class PlayerNode: SCNNode {
     private func positionModel() {
         switch playerType {
         case .samuel:
-            scale = SCNVector3Make(0.0002, 0.0002, 0.0002)
+//            scale = SCNVector3Make(0.0002, 0.0002, 0.0002)
+            scale = SCNVector3Make(0.000000002, 0.000000002, 0.000000002)
             position = SCNVector3Make(0.5, 0.5, 1.0)
         case .raquel:
-            scale = SCNVector3Make(2, 2, 2)
+            scale = SCNVector3Make(0.000000002, 0.000000002, 0.000000002)
+//            scale = SCNVector3Make(2, 2, 2)
             position = SCNVector3Make(0.5, 0.5, 5.0)
         }
         if isPlayer1 {
