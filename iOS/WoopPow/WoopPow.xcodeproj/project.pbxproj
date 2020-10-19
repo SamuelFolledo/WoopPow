@@ -423,7 +423,7 @@
 		335900C424EB4B3B00386D66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5489EAEF253AD7BF00D67696 /* App Assets */,
+				5489EAEF253AD7BF00D67696 /* AppAssets */,
 				3342938C24CFCA270086D3F0 /* Assets.xcassets */,
 				3321CC3A24F1BC59002C23DA /* 3DAssets.scnassets */,
 			);
@@ -685,7 +685,7 @@
 			path = "app icons";
 			sourceTree = "<group>";
 		};
-		5489EAEF253AD7BF00D67696 /* App Assets */ = {
+		5489EAEF253AD7BF00D67696 /* AppAssets */ = {
 			isa = PBXGroup;
 			children = (
 				5434E38B253E1B7600987115 /* FireGIFs */,
@@ -693,7 +693,7 @@
 				3397D83325055D09009E8F66 /* Atlas2.png */,
 				5489EADA253AD7B200D67696 /* app icons */,
 			);
-			path = "App Assets";
+			path = AppAssets;
 			sourceTree = "<group>";
 		};
 		65E3665666129F6A43B375E8 /* Frameworks */ = {
