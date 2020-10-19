@@ -20,7 +20,8 @@ class GameController: UIViewController {
     var idle: Bool = true
     var player1: PlayerNode!
     var player2: PlayerNode!
-    
+    var p1Turn: Turn = Turn(isPlayer1: true)
+    var p2Turn: Turn = Turn(isPlayer1: false)
     
     //MARK: Views
     let gameView: GameView = {
@@ -112,6 +113,7 @@ extension GameController {
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
         player1ControlView = ControlView(isLeft: true, control: control)
+        player1ControlView.delegate = self
         view.addSubview(player1ControlView)
         player1ControlView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
@@ -124,6 +126,7 @@ extension GameController {
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
         player2ControlView = ControlView(isLeft: false, control: control2)
+        player2ControlView.delegate = self
         view.addSubview(player2ControlView)
         player2ControlView.snp.makeConstraints { (make) in
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
@@ -134,3 +137,20 @@ extension GameController {
     }
 }
 
+extension GameController: ControlViewProtocol {
+    func attackSelected(isPlayer1: Bool, attack: Attack) {
+        if isPlayer1 {
+            p1Turn.attack = attack
+        } else {
+            p2Turn.attack = attack
+        }
+    }
+    
+    func moveSelected(isPlayer1: Bool, move: Move) {
+        if isPlayer1 {
+            p1Turn.move = move
+        } else {
+            p2Turn.move = move
+        }
+    }
+}
