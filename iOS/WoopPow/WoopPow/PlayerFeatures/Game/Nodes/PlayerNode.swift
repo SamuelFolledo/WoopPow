@@ -80,9 +80,14 @@ class PlayerNode: SCNNode {
         switch playerType {
         case .samuel:
             scale = SCNVector3Make(0.0002, 0.0002, 0.0002)
+//            skinner = nil
+//            characterNode.skinner = nil
             position = SCNVector3Make(0.5, 0.5, 1.0)
         case .raquel:
-            scale = SCNVector3Make(2, 2, 2)
+            scale = SCNVector3Make(0.02, 0.02, 0.02)
+//            skinner = nil
+//            scale = SCNVector3Make(2, 2, 2)
+//            characterNode.skinner = nil
             position = SCNVector3Make(0.5, 0.5, 5.0)
         }
         if isPlayer1 {
