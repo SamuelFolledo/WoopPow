@@ -81,12 +81,18 @@ extension GameController {
     
     fileprivate func setupPlayers() {
         player1 = PlayerNode(playerType: .samuel, isPlayer1: true)
+        player1.skinner = nil
         gameView.scene!.rootNode.addChildNode(player1!)
         player1.playAnimation(type: .idleFight)
+//        player1.scale = SCNVector3(0.0002, 0.0002, 0.0002)
+//        player1.skinner = nil
         
         player2 = PlayerNode(playerType: .raquel, isPlayer1: false)
+        player2.skinner = nil
         gameView.scene!.rootNode.addChildNode(player2!)
         player2.playAnimation(type: .idleFight)
+//        player2.scale = SCNVector3(0.0002, 0.0002, 0.0002)
+//        player2.skinner = nil
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
