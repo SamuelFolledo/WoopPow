@@ -20,10 +20,8 @@ class GameController: UIViewController {
     var idle: Bool = true
     var player1: PlayerNode!
     var player2: PlayerNode!
-    var p1SelectedAttack: Attack = AttackType.None.noneUpLight
-    var p1SelectedMove: Move = MoveType.none
-    var p2SelectedAttack: Attack = AttackType.None.noneUpLight
-    var p2SelectedMove: Move = MoveType.none
+    var p1Turn: Turn = Turn(isPlayer1: true)
+    var p2Turn: Turn = Turn(isPlayer1: false)
     
     //MARK: Views
     let gameView: GameView = {
@@ -142,17 +140,17 @@ extension GameController {
 extension GameController: ControlViewProtocol {
     func attackSelected(isPlayer1: Bool, attack: Attack) {
         if isPlayer1 {
-            p1SelectedAttack = attack
+            p1Turn.attack = attack
         } else {
-            p2SelectedAttack = attack
+            p2Turn.attack = attack
         }
     }
     
     func moveSelected(isPlayer1: Bool, move: Move) {
         if isPlayer1 {
-            p1SelectedMove = move
+            p1Turn.move = move
         } else {
-            p2SelectedMove = move
+            p2Turn.move = move
         }
     }
 }

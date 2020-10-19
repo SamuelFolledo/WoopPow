@@ -64,28 +64,17 @@ class GameViewModel {
     }
     
     func endRound(completion: @escaping (Result<RoundResult, Error>) -> Void) {
-        var turn1: Turn
-        var turn2: Turn
         var round: Round
         if game.isMultiplayer { //for multiplayer
             print("multi player not supported yet")
-            if game.player1.userId == auth.currentUser!.uid { //if user is player1
-                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
-                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
-            } else { //user is player 2
-                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
-                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
-            }
+            round = Round(p1Turn: delegate.p1Turn, p2Turn: delegate.p2Turn)
         } else {
             if game.player1.userId == auth.currentUser!.uid { //if user is player1
-                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
-                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
+                round = Round(p1Turn: delegate.p1Turn, p2Turn: delegate.p2Turn)
             } else { //user is player 2
-                turn1 = Turn(isPlayer1: true, move: delegate.p1SelectedMove, attack: delegate.p1SelectedAttack)
-                turn2 = Turn(isPlayer1: false, move: delegate.p2SelectedMove, attack: delegate.p2SelectedAttack)
+                round = Round(p1Turn: delegate.p1Turn, p2Turn: delegate.p2Turn)
             }
         }
-        round = Round(p1Turn: turn1, p2Turn: turn2)
         switch getRoundResultFromControls(round: round) {
         case .p1Won:
             completion(.success(.p1Won))
@@ -118,7 +107,9 @@ class GameViewModel {
                         print("P2 Won")
                     case .continueRound:
                         print("Continuing round")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //wait 2 seconds to start time again
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //wait 1 seconds to start time again
+                            self.delegate.p1Turn.resetTurn()
+                            self.delegate.p2Turn.resetTurn()
                             self.delegate.player1ControlView.newRound()
                             self.delegate.player2ControlView.newRound()
                             self.game.round += 1
