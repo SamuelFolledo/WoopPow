@@ -40,7 +40,7 @@ class GamePlayersView: UIView {
     //MARK: Player 1 View Properties
     lazy var player1View: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0)
         view.clipsToBounds = true
         view.layer.cornerRadius = 15
         return view
@@ -62,10 +62,21 @@ class GamePlayersView: UIView {
         label.numberOfLines = 1
         return label
     }()
+    lazy var player1HpBar: UIProgressView = {
+        let bar = UIProgressView(progressViewStyle: .bar)
+        bar.center = self.center
+        bar.setProgress(1, animated: true)
+        bar.trackTintColor = .lightGray
+        bar.tintColor = .blue
+        bar.transform = CGAffineTransform(scaleX: -1, y: 1)
+        bar.transform = bar.transform.scaledBy(x: 1, y: 10)
+        return bar
+    }()
+    
     //MARK: Player 2 View Properties
     lazy var player2View: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0)
         view.clipsToBounds = true
         view.layer.cornerRadius = 15
         return view
@@ -86,6 +97,16 @@ class GamePlayersView: UIView {
         label.font = FontManager.setFont(size: 18, fontType: .bold)
         label.numberOfLines = 1
         return label
+    }()
+    lazy var player2HpBar: UIProgressView = {
+        let bar = UIProgressView(progressViewStyle: .bar)
+        bar.center = self.center
+        bar.setProgress(1, animated: true)
+        bar.trackTintColor = .lightGray
+        bar.tintColor = .blue
+        bar.transform = CGAffineTransform(scaleX: -1, y: 1)
+        bar.transform = bar.transform.scaledBy(x: 1, y: 10)
+        return bar
     }()
     
     //MARK: Initializers
@@ -126,11 +147,17 @@ class GamePlayersView: UIView {
                 $0.width.equalToSuperview()
             }
         }
-        player1View.addSubview(p1StackView)
         player1View.snp.makeConstraints {
             $0.height.equalToSuperview().multipliedBy(0.7)
             $0.width.equalToSuperview().multipliedBy(0.5).offset((GamePlayersView.viewHeight - 10) / -2)
         }
+        player1View.addSubview(player1HpBar)
+        player1HpBar.snp.makeConstraints {
+            $0.height.equalToSuperview().multipliedBy(0.4)
+            $0.top.equalToSuperview().offset(2)
+            $0.left.right.equalToSuperview()
+        }
+        player1View.addSubview(p1StackView)
         p1StackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(2)
             $0.left.equalToSuperview().offset(5)
