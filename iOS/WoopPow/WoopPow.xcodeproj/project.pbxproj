@@ -91,6 +91,8 @@
 		33FEB8ED2507592C00843DA7 /* burbank-big-condensed-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */; };
 		33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */; };
 		33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */; };
+		5434E363253E146E00987115 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E362253E146E00987115 /* Turn.swift */; };
+		5434E367253E147F00987115 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434E366253E147F00987115 /* Round.swift */; };
 		543E22AF253CDB4200849F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 543E22AE253CDB4200849F9B /* GoogleService-Info.plist */; };
 		5489EAE5253AD7B200D67696 /* loadingScreenImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */; };
 		5489EAE6253AD7B200D67696 /* PSD.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADC253AD7B200D67696 /* PSD.psd */; };
@@ -206,6 +208,8 @@
 		33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-light.otf"; sourceTree = "<group>"; };
 		33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-bold.otf"; sourceTree = "<group>"; };
 		33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-black.otf"; sourceTree = "<group>"; };
+		5434E362253E146E00987115 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		5434E366253E147F00987115 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		543E22AE253CDB4200849F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loadingScreenImage.jpg; sourceTree = "<group>"; };
 		5489EADC253AD7B200D67696 /* PSD.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSD.psd; sourceTree = "<group>"; };
@@ -554,7 +558,7 @@
 		3378EFF324D7F7AC0019C1C8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3378EFF424D7F7BF0019C1C8 /* Game.swift */,
+				5434E35F253E145F00987115 /* Game */,
 				3378EFF624D7F9410019C1C8 /* Player.swift */,
 				33CC5FFE24FC19EB00EF9A8D /* Admin.swift */,
 				335900BB24EB2A6200386D66 /* Control */,
@@ -639,6 +643,16 @@
 				33FEB8E82507592C00843DA7 /* burbank-big-condensed-medium.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5434E35F253E145F00987115 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				3378EFF424D7F7BF0019C1C8 /* Game.swift */,
+				5434E362253E146E00987115 /* Turn.swift */,
+				5434E366253E147F00987115 /* Round.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		5489EADA253AD7B200D67696 /* app icons */ = {
@@ -905,6 +919,7 @@
 				335900E524EE147700386D66 /* PlayerService.swift in Sources */,
 				5489EB41253AF44800D67696 /* GamePlayersView.swift in Sources */,
 				335900B824EA695E00386D66 /* MoveSet.swift in Sources */,
+				5434E363253E146E00987115 /* Turn.swift in Sources */,
 				335900D524EC787000386D66 /* ABAnimateProgressView.swift in Sources */,
 				33CC5FFF24FC19EB00EF9A8D /* Admin.swift in Sources */,
 				334293B924CFCB410086D3F0 /* Date+Extensions.swift in Sources */,
@@ -938,6 +953,7 @@
 				33FEB8E42507532900843DA7 /* UIImage+Extensions.swift in Sources */,
 				335900CC24EB5EEC00386D66 /* SignInController.swift in Sources */,
 				335900ED24EF89B300386D66 /* AppService.swift in Sources */,
+				5434E367253E147F00987115 /* Round.swift in Sources */,
 				335900E324EE10C200386D66 /* UserDefaults+Extensions.swift in Sources */,
 				3378EFF924D7FB7A0019C1C8 /* GameViewModel.swift in Sources */,
 				334293BA24CFCB410086D3F0 /* UIView+Extensions.swift in Sources */,
