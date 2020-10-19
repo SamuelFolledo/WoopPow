@@ -122,51 +122,47 @@ class PlayerNode: SCNNode {
         }
         
         //MARK: Death Animations
-        loadAnimation(animationType: .deathBackLight, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/death/deathBackLight", withIdentifier: "deathBackLight")
-        loadAnimation(animationType: .deathBackMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/death/deathBackMedium", withIdentifier: "deathBackMedium")
-        loadAnimation(animationType: .deathUpHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/death/deathUpHard", withIdentifier: "deathUpHard")
+        loadAnimation(animationType: .deathBackLight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/death/deathBackLight", withIdentifier: "deathBackLight")
+        loadAnimation(animationType: .deathBackMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/death/deathBackMedium", withIdentifier: "deathBackMedium")
+        loadAnimation(animationType: .deathUpHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/death/deathUpHard", withIdentifier: "deathUpHard")
         
         //MARK: Dodge Animations
-        loadAnimation(animationType: .dodgeRight, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/dodge/dodgeRight", withIdentifier: "dodgeRight")
-        loadAnimation(animationType: .dodgeUp, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/dodge/dodgeUp", withIdentifier: "dodgeUp")
+        loadAnimation(animationType: .dodgeRight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/dodge/dodgeRight", withIdentifier: "dodgeRight")
+        loadAnimation(animationType: .dodgeUp, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/dodge/dodgeUp", withIdentifier: "dodgeUp")
         
         //MARK: Hit Animations
-        loadAnimation(animationType: .hitBodyHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/body/hitBodyHard", withIdentifier: "hitBodyHard")
-        loadAnimation(animationType: .hitBodyMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/body/hitBodyMedium", withIdentifier: "hitBodyMedium")
-        loadAnimation(animationType: .hitHeadHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/head/hitHeadHard", withIdentifier: "hitHeadHard")
-        loadAnimation(animationType: .hitHeadMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/head/hitHeadMedium", withIdentifier: "hitHeadMedium")
+        loadAnimation(animationType: .hitBodyHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/body/hitBodyHard", withIdentifier: "hitBodyHard")
+        loadAnimation(animationType: .hitBodyMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/body/hitBodyMedium", withIdentifier: "hitBodyMedium")
+        loadAnimation(animationType: .hitHeadHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/head/hitHeadHard", withIdentifier: "hitHeadHard")
+        loadAnimation(animationType: .hitHeadMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/hit/head/hitHeadMedium", withIdentifier: "hitHeadMedium")
         
         //MARK: Idle
-<<<<<<< HEAD
-        loadAnimation(animationType: .idleFight, inSceneNameed: "3DAssets.scnassets/Characters/Samuel/Animations/idle/idleFight", withIdentifier: "idleFight")
-=======
-        loadAnimation(animationType: .hitHeadMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/idle/idleFight", withIdentifier: "idleFight")
->>>>>>> refs/remotes/origin/dev
+        loadAnimation(animationType: .idleFight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/idle/idleFight", withIdentifier: "idleFight")
         
         //MARK: Kick Animations
-        loadAnimation(animationType: .kickFlying, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/kickFlying", withIdentifier: "kickFlying")
-        loadAnimation(animationType: .kickMMA, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/kickMMA", withIdentifier: "kickMMA")
-        loadAnimation(animationType: .kickDownHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/down/kickDownHard", withIdentifier: "kickDownHard")
-        loadAnimation(animationType: .kickDownMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/down/kickDownMedium", withIdentifier: "kickDownMedium")
-        loadAnimation(animationType: .kickDownLight, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/down/kickDownLight", withIdentifier: "kickDownLight")
-        loadAnimation(animationType: .kickUpHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/up/kickUpHard", withIdentifier: "kickUpHard")
-        loadAnimation(animationType: .kickUpMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/up/kickUpMedium", withIdentifier: "kickUpMedium")
-        loadAnimation(animationType: .kickUpLight, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/up/kickUpLight", withIdentifier: "kickUpLight")
+        loadAnimation(animationType: .kickFlying, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/kickFlying", withIdentifier: "kickFlying")
+        loadAnimation(animationType: .kickMMA, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/kickMMA", withIdentifier: "kickMMA")
+        loadAnimation(animationType: .kickDownHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/down/kickDownHard", withIdentifier: "kickDownHard")
+        loadAnimation(animationType: .kickDownMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/down/kickDownMedium", withIdentifier: "kickDownMedium")
+        loadAnimation(animationType: .kickDownLight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/down/kickDownLight", withIdentifier: "kickDownLight")
+        loadAnimation(animationType: .kickUpHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/up/kickUpHard", withIdentifier: "kickUpHard")
+        loadAnimation(animationType: .kickUpMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/up/kickUpMedium", withIdentifier: "kickUpMedium")
+        loadAnimation(animationType: .kickUpLight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/kick/up/kickUpLight", withIdentifier: "kickUpLight")
         
         //MARK: Punch Animations
-        loadAnimation(animationType: .punchDownHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/down/punchDownHard", withIdentifier: "punchDownHard")
-        loadAnimation(animationType: .punchDownMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/down/punchDownMedium", withIdentifier: "punchDownMedium")
-        loadAnimation(animationType: .punchDownLight, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/down/punchDownLight", withIdentifier: "punchDownLight")
-        loadAnimation(animationType: .punchUpHard, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/up/punchUpHard", withIdentifier: "punchUpHard")
-        loadAnimation(animationType: .punchUpMedium, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/up/punchUpMedium", withIdentifier: "punchUpMedium")
-        loadAnimation(animationType: .punchUpLight, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/up/punchUpLight", withIdentifier: "punchUpLight")
+        loadAnimation(animationType: .punchDownHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/down/punchDownHard", withIdentifier: "punchDownHard")
+        loadAnimation(animationType: .punchDownMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/down/punchDownMedium", withIdentifier: "punchDownMedium")
+        loadAnimation(animationType: .punchDownLight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/down/punchDownLight", withIdentifier: "punchDownLight")
+        loadAnimation(animationType: .punchUpHard, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/up/punchUpHard", withIdentifier: "punchUpHard")
+        loadAnimation(animationType: .punchUpMedium, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/up/punchUpMedium", withIdentifier: "punchUpMedium")
+        loadAnimation(animationType: .punchUpLight, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/punch/up/punchUpLight", withIdentifier: "punchUpLight")
         
         //MARK: Dash Animations
-        loadAnimation(animationType: .dashForward, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/walk/dashForward", withIdentifier: "dashForward")
-        loadAnimation(animationType: .dashBackward, inSceneNameed: "3DAssets.scnassets/Characters/\(name)/Animations/walk/dashBackward", withIdentifier: "dashBackward")
+        loadAnimation(animationType: .dashForward, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/walk/dashForward", withIdentifier: "dashForward")
+        loadAnimation(animationType: .dashBackward, inSceneNamed: "3DAssets.scnassets/Characters/\(name)/Animations/walk/dashBackward", withIdentifier: "dashBackward")
     }
     
-    private func loadAnimation(animationType: PlayerAnimationType, inSceneNameed scene: String, withIdentifier identifier: String) {
+    private func loadAnimation(animationType: PlayerAnimationType, inSceneNamed scene: String, withIdentifier identifier: String) {
         let scenenURL = Bundle.main.url(forResource: scene, withExtension: "dae")!
         let sceneSource = SCNSceneSource(url: scenenURL, options: nil)!
         let animationObject: CAAnimation = sceneSource.entryWithIdentifier("\(identifier)-1", withClass: CAAnimation.self)!
