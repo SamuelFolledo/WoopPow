@@ -210,7 +210,7 @@ class ControlView: UIView {
             downMoves = [moveBack, moveDown, moveForward]
         } else {
             downMoves = [moveForward, moveDown, moveBack]
-            moveUp.flipX()
+            moveUp.button.flipX()
         }
         downMoves.forEach { bottomMovesStackView.addArrangedSubview($0) }
         
@@ -261,8 +261,7 @@ class ControlView: UIView {
                 moveButton.width.height.equalTo(moveUp)
             }
             if !isLeft {
-                $0.flipX()
-//                $0.button.currentImage?.withHorizontallyFlippedOrientation()
+                $0.button.flipX()
             }
         }
         [attackUpLight, attackUpMedium, attackUpHard,
@@ -271,8 +270,7 @@ class ControlView: UIView {
                 moveButton.width.height.equalTo(moveUp)
             }
             if !isLeft {
-                $0.flipX()
-//                $0.button.currentImage?.withHorizontallyFlippedOrientation()
+                $0.button.flipX()
             }
         }
     }
