@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EDAC04C9ED9E9443EE0047A /* Pods_WoopPow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */; };
 		3321CC3B24F1BC59002C23DA /* 3DAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321CC3A24F1BC59002C23DA /* 3DAssets.scnassets */; };
 		3321CC3D24F1BE2F002C23DA /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321CC3C24F1BE2F002C23DA /* GameController.swift */; };
 		333AB49524FA3AD600181D48 /* singup.png in Resources */ = {isa = PBXBuildFile; fileRef = 333AB49324FA3AD500181D48 /* singup.png */; };
@@ -92,14 +91,15 @@
 		33FEB8ED2507592C00843DA7 /* burbank-big-condensed-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */; };
 		33FEB8EE2507592C00843DA7 /* burbank-big-condensed-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */; };
 		33FEB8EF2507592C00843DA7 /* burbank-big-condensed-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */; };
+		543E22AF253CDB4200849F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 543E22AE253CDB4200849F9B /* GoogleService-Info.plist */; };
 		5489EAE5253AD7B200D67696 /* loadingScreenImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */; };
 		5489EAE6253AD7B200D67696 /* PSD.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADC253AD7B200D67696 /* PSD.psd */; };
 		5489EAE8253AD7B200D67696 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EADF253AD7B200D67696 /* 1024.png */; };
 		5489EB41253AF44800D67696 /* GamePlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5489EB40253AF44800D67696 /* GamePlayersView.swift */; };
 		5489EB45253AF6B100D67696 /* gameScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5489EB44253AF6B100D67696 /* gameScreen.png */; };
 		5489EB4B253B91DD00D67696 /* cityBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5489EB4A253B91DC00D67696 /* cityBackground.jpg */; };
-		813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */; };
-		FEBB59E2253C19E100FE6886 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEBB59E1253C19E100FE6886 /* GoogleService-Info.plist */; };
+		A985800F1A99B857F03CBBED /* Pods_WoopPowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A493AF522C291712623726C5 /* Pods_WoopPowTests.framework */; };
+		BD6540C1002B6BC18714641B /* Pods_WoopPow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF6A971009A7842E975A799 /* Pods_WoopPow.framework */; };
 		FEBB59E7253C1BB600FE6886 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBB59E6253C1BB600FE6886 /* PlayerNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,8 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.release.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.release.xcconfig"; sourceTree = "<group>"; };
-		2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.debug.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.debug.xcconfig"; sourceTree = "<group>"; };
+		0726216A9BA0D5F24219E1BE /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
 		3321CC3A24F1BC59002C23DA /* 3DAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = 3DAssets.scnassets; sourceTree = "<group>"; };
 		3321CC3C24F1BE2F002C23DA /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3321CC3E24F1BFB3002C23DA /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
@@ -207,17 +206,18 @@
 		33FEB8E92507592C00843DA7 /* burbank-big-condensed-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-light.otf"; sourceTree = "<group>"; };
 		33FEB8EA2507592C00843DA7 /* burbank-big-condensed-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-bold.otf"; sourceTree = "<group>"; };
 		33FEB8EB2507592C00843DA7 /* burbank-big-condensed-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "burbank-big-condensed-black.otf"; sourceTree = "<group>"; };
+		543E22AE253CDB4200849F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5489EADB253AD7B200D67696 /* loadingScreenImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loadingScreenImage.jpg; sourceTree = "<group>"; };
 		5489EADC253AD7B200D67696 /* PSD.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSD.psd; sourceTree = "<group>"; };
 		5489EADF253AD7B200D67696 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		5489EB40253AF44800D67696 /* GamePlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayersView.swift; sourceTree = "<group>"; };
 		5489EB44253AF6B100D67696 /* gameScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameScreen.png; sourceTree = "<group>"; };
 		5489EB4A253B91DC00D67696 /* cityBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cityBackground.jpg; sourceTree = "<group>"; };
-		560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.release.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.release.xcconfig"; sourceTree = "<group>"; };
-		E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEBB59E1253C19E100FE6886 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6304962D762DFDBEFFBE11EB /* Pods-WoopPowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.release.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.release.xcconfig"; sourceTree = "<group>"; };
+		A493AF522C291712623726C5 /* Pods_WoopPowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A82BD54B7A9930456B7619AA /* Pods-WoopPow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPow.debug.xcconfig"; path = "Target Support Files/Pods-WoopPow/Pods-WoopPow.debug.xcconfig"; sourceTree = "<group>"; };
+		D5E0C7F9E04E5C477181C1C8 /* Pods-WoopPowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopPowTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopPowTests/Pods-WoopPowTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DCF6A971009A7842E975A799 /* Pods_WoopPow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoopPow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBB59E6253C1BB600FE6886 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EDAC04C9ED9E9443EE0047A /* Pods_WoopPow.framework in Frameworks */,
+				BD6540C1002B6BC18714641B /* Pods_WoopPow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				813B08EFE2B4CAB39D3AC265 /* Pods_WoopPowTests.framework in Frameworks */,
+				A985800F1A99B857F03CBBED /* Pods_WoopPowTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +244,10 @@
 		2088D4FD74972C0751E5933A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */,
-				7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */,
-				560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */,
-				0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */,
+				A82BD54B7A9930456B7619AA /* Pods-WoopPow.debug.xcconfig */,
+				0726216A9BA0D5F24219E1BE /* Pods-WoopPow.release.xcconfig */,
+				D5E0C7F9E04E5C477181C1C8 /* Pods-WoopPowTests.debug.xcconfig */,
+				6304962D762DFDBEFFBE11EB /* Pods-WoopPowTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				3342938E24CFCA270086D3F0 /* LaunchScreen.storyboard */,
-				FEBB59E1253C19E100FE6886 /* GoogleService-Info.plist */,
+				543E22AE253CDB4200849F9B /* GoogleService-Info.plist */,
 				3342939124CFCA270086D3F0 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -666,8 +666,8 @@
 			isa = PBXGroup;
 			children = (
 				3321CC3E24F1BFB3002C23DA /* SceneKit.framework */,
-				E12719A1A6FEFF5F116145F4 /* Pods_WoopPow.framework */,
-				EB5AB85FF203F8AD60EB11CC /* Pods_WoopPowTests.framework */,
+				DCF6A971009A7842E975A799 /* Pods_WoopPow.framework */,
+				A493AF522C291712623726C5 /* Pods_WoopPowTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -687,12 +687,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3342939F24CFCA270086D3F0 /* Build configuration list for PBXNativeTarget "WoopPow" */;
 			buildPhases = (
-				23606C433DFC205170752F1D /* [CP] Check Pods Manifest.lock */,
+				49F43EB926E17432F72C8471 /* [CP] Check Pods Manifest.lock */,
 				3342937C24CFCA230086D3F0 /* Sources */,
 				3342937D24CFCA230086D3F0 /* Frameworks */,
 				3342937E24CFCA230086D3F0 /* Resources */,
-				88ED2674050882787921C57E /* [CP] Embed Pods Frameworks */,
-				F303CA29135A0843044820D2 /* [CP] Copy Pods Resources */,
+				84CDBC48AEAE0D628279CB99 /* [CP] Embed Pods Frameworks */,
+				9723616AA711CA97CA148DD8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -707,7 +707,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 334293A224CFCA270086D3F0 /* Build configuration list for PBXNativeTarget "WoopPowTests" */;
 			buildPhases = (
-				5E1579A6074A1BE2E3D70D7C /* [CP] Check Pods Manifest.lock */,
+				0246928E254F3FA5AF7D051A /* [CP] Check Pods Manifest.lock */,
 				3342939224CFCA270086D3F0 /* Sources */,
 				3342939324CFCA270086D3F0 /* Frameworks */,
 				3342939424CFCA270086D3F0 /* Resources */,
@@ -729,7 +729,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = SamuelFolledo;
 				TargetAttributes = {
 					3342937F24CFCA230086D3F0 = {
@@ -790,7 +790,7 @@
 				33FEB8EC2507592C00843DA7 /* burbank-big-condensed-medium.otf in Resources */,
 				333AB49624FA3AD600181D48 /* login.png in Resources */,
 				33575AA124F092860015448A /* NavigationBarView.xib in Resources */,
-				FEBB59E2253C19E100FE6886 /* GoogleService-Info.plist in Resources */,
+				543E22AF253CDB4200849F9B /* GoogleService-Info.plist in Resources */,
 				5489EB4B253B91DD00D67696 /* cityBackground.jpg in Resources */,
 				5489EAE5253AD7B200D67696 /* loadingScreenImage.jpg in Resources */,
 				3342938B24CFCA230086D3F0 /* Main.storyboard in Resources */,
@@ -810,29 +810,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23606C433DFC205170752F1D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WoopPow-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5E1579A6074A1BE2E3D70D7C /* [CP] Check Pods Manifest.lock */ = {
+		0246928E254F3FA5AF7D051A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -854,7 +832,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		88ED2674050882787921C57E /* [CP] Embed Pods Frameworks */ = {
+		49F43EB926E17432F72C8471 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WoopPow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84CDBC48AEAE0D628279CB99 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -871,7 +871,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WoopPow/Pods-WoopPow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F303CA29135A0843044820D2 /* [CP] Copy Pods Resources */ = {
+		9723616AA711CA97CA148DD8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1021,6 +1021,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1081,6 +1082,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1111,9 +1113,10 @@
 		};
 		334293A024CFCA270086D3F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D9598AE26F482DEF6FCD7E9 /* Pods-WoopPow.debug.xcconfig */;
+			baseConfigurationReference = A82BD54B7A9930456B7619AA /* Pods-WoopPow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26PJ89TRRV;
 				INFOPLIST_FILE = "WoopPow/Supporting Files/Info.plist";
@@ -1124,6 +1127,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarkKim.WoopPow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1131,9 +1135,10 @@
 		};
 		334293A124CFCA270086D3F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D8FB6BE5113894DDF2C340F /* Pods-WoopPow.release.xcconfig */;
+			baseConfigurationReference = 0726216A9BA0D5F24219E1BE /* Pods-WoopPow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26PJ89TRRV;
 				INFOPLIST_FILE = "WoopPow/Supporting Files/Info.plist";
@@ -1144,6 +1149,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarkKim.WoopPow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1151,7 +1157,7 @@
 		};
 		334293A324CFCA270086D3F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 560D16B411B0183EAEE4CDE7 /* Pods-WoopPowTests.debug.xcconfig */;
+			baseConfigurationReference = D5E0C7F9E04E5C477181C1C8 /* Pods-WoopPowTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1174,7 +1180,7 @@
 		};
 		334293A424CFCA270086D3F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DE8EE74A668F9FAF803DE7A /* Pods-WoopPowTests.release.xcconfig */;
+			baseConfigurationReference = 6304962D762DFDBEFFBE11EB /* Pods-WoopPowTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -13,6 +13,7 @@ class AttackButtonView: UIView {
     
     //MARK: Properties
     var attack: Attack
+    var cooldown: Int = 0
     
     //MARK: Views
     lazy var containerView: UIView = {

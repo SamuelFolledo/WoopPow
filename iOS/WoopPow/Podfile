@@ -6,25 +6,21 @@ target 'WoopPow' do
   use_frameworks!
 
   # Pods for WoopPow
-  pod 'SnapKit', '~> 5.0.0'
+  pod 'SnapKit'        #, '~> 5.0.0'
   pod 'SwiftLint'
 
   # KeychainSwift
-  pod 'KeychainSwift', '~> 16.0'
+  pod 'KeychainSwift'  #, '~> 16.0'
 
   # Loading Indicators
   pod 'NVActivityIndicatorView'
 
-  # For Chat's Photo Picker
-  pod "BSImagePicker", "~> 3.1"
-
   # For caching downloaded images
-  pod 'Kingfisher', '~> 5.0'
+  pod 'Kingfisher'     #, '~> 5.0'
 
   # Firebase
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
-  pod 'FirebaseUI/Phone'	# FirebaseUI - Phone Verification 
   pod 'Firebase/Analytics' 
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
