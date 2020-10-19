@@ -64,6 +64,7 @@ class GameViewModel {
     }
     
     func endRound(completion: @escaping (Result<RoundResult, Error>) -> Void) {
+        //create round from both players' turn
         var round: Round
         if game.isMultiplayer { //for multiplayer
             print("multi player not supported yet")
@@ -75,6 +76,7 @@ class GameViewModel {
                 round = Round(p1Turn: delegate.p1Turn, p2Turn: delegate.p2Turn)
             }
         }
+        //get the result
         switch getRoundResultFromControls(round: round) {
         case .p1Won:
             completion(.success(.p1Won))

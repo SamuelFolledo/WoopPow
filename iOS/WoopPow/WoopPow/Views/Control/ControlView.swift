@@ -20,6 +20,40 @@ class ControlView: UIView {
     let isLeft: Bool
     let control: Control
     var delegate: ControlViewProtocol?
+    lazy var allMoves: [MoveButtonView] = {
+        return [moveUp, moveBack, moveDown, moveForward]
+    }()
+    lazy var allAttacks: [AttackButtonView] = {
+        return [attackUpLight, attackUpMedium, attackUpHard, attackDownLight, attackDownMedium, attackDownHard]
+    }()
+    var selectedMoveView: MoveButtonView? {
+        didSet {
+            resetButtons(attacks: false, moves: true)
+            if let newMoveView = selectedMoveView, oldValue != newMoveView {
+                newMoveView.button.addOuterRoundedBorder(borderWidth: 2, borderColor: .woopPowYellow)
+                newMoveView.button.isSelected = true
+                delegate?.moveSelected(isPlayer1: isLeft, move: newMoveView.move)
+            } else { //click the same, or newValue is nil then disable
+                selectedMoveView?.button.isSelected = false
+                selectedMoveView = nil
+                delegate?.moveSelected(isPlayer1: isLeft, move: MoveType.none)
+            }
+        }
+    }
+    var selectedAttackView: AttackButtonView? {
+        didSet {
+            resetButtons(attacks: true, moves: false)
+            if let newAttackView = selectedAttackView, oldValue != newAttackView {
+                selectedAttackView?.button.addOuterRoundedBorder(borderWidth: 2, borderColor: .woopPowYellow)
+                selectedAttackView?.button.isSelected = true
+                delegate?.attackSelected(isPlayer1: isLeft, attack: newAttackView.attack)
+            } else { //click the same, or newValue is nil then disable
+                selectedAttackView?.button.isSelected = false
+                selectedAttackView = nil
+                delegate?.attackSelected(isPlayer1: isLeft, attack: AttackType.None.noneUpLight)
+            }
+        }
+    }
     
     //MARK: Views
     lazy var containerView: UIView = {
@@ -47,28 +81,28 @@ class ControlView: UIView {
     lazy var moveUp: MoveButtonView = {
         let move = self.control.moveSet.up
         let control = MoveButtonView(move: move)
-        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var moveBack: MoveButtonView = {
         let move = self.control.moveSet.back
         let control = MoveButtonView(move: move)
-        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var moveDown: MoveButtonView = {
         let move = self.control.moveSet.down
         let control = MoveButtonView(move: move)
-        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var moveForward: MoveButtonView = {
         let move = self.control.moveSet.forward
         let control = MoveButtonView(move: move)
-        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
@@ -83,42 +117,42 @@ class ControlView: UIView {
     lazy var attackUpLight: AttackButtonView = {
         let attack = self.control.attackSet.upLight
         let control = AttackButtonView(attack: attack)
-        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackUpMedium: AttackButtonView = {
         let attack = self.control.attackSet.upMedium
         let control = AttackButtonView(attack: attack)
-        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackUpHard: AttackButtonView = {
         let attack = self.control.attackSet.upHard
         let control = AttackButtonView(attack: attack)
-        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackDownLight: AttackButtonView = {
         let attack = self.control.attackSet.downLight
         let control = AttackButtonView(attack: attack)
-        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackDownMedium: AttackButtonView = {
         let attack = self.control.attackSet.downMedium
         let control = AttackButtonView(attack: attack)
-        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackDownHard: AttackButtonView = {
         let attack = self.control.attackSet.downHard
         let control = AttackButtonView(attack: attack)
-        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
@@ -128,12 +162,6 @@ class ControlView: UIView {
         self.control = control
         super.init(frame: .zero)
         setupViews()
-        [attackUpLight, attackUpMedium, attackUpHard, attackDownLight, attackDownMedium, attackDownHard].forEach {
-            $0.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchUpInside)
-        }
-        [moveUp, moveDown, moveForward, moveBack].forEach {
-            $0.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchUpInside)
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -227,7 +255,6 @@ class ControlView: UIView {
         downAttacks.forEach {
             downAttacksStackView.addArrangedSubview($0)
         }
-        
         //make all the buttons have the same width and height
         [moveBack, moveDown, moveForward,
         attackUpLight, attackUpMedium, attackUpHard,
@@ -241,41 +268,36 @@ class ControlView: UIView {
         }
     }
     
-    @objc func attackButtonTapped(_ sender: UIButton) {
-        let attack: Attack
+    @objc private func attackButtonTapped(_ sender: UIButton) {
         switch sender {
         case attackUpLight.button:
-            attack = attackUpLight.attack
+            selectedAttackView = attackUpLight
         case attackUpMedium.button:
-            attack = attackUpMedium.attack
+            selectedAttackView = attackUpMedium
         case attackUpHard.button:
-            attack = attackUpHard.attack
+            selectedAttackView = attackUpHard
         case attackDownLight.button:
-            attack = attackDownLight.attack
+            selectedAttackView = attackDownLight
         case attackDownMedium.button:
-            attack = attackDownMedium.attack
+            selectedAttackView = attackDownMedium
         case attackDownHard.button:
-            attack = attackDownHard.attack
-        default:
-            attack = AttackType.none(attack: .noneUpLight)
+            selectedAttackView = attackDownHard
+        default: break
         }
-        delegate?.attackSelected(isPlayer1: isLeft, attack: attack)
     }
-    @objc func moveButtonTapped(_ sender: MoveButtonView) {
-        let move: Move
+    
+    @objc private func moveButtonTapped(_ sender: UIButton) {
         switch sender {
         case moveUp.button:
-            move = moveUp.move
+            selectedMoveView = moveUp
         case moveBack.button:
-            move = moveBack.move
+            selectedMoveView = moveBack
         case moveDown.button:
-            move = moveDown.move
+            selectedMoveView = moveDown
         case moveForward.button:
-            move = moveForward.move
-        default:
-            move = MoveType.none
+            selectedMoveView = moveForward
+        default: break
         }
-        delegate?.moveSelected(isPlayer1: isLeft, move: move)
     }
 }
 
@@ -283,12 +305,28 @@ class ControlView: UIView {
 extension ControlView {
     func newRound() {
         //reduce cooldown
-        [moveUp, moveBack, moveDown, moveForward].forEach {
+        allMoves.forEach {
             $0.cooldown -= 1
         }
-        [attackUpLight, attackUpMedium, attackUpHard,
-        attackDownLight, attackDownMedium, attackDownHard].forEach {
+        allAttacks.forEach {
             $0.cooldown -= 1
+        }
+        selectedMoveView = nil
+        selectedAttackView = nil
+    }
+    
+    private func resetButtons(attacks shouldResetAttacks: Bool = true, moves shouldResetMoves: Bool = true) {
+        if shouldResetAttacks {
+            allAttacks.forEach {
+                $0.button.isSelected = false
+                $0.button.removeOuterBorders()
+            }
+        }
+        if shouldResetMoves {
+            allMoves.forEach {
+                $0.button.isSelected = false
+                $0.button.removeOuterBorders()
+            }
         }
     }
 }

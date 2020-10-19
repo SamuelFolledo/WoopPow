@@ -16,7 +16,11 @@ class MoveButtonView: UIView {
     var cooldown: Int = 0 {
         didSet {
             if cooldown > 0 { //keep it disabled
-                
+                button.isEnabled = false
+                button.alpha = 0.6
+            } else {
+                button.isEnabled = true
+                button.alpha = 1
             }
         }
     }
