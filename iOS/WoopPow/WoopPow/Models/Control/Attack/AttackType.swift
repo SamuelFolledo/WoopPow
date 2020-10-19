@@ -176,11 +176,11 @@ extension AttackType {
         var cooldown: Int {
             switch self {
             case .punchUpLight, .punchDownLight:
-                return 2
+                return 1
             case .punchUpMedium, .punchDownMedium:
-                return 3
+                return 2
             case .punchUpHard, .punchDownHard:
-                return 4
+                return 3
             }
         }
         var image: UIImage {
@@ -260,11 +260,11 @@ extension AttackType {
         var cooldown: Int {
             switch self {
             case .kickUpLight, .kickDownLight:
-                return 3
+                return 2
             case .kickUpMedium, .kickDownMedium:
-                return 4
+                return 3
             case .kickUpHard, .kickDownHard:
-                return 5
+                return 4
             }
         }
         var image: UIImage {
