@@ -3,8 +3,25 @@
 ## About
 WoopPow is a turn based fighting iOS game in 3D. Users select one attack move and one dodge move each turn. Using SceneKit, WoopPow loads collada files for its character models and animations. 
 
-## Pictures and Gif
-### Sign in/Sign up
+## How to Use
+1. Download project and open in Xcode
+2. Go to directory that contains the Podfile
+```
+$ cd iOS/WoopPow
+```
+3. Install the project's libraries
+    - If you don't have Cocoapods, install it
+    ```
+    $ sudo gem install cocoapods
+    ```
+    - If Cocoapods has finished downloading, or already downloaded, install the libraries
+    ```
+    $ pod install
+    ```
+4. Run on an Xcode's iPhone X simulator or newer devices for best experience
+
+## Demo
+### Sign in/Sign up Flow
 ![](static/SignIn.png)
 ![](static/SignUp.png)
 ### Main Menu
@@ -29,8 +46,6 @@ Contributions are welcome! Please see our [Contributing Guide](https://github.co
 <table>
   <tr>
       <td align="center"><a href="https://github.com/SamuelFolledo"><img src="https://avatars3.githubusercontent.com/u/30268383?s=460&v=4" width="75px;" alt=Samuel P. Folledo/><br /><sub><b>Samuel P. Folledo</b></sub></a><br/></td>
-    </tr>  
-    <tr>
         <td align="center"><a href="https://github.com/markk628"><img src="https://avatars3.githubusercontent.com/u/54289533?s=100&v=4" width="75px;" alt=Samuel P. Folledo/><br /><sub><b>Samuel P. Folledo</b></sub></a><br/></td>
       </tr>  
 </table>
