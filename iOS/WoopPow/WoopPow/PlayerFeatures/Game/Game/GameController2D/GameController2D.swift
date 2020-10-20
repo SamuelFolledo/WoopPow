@@ -45,7 +45,7 @@ class GameController2D: UIViewController {
         label.textColor = .white
         label.textAlignment = .center
         label.font = .font(size: 16, weight: .medium, design: .default)
-        label.text = gameViewModel.player1HpText
+//        label.text = gameViewModel.player1HpText
         label.numberOfLines = 1
         return label
     }()
@@ -54,7 +54,7 @@ class GameController2D: UIViewController {
         label.textColor = .white
         label.textAlignment = .right
         label.font = .font(size: 16, weight: .medium, design: .default)
-        label.text = gameViewModel.player2HpText
+//        label.text = gameViewModel.player2HpText
         label.numberOfLines = 1
         return label
     }()
@@ -73,7 +73,7 @@ class GameController2D: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        gameViewModel.startTimeLeftTimer()
+//        gameViewModel.startTimeLeftTimer()
     }
     
     //MARK: Private Methods

@@ -12,38 +12,32 @@ import SceneKit
 
 class GameController: UIViewController {
     
-    enum GameState {
-        case loading, playing
-    }
-    
     //MARK: Properties
+    var gameViewModel: GameViewModel!
+    var gamePlayersView: GamePlayersView!
     var coordinator: AppCoordinator!
-    var gameState: GameState = .loading
     var samuelAnimations = [String: CAAnimation]()
     var idle: Bool = true
+    var player1: PlayerNode!
+    var player2: PlayerNode!
+    var p1Turn: Turn = Turn(isPlayer1: true)
+    var p2Turn: Turn = Turn(isPlayer1: false)
     
     //MARK: Views
-    var gameView: GameView! {
-        let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        return GameView(frame: frame)
-    }
-    var mainScene: SCNScene!
+    let gameView: GameView = {
+        let gameView = GameView(frame: .zero)
+        gameView.allowsCameraControl = true
+        gameView.antialiasingMode = .multisampling4X
+        let mainScene: SCNScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")!
+        gameView.scene = mainScene
+        return gameView
+    }()
     var player1ControlView: ControlView!
     var player2ControlView: ControlView!
     
-    var samuelAxeKick = SCNAnimationPlayer()
-    
-    //MARK: App Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupScene()
-        gameState = .playing
-    }
-    
+    //MARK: Override properties
     override var shouldAutorotate: Bool { return true }
-    
     override var prefersStatusBarHidden: Bool { return true }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -51,66 +45,55 @@ class GameController: UIViewController {
             return .all
         }
     }
+    
+    //MARK: App Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupScene()
+        gameViewModel.gameState = .playing
+    }
 }
 
 extension GameController {
     fileprivate func setupScene() {
-        self.view = gameView
         self.coordinator.navigationController.isNavigationBarHidden = true
-        mainScene = SCNScene(named: "3DAssets.scnassets/GameScene.scn")! //load Stage1.scn as our mainScene
-        let scnView = self.view as! GameView
-        // set the scene to the view
-        scnView.allowsCameraControl = true
-        scnView.antialiasingMode = .multisampling4X
-        scnView.scene = mainScene
-        scnView.isPlaying = true //start game loop and animation
-//        addFloor()
+        setupGameScene()
         setupControls()
-        setupAnimations()
+//        setupPlayers()
+        setupGamePlayersView()
+        gameViewModel.startRound()
     }
     
-    fileprivate func setupAnimations() {
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
-            print("Failed to find samuel")
-            return
+    private func setupGamePlayersView() {
+        gamePlayersView = GamePlayersView(player1: gameViewModel.game.player1, player2: gameViewModel.game.player2)
+        view.addSubview(gamePlayersView)
+        gamePlayersView.snp.makeConstraints {
+            $0.top.left.equalToSuperview().offset(5)
+            $0.right.equalToSuperview().offset(-5)
+            $0.height.equalTo(GamePlayersView.viewHeight)
         }
-        print("Samuel's position=", samuelNode.position)
-        loadAnimation(withKey: "kickUpFinisher", sceneName: "3DAssets.scnassets/Characters/Samuel/male samuel (1)/Animations/Male/Kick/kickUpFinisher", animationIdentifier: "kickUpFinisher")
-        loadAnimation(withKey: "punchUpMedium", sceneName: "3DAssets.scnassets/Characters/Samuel/male samuel (1)/Animations/Male/punch/punchUpMedium", animationIdentifier: "punchUpMedium")
-//        let idleScene = SCNScene(named: "3DAssets.scnassets/Characters/Samuel/animation/idleFixed.dae")!
-//        loadAnimation(withKey: "kickDownHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/kickDownHard", animationIdentifier: "kickDownHard")
-//        loadAnimation(withKey: "punchUpHard", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/punchUpHard", animationIdentifier: "punchUpHard")
-//        loadAnimation(withKey: "moveForward", sceneName: "3DAssets.scnassets/Characters/Samuel/animation/moveForward", animationIdentifier: "moveForward")
-        print(samuelAnimations.count)
     }
     
-    func loadAnimation(withKey: String, sceneName: String, animationIdentifier: String) {
-        let sceneURL = Bundle.main.url(forResource: sceneName, withExtension: "dae")
-        let sceneSource = SCNSceneSource(url: sceneURL!, options: nil)
+    private func setupGameScene() {
+        self.view = gameView
+        gameView.isPlaying = true //start game loop and animation
+    }
+    
+    fileprivate func setupPlayers() {
+        player1 = PlayerNode(playerType: .samuel, isPlayer1: true)
+        player1.skinner = nil
+        gameView.scene!.rootNode.addChildNode(player1!)
+        player1.playAnimation(type: .idleFight)
+//        player1.scale = SCNVector3(0.0002, 0.0002, 0.0002)
+//        player1.skinner = nil
         
-        if let animationObject = sceneSource?.entryWithIdentifier(animationIdentifier, withClass: CAAnimation.self) {
-            // The animation will only play once
-            animationObject.repeatCount = 1
-            // To create smooth transitions between animations
-            animationObject.fadeInDuration = CGFloat(1)
-            animationObject.fadeOutDuration = CGFloat(0.5)
-//            animationObject.isRemovedOnCompletion = true
-            // Store the animation for later use
-            samuelAnimations[withKey] = animationObject
-        }
-    }
-    
-    func myAnimation(path: String) -> SCNAnimation? {
-        let scene = SCNScene(named: path)
-        var animation: SCNAnimationPlayer?
-        scene?.rootNode.enumerateChildNodes( { (child, stop) in
-            if let animationKey = child.animationKeys.first {
-                animation = child.animationPlayer(forKey: animationKey)
-                // variable pointee: ObjCBool { get nonmutating set }
-                stop.pointee = true
-            }
-        })
-        return animation?.animation
+        player2 = PlayerNode(playerType: .raquel, isPlayer1: false)
+        player2.skinner = nil
+        gameView.scene!.rootNode.addChildNode(player2!)
+        player2.playAnimation(type: .idleFight)
+//        player2.scale = SCNVector3(0.0002, 0.0002, 0.0002)
+//        player2.skinner = nil
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -121,56 +104,16 @@ extension GameController {
         hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
         
         let hitResults: [SCNHitTestResult]  = gameView.hitTest(location, options: hitTestOptions)
-        //TODO: Scale dae animation when played on a charater
-        if idle {
-            playAnimation(key: "punchUpMedium")
-        } else {
-            stopAnimation(key: "punchUpMedium")
-        }
-        idle = !idle
-//        if hitResults.first != nil {
-//            if(idle) {
-//                playAnimation(key: "kickDownHard")
-//            } else {
-//                stopAnimation(key: "kickDownHard")
-//            }
-//            idle = !idle
-//            return
-//        }
+//        player1.playAnimation(type: .punchUpLight)
+//        player2.playAnimation(type: .punchUpHard)
     }
-    
-    func playAnimation(key: String) {
-        // Add the animation to start playing it right away
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
-            print("Failed to find samuel")
-            return
-        }
-        samuelNode.addAnimation(samuelAnimations[key]!, forKey: key)
-    }
-    
-    func stopAnimation(key: String) {
-        // Stop the animation with a smooth transition
-        guard let samuelNode = mainScene.rootNode.childNode(withName: "samuel", recursively: true) else {
-            print("Failed to find samuel")
-            return
-        }
-        samuelNode.removeAnimation(forKey: key, blendOutDuration: CGFloat(0.5))
-    }
-//    fileprivate func addFloor() {
-//        let floorGeo = SCNFloor()
-//        let floorMaterial = SCNMaterial()
-//        floorMaterial.diffuse.contents = UIColor(red: 0.1, green: 0.5, blue: 0.1, alpha: 1.0)
-//        floorMaterial.specular.contents = UIColor.black
-//        floorGeo.firstMaterial = floorMaterial
-//        let floorNode = SCNNode(geometry: floorGeo)
-//        mainScene.rootNode.addChildNode(floorNode)
-//    }
     
     fileprivate func setupControls() {
         let attackSet = AttackSet(attackCodes: ["punchUpLight", "kickUpMedium", "kickUpHard", "kickDownLight", "punchDownMedium", "punchDownHard"])
         let moveSet = MoveSet(codes: ["up", "back", "down", "forward"])
         let control = Control(attackSet: attackSet, moveSet: moveSet)
         player1ControlView = ControlView(isLeft: true, control: control)
+        player1ControlView.delegate = self
         view.addSubview(player1ControlView)
         player1ControlView.snp.makeConstraints { (make) in
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
@@ -183,6 +126,7 @@ extension GameController {
         let moveSet2 = MoveSet(codes: ["up", "back", "down", "forward"])
         let control2 = Control(attackSet: attackSet2, moveSet: moveSet2)
         player2ControlView = ControlView(isLeft: false, control: control2)
+        player2ControlView.delegate = self
         view.addSubview(player2ControlView)
         player2ControlView.snp.makeConstraints { (make) in
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
@@ -193,17 +137,20 @@ extension GameController {
     }
 }
 
-extension SCNAnimationPlayer {
-    class func loadAnimation(fromSceneNamed sceneName: String) -> SCNAnimationPlayer {
-        let scene = SCNScene(named: sceneName)!
-        // find top level animation
-        var animationPlayer: SCNAnimationPlayer! = nil
-        scene.rootNode.enumerateChildNodes { (child, stop) in
-            if !child.animationKeys.isEmpty {
-                animationPlayer = child.animationPlayer(forKey: child.animationKeys[0])
-                stop.pointee = true
-            }
+extension GameController: ControlViewProtocol {
+    func attackSelected(isPlayer1: Bool, attack: Attack) {
+        if isPlayer1 {
+            p1Turn.attack = attack
+        } else {
+            p2Turn.attack = attack
         }
-        return animationPlayer
+    }
+    
+    func moveSelected(isPlayer1: Bool, move: Move) {
+        if isPlayer1 {
+            p1Turn.move = move
+        } else {
+            p2Turn.move = move
+        }
     }
 }

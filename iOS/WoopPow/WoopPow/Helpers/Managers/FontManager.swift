@@ -43,4 +43,18 @@ struct FontManager {
             return UIFont(name: fontType.rawValue, size: size)!
         }
     }
+    
+//    enum LabelColor {
+//        case blue, yellow
+//    }
+//    static func applyGradient(label: UILabel, labelColor: LabelColor = .yellow) {
+//        let gradientImage: UIImage
+//        switch labelColor {
+//        case .yellow:
+//            gradientImage = UIImage.gradientImageWithBounds(bounds: label.bounds, colors: [UIColor.woopPowYellow.cgColor, UIColor.woopPowYellow.cgColor, UIColor.white.cgColor])
+//        case .blue:
+//            gradientImage = UIImage.gradientImageWithBounds(bounds: label.bounds, colors: [UIColor.woopPowLightBlue.cgColor, UIColor.white.cgColor])
+//        }
+//        label.textColor = UIColor(patternImage: gradientImage)
+//    }
 }

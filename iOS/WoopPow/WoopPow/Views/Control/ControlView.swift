@@ -9,11 +9,52 @@
 import UIKit
 import SnapKit
 
+protocol ControlViewProtocol {
+    func attackSelected(isPlayer1: Bool, attack: Attack)
+    func moveSelected(isPlayer1: Bool, move: Move)
+}
+
 class ControlView: UIView {
     
     //MARK: Properties
     let isLeft: Bool
     let control: Control
+    var delegate: ControlViewProtocol?
+    
+    lazy var allMoves: [MoveButtonView] = {
+        return [moveUp, moveBack, moveDown, moveForward]
+    }()
+    lazy var allAttacks: [AttackButtonView] = {
+        return [attackUpLight, attackUpMedium, attackUpHard, attackDownLight, attackDownMedium, attackDownHard]
+    }()
+    var selectedMoveView: MoveButtonView? {
+        didSet {
+            resetButtons(attacks: false, moves: true)
+            if let newMoveView = selectedMoveView, oldValue != newMoveView {
+                newMoveView.button.addOuterRoundedBorder(borderWidth: 2, borderColor: .woopPowYellow)
+                newMoveView.button.isSelected = true
+                delegate?.moveSelected(isPlayer1: isLeft, move: newMoveView.move)
+            } else { //click the same, or newValue is nil then disable
+                selectedMoveView?.button.isSelected = false
+                selectedMoveView = nil
+                delegate?.moveSelected(isPlayer1: isLeft, move: MoveType.none)
+            }
+        }
+    }
+    var selectedAttackView: AttackButtonView? {
+        didSet {
+            resetButtons(attacks: true, moves: false)
+            if let newAttackView = selectedAttackView, oldValue != newAttackView {
+                selectedAttackView?.button.addOuterRoundedBorder(borderWidth: 2, borderColor: .woopPowYellow)
+                selectedAttackView?.button.isSelected = true
+                delegate?.attackSelected(isPlayer1: isLeft, attack: newAttackView.attack)
+            } else { //click the same, or newValue is nil then disable
+                selectedAttackView?.button.isSelected = false
+                selectedAttackView = nil
+                delegate?.attackSelected(isPlayer1: isLeft, attack: AttackType.None.noneUpLight)
+            }
+        }
+    }
     
     //MARK: Views
     lazy var containerView: UIView = {
@@ -25,6 +66,8 @@ class ControlView: UIView {
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 3
         view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shouldRasterize = true
+        view.layer.rasterizationScale = UIScreen.main.scale
         return view
     }()
     
@@ -39,24 +82,28 @@ class ControlView: UIView {
     lazy var moveUp: MoveButtonView = {
         let move = self.control.moveSet.up
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var moveBack: MoveButtonView = {
         let move = self.control.moveSet.back
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var moveDown: MoveButtonView = {
         let move = self.control.moveSet.down
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var moveForward: MoveButtonView = {
         let move = self.control.moveSet.forward
         let control = MoveButtonView(move: move)
+        control.button.addTarget(self, action: #selector(moveButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
@@ -71,36 +118,42 @@ class ControlView: UIView {
     lazy var attackUpLight: AttackButtonView = {
         let attack = self.control.attackSet.upLight
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackUpMedium: AttackButtonView = {
         let attack = self.control.attackSet.upMedium
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackUpHard: AttackButtonView = {
         let attack = self.control.attackSet.upHard
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackDownLight: AttackButtonView = {
         let attack = self.control.attackSet.downLight
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackDownMedium: AttackButtonView = {
         let attack = self.control.attackSet.downMedium
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
     lazy var attackDownHard: AttackButtonView = {
         let attack = self.control.attackSet.downHard
         let control = AttackButtonView(attack: attack)
+        control.button.addTarget(self, action: #selector(attackButtonTapped(_:)), for: .touchDown)
         return control
     }()
     
@@ -109,7 +162,8 @@ class ControlView: UIView {
         self.isLeft = isLeft
         self.control = control
         super.init(frame: .zero)
-        setupView()
+        setupViews()
+        attachFireAnimations(fromAttack: attackUpLight)
     }
     
     required init?(coder: NSCoder) {
@@ -118,7 +172,7 @@ class ControlView: UIView {
     
     //MARK: Private Methods
     
-    fileprivate func setupView() {
+    fileprivate func setupViews() {
         addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
@@ -158,7 +212,7 @@ class ControlView: UIView {
             downMoves = [moveBack, moveDown, moveForward]
         } else {
             downMoves = [moveForward, moveDown, moveBack]
-            moveUp.flipX()
+            moveUp.button.flipX()
         }
         downMoves.forEach { bottomMovesStackView.addArrangedSubview($0) }
         
@@ -203,17 +257,100 @@ class ControlView: UIView {
         downAttacks.forEach {
             downAttacksStackView.addArrangedSubview($0)
         }
-        
         //make all the buttons have the same width and height
-        [moveBack, moveDown, moveForward,
-        attackUpLight, attackUpMedium, attackUpHard,
+        [moveBack, moveDown, moveForward].forEach {
+            $0.snp.makeConstraints { (moveButton) in
+                moveButton.width.height.equalTo(moveUp)
+            }
+            if !isLeft {
+                $0.button.flipX()
+            }
+        }
+        [attackUpLight, attackUpMedium, attackUpHard,
         attackDownLight, attackDownMedium, attackDownHard].forEach {
             $0.snp.makeConstraints { (moveButton) in
                 moveButton.width.height.equalTo(moveUp)
             }
             if !isLeft {
-                $0.flipX()
+                $0.button.flipX()
             }
         }
+    }
+    
+    @objc private func attackButtonTapped(_ sender: UIButton) {
+        switch sender {
+        case attackUpLight.button:
+            selectedAttackView = attackUpLight
+        case attackUpMedium.button:
+            selectedAttackView = attackUpMedium
+        case attackUpHard.button:
+            selectedAttackView = attackUpHard
+        case attackDownLight.button:
+            selectedAttackView = attackDownLight
+        case attackDownMedium.button:
+            selectedAttackView = attackDownMedium
+        case attackDownHard.button:
+            selectedAttackView = attackDownHard
+        default: break
+        }
+    }
+    
+    @objc private func moveButtonTapped(_ sender: UIButton) {
+        switch sender {
+        case moveUp.button:
+            selectedMoveView = moveUp
+        case moveBack.button:
+            selectedMoveView = moveBack
+        case moveDown.button:
+            selectedMoveView = moveDown
+        case moveForward.button:
+            selectedMoveView = moveForward
+        default: break
+        }
+    }
+}
+
+//MARK: Helpers
+extension ControlView {
+    func newRound() {
+        //reduce cooldown
+        allMoves.forEach {
+            $0.cooldown -= 1
+        }
+        allAttacks.forEach {
+            $0.cooldown -= 1
+        }
+        if let selectedMove = selectedMoveView {
+            for moveButton in allMoves where moveButton.move.position == selectedMove.move.position {
+                moveButton.cooldown = moveButton.move.cooldown
+            }
+            selectedMoveView = nil
+        }
+        if let selectedAttack = selectedAttackView {
+            for attackButton in allAttacks where attackButton.attack.position == selectedAttack.attack.position { //put selected button on cooldown
+                attackButton.cooldown = attackButton.attack.cooldown
+            }
+            attachFireAnimations(fromAttack: selectedAttack)
+            selectedAttackView = nil
+        }
+    }
+    
+    private func resetButtons(attacks shouldResetAttacks: Bool = true, moves shouldResetMoves: Bool = true) {
+        if shouldResetAttacks {
+            allAttacks.forEach {
+                $0.button.isSelected = false
+                $0.button.removeOuterBorders()
+            }
+        }
+        if shouldResetMoves {
+            allMoves.forEach {
+                $0.button.isSelected = false
+                $0.button.removeOuterBorders()
+            }
+        }
+    }
+    
+    private func attachFireAnimations(fromAttack: AttackButtonView) {
+//        fromAttack.fireImageView.startAnimatingGIF()
     }
 }

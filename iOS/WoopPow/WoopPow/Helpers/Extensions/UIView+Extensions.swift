@@ -84,7 +84,7 @@ extension UIView {
         layer.add(glowAnimationOpacity, forKey: "shadowGlowingAnimationOpacity")
     }
     
-    ///makes a view glow
+    ///add a glow with no animation
     func addGlow(withColor color: UIColor, size effect: GlowEffect = .medium) {
         layer.masksToBounds = false
         layer.shadowColor = color.cgColor

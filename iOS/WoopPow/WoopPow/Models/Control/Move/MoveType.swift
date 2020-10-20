@@ -32,7 +32,7 @@ enum MoveType: String, Move {
             return 2
         }
     }
-    var cooldown: Int { return 2 }
+    var cooldown: Int { return 1 }
     var image: UIImage {
         switch self {
         case .up:

@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore
+import SceneKit
 
 public let db = Firestore.firestore()
 public let auth = Auth.auth()
@@ -26,6 +27,8 @@ struct Constants {
     }
     
     struct Images {
+        //Game
+        static let timeLabelImage = UIImage(named: "timeLabelImage.png")!
         //Views
         static let gameBackground1: UIImage = UIImage(named: "gameControllerBackground1.png")!
         static let homeBackground: UIImage = UIImage(named: "homeBackground.png")!
