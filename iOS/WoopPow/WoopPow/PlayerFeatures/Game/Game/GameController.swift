@@ -60,9 +60,17 @@ extension GameController {
         self.coordinator.navigationController.isNavigationBarHidden = true
         setupGameScene()
         setupControls()
-//        setupPlayers()
+        setupPlayers()
         setupGamePlayersView()
         gameViewModel.startRound()
+        idleDemo(shouldHide: true)
+    }
+    
+    private func idleDemo(shouldHide: Bool = true) {
+        let samuelNode = gameView.scene!.rootNode.childNode(withName: "idleFight reference", recursively: true)
+        let raquelNode = gameView.scene!.rootNode.childNode(withName: "raquelIdleFight reference", recursively: true)
+        samuelNode?.isHidden = shouldHide
+        raquelNode?.isHidden = shouldHide
     }
     
     private func setupGamePlayersView() {
